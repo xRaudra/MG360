@@ -23,23 +23,50 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(135deg, #C4B5FD 0%, #93C5FD 50%, #F8FAFC 100%);
+  background: transparent;
   margin: 0;
   padding: 0;
-  min-height: 100dvh;
 }
 
 #root {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  min-height: 100dvh;
+  display: contents;
 }
 
-/* On desktop, vertically center the phone frame mockup */
+/* ── Phone frame — mobile: true full-screen fixed layer ── */
+.phone-outer {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.phone-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Phone frame — desktop: centered mockup ── */
 @media (min-width: 640px) {
-  #root { align-items: center; }
+  .phone-outer {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+    background: linear-gradient(135deg, #C4B5FD 0%, #93C5FD 50%, #F8FAFC 100%);
+    overflow: visible;
+  }
+
+  .phone-inner {
+    width: 390px;
+    height: 100dvh;
+    max-height: 844px;
+    border-radius: 44px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {

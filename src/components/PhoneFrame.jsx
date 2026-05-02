@@ -1,13 +1,7 @@
 export default function PhoneFrame({ children }) {
   return (
-    <div
-      className="flex items-start justify-center w-full sm:items-center"
-      style={{ minHeight: '100dvh', background: 'linear-gradient(135deg, #C4B5FD 0%, #93C5FD 50%, #F8FAFC 100%)' }}
-    >
-      <div
-        className="relative overflow-hidden bg-app w-full sm:w-[390px] sm:rounded-[44px] sm:shadow-[0_24px_80px_rgba(0,0,0,0.55)]"
-        style={{ height: '100dvh', maxHeight: '844px' }}
-      >
+    <div className="phone-outer">
+      <div className="phone-inner bg-app">
         {children}
       </div>
     </div>

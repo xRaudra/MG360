@@ -1,125 +1,161 @@
 import { useState } from 'react';
-import { ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    emoji: '🏥',
-    title: 'World-Class Medical Care',
-    subtitle: 'Access top-ranked hospitals in India — at a fraction of the cost.',
-    bg: 'linear-gradient(160deg, #1B4FBF 0%, #1338A0 100%)',
-    accent: '#60A5FA',
+    icon: (
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+        <circle cx="36" cy="36" r="36" fill="rgba(171,196,235,0.18)" />
+        <path d="M36 20a16 16 0 1 1 0 32 16 16 0 0 1 0-32zm0 4a12 12 0 1 0 0 24 12 12 0 0 0 0-24z" fill="#ABBDE9"/>
+        <path d="M36 28v8l5 3" stroke="#7AA8E3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="50" cy="22" r="6" fill="#BC89ED" opacity="0.9"/>
+        <path d="M48 22h4M50 20v4" stroke="white" strokeWidth="1.8" strokeLinecap="round"/>
+      </svg>
+    ),
+    tag: 'FIND CARE',
+    title: 'Discover World-Class Doctors & Hospitals',
+    subtitle: 'Browse JCI-accredited hospitals and specialist doctors across India and beyond — all verified and rated by real patients.',
   },
   {
-    emoji: '🤝',
-    title: 'Your Dedicated Care Team',
-    subtitle: 'From consultation to recovery — we guide every step of your journey.',
-    bg: 'linear-gradient(160deg, #0D9488 0%, #0F766E 100%)',
-    accent: '#5EEAD4',
+    icon: (
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+        <circle cx="36" cy="36" r="36" fill="rgba(188,169,237,0.15)" />
+        <rect x="20" y="28" width="13" height="18" rx="3" fill="#ABBDE9"/>
+        <rect x="36" y="22" width="13" height="24" rx="3" fill="#BC89ED"/>
+        <path d="M24 44l4-4 4 4 6-8 4 4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    tag: 'COMPARE',
+    title: 'Compare Treatments & Transparent Costs',
+    subtitle: 'See real pricing, success rates, and patient reviews side by side. No hidden fees — know exactly what you\'re paying for.',
   },
   {
-    emoji: '✈️',
-    title: 'Travel + Treatment, Simplified',
-    subtitle: 'Flights, accommodation, visas, and hospital booking — all in one place.',
-    bg: 'linear-gradient(160deg, #7C3AED 0%, #5B21B6 100%)',
-    accent: '#C4B5FD',
-  },
-  {
-    emoji: '🔒',
-    title: 'Safe, Secure & Transparent',
-    subtitle: 'JCI-accredited hospitals. Upfront costs. No hidden fees. Your trust matters.',
-    bg: 'linear-gradient(160deg, #1B4FBF 0%, #0D9488 100%)',
-    accent: '#6EE7B7',
+    icon: (
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
+        <circle cx="36" cy="36" r="36" fill="rgba(189,238,173,0.18)" />
+        <path d="M22 36h28M36 22l14 14-14 14" stroke="#5BAD7A" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="26" cy="36" r="4" fill="#BDEEAD" stroke="#5BAD7A" strokeWidth="2"/>
+        <circle cx="36" cy="24" r="3" fill="#ABBDE9"/>
+        <circle cx="36" cy="48" r="3" fill="#BC89ED"/>
+      </svg>
+    ),
+    tag: 'PLAN',
+    title: 'Your Full Journey, One Place',
+    subtitle: 'From first consultation to travel and recovery — flights, visa guidance, accommodation, and follow-up care, all coordinated for you.',
   },
 ];
 
 export default function OnboardingScreen({ onNavigate }) {
   const [current, setCurrent] = useState(0);
+  const isLast = current === slides.length - 1;
+  const slide = slides[current];
 
   const next = () => {
-    if (current < slides.length - 1) setCurrent(c => c + 1);
-    else onNavigate('login');
+    if (!isLast) setCurrent(c => c + 1);
+    else onNavigate('welcome');
   };
 
-  const skip = () => onNavigate('login');
-  const slide = slides[current];
-  const isLast = current === slides.length - 1;
-
   return (
-    <div className="flex flex-col h-full screen-enter"
-      style={{ background: slide.bg, transition: 'background 0.5s ease' }}>
-
-      {/* Decorative bg circles */}
-      <div className="absolute top-0 right-0 w-56 h-56 rounded-full opacity-10"
-        style={{ background: 'white', transform: 'translate(30%, -30%)' }} />
-      <div className="absolute bottom-40 left-0 w-40 h-40 rounded-full opacity-10"
-        style={{ background: 'white', transform: 'translate(-30%, 0%)' }} />
-
-      {/* Skip button */}
-      <div className="flex justify-end px-4 pt-4 relative z-10">
-        <button onClick={skip}
-          className="text-white/60 text-sm font-medium px-3 py-1 rounded-full border border-white/20">
+    <div className="flex flex-col h-full bg-app screen-enter">
+      {/* Skip */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end', padding: '20px 24px 0' }}>
+        <button
+          onClick={() => onNavigate('welcome')}
+          type="button"
+          style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 13, fontWeight: 500,
+            color: '#94A3B8',
+            background: 'none', border: 'none', padding: '4px 8px',
+            cursor: 'pointer',
+          }}
+        >
           Skip
         </button>
       </div>
 
       {/* Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-4 text-center relative z-10">
-        {/* Illustration */}
-        <div className="w-36 h-36 rounded-full bg-white/15 backdrop-blur flex items-center justify-center mb-8"
-          style={{ boxShadow: '0 8px 32px rgba(0,0,0,0.2)' }}>
-          <span className="text-7xl">{slide.emoji}</span>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 32px', gap: 28 }}>
+        {/* Icon bubble */}
+        <div style={{
+          width: 120, height: 120,
+          borderRadius: 36,
+          background: 'white',
+          border: '1px solid #ECEFF2',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: '0 8px 32px rgba(35,36,77,0.08)',
+        }}>
+          {slide.icon}
         </div>
 
-        {/* Trust badges - first slide only */}
-        {current === 0 && (
-          <div className="flex gap-3 mb-6">
-            {['JCI Accredited', 'NABL Labs', '50K+ Patients'].map(b => (
-              <span key={b} className="px-2 py-1 rounded-full text-xs font-semibold"
-                style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
-                ✓ {b}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <h2 className="text-2xl font-bold text-white mb-4 leading-tight"
-          style={{ fontFamily: 'Nunito, sans-serif' }}>
-          {slide.title}
-        </h2>
-        <p className="text-white/75 text-base leading-relaxed max-w-xs">
-          {slide.subtitle}
-        </p>
+        {/* Text */}
+        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <span style={{
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: 11, fontWeight: 600,
+            letterSpacing: '0.08em',
+            color: '#ABBDE9',
+          }}>
+            {slide.tag}
+          </span>
+          <h2 style={{
+            fontFamily: "'Nunito Sans', sans-serif",
+            fontSize: 26, fontWeight: 800,
+            color: '#23244D',
+            letterSpacing: '-0.02em',
+            lineHeight: '130%',
+            margin: 0,
+          }}>
+            {slide.title}
+          </h2>
+          <p style={{
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 14, fontWeight: 400,
+            color: '#7C7C7C',
+            lineHeight: '160%',
+            margin: 0,
+          }}>
+            {slide.subtitle}
+          </p>
+        </div>
       </div>
 
       {/* Bottom */}
-      <div className="px-4 pb-10 relative z-10">
+      <div style={{ padding: '0 32px 48px', display: 'flex', flexDirection: 'column', gap: 20 }}>
         {/* Dots */}
-        <div className="flex justify-center gap-2 mb-8">
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 6 }}>
           {slides.map((_, i) => (
-            <div key={i}
+            <div
+              key={i}
               onClick={() => setCurrent(i)}
-              className="rounded-full cursor-pointer transition-all"
               style={{
-                width: i === current ? 24 : 8,
-                height: 8,
-                background: i === current ? 'white' : 'rgba(255,255,255,0.35)',
-              }} />
+                height: 6,
+                width: i === current ? 24 : 6,
+                borderRadius: 999,
+                background: i === current ? '#23244D' : '#CBD5E1',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+              }}
+            />
           ))}
         </div>
 
-        <button onClick={next}
-          className="w-full flex items-center justify-center gap-2 py-3 rounded-2xl font-semibold text-base transition-all active:scale-95"
-          style={{ background: 'white', color: '#1B4FBF', boxShadow: '0 8px 24px rgba(0,0,0,0.2)' }}>
-          {isLast ? 'Get Started' : 'Next'}
-          <ChevronRight size={20} />
+        {/* Next button */}
+        <button
+          onClick={next}
+          type="button"
+          style={{
+            width: '100%', height: 52,
+            background: '#23244D',
+            border: 'none', borderRadius: 14,
+            fontFamily: "'Inter', sans-serif",
+            fontSize: 15, fontWeight: 600,
+            color: 'white',
+            cursor: 'pointer',
+            letterSpacing: '-0.01em',
+          }}
+        >
+          {isLast ? 'Get Started →' : 'Next'}
         </button>
-
-        {!isLast && (
-          <p className="text-center text-white/50 text-xs mt-4">
-            Already have an account?{' '}
-            <button onClick={skip} className="text-white font-medium underline">Sign In</button>
-          </p>
-        )}
       </div>
     </div>
   );

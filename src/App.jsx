@@ -14,6 +14,7 @@ import HospitalsScreen from './screens/HospitalsScreen';
 import TreatmentDetailScreen from './screens/TreatmentDetailScreen';
 import DoctorDetailScreen from './screens/DoctorDetailScreen';
 import HospitalDetailScreen from './screens/HospitalDetailScreen';
+import WelcomeScreen from './screens/WelcomeScreen';
 import JourneyScreen from './screens/JourneyScreen';
 import ChatScreen from './screens/ChatScreen';
 import NotificationsScreen from './screens/NotificationsScreen';
@@ -46,6 +47,7 @@ export default function App() {
     switch (screen) {
       case 'splash':       return <SplashScreen {...props} />;
       case 'onboarding':   return <OnboardingScreen {...props} />;
+      case 'welcome':      return <WelcomeScreen {...props} />;
       case 'login':        return <LoginScreen {...props} />;
       case 'home':         return <HomeScreen {...props} />;
       case 'explore':      return <ExploreScreen {...props} />;

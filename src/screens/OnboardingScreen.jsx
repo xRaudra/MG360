@@ -74,7 +74,7 @@ export default function OnboardingScreen({ onNavigate }) {
       </div>
 
       {/* Content */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 32px', gap: 28 }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 16px', gap: 28 }}>
         {/* Icon bubble */}
         <div style={{
           width: 120, height: 120,
@@ -120,7 +120,7 @@ export default function OnboardingScreen({ onNavigate }) {
       </div>
 
       {/* Bottom */}
-      <div style={{ padding: '0 32px 48px', display: 'flex', flexDirection: 'column', gap: 20 }}>
+      <div style={{ padding: '0 16px 48px', display: 'flex', flexDirection: 'column', gap: 20 }}>
         {/* Dots */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: 6 }}>
           {slides.map((_, i) => (
@@ -145,7 +145,7 @@ export default function OnboardingScreen({ onNavigate }) {
           type="button"
           style={{
             width: '100%', height: 52,
-            background: '#23244D',
+            background: '#56698F',
             border: 'none', borderRadius: 14,
             fontFamily: "'Inter', sans-serif",
             fontSize: 15, fontWeight: 600,

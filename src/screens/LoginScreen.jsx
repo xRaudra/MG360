@@ -11,7 +11,7 @@ export default function LoginScreen({ onNavigate }) {
   return (
     <div className="flex flex-col h-full overflow-y-auto hide-scrollbar screen-enter">
       {/* Main content */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '68px 32px 0', gap: 24 }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '68px 16px 0', gap: 24 }}>
 
         {/* Logo */}
         <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -131,13 +131,13 @@ export default function LoginScreen({ onNavigate }) {
             type="button"
             style={{
               width: '100%', height: 48,
-              background: '#ABBDE9',
+              background: '#56698F',
               border: 'none', borderRadius: 10,
               fontFamily: "'Inter', sans-serif",
               fontSize: 14, fontWeight: 500,
               color: 'white', letterSpacing: '-0.01em',
               cursor: 'pointer',
-              boxShadow: '0 0 0 1px #BC89ED, 0 1px 2px rgba(188,137,237,0.48)',
+              boxShadow: '0 4px 16px rgba(86,105,143,0.3)',
             }}
           >
             Log In

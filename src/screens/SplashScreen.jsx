@@ -18,8 +18,7 @@ export default function SplashScreen({ onNavigate }) {
           width: 180,
           objectFit: 'contain',
           opacity: visible ? 1 : 0,
-          transform: visible ? 'scale(1)' : 'scale(0.85)',
-          transition: 'opacity 0.6s ease, transform 0.6s ease',
+          transition: 'opacity 0.8s ease',
         }}
       />
     </div>

@@ -77,7 +77,7 @@ export default function WelcomeScreen({ onNavigate }) {
 
           {/* Continue with Guest — outlined */}
           <button
-            onClick={() => onNavigate('home')}
+            onClick={() => onNavigate('guestCountry')}
             type="button"
             style={{
               width: '100%', height: 48,

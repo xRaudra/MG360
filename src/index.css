@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@700&family=Nunito:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -12,12 +12,12 @@
   box-sizing: border-box;
 }
 
-/* Bg 2 — white base with three soft radial gradient blobs */
+/* Bg 2 — exact Figma gradient blobs (390×844 viewport mapped to %) */
 .bg-app {
   background:
-    radial-gradient(ellipse 70% 40% at 64% 88%, rgba(171, 196, 235, 0.40) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 35% at 75% 19%, rgba(189, 238, 173, 0.35) 0%, transparent 70%),
-    radial-gradient(ellipse 55% 35% at -5% 50%, rgba(188, 169, 237, 0.30) 0%, transparent 70%),
+    radial-gradient(ellipse 192% 89% at 64% 88%, rgba(171, 196, 235, 0.25) 0%, transparent 80%),
+    radial-gradient(ellipse 179% 83% at 75% 19%, rgba(189, 238, 173, 0.20) 0%, transparent 80%),
+    radial-gradient(ellipse 174% 80% at -32% 50%, rgba(188, 169, 237, 0.20) 0%, transparent 80%),
     white;
 }
 

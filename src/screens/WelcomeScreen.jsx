@@ -11,14 +11,14 @@ export default function WelcomeScreen({ onNavigate }) {
         />
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, transparent 35%, rgba(255,255,255,0.6) 55%, white 70%)',
+          background: 'linear-gradient(to bottom, transparent 30%, rgba(255,255,255,0.55) 52%, white 68%)',
         }} />
       </div>
 
-      {/* Logo — centered */}
+      {/* Logo — centered, safe area aware */}
       <div style={{
         position: 'relative', zIndex: 2,
-        paddingTop: 52,
+        paddingTop: 'max(52px, env(safe-area-inset-top, 52px))',
         display: 'flex', justifyContent: 'center',
       }}>
         <img src="/logo.png" alt="MedGlobal360" style={{ width: 120, objectFit: 'contain' }} />
@@ -36,10 +36,10 @@ export default function WelcomeScreen({ onNavigate }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           <h1 style={{
             fontFamily: "'Nunito', sans-serif",
-            fontSize: 30, fontWeight: 700,
+            fontSize: 32, fontWeight: 800,
             color: '#1C1C1E',
-            letterSpacing: '-0.025em',
-            lineHeight: '125%',
+            letterSpacing: '-0.03em',
+            lineHeight: '120%',
             margin: 0,
           }}>
             Let's Personalise<br />Your Care Journey!
@@ -56,6 +56,7 @@ export default function WelcomeScreen({ onNavigate }) {
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {/* Get Started */}
           <button
             onClick={() => onNavigate('login')}
             type="button"
@@ -74,16 +75,18 @@ export default function WelcomeScreen({ onNavigate }) {
             Get Started
           </button>
 
+          {/* Continue with Guest — outlined */}
           <button
             onClick={() => onNavigate('home')}
             type="button"
             style={{
-              width: '100%', height: 44,
-              background: 'none',
-              border: 'none',
+              width: '100%', height: 48,
+              background: 'transparent',
+              border: '1.5px solid #56698F',
+              borderRadius: 14,
               fontFamily: "'Inter', sans-serif",
               fontSize: 14, fontWeight: 500,
-              color: '#7C7C7C',
+              color: '#56698F',
               cursor: 'pointer',
               letterSpacing: '-0.01em',
             }}

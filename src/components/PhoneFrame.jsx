@@ -1,7 +1,7 @@
 export default function PhoneFrame({ children }) {
   return (
     <div
-      className="flex items-center justify-center w-full"
+      className="flex items-start justify-center w-full sm:items-center"
       style={{ minHeight: '100dvh', background: 'linear-gradient(135deg, #C4B5FD 0%, #93C5FD 50%, #F8FAFC 100%)' }}
     >
       <div

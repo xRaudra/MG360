@@ -5,7 +5,7 @@ export default function SplashScreen({ onNavigate }) {
 
   useEffect(() => {
     const show = setTimeout(() => setVisible(true), 100);
-    const nav  = setTimeout(() => onNavigate('onboarding'), 2400);
+    const nav  = setTimeout(() => onNavigate('onboarding'), 2600);
     return () => { clearTimeout(show); clearTimeout(nav); };
   }, [onNavigate]);
 
@@ -18,7 +18,8 @@ export default function SplashScreen({ onNavigate }) {
           width: 180,
           objectFit: 'contain',
           opacity: visible ? 1 : 0,
-          transition: 'opacity 0.8s ease',
+          transform: visible ? 'scale(1)' : 'scale(0.75)',
+          transition: 'opacity 0.7s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)',
         }}
       />
     </div>

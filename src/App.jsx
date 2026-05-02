@@ -69,7 +69,7 @@ export default function App() {
 
   return (
     <PhoneFrame>
-      <div className="flex flex-col h-full bg-[#F1F5F9]">
+      <div className="flex flex-col h-full bg-transparent">
         <div className="flex-1 overflow-hidden relative">
           {renderScreen()}
         </div>

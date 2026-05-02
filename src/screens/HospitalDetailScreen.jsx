@@ -1,4 +1,4 @@
-import { ArrowLeft, MapPin, ChevronRight, Heart } from 'lucide-react';
+﻿import { ArrowLeft, MapPin, ChevronRight, Heart } from 'lucide-react';
 import StarRating from '../components/StarRating';
 import { doctors } from '../data/mockData';
 
@@ -14,7 +14,7 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
   const facilities = ['ICU & Critical Care', 'Robotic Surgery', '24/7 Emergency', 'International Patient Lounge', 'Visa Assistance', 'Language Interpreters', 'In-hospital Accommodation', 'Telemedicine'];
 
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] screen-enter overflow-y-auto hide-scrollbar">
+    <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
       {/* Hero */}
       <div className="relative"
         style={{ background: 'linear-gradient(160deg, #0F172A 0%, #1E293B 100%)' }}>

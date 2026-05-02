@@ -1,4 +1,4 @@
-import { ArrowLeft, Bell, FileText, DollarSign, AlertCircle, MessageCircle } from 'lucide-react';
+﻿import { ArrowLeft, Bell, FileText, DollarSign, AlertCircle, MessageCircle } from 'lucide-react';
 import { notifications } from '../data/mockData';
 
 const typeConfig = {
@@ -13,7 +13,7 @@ export default function NotificationsScreen({ onNavigate }) {
   const unread = notifications.filter(n => !n.read).length;
 
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] screen-enter">
+    <div className="flex flex-col h-full bg-transparent screen-enter">
       {/* Header */}
       <div className="px-4 pt-4 pb-4 bg-white" style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
         <div className="flex items-center gap-3">

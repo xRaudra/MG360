@@ -1,4 +1,4 @@
-import { ArrowLeft, Clock, DollarSign, ChevronRight, Heart } from 'lucide-react';
+﻿import { ArrowLeft, Clock, DollarSign, ChevronRight, Heart } from 'lucide-react';
 import StarRating from '../components/StarRating';
 import { doctors } from '../data/mockData';
 
@@ -8,7 +8,7 @@ export default function TreatmentDetailScreen({ data, onNavigate }) {
   const relatedDocs = doctors.filter(d => d.specialization.toLowerCase().includes('ortho') || d.specialization.toLowerCase().includes('cardio')).slice(0, 3);
 
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] screen-enter overflow-y-auto hide-scrollbar">
+    <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
       {/* Hero */}
       <div className="relative px-4 pt-5 pb-8"
         style={{ background: 'linear-gradient(160deg, #1B4FBF 0%, #0D9488 100%)' }}>

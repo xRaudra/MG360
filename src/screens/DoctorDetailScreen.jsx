@@ -1,4 +1,4 @@
-import { ArrowLeft, Star, MapPin, Clock, Heart, MessageCircle, Phone } from 'lucide-react';
+﻿import { ArrowLeft, Star, MapPin, Clock, Heart, MessageCircle, Phone } from 'lucide-react';
 
 const colors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'];
 
@@ -13,7 +13,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
   const colorIdx = doc.id % colors.length;
 
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] screen-enter overflow-y-auto hide-scrollbar">
+    <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
       {/* Header */}
       <div className="relative pb-6"
         style={{ background: `linear-gradient(160deg, ${colors[colorIdx]} 0%, #0F172A 100%)` }}>

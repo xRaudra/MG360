@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { ArrowLeft, Send, Paperclip, Phone, Video } from 'lucide-react';
 import { chatMessages } from '../data/mockData';
 
@@ -30,7 +30,7 @@ export default function ChatScreen({ onNavigate }) {
   };
 
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] screen-enter">
+    <div className="flex flex-col h-full bg-transparent screen-enter">
       {/* Header */}
       <div className="flex items-center gap-3 px-4 pt-4 pb-4 bg-white"
         style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>

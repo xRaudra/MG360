@@ -1,4 +1,4 @@
-import { ArrowLeft, Phone, Mail, MessageCircle, Send } from 'lucide-react';
+﻿import { ArrowLeft, Phone, Mail, MessageCircle, Send } from 'lucide-react';
 
 const contactOptions = [
   { icon: <Phone size={22} />, label: 'Call Us', sub: '+91 98765 43210', color: '#059669', bg: '#F0FDF4' },
@@ -8,7 +8,7 @@ const contactOptions = [
 
 export default function ContactScreen({ onNavigate }) {
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] screen-enter overflow-y-auto hide-scrollbar">
+    <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
       {/* Header */}
       <div className="px-4 pt-4 pb-8"
         style={{ background: 'linear-gradient(160deg, #0F172A 0%, #1E293B 100%)' }}>

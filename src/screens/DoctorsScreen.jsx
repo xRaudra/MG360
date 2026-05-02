@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { ArrowLeft, Search, SlidersHorizontal } from 'lucide-react';
 import StarRating from '../components/StarRating';
 import { doctors } from '../data/mockData';
@@ -26,7 +26,7 @@ export default function DoctorsScreen({ onNavigate }) {
   );
 
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] screen-enter">
+    <div className="flex flex-col h-full bg-transparent screen-enter">
       {/* Header */}
       <div className="bg-white px-4 pt-4 pb-4" style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
         <div className="flex items-center gap-3 mb-4">

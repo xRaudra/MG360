@@ -1,4 +1,4 @@
-import { ChevronRight, Globe, FileText, Settings, LogOut, Bell, Shield, HelpCircle, User } from 'lucide-react';
+﻿import { ChevronRight, Globe, FileText, Settings, LogOut, Bell, Shield, HelpCircle, User } from 'lucide-react';
 
 const menuSections = [
   {
@@ -27,7 +27,7 @@ const menuSections = [
 
 export default function ProfileScreen({ onNavigate }) {
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] screen-enter overflow-y-auto hide-scrollbar">
+    <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
       {/* Header */}
       <div className="px-4 pt-6 pb-8"
         style={{ background: 'linear-gradient(160deg, #1B4FBF 0%, #0D9488 100%)' }}>

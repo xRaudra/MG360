@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { ArrowLeft, FileText, Calendar, Plane, Share2, ChevronRight } from 'lucide-react';
 import { journeySteps } from '../data/mockData';
 
@@ -29,7 +29,7 @@ export default function JourneyScreen({ onNavigate }) {
   const progress = Math.round((doneCount / journeySteps.length) * 100);
 
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] screen-enter">
+    <div className="flex flex-col h-full bg-transparent screen-enter">
       {/* Header */}
       <div className="px-4 pt-4 pb-5"
         style={{ background: 'linear-gradient(160deg, #7C3AED 0%, #1B4FBF 100%)' }}>

@@ -1,4 +1,4 @@
-import { Bell, Globe, Search, ChevronRight } from 'lucide-react';
+﻿import { Bell, Globe, Search, ChevronRight } from 'lucide-react';
 import StarRating from '../components/StarRating';
 import { doctors, treatments } from '../data/mockData';
 
@@ -22,7 +22,7 @@ export default function HomeScreen({ onNavigate }) {
   const lang = 'EN';
 
   return (
-    <div className="flex flex-col h-full bg-[#F1F5F9] overflow-y-auto hide-scrollbar screen-enter">
+    <div className="flex flex-col h-full bg-transparent overflow-y-auto hide-scrollbar screen-enter">
 
       {/* Header */}
       <div className="px-4 pt-4 pb-5"

@@ -24,6 +24,7 @@ import ChatScreen from './screens/ChatScreen';
 import NotificationsScreen from './screens/NotificationsScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ContactScreen from './screens/ContactScreen';
+import CreateAccountScreen from './screens/CreateAccountScreen';
 
 // Screens that show the bottom nav
 const mainScreens = ['home', 'explore', 'journey', 'chat', 'profile'];
@@ -53,6 +54,7 @@ export default function App() {
       case 'onboarding':   return <OnboardingScreen {...props} />;
       case 'welcome':      return <WelcomeScreen {...props} />;
       case 'login':        return <LoginScreen {...props} />;
+      case 'createAccount': return <CreateAccountScreen {...props} />;
       case 'guestCountry':    return <GuestCountryScreen {...props} />;
       case 'guestCondition':  return <GuestConditionScreen {...props} />;
       case 'guestTimeline':   return <GuestTimelineScreen {...props} />;

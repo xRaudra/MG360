@@ -21,7 +21,7 @@ export default function WelcomeScreen({ onNavigate }) {
         paddingTop: 'max(52px, env(safe-area-inset-top, 52px))',
         display: 'flex', justifyContent: 'center',
       }}>
-        <img src="/logo.png" alt="MedGlobal360" style={{ width: 120, objectFit: 'contain' }} />
+        <img src="/logo.png" alt="MedGlobal360" style={{ width: 160, objectFit: 'contain' }} />
       </div>
 
       {/* Spacer */}
@@ -30,13 +30,13 @@ export default function WelcomeScreen({ onNavigate }) {
       {/* Bottom content */}
       <div style={{
         position: 'relative', zIndex: 2,
-        padding: '32px 16px 44px',
+        padding: '32px 20px 44px',
         display: 'flex', flexDirection: 'column', gap: 20,
       }}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           <h1 style={{
-            fontFamily: "'Nunito', sans-serif",
-            fontSize: 32, fontWeight: 800,
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: 34, fontWeight: 800,
             color: '#1C1C1E',
             letterSpacing: '-0.03em',
             lineHeight: '120%',
@@ -45,10 +45,10 @@ export default function WelcomeScreen({ onNavigate }) {
             Let's Personalise<br />Your Care Journey!
           </h1>
           <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 13, fontWeight: 400,
+            fontFamily: "'DM Sans', sans-serif",
+            fontSize: 14, fontWeight: 400,
             color: '#7C7C7C',
-            lineHeight: '160%',
+            lineHeight: '155%',
             margin: 0,
           }}>
             Discover top doctors and hospitals, and get complete support for your treatment journey in India.
@@ -62,14 +62,14 @@ export default function WelcomeScreen({ onNavigate }) {
             type="button"
             style={{
               width: '100%', height: 52,
-              background: '#56698F',
+              background: '#4D81E7',
               border: 'none', borderRadius: 14,
               fontFamily: "'Inter', sans-serif",
               fontSize: 15, fontWeight: 600,
               color: 'white',
               cursor: 'pointer',
               letterSpacing: '-0.01em',
-              boxShadow: '0 4px 16px rgba(86,105,143,0.3)',
+              boxShadow: '0 4px 16px rgba(77,129,231,0.3)',
             }}
           >
             Get Started
@@ -82,11 +82,11 @@ export default function WelcomeScreen({ onNavigate }) {
             style={{
               width: '100%', height: 48,
               background: 'transparent',
-              border: '1.5px solid #56698F',
+              border: '1.5px solid #4D81E7',
               borderRadius: 14,
               fontFamily: "'Inter', sans-serif",
               fontSize: 14, fontWeight: 500,
-              color: '#56698F',
+              color: '#4D81E7',
               cursor: 'pointer',
               letterSpacing: '-0.01em',
             }}

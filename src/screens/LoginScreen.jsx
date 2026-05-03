@@ -1,214 +1,215 @@
 import { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
+import { EyeOff, Eye } from 'lucide-react';
 
 export default function LoginScreen({ onNavigate }) {
-  const [tab, setTab] = useState('login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPw, setShowPw] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
 
   return (
-    <div className="flex flex-col h-full overflow-y-auto hide-scrollbar screen-enter">
-      {/* Main content */}
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '68px 16px 0', gap: 24 }}>
+    <div style={{ position: 'relative', height: '100%', overflow: 'hidden' }}>
+      {/* Background */}
+      <img
+        src="/default-bg.jpg"
+        alt=""
+        style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
+      />
 
-        {/* Logo */}
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <img src="/logo.png" alt="MedGlobal360" style={{ width: 131, height: 29, objectFit: 'contain' }} />
-        </div>
+      {/* Scrollable content */}
+      <div className="hide-scrollbar" style={{ position: 'relative', zIndex: 1, height: '100%', overflowY: 'auto', display: 'flex', flexDirection: 'column' }}>
+        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '60px 20px 0', gap: 20 }}>
 
-        {/* Headline */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
-          <h1 style={{
-            fontFamily: "'Nunito Sans', sans-serif",
-            fontSize: 32, fontWeight: 700,
-            color: '#313131', textAlign: 'center',
-            letterSpacing: '-0.02em', lineHeight: '130%',
-            margin: 0,
-          }}>
-            Get Started now
-          </h1>
-          <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 12, fontWeight: 400,
-            color: '#7C7C7C', textAlign: 'center',
-            letterSpacing: '-0.01em', lineHeight: '150%',
-            margin: 0, maxWidth: 222,
-          }}>
-            Create an account or log in to explore about our app
-          </p>
-        </div>
+          {/* Logo */}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <img src="/logo.png" alt="MedGlobal360" style={{ width: 160, objectFit: 'contain' }} />
+          </div>
 
-        {/* Tab switcher */}
-        <div style={{
-          background: '#F5F6F9',
-          borderRadius: 7,
-          padding: 2,
-          display: 'flex',
-          boxShadow: 'inset 0 3px 6px rgba(0,0,0,0.02)',
-        }}>
-          {[['login', 'Log In'], ['signup', 'Sign Up']].map(([key, label]) => (
+          {/* Heading */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6 }}>
+            <h1 style={{
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: 26, fontWeight: 700,
+              color: '#313131', textAlign: 'center',
+              letterSpacing: '-0.02em', lineHeight: '130%',
+              margin: 0,
+            }}>
+              Get started now
+            </h1>
+            <p style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: 14, fontWeight: 400,
+              color: '#7C7C7C', textAlign: 'center',
+              margin: 0,
+            }}>
+              World-Class Care, Affordable
+            </p>
+          </div>
+
+          {/* Stats row */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0 }}>
+            <StatItem number="5000+" label="Patients" />
+            <div style={{ width: 1, height: 36, background: '#C6C6C6', margin: '0 16px' }} />
+            <StatItem number="40+" label="Hospitals" />
+            <div style={{ width: 1, height: 36, background: '#C6C6C6', margin: '0 16px' }} />
+            <StatItem number="4.8" label="Rating" />
+          </div>
+
+          {/* Input fields */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <InputField
+              label="Email"
+              type="email"
+              placeholder="saurabh@gmail.com"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+            <InputField
+              label="Password"
+              type={showPw ? 'text' : 'password'}
+              placeholder="*******"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              iconRight={
+                <button onClick={() => setShowPw(v => !v)} type="button" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex' }}>
+                  {showPw
+                    ? <Eye size={16} color="#94A3B8" />
+                    : <EyeOff size={16} color="#94A3B8" />}
+                </button>
+              }
+            />
+
+            {/* Remember me + Forgot password */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <button
+                onClick={() => setRememberMe(v => !v)}
+                type="button"
+                style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+              >
+                <Checkbox checked={rememberMe} />
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 500, color: '#7C7C7C', letterSpacing: '-0.01em' }}>
+                  Remember me
+                </span>
+              </button>
+              <button
+                type="button"
+                style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, color: '#4D81E7', letterSpacing: '-0.01em', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+              >
+                Forgot Password ?
+              </button>
+            </div>
+          </div>
+
+          {/* CTA + Social */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+            {/* Log In button */}
             <button
-              key={key}
-              onClick={() => key === 'signup' ? onNavigate('onboarding') : setTab('login')}
+              onClick={() => onNavigate('home')}
               type="button"
               style={{
-                flex: 1,
-                padding: '12px 14px',
-                borderRadius: 6,
-                fontFamily: "'Nunito', sans-serif",
-                fontSize: 14, fontWeight: 500,
-                letterSpacing: '-0.02em',
-                border: tab === key ? '1px solid rgba(238,238,246,0.5)' : '1px solid transparent',
-                background: tab === key ? 'white' : 'transparent',
-                color: tab === key ? '#23244D' : '#7C7C7C',
-                boxShadow: tab === key
-                  ? '0 1px 2px rgba(228,229,232,0.24), inset 0 -2px 2px rgba(0,0,0,0.03)'
-                  : 'none',
+                width: '100%', height: 52,
+                background: '#4D81E7',
+                border: 'none', borderRadius: 14,
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 15, fontWeight: 600,
+                color: 'white', letterSpacing: '-0.01em',
                 cursor: 'pointer',
-                transition: 'all 0.15s ease',
+                boxShadow: '0 4px 16px rgba(77,129,231,0.3)',
               }}
             >
-              {label}
+              Log In
             </button>
-          ))}
-        </div>
 
-        {/* Input fields */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-          {/* Email */}
-          <InputField
-            label="Email"
-            type="email"
-            placeholder="saurabh@gmail.com"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-          />
+            {/* Or login with */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+                <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
+                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 400, color: '#7C7C7C', whiteSpace: 'nowrap' }}>
+                  Or login with
+                </span>
+                <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
+              </div>
 
-          {/* Password */}
-          <InputField
-            label="Password"
-            type={showPw ? 'text' : 'password'}
-            placeholder="*******"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            iconRight={
-              <button onClick={() => setShowPw(v => !v)} type="button" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex' }}>
-                {showPw
-                  ? <Eye size={16} color="#94A3B8" />
-                  : <EyeOff size={16} color="#94A3B8" />}
-              </button>
-            }
-          />
-
-          {/* Remember me + Forgot password */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <button
-              onClick={() => setRememberMe(v => !v)}
-              type="button"
-              style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
-            >
-              <Checkbox checked={rememberMe} />
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 500, color: '#7C7C7C', letterSpacing: '-0.01em' }}>
-                Remember me
-              </span>
-            </button>
-            <button
-              type="button"
-              style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, color: '#4D82E7', letterSpacing: '-0.01em', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
-            >
-              Forgot Password ?
-            </button>
+              {/* Social buttons */}
+              <div style={{ display: 'flex', gap: 12 }}>
+                {[
+                  { key: 'google',   icon: <GoogleIcon /> },
+                  { key: 'facebook', icon: <FacebookIcon /> },
+                  { key: 'apple',    icon: <AppleIcon /> },
+                  { key: 'phone',    icon: <PhoneIcon /> },
+                ].map(({ key, icon }) => (
+                  <button
+                    key={key}
+                    type="button"
+                    style={{
+                      flex: 1, height: 52,
+                      background: 'white',
+                      border: '1px solid #EFF0F6',
+                      borderRadius: 12,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    {icon}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* CTA + Social */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
-          {/* Log In button */}
+        {/* New user link */}
+        <p style={{
+          textAlign: 'center',
+          fontFamily: "'Inter', sans-serif",
+          fontSize: 13,
+          padding: '20px 20px 44px',
+          margin: 0,
+        }}>
+          <span style={{ color: '#313131', fontWeight: 500 }}>New user? </span>
           <button
-            onClick={() => onNavigate('home')}
+            onClick={() => onNavigate('createAccount')}
             type="button"
-            style={{
-              width: '100%', height: 48,
-              background: '#56698F',
-              border: 'none', borderRadius: 10,
-              fontFamily: "'Inter', sans-serif",
-              fontSize: 14, fontWeight: 500,
-              color: 'white', letterSpacing: '-0.01em',
-              cursor: 'pointer',
-              boxShadow: '0 4px 16px rgba(86,105,143,0.3)',
-            }}
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: '#0098FF' }}
           >
-            Log In
+            Create an account
           </button>
-
-          {/* Or login with divider */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-              <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 400, color: '#7C7C7C', letterSpacing: '-0.01em', whiteSpace: 'nowrap' }}>
-                Or login with
-              </span>
-              <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
-            </div>
-
-            {/* Social buttons */}
-            <div style={{ display: 'flex', gap: 15 }}>
-              {[
-                { key: 'google',   icon: <GoogleIcon /> },
-                { key: 'facebook', icon: <FacebookIcon /> },
-                { key: 'apple',    icon: <AppleIcon /> },
-                { key: 'phone',    icon: <PhoneIcon /> },
-              ].map(({ key, icon }) => (
-                <button
-                  key={key}
-                  type="button"
-                  style={{
-                    flex: 1, height: 48,
-                    background: 'white',
-                    border: '1px solid #EFF0F6',
-                    borderRadius: 10,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    cursor: 'pointer',
-                    boxShadow: 'inset 0 -3px 6px rgba(242,244,250,0.6)',
-                  }}
-                >
-                  {icon}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+        </p>
       </div>
+    </div>
+  );
+}
 
-      {/* Terms text */}
-      <p style={{
-        textAlign: 'center',
-        fontFamily: "'Inter', sans-serif",
-        fontSize: 11, color: '#7C7C7C',
-        padding: '24px 46px 44px',
-        margin: 0,
-        letterSpacing: '-0.01em',
-        lineHeight: '160%',
+function StatItem({ number, label }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+      <span style={{
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
+        fontSize: 18, fontWeight: 700,
+        color: '#313131',
+        letterSpacing: '-0.02em',
       }}>
-        By signing up, you agree to the{' '}
-        <strong style={{ color: '#313131', fontWeight: 600 }}>Terms of Service</strong>
-        {' '}and{' '}
-        <strong style={{ color: '#313131', fontWeight: 600 }}>Data Processing Agreement</strong>
-      </p>
+        {number}
+      </span>
+      <span style={{
+        fontFamily: "'Inter', sans-serif",
+        fontSize: 12, fontWeight: 500,
+        color: '#4D81E7',
+      }}>
+        {label}
+      </span>
     </div>
   );
 }
 
 function InputField({ label, type, placeholder, value, onChange, iconRight }) {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       <span style={{
-        fontFamily: "'Plus Jakarta Sans', sans-serif",
-        fontSize: 12, fontWeight: 500,
+        fontFamily: "'Inter', sans-serif",
+        fontSize: 13, fontWeight: 500,
         color: '#6C727A',
-        letterSpacing: '-0.02em', lineHeight: '160%',
+        letterSpacing: '-0.01em',
       }}>
         {label}
       </span>
@@ -216,11 +217,10 @@ function InputField({ label, type, placeholder, value, onChange, iconRight }) {
         background: 'white',
         border: '1px solid #ECEFF2',
         borderRadius: 10,
-        height: 46,
+        height: 52,
         display: 'flex', alignItems: 'center',
         paddingLeft: 14, paddingRight: 14,
         gap: 10,
-        boxShadow: '0 1px 2px rgba(228,229,232,0.24)',
       }}>
         <input
           type={type}
@@ -233,7 +233,6 @@ function InputField({ label, type, placeholder, value, onChange, iconRight }) {
             fontFamily: "'Inter', sans-serif",
             fontSize: 14, fontWeight: 400,
             color: '#313131',
-            letterSpacing: '-0.02em',
           }}
         />
         {iconRight}
@@ -245,10 +244,10 @@ function InputField({ label, type, placeholder, value, onChange, iconRight }) {
 function Checkbox({ checked }) {
   return (
     <div style={{
-      width: 19, height: 19,
+      width: 18, height: 18,
       border: checked ? 'none' : '1.5px solid #CBD5E1',
       borderRadius: 4,
-      background: checked ? '#4D82E7' : 'transparent',
+      background: checked ? '#4D81E7' : 'transparent',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       flexShrink: 0,
     }}>

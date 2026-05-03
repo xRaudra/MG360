@@ -1137,6 +1137,282 @@
       line-height: 1.6;
     }
 
+    /* ── EMPATHY MAP ── */
+    .em-persona {
+      background: linear-gradient(135deg, #23244D 0%, #1a2a4a 100%);
+      border-radius: var(--radius-card);
+      padding: 40px 48px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .em-persona::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(188,169,237,0.18) 0%, transparent 70%);
+    }
+
+    .em-persona::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(171,196,235,0.15) 0%, transparent 70%);
+    }
+
+    .em-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(171,196,235,0.3), rgba(188,169,237,0.3));
+      border: 3px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 36px;
+      flex-shrink: 0;
+      position: relative; z-index: 1;
+    }
+
+    .em-persona-text { position: relative; z-index: 1; }
+
+    .em-persona-eyebrow {
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 8px;
+    }
+
+    .em-persona-name {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+    }
+
+    .em-persona-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .em-persona-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .em-persona-tag {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-pill);
+      padding: 4px 14px;
+      font-family: var(--font-label);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .em-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .em-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    .em-card-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .em-icon {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .em-icon.purple { background: rgba(188,169,237,0.15); }
+    .em-icon.blue   { background: rgba(171,196,235,0.15); }
+    .em-icon.green  { background: rgba(189,238,173,0.18); }
+    .em-icon.amber  { background: rgba(245,166,35,0.13); }
+
+    .em-card-label {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .em-card-label.purple { color: #A06ED4; }
+    .em-card-label.blue   { color: #5A85C8; }
+    .em-card-label.green  { color: #4A9A6A; }
+    .em-card-label.amber  { color: #D48C22; }
+
+    .em-card-sublabel {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .em-card-body {
+      padding: 18px 22px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .em-item {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.55;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .em-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+    }
+
+    .em-item.purple::before { background: #BC89ED; }
+    .em-item.blue::before   { background: #7AA8E3; }
+    .em-item.green::before  { background: #5BAD7A; }
+    .em-item.amber::before  { background: #F5A623; }
+
+    .em-bottom-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .em-pain-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    .em-pain-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(224,124,124,0.05);
+    }
+
+    .em-gain-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(91,173,122,0.05);
+    }
+
+    .em-pain-label {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #C0392B;
+    }
+
+    .em-gain-label {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #1E7A4A;
+    }
+
+    .em-pain-card .em-card-sublabel,
+    .em-gain-card .em-card-sublabel {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    .em-item.red::before   { background: #E07C7C; }
+    .em-item.teal::before  { background: #5BAD7A; }
+
+    .em-grid-spaced { margin-top: 16px; }
+    .em-icon.pain  { background: rgba(224,124,124,0.12); }
+    .em-icon.gain  { background: rgba(91,173,122,0.12); }
+
+    .em-quote-strip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-top: 16px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .em-quote-mark {
+      font-family: var(--font-head);
+      font-size: 48px;
+      font-weight: 800;
+      color: rgba(188,169,237,0.4);
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: -8px;
+    }
+
+    .em-quotes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .em-quote {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .em-quote strong {
+      font-style: normal;
+      color: var(--dark);
+      font-weight: 600;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav, .page, .hero { padding-left: 24px; padding-right: 24px; }
@@ -1153,6 +1429,8 @@
       .values-row { grid-template-columns: 1fr; }
       .problem-intro { grid-template-columns: 1fr; }
       .prob-top, .sol-bottom { padding: 24px 20px; }
+      .em-grid, .em-bottom-row { grid-template-columns: 1fr; }
+      .em-persona { flex-direction: column; gap: 20px; padding: 28px 24px; }
     }
   </style>
 </head>
@@ -1169,6 +1447,7 @@
       <li><a href="#mission">Mission</a></li>
       <li><a href="#problems">Problems</a></li>
       <li><a href="#competitors">Competitors</a></li>
+      <li><a href="#empathy">Empathy Map</a></li>
     </ul>
   </nav>
 
@@ -1853,6 +2132,172 @@
 
     </div>
     <!-- /competitors -->
+
+    <!-- ─── 05 · EMPATHY MAP ─── -->
+    <div class="section" id="empathy">
+      <div class="section-label">
+        <span class="num">05</span>
+        <h2>Empathy Map</h2>
+      </div>
+
+      <!-- Persona banner -->
+      <div class="em-persona">
+        <div class="em-avatar">👨🏾</div>
+        <div class="em-persona-text">
+          <div class="em-persona-eyebrow">Primary User Persona</div>
+          <div class="em-persona-name">Kwame, 42 — Accra, Ghana</div>
+          <p class="em-persona-desc">
+            Finance officer, father of two. Diagnosed with a cardiac condition his local hospital cannot treat. His cardiologist recommends surgery in India — but Kwame has never sought medical treatment abroad before. He is anxious, determined, and overwhelmed by the process.
+          </p>
+          <div class="em-persona-tags">
+            <span class="em-persona-tag">First-time medical traveller</span>
+            <span class="em-persona-tag">Mid-income household</span>
+            <span class="em-persona-tag">Cardiac patient</span>
+            <span class="em-persona-tag">Africa → India corridor</span>
+            <span class="em-persona-tag">Family decision-maker</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Voice of the user -->
+      <div class="em-quote-strip">
+        <div class="em-quote-mark">"</div>
+        <div class="em-quotes">
+          <p class="em-quote">"I've been given 3 different prices for the same surgery. I don't know who to trust or how to even compare these hospitals."</p>
+          <p class="em-quote">"My family wants to know I'm safe. Once I land in Chennai, no one knows what's happening — I'm completely on my own."</p>
+          <p class="em-quote">"The broker sounds confident, but <strong>how do I know he's not just sending me to whoever pays him the highest commission?</strong>"</p>
+        </div>
+      </div>
+
+      <!-- 4-quadrant grid -->
+      <div class="em-grid em-grid-spaced">
+
+        <!-- Thinks & Feels -->
+        <div class="em-card">
+          <div class="em-card-head">
+            <div class="em-icon purple">🧠</div>
+            <div>
+              <div class="em-card-label purple">Thinks &amp; Feels</div>
+              <div class="em-card-sublabel">Inner emotions, worries &amp; hopes</div>
+            </div>
+          </div>
+          <div class="em-card-body">
+            <p class="em-item purple">"Will I be scammed or receive genuinely good care?"</p>
+            <p class="em-item purple">"How do I know this hospital's success rate is real?"</p>
+            <p class="em-item purple">Deep fear of spending his family's savings on a bad outcome</p>
+            <p class="em-item purple">Anxiety about being sick and alone in an unfamiliar country</p>
+            <p class="em-item purple">Guilt — feels he is burdening his family financially</p>
+            <p class="em-item purple">Hope that surgery in India gives him a second chance at life</p>
+            <p class="em-item purple">Overwhelmed by paperwork, visa, flights, and coordination all at once</p>
+          </div>
+        </div>
+
+        <!-- Hears -->
+        <div class="em-card">
+          <div class="em-card-head">
+            <div class="em-icon blue">👂</div>
+            <div>
+              <div class="em-card-label blue">Hears</div>
+              <div class="em-card-sublabel">Influences from environment &amp; people</div>
+            </div>
+          </div>
+          <div class="em-card-body">
+            <p class="em-item blue">Friends: "Just use a broker — that's how everyone does it"</p>
+            <p class="em-item blue">Church member: "I heard some hospitals in India only care about money"</p>
+            <p class="em-item blue">Cardiologist: "Apollo and Fortis in Chennai have excellent cardiac outcomes"</p>
+            <p class="em-item blue">WhatsApp groups full of conflicting prices and hospital recommendations</p>
+            <p class="em-item blue">Broker A quotes 40% more than Broker B for identical surgery</p>
+            <p class="em-item blue">Family pressuring him to choose the "safest" option, not the cheapest</p>
+          </div>
+        </div>
+
+        <!-- Sees -->
+        <div class="em-card">
+          <div class="em-card-head">
+            <div class="em-icon green">👁️</div>
+            <div>
+              <div class="em-card-label green">Sees</div>
+              <div class="em-card-sublabel">Observable world &amp; environment</div>
+            </div>
+          </div>
+          <div class="em-card-body">
+            <p class="em-item green">Hospital websites with no pricing — only a "Contact Us" form</p>
+            <p class="em-item green">Broker contacts scattered across Facebook groups and WhatsApp</p>
+            <p class="em-item green">A colleague who travelled to India 2 years ago and returned healthy</p>
+            <p class="em-item green">Complex Indian medical visa requirements with no clear guide</p>
+            <p class="em-item green">His children watching him search Google late into the night</p>
+            <p class="em-item green">Generic international platforms that list hospitals in 50 countries — none focused on him</p>
+          </div>
+        </div>
+
+        <!-- Says & Does -->
+        <div class="em-card">
+          <div class="em-card-head">
+            <div class="em-icon amber">💬</div>
+            <div>
+              <div class="em-card-label amber">Says &amp; Does</div>
+              <div class="em-card-sublabel">Visible behaviours &amp; actions</div>
+            </div>
+          </div>
+          <div class="em-card-body">
+            <p class="em-item amber">Asks every trusted contact for a hospital recommendation</p>
+            <p class="em-item amber">Contacts 3–4 brokers simultaneously to cross-check prices</p>
+            <p class="em-item amber">Screenshots price quotes and shares them in WhatsApp groups asking "is this fair?"</p>
+            <p class="em-item amber">Downloads medical PDFs he cannot fully interpret</p>
+            <p class="em-item amber">Tells his wife "I have it under control" while privately uncertain about every step</p>
+            <p class="em-item amber">Delays the decision because the process feels too risky and too complex</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pains & Gains -->
+      <div class="em-bottom-row">
+
+        <!-- Pains -->
+        <div class="em-pain-card">
+          <div class="em-pain-head">
+            <div class="em-icon pain">😰</div>
+            <div>
+              <div class="em-pain-label">Pains</div>
+              <div class="em-card-sublabel">Fears, frustrations &amp; obstacles</div>
+            </div>
+          </div>
+          <div class="em-card-body">
+            <p class="em-item red">No way to verify doctor credentials or hospital quality from Ghana</p>
+            <p class="em-item red">Broker silently adds 20–25% markup — Kwame will never know</p>
+            <p class="em-item red">15+ touchpoints to coordinate with zero help or tracking</p>
+            <p class="em-item red">Family has no visibility once he lands in India — complete blackout</p>
+            <p class="em-item red">Medical records, visa docs, and test results exist in 4 different places</p>
+            <p class="em-item red">Post-treatment follow-up falls apart the moment he returns home</p>
+            <p class="em-item red">Language barriers when communicating directly with Indian hospitals</p>
+          </div>
+        </div>
+
+        <!-- Gains -->
+        <div class="em-pain-card">
+          <div class="em-gain-head">
+            <div class="em-icon gain">🎯</div>
+            <div>
+              <div class="em-gain-label">Gains</div>
+              <div class="em-card-sublabel">Wants, needs &amp; success measures</div>
+            </div>
+          </div>
+          <div class="em-card-body">
+            <p class="em-item teal">Find a verified, accredited cardiac surgeon in minutes — not weeks</p>
+            <p class="em-item teal">See real treatment pricing upfront before committing to anything</p>
+            <p class="em-item teal">All documents stored in one secure vault — no WhatsApp chaos</p>
+            <p class="em-item teal">His family tracks every step of the journey in real-time</p>
+            <p class="em-item teal">In-app chat with a coordinator who actually responds</p>
+            <p class="em-item teal">Post-treatment follow-up reminders so nothing falls through the cracks</p>
+            <p class="em-item teal">Return home knowing he chose the right doctor for the right reasons</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /empathy -->
 
   </div>
   <!-- /page -->

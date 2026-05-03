@@ -15,7 +15,6 @@ import TreatmentDetailScreen from './screens/TreatmentDetailScreen';
 import DoctorDetailScreen from './screens/DoctorDetailScreen';
 import HospitalDetailScreen from './screens/HospitalDetailScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
-import CreateAccountScreen from './screens/CreateAccountScreen';
 import GuestCountryScreen from './screens/GuestCountryScreen';
 import GuestConditionScreen from './screens/GuestConditionScreen';
 import GuestTimelineScreen from './screens/GuestTimelineScreen';
@@ -54,7 +53,6 @@ export default function App() {
       case 'onboarding':   return <OnboardingScreen {...props} />;
       case 'welcome':      return <WelcomeScreen {...props} />;
       case 'login':        return <LoginScreen {...props} />;
-      case 'createAccount': return <CreateAccountScreen {...props} />;
       case 'guestCountry':    return <GuestCountryScreen {...props} />;
       case 'guestCondition':  return <GuestConditionScreen {...props} />;
       case 'guestTimeline':   return <GuestTimelineScreen {...props} />;

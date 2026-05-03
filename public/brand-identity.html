@@ -1373,6 +1373,210 @@
     .em-icon.pain  { background: rgba(224,124,124,0.12); }
     .em-icon.gain  { background: rgba(91,173,122,0.12); }
 
+    /* ── USER PERSONAS ── */
+    .persona-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .persona-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .persona-head {
+      padding: 28px 28px 24px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .persona-head::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      border-radius: var(--radius-card) var(--radius-card) 0 0;
+    }
+
+    .persona-card.blue  .persona-head::before { background: linear-gradient(90deg, #ABBDE9, #7AA8E3); }
+    .persona-card.purple .persona-head::before { background: linear-gradient(90deg, #BC89ED, #A06ED4); }
+    .persona-card.green  .persona-head::before { background: linear-gradient(90deg, #BDEEAD, #5BAD7A); }
+    .persona-card.amber  .persona-head::before { background: linear-gradient(90deg, #FDE68A, #F5A623); }
+
+    .persona-top-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .persona-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .persona-card.blue   .persona-avatar { background: rgba(171,196,235,0.18); }
+    .persona-card.purple .persona-avatar { background: rgba(188,169,237,0.18); }
+    .persona-card.green  .persona-avatar { background: rgba(189,238,173,0.20); }
+    .persona-card.amber  .persona-avatar { background: rgba(245,166,35,0.13); }
+
+    .persona-id { flex: 1; }
+
+    .persona-role-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: var(--radius-pill);
+      padding: 3px 12px;
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 6px;
+    }
+
+    .persona-card.blue   .persona-role-badge { background: rgba(171,196,235,0.18); color: #5A85C8; }
+    .persona-card.purple .persona-role-badge { background: rgba(188,169,237,0.18); color: #8054BB; }
+    .persona-card.green  .persona-role-badge { background: rgba(189,238,173,0.20); color: #4A9A6A; }
+    .persona-card.amber  .persona-role-badge { background: rgba(245,166,35,0.13); color: #C47D12; }
+
+    .persona-name {
+      font-family: var(--font-head);
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .persona-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .persona-meta-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .persona-condition {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+
+    .persona-body {
+      padding: 20px 28px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .persona-section {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .persona-section-title {
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .persona-card.blue   .persona-section-title.goals { color: #5A85C8; }
+    .persona-card.purple .persona-section-title.goals { color: #8054BB; }
+    .persona-card.green  .persona-section-title.goals { color: #4A9A6A; }
+    .persona-card.amber  .persona-section-title.goals { color: #C47D12; }
+    .persona-section-title.frustrations { color: #C0392B; }
+
+    .persona-li {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.5;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .persona-li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+
+    .persona-card.blue   .persona-li.goal::before { background: #7AA8E3; }
+    .persona-card.purple .persona-li.goal::before { background: #BC89ED; }
+    .persona-card.green  .persona-li.goal::before { background: #5BAD7A; }
+    .persona-card.amber  .persona-li.goal::before { background: #F5A623; }
+    .persona-li.frustration::before { background: #E07C7C; }
+
+    .persona-quote-block {
+      border-top: 1px solid var(--border);
+      margin-top: 4px;
+      padding-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.65;
+    }
+
+    .persona-quote-block strong { font-style: normal; color: var(--dark); font-weight: 600; }
+
+    .persona-tech-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .persona-tech-label {
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .persona-tech-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .persona-tech-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    .persona-card.blue   .persona-tech-dot.filled { background: #7AA8E3; }
+    .persona-card.purple .persona-tech-dot.filled { background: #BC89ED; }
+    .persona-card.green  .persona-tech-dot.filled { background: #5BAD7A; }
+    .persona-card.amber  .persona-tech-dot.filled { background: #F5A623; }
+    .persona-tech-dot.empty { background: var(--border); }
+
     .em-quote-strip {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -1431,6 +1635,7 @@
       .prob-top, .sol-bottom { padding: 24px 20px; }
       .em-grid, .em-bottom-row { grid-template-columns: 1fr; }
       .em-persona { flex-direction: column; gap: 20px; padding: 28px 24px; }
+      .persona-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -1448,6 +1653,7 @@
       <li><a href="#problems">Problems</a></li>
       <li><a href="#competitors">Competitors</a></li>
       <li><a href="#empathy">Empathy Map</a></li>
+      <li><a href="#personas">Personas</a></li>
     </ul>
   </nav>
 
@@ -2298,6 +2504,224 @@
 
     </div>
     <!-- /empathy -->
+
+    <!-- ─── 06 · USER PERSONAS ─── -->
+    <div class="section" id="personas">
+      <div class="section-label">
+        <span class="num">06</span>
+        <h2>User Personas</h2>
+      </div>
+
+      <div class="persona-grid">
+
+        <!-- ── PERSONA 1: Amara — Cancer Patient ── -->
+        <div class="persona-card blue">
+          <div class="persona-head">
+            <div class="persona-top-row">
+              <div class="persona-avatar">👩🏾</div>
+              <div class="persona-id">
+                <div class="persona-role-badge">Patient · 01</div>
+                <div class="persona-name">Amara Diallo, 34</div>
+              </div>
+            </div>
+            <div class="persona-meta-row">
+              <span class="persona-meta-pill">🇸🇳 Dakar, Senegal</span>
+              <span class="persona-meta-pill">Marketing Coordinator</span>
+              <span class="persona-meta-pill">Single Mother</span>
+              <span class="persona-meta-pill">Stage II Breast Cancer</span>
+            </div>
+            <p class="persona-condition">
+              Diagnosed 6 months ago. Her oncologist says targeted therapy is not available in Senegal — she must travel abroad. She has a 7-year-old daughter and cannot afford to spend months navigating a broken system.
+            </p>
+          </div>
+          <div class="persona-body">
+            <div class="persona-section">
+              <div class="persona-section-title goals">Goals</div>
+              <p class="persona-li goal">Find a verified oncologist with breast cancer specialisation in under an hour</p>
+              <p class="persona-li goal">See full treatment cost upfront — she needs to plan financially</p>
+              <p class="persona-li goal">Complete treatment in the shortest possible time away from her daughter</p>
+              <p class="persona-li goal">Get post-treatment follow-up so she doesn't relapse alone at home</p>
+            </div>
+            <div class="persona-section">
+              <div class="persona-section-title frustrations">Frustrations</div>
+              <p class="persona-li frustration">Hospitals won't give prices over email — only "contact us" forms</p>
+              <p class="persona-li frustration">Primary language is French — almost all medical information is in English</p>
+              <p class="persona-li frustration">Fears being exploited because desperation signals willingness to pay anything</p>
+              <p class="persona-li frustration">No way to verify that a doctor is actually a specialist vs a generalist</p>
+            </div>
+            <div class="persona-tech-row">
+              <span class="persona-tech-label">Tech comfort</span>
+              <div class="persona-tech-dots">
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot empty"></div>
+              </div>
+              <span class="persona-meta-pill">Smartphone-native</span>
+            </div>
+            <p class="persona-quote-block">
+              "I don't have time to waste on phone calls that lead nowhere. <strong>I need answers today</strong> — my daughter needs her mother back."
+            </p>
+          </div>
+        </div>
+
+        <!-- ── PERSONA 2: Emmanuel — Knee Replacement Patient ── -->
+        <div class="persona-card purple">
+          <div class="persona-head">
+            <div class="persona-top-row">
+              <div class="persona-avatar">👨🏿</div>
+              <div class="persona-id">
+                <div class="persona-role-badge">Patient · 02</div>
+                <div class="persona-name">Chief Emmanuel Okonkwo, 61</div>
+              </div>
+            </div>
+            <div class="persona-meta-row">
+              <span class="persona-meta-pill">🇳🇬 Lagos, Nigeria</span>
+              <span class="persona-meta-pill">Retired Civil Servant</span>
+              <span class="persona-meta-pill">Bilateral Knee Osteoarthritis</span>
+            </div>
+            <p class="persona-condition">
+              Told to wait 18 months for total knee replacement in Nigeria. Walking has become painful — he can no longer attend church or visit grandchildren. Has retirement savings but is deeply suspicious of being scammed online.
+            </p>
+          </div>
+          <div class="persona-body">
+            <div class="persona-section">
+              <div class="persona-section-title goals">Goals</div>
+              <p class="persona-li goal">Find a hospital that other Nigerians have successfully used — trust through community proof</p>
+              <p class="persona-li goal">Get surgery done within 3 months before his condition deteriorates further</p>
+              <p class="persona-li goal">Understand total cost including flights and accommodation — no hidden extras</p>
+              <p class="persona-li goal">Have his son able to monitor what's happening while he is in India</p>
+            </div>
+            <div class="persona-section">
+              <div class="persona-section-title frustrations">Frustrations</div>
+              <p class="persona-li frustration">Receives 10 conflicting hospital recommendations from different people</p>
+              <p class="persona-li frustration">Deeply suspicious of anyone online asking for money before service is delivered</p>
+              <p class="persona-li frustration">Cannot verify whether a hospital's "success stories" are real or fabricated</p>
+              <p class="persona-li frustration">His son handles the research but the handoff between them is confusing</p>
+            </div>
+            <div class="persona-tech-row">
+              <span class="persona-tech-label">Tech comfort</span>
+              <div class="persona-tech-dots">
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot empty"></div>
+                <div class="persona-tech-dot empty"></div>
+                <div class="persona-tech-dot empty"></div>
+              </div>
+              <span class="persona-meta-pill">WhatsApp user · son navigates app</span>
+            </div>
+            <p class="persona-quote-block">
+              "I just want to walk to church without pain. <strong>Why is that so complicated?</strong> Tell me which hospital is safe and I will go."
+            </p>
+          </div>
+        </div>
+
+        <!-- ── PERSONA 3: Fatima — Congenital Heart Defect Patient ── -->
+        <div class="persona-card green">
+          <div class="persona-head">
+            <div class="persona-top-row">
+              <div class="persona-avatar">👩🏽</div>
+              <div class="persona-id">
+                <div class="persona-role-badge">Patient · 03</div>
+                <div class="persona-name">Fatima Al-Hassan, 29</div>
+              </div>
+            </div>
+            <div class="persona-meta-row">
+              <span class="persona-meta-pill">🇸🇩 Khartoum, Sudan</span>
+              <span class="persona-meta-pill">PhD Engineering Student</span>
+              <span class="persona-meta-pill">Atrial Septal Defect</span>
+            </div>
+            <p class="persona-condition">
+              Congenital heart defect identified at 27 — corrective surgery is possible but Sudan's healthcare system cannot perform it safely. She has researched the procedure extensively but is blocked by visa complexity, currency restrictions, and the need to finish her PhD on schedule.
+            </p>
+          </div>
+          <div class="persona-body">
+            <div class="persona-section">
+              <div class="persona-section-title goals">Goals</div>
+              <p class="persona-li goal">Find a cardiac surgeon with international training and published outcomes data</p>
+              <p class="persona-li goal">Get a complete timeline — surgery + recovery — to plan around her PhD defence</p>
+              <p class="persona-li goal">Understand Indian medical visa requirements specific to Sudanese nationals</p>
+              <p class="persona-li goal">Have all her medical records in one place to share with the surgical team</p>
+            </div>
+            <div class="persona-section">
+              <div class="persona-section-title frustrations">Frustrations</div>
+              <p class="persona-li frustration">Currency restrictions in Sudan make international payments extremely difficult</p>
+              <p class="persona-li frustration">Medical visa process is opaque — no single authoritative guide exists</p>
+              <p class="persona-li frustration">Hospitals request the same documents repeatedly with no centralised record</p>
+              <p class="persona-li frustration">Fears the delay will affect her academic career — time pressure is extreme</p>
+            </div>
+            <div class="persona-tech-row">
+              <span class="persona-tech-label">Tech comfort</span>
+              <div class="persona-tech-dots">
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+              </div>
+              <span class="persona-meta-pill">Power user · researches everything</span>
+            </div>
+            <p class="persona-quote-block">
+              "I've read 50 clinical papers on this procedure. <strong>I just need to find the right surgeon and navigate the paperwork</strong> — stop making me start over every time."
+            </p>
+          </div>
+        </div>
+
+        <!-- ── PERSONA 4: Grace — Patient Relative ── -->
+        <div class="persona-card amber">
+          <div class="persona-head">
+            <div class="persona-top-row">
+              <div class="persona-avatar">👩🏾‍💼</div>
+              <div class="persona-id">
+                <div class="persona-role-badge">Patient Relative · 04</div>
+                <div class="persona-name">Grace Mensah, 39</div>
+              </div>
+            </div>
+            <div class="persona-meta-row">
+              <span class="persona-meta-pill">🇬🇭 Accra, Ghana</span>
+              <span class="persona-meta-pill">Financial Analyst</span>
+              <span class="persona-meta-pill">Searching for her father (68, stroke)</span>
+            </div>
+            <p class="persona-condition">
+              Her 68-year-old father suffered a stroke and requires neurosurgery — but he cannot manage the process himself. Grace has taken full ownership of the search, the decision, and the logistics. Her three siblings expect her to get it right. The stakes feel unbearable.
+            </p>
+          </div>
+          <div class="persona-body">
+            <div class="persona-section">
+              <div class="persona-section-title goals">Goals</div>
+              <p class="persona-li goal">Find the single safest neurosurgery option — not the cheapest, the most proven</p>
+              <p class="persona-li goal">Build a clear, evidence-based plan she can present to her siblings for consensus</p>
+              <p class="persona-li goal">Track her father's every milestone in real-time once he's in India</p>
+              <p class="persona-li goal">Ensure post-operative follow-up is coordinated before he even lands back in Ghana</p>
+            </div>
+            <div class="persona-section">
+              <div class="persona-section-title frustrations">Frustrations</div>
+              <p class="persona-li frustration">Cannot find a clear answer to "which hospital is best for stroke recovery in India"</p>
+              <p class="persona-li frustration">Each sibling has a different opinion — she needs data, not opinions, to get alignment</p>
+              <p class="persona-li frustration">Terrified her father will be alone and confused in an Indian hospital with no support</p>
+              <p class="persona-li frustration">No platform lets a family member co-manage a patient's journey remotely</p>
+            </div>
+            <div class="persona-tech-row">
+              <span class="persona-tech-label">Tech comfort</span>
+              <div class="persona-tech-dots">
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+                <div class="persona-tech-dot filled"></div>
+              </div>
+              <span class="persona-meta-pill">Highly digital · wants dashboards &amp; data</span>
+            </div>
+            <p class="persona-quote-block">
+              "My father trusts me to make the right call. <strong>I need to be 100% certain before we book anything</strong> — and I need to see what is happening once he lands."
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- /personas -->
 
   </div>
   <!-- /page -->

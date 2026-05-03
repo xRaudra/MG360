@@ -25,10 +25,9 @@ import NotificationsScreen from './screens/NotificationsScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ContactScreen from './screens/ContactScreen';
 import CreateAccountScreen from './screens/CreateAccountScreen';
-import BrandIdentityScreen from './screens/BrandIdentityScreen';
 
 // Screens that show the bottom nav
-const mainScreens = ['home', 'explore', 'journey', 'chat', 'profile', 'brandIdentity'];
+const mainScreens = ['home', 'explore', 'journey', 'chat', 'profile'];
 
 // Map bottom nav keys to screen keys
 const navMap = {
@@ -37,11 +36,6 @@ const navMap = {
   journey: 'journey',
   chat: 'chat',
   profile: 'profile',
-};
-
-// Screens that should highlight a specific nav tab
-const screenTabOverride = {
-  brandIdentity: 'profile',
 };
 
 export default function App() {
@@ -78,13 +72,12 @@ export default function App() {
       case 'notifications': return <NotificationsScreen {...props} />;
       case 'profile':      return <ProfileScreen {...props} />;
       case 'contact':      return <ContactScreen {...props} />;
-      case 'brandIdentity': return <BrandIdentityScreen {...props} />;
       default:             return <HomeScreen {...props} />;
     }
   };
 
   const showNav = mainScreens.includes(screen);
-  const activeTab = screenTabOverride[screen] || Object.entries(navMap).find(([, v]) => v === screen)?.[0] || 'home';
+  const activeTab = Object.entries(navMap).find(([, v]) => v === screen)?.[0] || 'home';
 
   return (
     <PhoneFrame>

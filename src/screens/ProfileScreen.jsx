@@ -1,4 +1,4 @@
-﻿import { ChevronRight, Globe, FileText, Settings, LogOut, Bell, Shield, HelpCircle, User, BookOpen } from 'lucide-react';
+﻿import { ChevronRight, Globe, FileText, Settings, LogOut, Bell, Shield, HelpCircle, User } from 'lucide-react';
 
 const menuSections = [
   {
@@ -21,7 +21,6 @@ const menuSections = [
     items: [
       { icon: <HelpCircle size={18} />, label: 'Help & FAQ', color: '#06B6D4', bg: '#ECFEFF', key: 'help' },
       { icon: <Settings size={18} />, label: 'App Settings', color: '#475569', bg: '#F8FAFC', key: 'settings' },
-      { icon: <BookOpen size={18} />, label: 'Brand & Identity', color: '#4338CA', bg: '#EEF2FF', key: 'brandIdentity' },
     ],
   },
 ];
@@ -82,7 +81,7 @@ export default function ProfileScreen({ onNavigate }) {
             <div className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
               {section.items.map((item, i) => (
                 <button key={item.key}
-                  onClick={() => item.key === 'journey' ? onNavigate('journey') : item.key === 'documents' ? onNavigate('journey') : item.key === 'brandIdentity' ? onNavigate('brandIdentity') : null}
+                  onClick={() => item.key === 'journey' ? onNavigate('journey') : item.key === 'documents' ? onNavigate('journey') : null}
                   className="flex items-center gap-3 w-full px-4 py-3.5 transition-all active:bg-slate-50 text-left"
                   style={{ borderBottom: i < section.items.length - 1 ? '1px solid #F1F5F9' : 'none' }}>
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"

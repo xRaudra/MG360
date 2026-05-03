@@ -1,73 +1,70 @@
 import { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, ChevronLeft } from 'lucide-react';
 
-export default function LoginScreen({ onNavigate }) {
+export default function CreateAccountScreen({ onNavigate }) {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPw, setConfirmPw] = useState('');
   const [showPw, setShowPw] = useState(false);
-  const [rememberMe, setRememberMe] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+
+  const canSubmit = name && email && password && confirmPw && agreed;
 
   return (
-    <div className="flex flex-col h-full overflow-y-auto hide-scrollbar">
+    <div className="flex flex-col h-full bg-app overflow-y-auto hide-scrollbar screen-enter">
 
-      {/* Photo header — top 38% of screen */}
-      <div style={{ position: 'relative', height: '38%', minHeight: 240, flexShrink: 0 }}>
-        <img
-          src="/login-bg.jpg"
-          alt=""
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }}
-        />
-        {/* Overlay */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, rgba(15,20,40,0.35) 0%, rgba(15,20,40,0.15) 60%, rgba(255,255,255,0.0) 100%)',
-        }} />
-        {/* Logo centered on photo */}
-        <div style={{
-          position: 'absolute', inset: 0,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          paddingTop: 'max(36px, env(safe-area-inset-top, 36px))',
-        }}>
-          <div style={{
-            background: 'rgba(255,255,255,0.92)',
-            borderRadius: 16, padding: '10px 20px',
-            backdropFilter: 'blur(12px)',
-          }}>
-            <img src="/logo.png" alt="MedGlobal360" style={{ width: 120, objectFit: 'contain' }} />
-          </div>
-        </div>
-        {/* Bottom round clip */}
-        <div style={{
-          position: 'absolute', bottom: -20, left: 0, right: 0,
-          height: 40,
-          background: 'white',
-          borderRadius: '24px 24px 0 0',
-        }} />
+      {/* Header */}
+      <div style={{ padding: 'max(52px, env(safe-area-inset-top, 52px)) 16px 0' }}>
+        <button
+          onClick={() => onNavigate('login')}
+          type="button"
+          style={{
+            display: 'flex', alignItems: 'center', gap: 4,
+            background: 'none', border: 'none', padding: '4px 0',
+            cursor: 'pointer', marginLeft: -4,
+          }}
+        >
+          <ChevronLeft size={22} color="#56698F" />
+          <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 500, color: '#56698F' }}>
+            Back to Login
+          </span>
+        </button>
       </div>
 
-      {/* Form area */}
-      <div className="bg-app" style={{ flex: 1, padding: '0 16px 44px', paddingTop: 8 }}>
+      <div style={{ padding: '24px 16px 44px', display: 'flex', flexDirection: 'column', gap: 24 }}>
 
-        {/* Heading */}
-        <div style={{ textAlign: 'center', marginBottom: 24 }}>
-          <h1 style={{
-            fontFamily: "'Nunito Sans', sans-serif",
-            fontSize: 24, fontWeight: 800,
-            color: '#23244D', margin: '0 0 6px',
-            letterSpacing: '-0.02em',
-          }}>
-            Welcome Back
-          </h1>
-          <p style={{
-            fontFamily: "'Inter', sans-serif",
-            fontSize: 13, color: '#7C7C7C', margin: 0, lineHeight: '155%',
-          }}>
-            Sign in to continue your care journey
-          </p>
+        {/* Logo + Heading */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 16 }}>
+          <img src="/logo.png" alt="MedGlobal360" style={{ width: 110, objectFit: 'contain' }} />
+          <div style={{ textAlign: 'center' }}>
+            <h1 style={{
+              fontFamily: "'Nunito Sans', sans-serif",
+              fontSize: 24, fontWeight: 800,
+              color: '#23244D', margin: '0 0 6px',
+              letterSpacing: '-0.02em',
+            }}>
+              Create Your Account
+            </h1>
+            <p style={{
+              fontFamily: "'Inter', sans-serif",
+              fontSize: 13, color: '#7C7C7C', margin: 0, lineHeight: '155%',
+            }}>
+              Join thousands getting care worldwide
+            </p>
+          </div>
         </div>
 
-        {/* Fields */}
+        {/* Form */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+          <InputField
+            label="Full Name"
+            type="text"
+            placeholder="Your full name"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
           <InputField
             label="Email Address"
             type="email"
@@ -78,63 +75,69 @@ export default function LoginScreen({ onNavigate }) {
           <InputField
             label="Password"
             type={showPw ? 'text' : 'password'}
-            placeholder="Enter your password"
+            placeholder="Create a strong password"
             value={password}
             onChange={e => setPassword(e.target.value)}
             iconRight={
-              <button
-                onClick={() => setShowPw(v => !v)}
-                type="button"
-                style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex' }}
-              >
+              <button onClick={() => setShowPw(v => !v)} type="button" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex' }}>
                 {showPw ? <Eye size={16} color="#94A3B8" /> : <EyeOff size={16} color="#94A3B8" />}
               </button>
             }
           />
+          <InputField
+            label="Confirm Password"
+            type={showConfirm ? 'text' : 'password'}
+            placeholder="Repeat your password"
+            value={confirmPw}
+            onChange={e => setConfirmPw(e.target.value)}
+            error={confirmPw && password !== confirmPw ? "Passwords don't match" : null}
+            iconRight={
+              <button onClick={() => setShowConfirm(v => !v)} type="button" style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', display: 'flex' }}>
+                {showConfirm ? <Eye size={16} color="#94A3B8" /> : <EyeOff size={16} color="#94A3B8" />}
+              </button>
+            }
+          />
 
-          {/* Remember me + Forgot */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: -2 }}>
-            <button
-              onClick={() => setRememberMe(v => !v)}
-              type="button"
-              style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
-            >
-              <Checkbox checked={rememberMe} />
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 500, color: '#7C7C7C' }}>
-                Keep me signed in
-              </span>
-            </button>
-            <button
-              type="button"
-              style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, color: '#56698F', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
-            >
-              Forgot Password?
-            </button>
-          </div>
+          {/* Terms checkbox */}
+          <button
+            onClick={() => setAgreed(v => !v)}
+            type="button"
+            style={{ display: 'flex', alignItems: 'flex-start', gap: 10, background: 'none', border: 'none', padding: 0, cursor: 'pointer', textAlign: 'left' }}
+          >
+            <Checkbox checked={agreed} />
+            <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: '#7C7C7C', lineHeight: '160%', paddingTop: 1 }}>
+              I agree to the{' '}
+              <span style={{ color: '#56698F', fontWeight: 600 }}>Terms of Service</span>
+              {' '}and{' '}
+              <span style={{ color: '#56698F', fontWeight: 600 }}>Privacy Policy</span>
+            </span>
+          </button>
         </div>
 
-        {/* Log In CTA */}
+        {/* Create Account CTA */}
         <button
-          onClick={() => onNavigate('home')}
+          onClick={() => canSubmit && onNavigate('home')}
           type="button"
           style={{
-            width: '100%', height: 52, marginTop: 24,
-            background: '#56698F',
+            width: '100%', height: 52,
+            background: canSubmit ? '#56698F' : '#CBD5E1',
             border: 'none', borderRadius: 14,
             fontFamily: "'Inter', sans-serif",
             fontSize: 15, fontWeight: 600, color: 'white',
-            cursor: 'pointer', letterSpacing: '-0.01em',
-            boxShadow: '0 4px 16px rgba(86,105,143,0.30)',
+            cursor: canSubmit ? 'pointer' : 'default',
+            letterSpacing: '-0.01em',
+            boxShadow: canSubmit ? '0 4px 16px rgba(86,105,143,0.28)' : 'none',
+            transition: 'background 0.2s ease',
           }}
         >
-          Log In
+          Create Account
         </button>
 
         {/* Divider */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 14, margin: '20px 0' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
           <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
           <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, color: '#94A3B8', whiteSpace: 'nowrap' }}>
-            or continue with
+            or sign up with
           </span>
           <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
         </div>
@@ -145,7 +148,6 @@ export default function LoginScreen({ onNavigate }) {
             { key: 'google',   icon: <GoogleIcon /> },
             { key: 'apple',    icon: <AppleIcon /> },
             { key: 'facebook', icon: <FacebookIcon /> },
-            { key: 'phone',    icon: <PhoneIcon /> },
           ].map(({ key, icon }) => (
             <button
               key={key}
@@ -165,20 +167,20 @@ export default function LoginScreen({ onNavigate }) {
           ))}
         </div>
 
-        {/* Sign up link */}
+        {/* Log in link */}
         <p style={{
           textAlign: 'center',
           fontFamily: "'Inter', sans-serif",
           fontSize: 13, color: '#7C7C7C',
-          margin: '22px 0 0',
+          margin: 0,
         }}>
-          New to MedGlobal360?{' '}
+          Already have an account?{' '}
           <button
-            onClick={() => onNavigate('createAccount')}
+            onClick={() => onNavigate('login')}
             type="button"
             style={{ fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: '#56698F', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
           >
-            Create an account
+            Log in
           </button>
         </p>
       </div>
@@ -186,7 +188,7 @@ export default function LoginScreen({ onNavigate }) {
   );
 }
 
-function InputField({ label, type, placeholder, value, onChange, iconRight }) {
+function InputField({ label, type, placeholder, value, onChange, iconRight, error }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       <span style={{
@@ -198,12 +200,10 @@ function InputField({ label, type, placeholder, value, onChange, iconRight }) {
       </span>
       <div style={{
         background: 'white',
-        border: '1px solid #ECEFF2',
-        borderRadius: 12,
-        height: 48,
+        border: `1px solid ${error ? '#FCA5A5' : '#ECEFF2'}`,
+        borderRadius: 12, height: 48,
         display: 'flex', alignItems: 'center',
-        paddingLeft: 14, paddingRight: 14,
-        gap: 10,
+        paddingLeft: 14, paddingRight: 14, gap: 10,
         boxShadow: '0 1px 2px rgba(228,229,232,0.3)',
       }}>
         <input
@@ -220,6 +220,11 @@ function InputField({ label, type, placeholder, value, onChange, iconRight }) {
         />
         {iconRight}
       </div>
+      {error && (
+        <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, color: '#EF4444', marginTop: 2 }}>
+          {error}
+        </span>
+      )}
     </div>
   );
 }
@@ -227,12 +232,11 @@ function InputField({ label, type, placeholder, value, onChange, iconRight }) {
 function Checkbox({ checked }) {
   return (
     <div style={{
-      width: 18, height: 18,
+      width: 18, height: 18, flexShrink: 0, marginTop: 2,
       border: checked ? 'none' : '1.5px solid #CBD5E1',
       borderRadius: 5,
       background: checked ? '#56698F' : 'transparent',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
-      flexShrink: 0,
     }}>
       {checked && (
         <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
@@ -246,13 +250,13 @@ function Checkbox({ checked }) {
 function GoogleIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <g clipPath="url(#gc)">
+      <g clipPath="url(#gc2)">
         <path d="M23.77 12.28c0-.82-.07-1.64-.21-2.44H12.24v4.62h6.48c-.27 1.49-1.13 2.81-2.4 3.65v3h3.87c2.27-2.09 3.58-5.17 3.58-8.83z" fill="#4285F4" />
         <path d="M12.24 24c3.24 0 5.97-1.06 7.95-2.9l-3.87-3c-1.08.73-2.47 1.14-4.08 1.14-3.13 0-5.78-2.11-6.73-4.95H1.52v3.09C3.55 21.44 7.7 24 12.24 24z" fill="#34A853" />
         <path d="M5.5 14.3A7.3 7.3 0 0 1 5.5 9.7V6.61H1.52a12 12 0 0 0 0 10.78L5.5 14.3z" fill="#FBBC04" />
         <path d="M12.24 4.75a6.6 6.6 0 0 1 4.6 1.8l3.43-3.43C18.1 1.09 15.22-.03 12.24 0 7.7 0 3.55 2.56 1.52 6.61l3.98 3.1C6.45 6.86 9.11 4.75 12.24 4.75z" fill="#EA4335" />
       </g>
-      <defs><clipPath id="gc"><rect width="24" height="24" fill="white" /></clipPath></defs>
+      <defs><clipPath id="gc2"><rect width="24" height="24" fill="white" /></clipPath></defs>
     </svg>
   );
 }
@@ -269,15 +273,6 @@ function FacebookIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
       <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07c0 5.99 4.39 10.96 10.13 11.85v-8.39H7.08v-3.46h3.05V9.43c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.95h-1.51c-1.49 0-1.96.93-1.96 1.87v2.25h3.33l-.53 3.46h-2.8v8.39C19.61 23.03 24 18.07 24 12.07z" fill="#1877F2" />
-    </svg>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <rect x="5" y="2" width="14" height="20" rx="3" stroke="#475569" strokeWidth="1.8" />
-      <circle cx="12" cy="18" r="1" fill="#475569" />
     </svg>
   );
 }

@@ -2,20 +2,21 @@ export default function WelcomeScreen({ onNavigate }) {
   return (
     <div style={{ position: 'relative', height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
-      {/* Background photo — full bleed from top edge */}
+      {/* Full-bleed background photo */}
       <div style={{ position: 'absolute', inset: 0 }}>
         <img
           src="/welcome-bg.jpg"
           alt=""
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center' }}
         />
+        {/* Gradient: transparent at top → white at bottom */}
         <div style={{
           position: 'absolute', inset: 0,
-          background: 'linear-gradient(to bottom, transparent 30%, rgba(255,255,255,0.55) 52%, white 68%)',
+          background: 'linear-gradient(to bottom, transparent 28%, rgba(255,255,255,0.50) 50%, white 66%)',
         }} />
       </div>
 
-      {/* Logo — centered, safe area aware */}
+      {/* Logo — top center, safe area aware */}
       <div style={{
         position: 'relative', zIndex: 2,
         paddingTop: 'max(52px, env(safe-area-inset-top, 52px))',
@@ -24,39 +25,64 @@ export default function WelcomeScreen({ onNavigate }) {
         <img src="/logo.png" alt="MedGlobal360" style={{ width: 120, objectFit: 'contain' }} />
       </div>
 
-      {/* Spacer */}
       <div style={{ flex: 1 }} />
 
       {/* Bottom content */}
       <div style={{
         position: 'relative', zIndex: 2,
-        padding: '32px 16px 44px',
+        padding: '28px 16px 44px',
         display: 'flex', flexDirection: 'column', gap: 20,
       }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <h1 style={{
             fontFamily: "'Nunito', sans-serif",
-            fontSize: 32, fontWeight: 800,
+            fontSize: 30, fontWeight: 800,
             color: '#1C1C1E',
             letterSpacing: '-0.03em',
-            lineHeight: '120%',
+            lineHeight: '118%',
             margin: 0,
           }}>
-            Let's Personalise<br />Your Care Journey!
+            Your Health Journey<br />Starts Here
           </h1>
           <p style={{
             fontFamily: "'Inter', sans-serif",
             fontSize: 13, fontWeight: 400,
-            color: '#7C7C7C',
+            color: '#6B7280',
             lineHeight: '160%',
             margin: 0,
           }}>
-            Discover top doctors and hospitals, and get complete support for your treatment journey in India.
+            Top doctors. Trusted hospitals. Full support — from first consultation to recovery.
           </p>
         </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {/* Get Started */}
+        {/* Trust badges row */}
+        <div style={{ display: 'flex', gap: 8 }}>
+          {['JCI Accredited', '50+ Countries', '10K+ Patients'].map(badge => (
+            <div
+              key={badge}
+              style={{
+                flex: 1,
+                padding: '7px 4px',
+                background: 'rgba(86,105,143,0.07)',
+                border: '1px solid rgba(86,105,143,0.15)',
+                borderRadius: 10,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}
+            >
+              <span style={{
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 10, fontWeight: 600,
+                color: '#56698F', textAlign: 'center',
+                lineHeight: '140%',
+              }}>
+                {badge}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+          {/* Get Started — primary */}
           <button
             onClick={() => onNavigate('login')}
             type="button"
@@ -69,13 +95,13 @@ export default function WelcomeScreen({ onNavigate }) {
               color: 'white',
               cursor: 'pointer',
               letterSpacing: '-0.01em',
-              boxShadow: '0 4px 16px rgba(86,105,143,0.3)',
+              boxShadow: '0 4px 16px rgba(86,105,143,0.32)',
             }}
           >
             Get Started
           </button>
 
-          {/* Continue with Guest — outlined */}
+          {/* Continue as Guest — outlined */}
           <button
             onClick={() => onNavigate('guestCountry')}
             type="button"
@@ -91,7 +117,7 @@ export default function WelcomeScreen({ onNavigate }) {
               letterSpacing: '-0.01em',
             }}
           >
-            Continue with Guest
+            Continue as Guest
           </button>
         </div>
       </div>

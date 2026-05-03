@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedGlobal360 — Brand Identity</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue:    #ABBDE9;
+      --purple:  #BC89ED;
+      --green:   #BDEEAD;
+      --dark:    #23244D;
+      --body:    #313131;
+      --muted:   #7C7C7C;
+      --border:  #ECEFF2;
+      --bg:      #F8FAFF;
+      --white:   #ffffff;
+
+      --font-head:  'Nunito Sans', sans-serif;
+      --font-body:  'Inter', sans-serif;
+      --font-label: 'Plus Jakarta Sans', sans-serif;
+
+      --radius-card: 20px;
+      --radius-pill: 999px;
+      --shadow-card: 0 4px 32px rgba(35,36,77,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--body);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo span {
+      width: 28px; height: 28px;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--dark); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 48px 80px;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 20%, rgba(171,196,235,0.30) 0%, transparent 70%),
+        radial-gradient(ellipse 55% 55% at 20% 80%, rgba(188,169,237,0.25) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 50% 50%, rgba(189,238,173,0.20) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 5px 14px;
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-tag::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--purple));
+    }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #7AA8E3, #A978E0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── LAYOUT ── */
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 48px 120px; }
+
+    /* ── SECTION ── */
+    .section { margin-top: 80px; }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .section-label .num {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .section-label h2 {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+    /* ── PROJECT SUMMARY CARD ── */
+    .summary-hero {
+      background: linear-gradient(135deg, #23244D 0%, #2E3065 100%);
+      border-radius: var(--radius-card);
+      padding: 48px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .summary-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(171,196,235,0.15) 0%, transparent 70%);
+    }
+
+    .summary-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(188,169,237,0.15) 0%, transparent 70%);
+    }
+
+    .summary-hero .app-name {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .summary-hero h3 {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 480px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .summary-hero p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      max-width: 540px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-pill);
+      padding: 5px 14px;
+      font-family: var(--font-label);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ── STAT CARDS ── */
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .stat-card .stat-icon {
+      width: 40px; height: 40px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card .stat-value {
+      font-family: var(--font-head);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-card .stat-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    /* ── INFO ROWS ── */
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-row .info-key {
+      font-family: var(--font-label);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      min-width: 160px;
+      padding-top: 2px;
+    }
+
+    .info-row .info-val {
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.6;
+    }
+
+    .info-row .info-val strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .pill {
+      display: inline-block;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 2px 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--dark);
+      margin: 2px 2px 2px 0;
+    }
+
+    /* ── FOOTER ── */
+    .page-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 100%;
+    }
+
+    .page-footer strong { color: var(--dark); }
+
+    /* ── PROBLEMS SECTION ── */
+    .problem-intro {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .problem-intro-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-card);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .problem-intro-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #F4A0A0, #E07C7C);
+      border-radius: 16px 16px 0 0;
+    }
+
+    .pic-val {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 800;
+      color: #C0392B;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pic-label {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .problem-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 16px;
+    }
+
+    .problem-card:last-of-type { margin-bottom: 0; }
+
+    .prob-top {
+      padding: 32px 36px 28px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .prob-ghost-num {
+      position: absolute;
+      top: 20px; right: 32px;
+      font-family: var(--font-head);
+      font-size: 88px;
+      font-weight: 800;
+      color: rgba(35,36,77,0.04);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      pointer-events: none;
+      -webkit-user-select: none;
+      user-select: none;
+    }
+
+    .prob-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #C0392B;
+      margin-bottom: 12px;
+    }
+
+    .prob-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #E07C7C;
+      flex-shrink: 0;
+    }
+
+    .prob-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      max-width: 680px;
+    }
+
+    .prob-desc {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 700px;
+    }
+
+    .prob-bullets {
+      list-style: none;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .prob-bullets li {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .prob-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #F4A0A0;
+    }
+
+    .sol-bottom {
+      padding: 28px 36px 32px;
+      background: rgba(77,129,231,0.03);
+      border-top: 2px solid rgba(77,129,231,0.10);
+    }
+
+    .sol-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #4D81E7;
+      margin-bottom: 12px;
+    }
+
+    .sol-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4D81E7;
+      flex-shrink: 0;
+    }
+
+    .sol-title {
+      font-family: var(--font-head);
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .sol-desc {
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.75;
+      max-width: 700px;
+    }
+
+    .sol-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .sol-tag {
+      background: rgba(77,129,231,0.08);
+      border: 1px solid rgba(77,129,231,0.15);
+      border-radius: var(--radius-pill);
+      padding: 4px 14px;
+      font-family: var(--font-label);
+      font-size: 12px;
+      font-weight: 500;
+      color: #4D81E7;
+    }
+
+    /* ── MARKET STAT CARDS ── */
+    .market-hero {
+      background: linear-gradient(135deg, #1a2a4a 0%, #23244D 60%, #2E3580 100%);
+      border-radius: var(--radius-card);
+      padding: 40px 48px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .market-hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(171,196,235,0.2) 0%, transparent 70%);
+    }
+
+    .market-text { position: relative; z-index: 1; flex: 1; }
+
+    .market-text h3 {
+      font-family: var(--font-head);
+      font-size: 24px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .market-text p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    .market-stats {
+      display: flex;
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+
+    .market-stat { text-align: center; }
+
+    .market-stat .ms-val {
+      font-family: var(--font-head);
+      font-size: 26px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .market-stat .ms-label {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.55);
+      white-space: nowrap;
+    }
+
+    .market-divider {
+      width: 1px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      align-self: center;
+    }
+
+    /* ── COMPETITOR CARDS ── */
+    .comp-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 20px;
+    }
+
+    .comp-card-header {
+      padding: 24px 28px 20px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comp-num {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .comp-name {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+    }
+
+    .comp-tag {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .comp-tag span {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 600;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 3px 12px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .comp-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comp-meta-item {
+      padding: 14px 20px;
+      border-right: 1px solid var(--border);
+    }
+
+    .comp-meta-item:last-child { border-right: none; }
+
+    .comp-meta-item .mk { font-size: 10px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+    .comp-meta-item .mv { font-size: 13px; font-weight: 600; color: var(--dark); }
+
+    .comp-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .comp-col {
+      padding: 20px 28px;
+    }
+
+    .comp-col:first-child { border-right: 1px solid var(--border); }
+
+    .comp-col-title {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 12px;
+    }
+
+    .comp-col.strengths .comp-col-title { color: #5BAD7A; }
+    .comp-col.gaps .comp-col-title { color: #E07C7C; }
+
+    .comp-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .comp-col ul li {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.5;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .comp-col.strengths ul li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: #5BAD7A; }
+    .comp-col.gaps ul li::before { content: ''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: #E07C7C; }
+
+    .comp-advantage {
+      padding: 14px 28px;
+      background: rgba(77,129,231,0.05);
+      border-top: 1px solid rgba(77,129,231,0.12);
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+    }
+
+    .comp-advantage .adv-label {
+      font-family: var(--font-label);
+      font-size: 10px;
+      font-weight: 700;
+      color: #4D81E7;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      white-space: nowrap;
+    }
+
+    .comp-advantage p {
+      font-size: 13px;
+      color: var(--body);
+      line-height: 1.5;
+    }
+
+    /* ── COMPARISON TABLE ── */
+    .comp-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-card);
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    .comp-table th {
+      padding: 14px 18px;
+      text-align: center;
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--muted);
+      background: var(--bg);
+      border-bottom: 2px solid var(--border);
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+    }
+
+    .comp-table th:first-child { text-align: left; min-width: 200px; }
+
+    .comp-table th.mg360-col {
+      background: rgba(77,129,231,0.08);
+      color: #4D81E7;
+      border-bottom-color: rgba(77,129,231,0.25);
+    }
+
+    .comp-table td {
+      padding: 11px 18px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      font-size: 16px;
+    }
+
+    .comp-table tr:last-child td { border-bottom: none; }
+
+    .comp-table td:first-child {
+      text-align: left;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .comp-table td.mg360-col { background: rgba(77,129,231,0.04); }
+
+    .comp-table tr:hover td { background: rgba(35,36,77,0.02); }
+    .comp-table tr:hover td.mg360-col { background: rgba(77,129,231,0.07); }
+
+    /* ── INSIGHT CALLOUT ── */
+    .insight-callout {
+      background: linear-gradient(135deg, #1a2a4a 0%, #23244D 100%);
+      border-radius: var(--radius-card);
+      padding: 40px 48px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+
+    .insight-callout::before {
+      content: '';
+      position: absolute;
+      top: -50px; right: -50px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(171,196,235,0.18) 0%, transparent 70%);
+    }
+
+    .insight-callout::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -30px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(188,169,237,0.15) 0%, transparent 70%);
+    }
+
+    .insight-inner { position: relative; z-index: 1; }
+
+    .insight-callout h3 {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .insight-callout p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.70);
+      line-height: 1.8;
+      max-width: 680px;
+    }
+
+    .insight-callout strong { color: white; font-weight: 600; }
+
+    .insight-watch {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .insight-badge {
+      background: rgba(255,200,0,0.12);
+      border: 1px solid rgba(255,200,0,0.3);
+      border-radius: var(--radius-pill);
+      padding: 5px 14px;
+      font-family: var(--font-label);
+      font-size: 12px;
+      font-weight: 500;
+      color: #FFD966;
+    }
+
+    .sources-list {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sources-list a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .sources-list a:hover { color: rgba(255,255,255,0.8); }
+
+    .link-accent { color: #7AA8E3; font-weight: 600; text-decoration: none; }
+    .link-accent:hover { text-decoration: underline; }
+
+    .stat-icon-blue   { background: rgba(171,196,235,0.15); }
+    .stat-icon-purple { background: rgba(188,169,237,0.15); }
+    .stat-icon-green  { background: rgba(189,238,173,0.15); }
+
+    .comp-legend {
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      margin: 12px 0 0;
+    }
+
+    .section-mt { margin-top: 40px; }
+    .grid-3-stats { margin-bottom: 20px; }
+    .code-accent { font-size: 13px; color: #7AA8E3; }
+
+    /* ── MISSION SECTION ── */
+    .mission-statement {
+      background: linear-gradient(135deg, #23244D 0%, #1a2a4a 100%);
+      border-radius: var(--radius-card);
+      padding: 56px 64px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .mission-statement::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(171,196,235,0.18) 0%, transparent 65%);
+    }
+
+    .mission-statement::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(188,169,237,0.15) 0%, transparent 65%);
+    }
+
+    .mission-inner { position: relative; z-index: 1; }
+
+    .mission-eyebrow {
+      font-family: var(--font-label);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+    }
+
+    .mission-quote {
+      font-family: var(--font-head);
+      font-size: clamp(22px, 3vw, 32px);
+      font-weight: 800;
+      color: white;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      max-width: 740px;
+      margin-bottom: 24px;
+    }
+
+    .mission-quote em {
+      font-style: normal;
+      background: linear-gradient(90deg, #8EC5FC, #a78de8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .mission-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.60);
+      line-height: 1.8;
+      max-width: 600px;
+    }
+
+    /* ── MISSION PILLARS ── */
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 28px 24px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .pillar-card:hover {
+      box-shadow: 0 8px 40px rgba(35,36,77,0.12);
+      transform: translateY(-2px);
+    }
+
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      border-radius: 18px 18px 0 0;
+    }
+
+    .pillar-card.blue::before  { background: linear-gradient(90deg, #ABBDE9, #7AA8E3); }
+    .pillar-card.purple::before { background: linear-gradient(90deg, #BC89ED, #A06ED4); }
+    .pillar-card.green::before  { background: linear-gradient(90deg, #BDEEAD, #5BAD7A); }
+
+    .pillar-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .pillar-icon.blue   { background: rgba(171,196,235,0.18); }
+    .pillar-icon.purple { background: rgba(188,169,237,0.18); }
+    .pillar-icon.green  { background: rgba(189,238,173,0.20); }
+
+    .pillar-title {
+      font-family: var(--font-head);
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .pillar-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── MISSION VALUES ROW ── */
+    .values-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .value-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .value-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+
+    .value-dot.blue   { background: #7AA8E3; }
+    .value-dot.purple { background: #BC89ED; }
+    .value-dot.green  { background: #5BAD7A; }
+    .value-dot.amber  { background: #F5A623; }
+
+    .value-title {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.01em;
+      margin-bottom: 5px;
+    }
+
+    .value-body {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav, .page, .hero { padding-left: 24px; padding-right: 24px; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .info-row { flex-direction: column; gap: 4px; }
+      .info-row .info-key { min-width: unset; }
+      .comp-body { grid-template-columns: 1fr; }
+      .comp-col:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .market-hero { flex-direction: column; gap: 24px; }
+      .market-stats { justify-content: center; }
+      .insight-callout { padding: 28px 24px; }
+      .mission-statement { padding: 36px 28px; }
+      .pillar-grid { grid-template-columns: 1fr; }
+      .values-row { grid-template-columns: 1fr; }
+      .problem-intro { grid-template-columns: 1fr; }
+      .prob-top, .sol-bottom { padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <span></span>
+      MedGlobal360 — Brand Identity
+    </div>
+    <ul class="nav-links">
+      <li><a href="#project-summary">Overview</a></li>
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#problems">Problems</a></li>
+      <li><a href="#competitors">Competitors</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">Brand Identity Document</div>
+    <h1>MedGlobal<em>360</em></h1>
+    <p>A living reference for design, brand, and product decisions — updated as the product evolves.</p>
+  </div>
+
+  <!-- PAGE CONTENT -->
+  <div class="page">
+
+    <!-- ─── 01 · PROJECT SUMMARY ─── -->
+    <div class="section" id="project-summary">
+      <div class="section-label">
+        <span class="num">01</span>
+        <h2>Project Summary</h2>
+      </div>
+
+      <!-- Hero summary block -->
+      <div class="summary-hero">
+        <div class="app-name">MedGlobal360 · Medical Tourism App</div>
+        <h3>Your Personal Gateway to Global Healing</h3>
+        <p>
+          MedGlobal360 is a mobile-first platform that connects patients worldwide with world-class
+          hospitals, specialist doctors, and medical treatments across international destinations.
+          It simplifies the end-to-end medical travel journey — from discovery and comparison to
+          consultation booking and travel coordination — all within a single app.
+        </p>
+        <div class="badge-row">
+          <span class="badge">Medical Tourism</span>
+          <span class="badge">Healthcare</span>
+          <span class="badge">Mobile App</span>
+          <span class="badge">Global Health</span>
+          <span class="badge">Patient Journey</span>
+        </div>
+      </div>
+
+      <!-- Stat row -->
+      <div class="grid-3 grid-3-stats">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-blue">🏥</div>
+          <div class="stat-value">360°</div>
+          <div class="stat-label">End-to-end care journey coverage</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-purple">🌍</div>
+          <div class="stat-value">Global</div>
+          <div class="stat-label">Cross-border treatment discovery</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-green">📱</div>
+          <div class="stat-value">Android</div>
+          <div class="stat-label">Flutter · Min SDK API 24</div>
+        </div>
+      </div>
+
+      <!-- Detail table -->
+      <div class="info-card">
+        <div class="info-row">
+          <span class="info-key">Product Name</span>
+          <span class="info-val"><strong>MedGlobal360</strong> — commonly stylised as MG360</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Category</span>
+          <span class="info-val">Medical Tourism &amp; Healthcare Navigation</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Platform</span>
+          <span class="info-val">
+            <span class="pill">Android (primary)</span>
+            <span class="pill">Web prototype</span>
+          </span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Tech Stack</span>
+          <span class="info-val">
+            <span class="pill">Flutter / Dart</span>
+            <span class="pill">Firebase FCM</span>
+            <span class="pill">React + Vite (web proto)</span>
+            <span class="pill">Tailwind CSS v4</span>
+          </span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Package ID</span>
+          <span class="info-val"><code class="code-accent">com.medical.tourism</code></span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Target Users</span>
+          <span class="info-val">Patients seeking affordable or specialised treatments abroad; medical travel coordinators</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Core Features</span>
+          <span class="info-val">
+            Treatment discovery · Doctor &amp; hospital search · Consultation booking ·
+            Journey tracking · In-app chat · Notifications · JCI/NABL accreditation badges
+          </span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Tagline</span>
+          <span class="info-val"><strong>Your Personal Gateway to Global Healing</strong></span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Live Web Prototype</span>
+          <span class="info-val">
+            <a href="https://mg360.vercel.app" target="_blank" rel="noopener" class="link-accent">mg360.vercel.app ↗</a>
+          </span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Repository</span>
+          <span class="info-val">
+            <a href="https://github.com/xRaudra/MG360" target="_blank" rel="noopener" class="link-accent">github.com/xRaudra/MG360 ↗</a>
+          </span>
+        </div>
+      </div>
+
+    </div>
+    <!-- /project-summary -->
+
+    <!-- ─── 02 · OUR MISSION ─── -->
+    <div class="section" id="mission">
+      <div class="section-label">
+        <span class="num">02</span>
+        <h2>Our Mission</h2>
+      </div>
+
+      <!-- Mission statement banner -->
+      <div class="mission-statement">
+        <div class="mission-inner">
+          <div class="mission-eyebrow">Why MedGlobal360 Exists</div>
+          <h2 class="mission-quote">
+            To make world-class medical care <em>accessible, affordable,</em> and<br />
+            fully coordinated for every patient — wherever they are in the world.
+          </h2>
+          <p class="mission-sub">
+            Millions of patients travel across borders each year seeking treatments they cannot access at home — but the journey is fragmented, opaque, and stressful. MedGlobal360 exists to change that: one app, one timeline, one trusted partner from first consultation to full recovery.
+          </p>
+        </div>
+      </div>
+
+      <!-- Three pillars -->
+      <div class="pillar-grid">
+        <div class="pillar-card blue">
+          <div class="pillar-icon blue">🔍</div>
+          <div class="pillar-title">Access</div>
+          <p class="pillar-body">
+            Surface JCI and NABL accredited hospitals and verified specialist doctors across India — all in one place, searchable by treatment, specialty, location, and cost. No gatekeepers, no brokers.
+          </p>
+        </div>
+        <div class="pillar-card purple">
+          <div class="pillar-icon purple">⚖️</div>
+          <div class="pillar-title">Transparency</div>
+          <p class="pillar-body">
+            Show real treatment pricing, success rates, and patient reviews side by side. Every cost is visible before a patient commits — no hidden fees, no surprises, no markups passed from hospitals to patients.
+          </p>
+        </div>
+        <div class="pillar-card green">
+          <div class="pillar-icon green">🧭</div>
+          <div class="pillar-title">Journey</div>
+          <p class="pillar-body">
+            Own the full care journey — not just the booking. From consultation and visa guidance to flights, accommodation, and post-treatment follow-up, every step is tracked, documented, and coordinated inside the app.
+          </p>
+        </div>
+      </div>
+
+      <!-- Values -->
+      <div class="values-row">
+        <div class="value-card">
+          <div class="value-dot blue"></div>
+          <div>
+            <div class="value-title">Patient-First, Always</div>
+            <p class="value-body">Every feature is built around the patient experience — not hospital interests or commission structures. Revenue follows value delivered to patients, not the other way around.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-dot purple"></div>
+          <div>
+            <div class="value-title">Mobile-Native by Design</div>
+            <p class="value-body">Built as a mobile app from day one — not a web portal with an app bolted on. Real-time journey tracking, instant notifications, and document management require a native mobile experience.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-dot green"></div>
+          <div>
+            <div class="value-title">Africa-First Positioning</div>
+            <p class="value-body">The Africa-to-India corridor is the highest-demand, lowest-served route in medical tourism. MG360 is built natively for this corridor — not as an afterthought through a travel partnership.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <div class="value-dot amber"></div>
+          <div>
+            <div class="value-title">Trust Through Accreditation</div>
+            <p class="value-body">Every hospital and doctor on the platform is verified against JCI and NABL accreditation standards. Patients see real ratings, real reviews, and real credentials — not curated marketing copy.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /mission -->
+
+    <!-- ─── 03 · PROBLEMS WE'RE SOLVING ─── -->
+    <div class="section" id="problems">
+      <div class="section-label">
+        <span class="num">03</span>
+        <h2>Problems We're Solving</h2>
+      </div>
+
+      <!-- Scale stats -->
+      <div class="problem-intro">
+        <div class="problem-intro-card">
+          <div class="pic-val">73%</div>
+          <p class="pic-label">of medical tourists rely on unverified brokers with no transparency on fees or quality</p>
+        </div>
+        <div class="problem-intro-card">
+          <div class="pic-val">15+</div>
+          <p class="pic-label">journey touchpoints managed across WhatsApp, email, and paper — with zero coordination</p>
+        </div>
+        <div class="problem-intro-card">
+          <div class="pic-val">1.3</div>
+          <p class="pic-label">doctors per 1,000 people in Sub-Saharan Africa — forcing patients abroad with no digital support</p>
+        </div>
+      </div>
+
+      <!-- Problem 1 -->
+      <div class="problem-card">
+        <div class="prob-top">
+          <div class="prob-ghost-num">01</div>
+          <div class="prob-badge">Problem 01</div>
+          <h3 class="prob-title">Medical Information is Hidden, Fragmented, and Broker-Controlled</h3>
+          <p class="prob-desc">
+            Patients seeking treatment abroad face a market designed against them. Pricing is opaque, accreditation is unverified, and the only guides available are commission-hungry brokers who charge 15–25% markups passed silently to the patient.
+          </p>
+          <ul class="prob-bullets">
+            <li>The same cardiac surgery can cost 3× more depending on which broker a patient contacts</li>
+            <li>No single platform surfaces verified JCI/NABL accreditation alongside real patient reviews</li>
+            <li>Patients cannot compare hospitals side by side — they depend entirely on what brokers choose to show them</li>
+            <li>Success rates and complication data are never disclosed in the traditional broker model</li>
+          </ul>
+        </div>
+        <div class="sol-bottom">
+          <div class="sol-badge">How MG360 Solves It</div>
+          <div class="sol-title">A Transparent, Verified Marketplace — No Brokers, No Markups</div>
+          <p class="sol-desc">
+            MG360 surfaces every hospital and doctor with full JCI and NABL accreditation status, real treatment pricing, verified patient ratings, and success rate data — all side by side. Patients see everything upfront and choose freely. Revenue comes from hospital partnerships, never from markups on patient care.
+          </p>
+          <div class="sol-tags">
+            <span class="sol-tag">Verified JCI/NABL listings</span>
+            <span class="sol-tag">Transparent pricing</span>
+            <span class="sol-tag">Real patient reviews</span>
+            <span class="sol-tag">Side-by-side comparison</span>
+            <span class="sol-tag">Zero broker commissions</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem 2 -->
+      <div class="problem-card">
+        <div class="prob-top">
+          <div class="prob-ghost-num">02</div>
+          <div class="prob-badge">Problem 02</div>
+          <h3 class="prob-title">The Care Journey Falls Apart the Moment Booking is Confirmed</h3>
+          <p class="prob-desc">
+            Medical travel involves over 15 distinct touchpoints — consultation, visa application, flights, accommodation, pre-op tests, hospital admission, surgery, recovery, and follow-up. Today, patients manage all of this alone across WhatsApp groups, scattered emails, and paper documents. Families have no visibility. Coordinators are unreachable. Documents get lost.
+          </p>
+          <ul class="prob-bullets">
+            <li>Patients miss critical follow-up appointments because no one is tracking them</li>
+            <li>Medical records and visa documents are spread across phones, email, and physical folders</li>
+            <li>Families back home have no real-time visibility into their loved one's status</li>
+            <li>Post-treatment care falls through the cracks once the patient returns home</li>
+          </ul>
+        </div>
+        <div class="sol-bottom">
+          <div class="sol-badge">How MG360 Solves It</div>
+          <div class="sol-title">End-to-End Journey Tracker — Every Step, One App</div>
+          <p class="sol-desc">
+            MG360 owns the full care journey inside the app. A real-time timeline tracks every milestone from first consultation through post-treatment follow-up. A document vault stores medical records, visa docs, and test results. Family sharing gives loved ones live visibility. In-app chat connects patients directly with their coordinator — no WhatsApp, no lost emails.
+          </p>
+          <div class="sol-tags">
+            <span class="sol-tag">Real-time journey timeline</span>
+            <span class="sol-tag">Document vault</span>
+            <span class="sol-tag">Family sharing</span>
+            <span class="sol-tag">In-app coordinator chat</span>
+            <span class="sol-tag">Post-treatment follow-up</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Problem 3 -->
+      <div class="problem-card">
+        <div class="prob-top">
+          <div class="prob-ghost-num">03</div>
+          <div class="prob-badge">Problem 03</div>
+          <h3 class="prob-title">Africa's $2B Medical Tourism Corridor Has Zero Digital Infrastructure</h3>
+          <p class="prob-desc">
+            Sub-Saharan Africa has 1.3 doctors per 1,000 people — less than a third of the WHO benchmark of 4.45. Advanced cancer care, complex cardiac surgery, and specialist orthopedics are simply unavailable across most of the continent. Over $2 billion in annual medical travel flows from Africa to India alone — yet not a single purpose-built digital platform exists for this corridor. Patients navigate entirely through informal networks and word-of-mouth, with no safety net.
+          </p>
+          <ul class="prob-bullets">
+            <li>Patients have no way to verify hospitals or doctors before travelling thousands of kilometres</li>
+            <li>Visa guidance for Indian medical visas is fragmented and country-specific — no single source of truth</li>
+            <li>Language barriers and time zones make coordination with Indian hospitals nearly impossible</li>
+            <li>Existing global platforms treat Africa as an afterthought — no local language support, no corridor-specific guidance</li>
+          </ul>
+        </div>
+        <div class="sol-bottom">
+          <div class="sol-badge">How MG360 Solves It</div>
+          <div class="sol-title">Built Natively for the Africa-to-India Corridor</div>
+          <p class="sol-desc">
+            MG360 is the first platform designed from the ground up for African patients travelling to India. It provides local-language support, Africa-specific Indian medical visa guidance, and a vetted network of India's top hospitals serving African patients. Community-based trust — verified reviews from other African patients — replaces the informal word-of-mouth networks that patients currently depend on.
+          </p>
+          <div class="sol-tags">
+            <span class="sol-tag">Africa-first UX</span>
+            <span class="sol-tag">Multi-language support</span>
+            <span class="sol-tag">Medical visa guidance</span>
+            <span class="sol-tag">African patient community reviews</span>
+            <span class="sol-tag">India-specialist hospital network</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /problems -->
+
+    <!-- ─── 04 · COMPETITOR RESEARCH ─── -->
+    <div class="section" id="competitors">
+      <div class="section-label">
+        <span class="num">04</span>
+        <h2>Competitor Research</h2>
+      </div>
+
+      <!-- Market size banner -->
+      <div class="market-hero">
+        <div class="market-text">
+          <h3>Medical Tourism Market — 2025</h3>
+          <p>The global medical tourism industry is accelerating, with India as the primary destination for Africa, Middle East, and South Asian patient corridors. No single platform dominates mobile-first + journey tracking + Africa focus simultaneously.</p>
+        </div>
+        <div class="market-stats">
+          <div class="market-stat">
+            <div class="ms-val">$48.4B</div>
+            <div class="ms-label">Market size 2025</div>
+          </div>
+          <div class="market-divider"></div>
+          <div class="market-stat">
+            <div class="ms-val">16%</div>
+            <div class="ms-label">CAGR through 2030</div>
+          </div>
+          <div class="market-divider"></div>
+          <div class="market-stat">
+            <div class="ms-val">2.3M+</div>
+            <div class="ms-label">Int'l patients in India 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitor 1 — Vaidam Health -->
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <div>
+            <div class="comp-num">Competitor 01 — Most Direct</div>
+            <div class="comp-name">Vaidam Health</div>
+          </div>
+          <div class="comp-tag">
+            <span>India · Founded 2016</span>
+            <span>vaidam.com</span>
+          </div>
+        </div>
+        <div class="comp-meta">
+          <div class="comp-meta-item"><div class="mk">Revenue</div><div class="mv">₹16.4 Cr · 45% CAGR</div></div>
+          <div class="comp-meta-item"><div class="mk">Patients Served</div><div class="mv">100,000+</div></div>
+          <div class="comp-meta-item"><div class="mk">Monthly Interactions</div><div class="mv">25,000+</div></div>
+          <div class="comp-meta-item"><div class="mk">Active Markets</div><div class="mv">7 countries</div></div>
+          <div class="comp-meta-item"><div class="mk">Recent News</div><div class="mv">Acquired MediJourney (2025)</div></div>
+        </div>
+        <div class="comp-body">
+          <div class="comp-col strengths">
+            <div class="comp-col-title">What They Do Well</div>
+            <ul>
+              <li>End-to-end journey: second opinion → travel → visa → interpreter → accommodation</li>
+              <li>Free for patients — revenue from hospital commissions</li>
+              <li>ISO &amp; NABH accredited organisation itself</li>
+              <li>Strong SEO and content engine — dominant in Google searches</li>
+              <li>Case studies featured in Harvard Business Review</li>
+            </ul>
+          </div>
+          <div class="comp-col gaps">
+            <div class="comp-col-title">Weaknesses &amp; Gaps</div>
+            <ul>
+              <li>No dedicated mobile app — web-only experience</li>
+              <li>No real-time journey tracking for patients</li>
+              <li>Limited Africa-specific focus or language support</li>
+              <li>No in-app chat or messaging</li>
+              <li>Coordinator-heavy model — not scalable digitally</li>
+            </ul>
+          </div>
+        </div>
+        <div class="comp-advantage">
+          <span class="adv-label">MG360 Wins</span>
+          <p>Mobile-first app, real-time journey tracker, document sharing, Africa-first positioning, multi-language UI.</p>
+        </div>
+      </div>
+
+      <!-- Competitor 2 — Bookimed -->
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <div>
+            <div class="comp-num">Competitor 02 — #1 Ranked Globally</div>
+            <div class="comp-name">Bookimed</div>
+          </div>
+          <div class="comp-tag">
+            <span>Global · Founded 2014</span>
+            <span>bookimed.com</span>
+          </div>
+        </div>
+        <div class="comp-meta">
+          <div class="comp-meta-item"><div class="mk">Patients Served</div><div class="mv">900,000+</div></div>
+          <div class="comp-meta-item"><div class="mk">Hospital Network</div><div class="mv">900+ in 25+ countries</div></div>
+          <div class="comp-meta-item"><div class="mk">TrustPilot</div><div class="mv">915 reviews · 4.5★</div></div>
+          <div class="comp-meta-item"><div class="mk">Focus Specialties</div><div class="mv">Hair, dental, IVF, cardiology</div></div>
+          <div class="comp-meta-item"><div class="mk">Revenue Model</div><div class="mv">Listings + commissions + travel</div></div>
+        </div>
+        <div class="comp-body">
+          <div class="comp-col strengths">
+            <div class="comp-col-title">What They Do Well</div>
+            <ul>
+              <li>Largest independently reviewed platform globally</li>
+              <li>AI-powered hospital and treatment recommendations</li>
+              <li>Real-time price estimates and hospital comparisons</li>
+              <li>Direct communication with healthcare providers built-in</li>
+              <li>Free consultations, visa support, post-treatment assistance</li>
+            </ul>
+          </div>
+          <div class="comp-col gaps">
+            <div class="comp-col-title">Weaknesses &amp; Gaps</div>
+            <ul>
+              <li>Not India-specific — generic global platform</li>
+              <li>No Africa-first positioning or local language support</li>
+              <li>App experience is mediocre compared to the web version</li>
+              <li>No patient journey timeline tracker</li>
+              <li>Primarily European + SE Asian hospital network</li>
+            </ul>
+          </div>
+        </div>
+        <div class="comp-advantage">
+          <span class="adv-label">MG360 Wins</span>
+          <p>India-focused + Africa-sourced niche, dedicated journey tracker, document sharing, local care coordinator model.</p>
+        </div>
+      </div>
+
+      <!-- Competitor 3 — HealthTrip -->
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <div>
+            <div class="comp-num">Competitor 03 — Largest Database</div>
+            <div class="comp-name">HealthTrip</div>
+          </div>
+          <div class="comp-tag">
+            <span>Global · healthtrip.com</span>
+            <span>Africa expansion via Satguru 2025</span>
+          </div>
+        </div>
+        <div class="comp-meta">
+          <div class="comp-meta-item"><div class="mk">Focus Countries</div><div class="mv">India, UAE, Turkey, Germany</div></div>
+          <div class="comp-meta-item"><div class="mk">Key Partnership</div><div class="mv">Satguru Travel (Africa 2025)</div></div>
+          <div class="comp-meta-item"><div class="mk">Specialties</div><div class="mv">Cancer, ortho, cardiac, fertility</div></div>
+          <div class="comp-meta-item"><div class="mk">Target Markets</div><div class="mv">Africa, Middle East, South Asia</div></div>
+        </div>
+        <div class="comp-body">
+          <div class="comp-col strengths">
+            <div class="comp-col-title">What They Do Well</div>
+            <ul>
+              <li>Massive hospital &amp; doctor database</li>
+              <li>Recently partnered with Satguru Travel for Africa patient sourcing</li>
+              <li>Full-service: flights + visa + accommodation + concierge</li>
+              <li>Multi-destination — not restricted to India</li>
+              <li>Pre-travel consultations and second opinions</li>
+            </ul>
+          </div>
+          <div class="comp-col gaps">
+            <div class="comp-col-title">Weaknesses &amp; Gaps</div>
+            <ul>
+              <li>Very broad — not a focused Africa-to-India product</li>
+              <li>No mobile app — web portal only</li>
+              <li>Generic UX, not premium feel</li>
+              <li>No in-app journey tracking or document management</li>
+              <li>Africa reach is partnership-dependent, not organic</li>
+            </ul>
+          </div>
+        </div>
+        <div class="comp-advantage">
+          <span class="adv-label">MG360 Wins</span>
+          <p>Native mobile app, premium UI, dedicated journey timeline, document vault, Africa-first by design — not by partnership.</p>
+        </div>
+      </div>
+
+      <!-- Competitor 4 — Qunomedical -->
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <div>
+            <div class="comp-num">Competitor 04 — Strongest Digital UX</div>
+            <div class="comp-name">Qunomedical</div>
+          </div>
+          <div class="comp-tag">
+            <span>Europe · Berlin, Germany</span>
+            <span>qunomedical.com</span>
+          </div>
+        </div>
+        <div class="comp-meta">
+          <div class="comp-meta-item"><div class="mk">TrustPilot</div><div class="mv">1,360+ reviews · 4.5★</div></div>
+          <div class="comp-meta-item"><div class="mk">Focus</div><div class="mv">Cosmetic, dental, LASIK, ortho</div></div>
+          <div class="comp-meta-item"><div class="mk">Destinations</div><div class="mv">Germany, Turkey, Thailand</div></div>
+          <div class="comp-meta-item"><div class="mk">Unique Feature</div><div class="mv">Qunoscore — 21-metric rating</div></div>
+        </div>
+        <div class="comp-body">
+          <div class="comp-col strengths">
+            <div class="comp-col-title">What They Do Well</div>
+            <ul>
+              <li>Strongest digital-first UX among all competitors</li>
+              <li>Qunoscore — rates doctors across 21 metrics, building trust</li>
+              <li>24/7 patient support</li>
+              <li>Streamlined quote + doctor-matching process</li>
+              <li>Best for patients new to medical tourism</li>
+            </ul>
+          </div>
+          <div class="comp-col gaps">
+            <div class="comp-col-title">Weaknesses &amp; Gaps</div>
+            <ul>
+              <li>Europe/West-centric — not India-focused</li>
+              <li>Does not serve the Africa patient corridor at all</li>
+              <li>No real journey tracking beyond booking confirmation</li>
+              <li>Skewed to elective / cosmetic — limited complex surgery</li>
+              <li>No document management or travel logistics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="comp-advantage">
+          <span class="adv-label">MG360 Wins</span>
+          <p>India + complex surgery focus, Africa corridor, journey tracker, document vault, multi-language support for African users.</p>
+        </div>
+      </div>
+
+      <!-- Competitor 5 — PlacidWay -->
+      <div class="comp-card">
+        <div class="comp-card-header">
+          <div>
+            <div class="comp-num">Competitor 05 — Largest Global Network</div>
+            <div class="comp-name">PlacidWay</div>
+          </div>
+          <div class="comp-tag">
+            <span>US-based · Founded 2007</span>
+            <span>placidway.com</span>
+          </div>
+        </div>
+        <div class="comp-meta">
+          <div class="comp-meta-item"><div class="mk">Founded</div><div class="mv">2007 (oldest player)</div></div>
+          <div class="comp-meta-item"><div class="mk">Network</div><div class="mv">1,500+ facilities · 50+ countries</div></div>
+          <div class="comp-meta-item"><div class="mk">Recognition</div><div class="mv">Google AI top global leader</div></div>
+          <div class="comp-meta-item"><div class="mk">Revenue Model</div><div class="mv">Clinic SaaS listings + referrals</div></div>
+        </div>
+        <div class="comp-body">
+          <div class="comp-col strengths">
+            <div class="comp-col-title">What They Do Well</div>
+            <ul>
+              <li>Widest global hospital and clinic network</li>
+              <li>Strong brand authority and SEO dominance</li>
+              <li>Cost comparison tools and multilingual support</li>
+              <li>Patient testimonials integrated throughout</li>
+              <li>Covers Africa (South Africa listings)</li>
+            </ul>
+          </div>
+          <div class="comp-col gaps">
+            <div class="comp-col-title">Weaknesses &amp; Gaps</div>
+            <ul>
+              <li>Outdated UI/UX — feels like a 2010s directory</li>
+              <li>No mobile app</li>
+              <li>No journey tracking or document management</li>
+              <li>Listing-heavy, not patient-journey focused</li>
+              <li>Revenue model favours hospitals, not patient experience</li>
+            </ul>
+          </div>
+        </div>
+        <div class="comp-advantage">
+          <span class="adv-label">MG360 Wins</span>
+          <p>Modern mobile-first app, premium UX, real journey tracking, India-specialist focus, Africa-to-India corridor by design.</p>
+        </div>
+      </div>
+
+      <!-- Competitive Gap Map -->
+      <div class="section-label section-mt">
+        <span class="num"></span>
+        <h2>Competitive Gap Map</h2>
+      </div>
+
+      <div class="comp-table-wrap">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Vaidam</th>
+              <th>Bookimed</th>
+              <th>HealthTrip</th>
+              <th>Qunomedical</th>
+              <th>PlacidWay</th>
+              <th class="mg360-col">MG360</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Mobile App</td>
+              <td>❌</td><td>⚠️</td><td>❌</td><td>⚠️</td><td>❌</td>
+              <td class="mg360-col">✅</td>
+            </tr>
+            <tr>
+              <td>Journey Timeline Tracker</td>
+              <td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td>
+              <td class="mg360-col">✅</td>
+            </tr>
+            <tr>
+              <td>Document Vault</td>
+              <td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td>
+              <td class="mg360-col">✅</td>
+            </tr>
+            <tr>
+              <td>Africa-First Focus</td>
+              <td>⚠️</td><td>❌</td><td>⚠️</td><td>❌</td><td>❌</td>
+              <td class="mg360-col">✅</td>
+            </tr>
+            <tr>
+              <td>India Specialist</td>
+              <td>✅</td><td>❌</td><td>⚠️</td><td>❌</td><td>⚠️</td>
+              <td class="mg360-col">✅</td>
+            </tr>
+            <tr>
+              <td>In-App Chat</td>
+              <td>❌</td><td>⚠️</td><td>❌</td><td>❌</td><td>❌</td>
+              <td class="mg360-col">✅</td>
+            </tr>
+            <tr>
+              <td>Multi-language (African)</td>
+              <td>❌</td><td>❌</td><td>⚠️</td><td>❌</td><td>❌</td>
+              <td class="mg360-col">✅</td>
+            </tr>
+            <tr>
+              <td>Premium Mobile UX</td>
+              <td>❌</td><td>⚠️</td><td>❌</td><td>⚠️</td><td>❌</td>
+              <td class="mg360-col">✅</td>
+            </tr>
+            <tr>
+              <td>Share Journey with Family</td>
+              <td>❌</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td>
+              <td class="mg360-col">✅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="comp-legend">✅ Strong &nbsp;·&nbsp; ⚠️ Partial &nbsp;·&nbsp; ❌ Missing</p>
+
+      <!-- Key Insight -->
+      <div class="insight-callout">
+        <div class="insight-inner">
+          <h3>Key Insight — Where MG360's Moat Lives</h3>
+          <p>
+            No single competitor combines <strong>mobile-first app + real-time journey tracking + Africa-to-India corridor + document management + in-app coordination</strong>.
+            MG360's biggest differentiator is the <strong>journey experience layer</strong> — none of the top 5 have built it.
+            The market is large ($48.4B) and growing at 16% CAGR, but the mobile-native, patient-journey-first segment remains entirely unoccupied.
+          </p>
+          <div class="insight-watch">
+            <span class="insight-badge">⚠ Watch: Vaidam + MediJourney acquisition (2025)</span>
+            <span class="insight-badge">⚠ Watch: HealthTrip + Satguru Africa push (2025)</span>
+          </div>
+          <div class="sources-list">
+            <a href="https://tracxn.com/d/companies/vaidam" target="_blank" rel="noopener">Vaidam Health — Tracxn</a>
+            <a href="https://yourstory.com" target="_blank" rel="noopener">Vaidam acquires MediJourney — YourStory</a>
+            <a href="https://us-uk.bookimed.com/article/best-medical-tourism-companies/" target="_blank" rel="noopener">Bookimed — Top Medical Tourism Companies 2026</a>
+            <a href="https://www.travelandtourworld.com" target="_blank" rel="noopener">HealthTrip + Satguru Travel Africa Partnership</a>
+            <a href="https://tracxn.com/d/companies/qunomedical" target="_blank" rel="noopener">Qunomedical — Tracxn</a>
+            <a href="https://www.placidway.com" target="_blank" rel="noopener">PlacidWay — Medical Tourism Providers</a>
+            <a href="https://www.delveinsight.com/blog/medical-tourism-trends-2025" target="_blank" rel="noopener">Medical Tourism Market Size 2025 — DelveInsight</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /competitors -->
+
+  </div>
+  <!-- /page -->
+
+  <div class="page-footer">
+    <span><strong>MedGlobal360</strong> — Brand Identity</span>
+    <span>Last updated: May 2026</span>
+  </div>
+
+</body>
+</html>

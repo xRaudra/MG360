@@ -54,7 +54,7 @@ export default function OnboardingScreen({ onNavigate }) {
           border: '1px solid rgba(77,129,231,0.3)',
           borderRadius: 999,
           padding: '6px 18px',
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "'DM Sans', sans-serif",
           fontSize: 13, fontWeight: 500,
           color: '#4D81E7',
           cursor: 'pointer',
@@ -71,7 +71,7 @@ export default function OnboardingScreen({ onNavigate }) {
       }}>
         {/* Tag */}
         <span style={{
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "'DM Sans', sans-serif",
           fontSize: 13, fontWeight: 500,
           color: '#8AABDB',
           textAlign: 'center',
@@ -132,8 +132,8 @@ export default function OnboardingScreen({ onNavigate }) {
           style={{
             width: '100%', height: 52,
             background: '#4D81E7',
-            border: 'none', borderRadius: 14,
-            fontFamily: "'Inter', sans-serif",
+            border: 'none', borderRadius: 50,
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: 15, fontWeight: 600,
             color: 'white',
             cursor: 'pointer',

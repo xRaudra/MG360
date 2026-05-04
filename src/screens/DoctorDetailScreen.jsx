@@ -35,7 +35,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
               <span className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-green-400 border-2 border-white" />
             )}
           </div>
-          <h2 className="text-white font-bold text-xl text-center" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h2 className="text-white font-bold text-xl text-center" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             {doc.name}
           </h2>
           <p className="text-white/70 text-sm mt-0.5">{doc.specialization}</p>
@@ -64,7 +64,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
       <div className="px-4 py-5 flex flex-col gap-4">
         {/* About */}
         <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-2" style={{ fontFamily: 'Nunito, sans-serif' }}>About</h3>
+          <h3 className="font-bold text-slate-800 text-sm mb-2" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>About</h3>
           <p className="text-slate-500 text-sm leading-relaxed">
             {doc.name} is a leading {doc.specialization} at {doc.hospital} with {doc.experience} of expertise. Known for exceptional patient outcomes, international patient care, and minimally invasive techniques.
           </p>
@@ -72,7 +72,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
 
         {/* Languages */}
         <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Nunito, sans-serif' }}>Languages</h3>
+          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Languages</h3>
           <div className="flex gap-2 flex-wrap">
             {doc.languages.map(l => (
               <span key={l} className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1B4FBF]">{l}</span>
@@ -82,7 +82,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
 
         {/* Availability */}
         <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Nunito, sans-serif' }}>Available Slots</h3>
+          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Available Slots</h3>
           <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
             {['Mon Jan 20', 'Tue Jan 21', 'Wed Jan 22', 'Thu Jan 23'].map((d, i) => (
               <button key={d}
@@ -142,7 +142,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
           <Phone size={20} color="#475569" />
         </button>
         <button
-          className="flex-1 py-3.5 rounded-2xl text-white font-semibold text-sm"
+          className="flex-1 py-3.5 rounded-full text-white font-semibold text-sm"
           style={{ background: `linear-gradient(135deg, ${colors[colorIdx]}, #0D9488)` }}>
           Book Consultation
         </button>

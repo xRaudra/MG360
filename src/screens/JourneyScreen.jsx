@@ -36,7 +36,7 @@ export default function JourneyScreen({ onNavigate }) {
         <div className="flex items-center justify-between mb-4">
           <div>
             <p className="text-white/60 text-xs">Active Journey</p>
-            <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Nunito, sans-serif' }}>
+            <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Cardiac Bypass
             </h2>
           </div>
@@ -111,7 +111,7 @@ export default function JourneyScreen({ onNavigate }) {
                     style={{ boxShadow: step.status === 'active' ? '0 4px 16px rgba(27,79,191,0.15)' : '0 1px 4px rgba(0,0,0,0.06)' }}>
                     <div className="flex items-start justify-between">
                       <div>
-                        <p className="font-semibold text-slate-800 text-sm" style={{ fontFamily: 'Nunito, sans-serif' }}>
+                        <p className="font-semibold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                           {step.title}
                         </p>
                         <p className="text-slate-500 text-xs mt-0.5">{step.desc}</p>
@@ -173,7 +173,7 @@ export default function JourneyScreen({ onNavigate }) {
                 </div>
                 <div className="flex-1">
                   <p className="text-slate-400 text-xs">{d.label}</p>
-                  <p className="font-bold text-slate-800 text-sm" style={{ fontFamily: 'Nunito, sans-serif' }}>{d.value}</p>
+                  <p className="font-bold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{d.value}</p>
                   <p className="text-slate-500 text-xs mt-0.5">{d.sub}</p>
                 </div>
                 <ChevronRight size={16} color="#94A3B8" />
@@ -188,7 +188,7 @@ export default function JourneyScreen({ onNavigate }) {
             <div className="mt-2 rounded-2xl p-4" style={{ background: 'linear-gradient(135deg, #7C3AED, #1B4FBF)' }}>
               <div className="flex items-center gap-2 mb-2">
                 <Share2 size={16} color="white" />
-                <h3 className="text-white font-semibold text-sm" style={{ fontFamily: 'Nunito, sans-serif' }}>
+                <h3 className="text-white font-semibold text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                   Share Journey
                 </h3>
               </div>

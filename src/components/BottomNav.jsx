@@ -43,7 +43,7 @@ export default function BottomNav({ active, onNavigate }) {
             </div>
             <span
               className="text-caption font-medium"
-              style={{ color: isActive ? '#1B4FBF' : '#94A3B8', fontFamily: "'Inter', sans-serif" }}
+              style={{ color: isActive ? '#1B4FBF' : '#94A3B8', fontFamily: "'DM Sans', sans-serif" }}
             >
               {label}
             </span>

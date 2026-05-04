@@ -31,18 +31,18 @@ export default function ProfileScreen({ onNavigate }) {
       {/* Header */}
       <div className="px-4 pt-6 pb-8"
         style={{ background: 'linear-gradient(160deg, #1B4FBF 0%, #0D9488 100%)' }}>
-        <h2 className="font-bold text-white text-xl mb-5" style={{ fontFamily: 'Nunito, sans-serif' }}>
+        <h2 className="font-bold text-white text-xl mb-5" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
           My Profile
         </h2>
 
         {/* Avatar + Info */}
         <div className="flex items-center gap-4">
           <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center text-white text-2xl font-bold border-4 border-white/30"
-            style={{ fontFamily: 'Nunito, sans-serif' }}>
+            style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             KM
           </div>
           <div>
-            <h3 className="text-white font-bold text-xl" style={{ fontFamily: 'Nunito, sans-serif' }}>
+            <h3 className="text-white font-bold text-xl" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Kwame Mensah
             </h3>
             <p className="text-white/70 text-sm">kwame@email.com</p>
@@ -100,7 +100,7 @@ export default function ProfileScreen({ onNavigate }) {
         {/* Logout */}
         <button
           onClick={() => onNavigate('login')}
-          className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl border-2 border-red-100 bg-red-50 text-red-500 font-semibold text-sm transition-all active:scale-95">
+          className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full border-2 border-red-100 bg-red-50 text-red-500 font-semibold text-sm transition-all active:scale-95">
           <LogOut size={18} />
           Sign Out
         </button>

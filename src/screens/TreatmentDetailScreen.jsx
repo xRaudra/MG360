@@ -26,7 +26,7 @@ export default function TreatmentDetailScreen({ data, onNavigate }) {
             {t.icon}
           </div>
           <div>
-            <h2 className="text-white font-bold text-xl leading-tight" style={{ fontFamily: 'Nunito, sans-serif' }}>
+            <h2 className="text-white font-bold text-xl leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               {t.name}
             </h2>
             <p className="text-white/70 text-sm mt-1">{t.category}</p>
@@ -62,7 +62,7 @@ export default function TreatmentDetailScreen({ data, onNavigate }) {
       <div className="px-4 py-5 flex flex-col gap-5">
         {/* Overview */}
         <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-2" style={{ fontFamily: 'Nunito, sans-serif' }}>Overview</h3>
+          <h3 className="font-bold text-slate-800 text-sm mb-2" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Overview</h3>
           <p className="text-slate-500 text-sm leading-relaxed">
             {t.name} is a highly effective procedure performed by India's leading specialists. India offers world-class surgical outcomes at 60–80% less than Western countries, with JCI-accredited facilities and post-operative care support.
           </p>
@@ -70,7 +70,7 @@ export default function TreatmentDetailScreen({ data, onNavigate }) {
 
         {/* What's included */}
         <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Nunito, sans-serif' }}>What's Included</h3>
+          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>What's Included</h3>
           {['Pre-surgery consultation & tests', 'Surgical procedure + anaesthesia', 'Hospital stay (private room)', 'Post-op physiotherapy', 'Airport transfers & assistance', '24/7 care coordinator support'].map(item => (
             <div key={item} className="flex items-center gap-3 py-1.5">
               <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
@@ -83,7 +83,7 @@ export default function TreatmentDetailScreen({ data, onNavigate }) {
 
         {/* Cost breakdown */}
         <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Nunito, sans-serif' }}>Cost Estimate</h3>
+          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Cost Estimate</h3>
           {[
             ['Surgery + Procedure', t.price],
             ['Hospital Stay (7 nights)', '$800'],
@@ -104,7 +104,7 @@ export default function TreatmentDetailScreen({ data, onNavigate }) {
         {/* Related Doctors */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-slate-800 text-sm" style={{ fontFamily: 'Nunito, sans-serif' }}>Recommended Doctors</h3>
+            <h3 className="font-bold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Recommended Doctors</h3>
             <button onClick={() => onNavigate('doctors')} className="text-xs text-[#1B4FBF] font-semibold flex items-center gap-1">
               See all <ChevronRight size={13} />
             </button>
@@ -136,11 +136,11 @@ export default function TreatmentDetailScreen({ data, onNavigate }) {
       {/* CTA */}
       <div className="px-4 pb-6 flex gap-3">
         <button onClick={() => onNavigate('chat')}
-          className="flex-1 py-3.5 rounded-2xl border-2 border-[#1B4FBF] text-[#1B4FBF] font-semibold text-sm">
+          className="flex-1 py-3.5 rounded-full border-2 border-[#1B4FBF] text-[#1B4FBF] font-semibold text-sm">
           Ask Expert
         </button>
         <button onClick={() => onNavigate('journey')}
-          className="flex-1 py-3.5 rounded-2xl text-white font-semibold text-sm"
+          className="flex-1 py-3.5 rounded-full text-white font-semibold text-sm"
           style={{ background: 'linear-gradient(135deg, #1B4FBF, #0D9488)' }}>
           Start Journey ✈️
         </button>

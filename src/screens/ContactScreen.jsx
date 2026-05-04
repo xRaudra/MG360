@@ -15,7 +15,7 @@ export default function ContactScreen({ onNavigate }) {
         <button onClick={() => onNavigate('home')} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center mb-5">
           <ArrowLeft size={18} color="white" />
         </button>
-        <h2 className="text-white font-bold text-2xl mb-1" style={{ fontFamily: 'Nunito, sans-serif' }}>
+        <h2 className="text-white font-bold text-2xl mb-1" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
           Contact Us
         </h2>
         <p className="text-white/60 text-sm">We're here 24/7 to support your journey</p>
@@ -42,7 +42,7 @@ export default function ContactScreen({ onNavigate }) {
 
         {/* Enquiry form */}
         <div className="bg-white rounded-2xl p-5" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-base mb-4" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h3 className="font-bold text-slate-800 text-base mb-4" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Send an Enquiry
           </h3>
           <div className="flex flex-col gap-4">
@@ -71,7 +71,7 @@ export default function ContactScreen({ onNavigate }) {
               />
             </div>
             <button
-              className="w-full py-3.5 rounded-2xl text-white font-semibold text-sm flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-full text-white font-semibold text-sm flex items-center justify-center gap-2"
               style={{ background: 'linear-gradient(135deg, #1B4FBF, #0D9488)' }}>
               <Send size={16} />
               Send Enquiry
@@ -81,7 +81,7 @@ export default function ContactScreen({ onNavigate }) {
 
         {/* Office info */}
         <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Our Offices
           </h3>
           {[

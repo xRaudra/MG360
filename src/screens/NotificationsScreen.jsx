@@ -20,7 +20,7 @@ export default function NotificationsScreen({ onNavigate }) {
           <button onClick={() => onNavigate('home')} className="p-2 rounded-xl bg-slate-100">
             <ArrowLeft size={18} color="#0F172A" />
           </button>
-          <h2 className="font-bold text-slate-800 text-lg flex-1" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h2 className="font-bold text-slate-800 text-lg flex-1" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Notifications
           </h2>
           {unread > 0 && (
@@ -49,7 +49,7 @@ export default function NotificationsScreen({ onNavigate }) {
                       {cfg.icon}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-slate-800 text-sm" style={{ fontFamily: 'Nunito, sans-serif' }}>
+                      <p className="font-semibold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                         {n.title}
                       </p>
                       <p className="text-slate-500 text-xs mt-0.5 leading-relaxed">{n.body}</p>

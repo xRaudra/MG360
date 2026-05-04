@@ -111,8 +111,8 @@ export default function CreateAccountScreen({ onNavigate }) {
             style={{
               width: '100%', height: 52,
               background: '#4D81E7',
-              border: 'none', borderRadius: 14,
-              fontFamily: "'Inter', sans-serif",
+              border: 'none', borderRadius: 50,
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: 15, fontWeight: 600,
               color: 'white', letterSpacing: '-0.01em',
               cursor: 'pointer',
@@ -126,7 +126,7 @@ export default function CreateAccountScreen({ onNavigate }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
               <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
-              <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 400, color: '#7C7C7C', whiteSpace: 'nowrap' }}>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 400, color: '#7C7C7C', whiteSpace: 'nowrap' }}>
                 Or login with
               </span>
               <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
@@ -146,7 +146,7 @@ export default function CreateAccountScreen({ onNavigate }) {
                     flex: 1, height: 52,
                     background: 'white',
                     border: '1px solid #EFF0F6',
-                    borderRadius: 12,
+                    borderRadius: 50,
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     cursor: 'pointer',
                   }}
@@ -161,7 +161,7 @@ export default function CreateAccountScreen({ onNavigate }) {
         {/* Terms */}
         <p style={{
           textAlign: 'center',
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "'DM Sans', sans-serif",
           fontSize: 12, color: '#7C7C7C',
           padding: '20px 32px 44px',
           margin: 0,
@@ -181,7 +181,7 @@ function InputField({ label, type, placeholder, value, onChange }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       <span style={{
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: 13, fontWeight: 500,
         color: '#6C727A',
         letterSpacing: '-0.01em',
@@ -204,7 +204,7 @@ function InputField({ label, type, placeholder, value, onChange }) {
           style={{
             flex: 1, border: 'none', outline: 'none',
             background: 'transparent',
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: 14, fontWeight: 400,
             color: '#313131',
             width: '100%',

@@ -42,14 +42,14 @@ export default function GuestConfirmScreen({ onNavigate, data }) {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center', textAlign: 'center' }}>
           <h1 style={{
-            fontFamily: "'Nunito Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 24, fontWeight: 800,
             color: '#23244D', margin: 0, letterSpacing: '-0.02em',
           }}>
             All Set!
           </h1>
           <p style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: 13, color: '#7C7C7C', margin: 0, lineHeight: '160%',
             maxWidth: 260,
           }}>
@@ -82,14 +82,14 @@ export default function GuestConfirmScreen({ onNavigate, data }) {
               </div>
               <div style={{ flex: 1 }}>
                 <p style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "'DM Sans', sans-serif",
                   fontSize: 10, fontWeight: 600, margin: 0,
                   color: '#94A3B8', letterSpacing: '0.06em', textTransform: 'uppercase',
                 }}>
                   {row.label}
                 </p>
                 <p style={{
-                  fontFamily: "'Inter', sans-serif",
+                  fontFamily: "'DM Sans', sans-serif",
                   fontSize: 14, fontWeight: 600, margin: '3px 0 0',
                   color: '#23244D',
                 }}>
@@ -97,7 +97,7 @@ export default function GuestConfirmScreen({ onNavigate, data }) {
                 </p>
                 {row.sub && (
                   <p style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'DM Sans', sans-serif",
                     fontSize: 11, margin: '1px 0 0',
                     color: '#94A3B8',
                   }}>
@@ -127,7 +127,7 @@ export default function GuestConfirmScreen({ onNavigate, data }) {
             borderRadius: 14, marginTop: 4,
           }}>
             <p style={{
-              fontFamily: "'Inter', sans-serif",
+              fontFamily: "'DM Sans', sans-serif",
               fontSize: 12, color: '#56698F', margin: 0, lineHeight: '160%',
             }}>
               You're exploring as a <strong>Guest</strong>. Create an account to save your journey, get doctor recommendations, and schedule consultations.
@@ -149,8 +149,8 @@ export default function GuestConfirmScreen({ onNavigate, data }) {
           style={{
             width: '100%', height: 52,
             background: '#56698F',
-            border: 'none', borderRadius: 14,
-            fontFamily: "'Inter', sans-serif",
+            border: 'none', borderRadius: 50,
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: 15, fontWeight: 600, color: 'white',
             cursor: 'pointer',
             letterSpacing: '-0.01em',
@@ -166,8 +166,8 @@ export default function GuestConfirmScreen({ onNavigate, data }) {
             width: '100%', height: 44,
             background: 'transparent',
             border: '1.5px solid #56698F',
-            borderRadius: 14,
-            fontFamily: "'Inter', sans-serif",
+            borderRadius: 50,
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: 14, fontWeight: 500, color: '#56698F',
             cursor: 'pointer',
             letterSpacing: '-0.01em',

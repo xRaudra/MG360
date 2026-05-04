@@ -41,7 +41,7 @@ export default function ChatScreen({ onNavigate }) {
           CT
         </div>
         <div className="flex-1">
-          <p className="font-semibold text-slate-800 text-sm" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <p className="font-semibold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Care Coordinator
           </p>
           <div className="flex items-center gap-1">

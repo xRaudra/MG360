@@ -33,7 +33,7 @@ export default function DoctorsScreen({ onNavigate }) {
           <button onClick={() => onNavigate('home')} className="p-2 rounded-xl bg-slate-100">
             <ArrowLeft size={18} color="#0F172A" />
           </button>
-          <h2 className="font-bold text-slate-800 text-lg" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h2 className="font-bold text-slate-800 text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Top Doctors
           </h2>
           <button className="ml-auto p-2 rounded-xl bg-[#EFF6FF]">
@@ -79,7 +79,7 @@ export default function DoctorsScreen({ onNavigate }) {
                 )}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-semibold text-slate-800 text-sm mb-0.5" style={{ fontFamily: 'Nunito, sans-serif' }}>
+                <p className="font-semibold text-slate-800 text-sm mb-0.5" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                   {doc.name}
                 </p>
                 <p className="text-slate-500 text-xs mb-1">{doc.specialization}</p>

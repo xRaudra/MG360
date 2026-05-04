@@ -34,7 +34,7 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
               {h.logo}
             </div>
             <div className="flex-1">
-              <h2 className="text-white font-bold text-xl leading-tight" style={{ fontFamily: 'Nunito, sans-serif' }}>
+              <h2 className="text-white font-bold text-xl leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                 {h.name}
               </h2>
               <div className="flex items-center gap-1 mt-1">
@@ -82,7 +82,7 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
       <div className="px-4 py-5 flex flex-col gap-4">
         {/* Specialties */}
         <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Nunito, sans-serif' }}>Specialties</h3>
+          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Specialties</h3>
           <div className="flex flex-wrap gap-2">
             {h.specialties.map(s => (
               <span key={s} className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1B4FBF]">{s}</span>
@@ -92,7 +92,7 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
 
         {/* Facilities */}
         <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Nunito, sans-serif' }}>Facilities</h3>
+          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Facilities</h3>
           <div className="grid grid-cols-2 gap-2">
             {facilities.map(f => (
               <div key={f} className="flex items-center gap-2 py-1">
@@ -108,7 +108,7 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
         {/* Doctors */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-slate-800 text-sm" style={{ fontFamily: 'Nunito, sans-serif' }}>Key Doctors</h3>
+            <h3 className="font-bold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Key Doctors</h3>
             <button onClick={() => onNavigate('doctors')} className="text-xs text-[#1B4FBF] font-semibold flex items-center gap-1">
               All Doctors <ChevronRight size={13} />
             </button>
@@ -140,11 +140,11 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
       {/* CTA */}
       <div className="px-4 pb-6 flex gap-3">
         <button onClick={() => onNavigate('chat')}
-          className="flex-1 py-3.5 rounded-2xl border-2 border-[#1B4FBF] text-[#1B4FBF] font-semibold text-sm">
+          className="flex-1 py-3.5 rounded-full border-2 border-[#1B4FBF] text-[#1B4FBF] font-semibold text-sm">
           Enquire
         </button>
         <button onClick={() => onNavigate('journey')}
-          className="flex-1 py-3.5 rounded-2xl text-white font-semibold text-sm"
+          className="flex-1 py-3.5 rounded-full text-white font-semibold text-sm"
           style={{ background: 'linear-gradient(135deg, #1B4FBF, #0D9488)' }}>
           Plan Visit ✈️
         </button>

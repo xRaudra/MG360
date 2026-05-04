@@ -32,7 +32,7 @@ export default function HomeScreen({ onNavigate }) {
         <div className="flex items-center justify-between mb-4">
           <div>
             <p className="text-white/60 text-xs">Good morning,</p>
-            <h2 className="text-white font-bold text-lg leading-tight" style={{ fontFamily: 'Nunito, sans-serif' }}>
+            <h2 className="text-white font-bold text-lg leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Kwame Mensah 👋
             </h2>
           </div>
@@ -86,7 +86,7 @@ export default function HomeScreen({ onNavigate }) {
       {/* Quick Actions */}
       <div className="px-4 py-4">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Quick Actions
           </h3>
         </div>
@@ -116,7 +116,7 @@ export default function HomeScreen({ onNavigate }) {
           <div className="flex items-center gap-2 mb-1">
             <span className="bg-white/25 text-white text-xs font-bold px-2 py-0.5 rounded-full">FREE</span>
           </div>
-          <h3 className="text-white font-bold text-base leading-tight" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h3 className="text-white font-bold text-base leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Get a Free Second Opinion
           </h3>
           <p className="text-white/75 text-xs mt-1">
@@ -131,7 +131,7 @@ export default function HomeScreen({ onNavigate }) {
       {/* Top Doctors */}
       <div className="px-4 mb-4">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Top Doctors
           </h3>
           <button onClick={() => onNavigate('doctors')}
@@ -152,7 +152,7 @@ export default function HomeScreen({ onNavigate }) {
                   <span className="w-2 h-2 rounded-full bg-green-400 mt-1" />
                 )}
               </div>
-              <p className="font-semibold text-slate-800 text-xs leading-tight mb-0.5" style={{ fontFamily: 'Nunito, sans-serif' }}>
+              <p className="font-semibold text-slate-800 text-xs leading-tight mb-0.5" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                 {doc.name}
               </p>
               <p className="text-slate-400 text-xs mb-2 leading-tight">{doc.specialization.split(' ')[0]}</p>
@@ -168,7 +168,7 @@ export default function HomeScreen({ onNavigate }) {
       {/* Popular Treatments */}
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Popular Treatments
           </h3>
           <button onClick={() => onNavigate('treatment')}
@@ -186,7 +186,7 @@ export default function HomeScreen({ onNavigate }) {
                 {t.icon}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-semibold text-slate-800 text-sm" style={{ fontFamily: 'Nunito, sans-serif' }}>
+                <p className="font-semibold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                   {t.name}
                 </p>
                 <p className="text-slate-400 text-xs">{t.category} · {t.duration}</p>

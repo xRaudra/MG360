@@ -22,7 +22,7 @@ export default function HospitalsScreen({ onNavigate }) {
           <button onClick={() => onNavigate('home')} className="p-2 rounded-xl bg-slate-100">
             <ArrowLeft size={18} color="#0F172A" />
           </button>
-          <h2 className="font-bold text-slate-800 text-lg" style={{ fontFamily: 'Nunito, sans-serif' }}>
+          <h2 className="font-bold text-slate-800 text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Top Hospitals
           </h2>
           <button className="ml-auto p-2 rounded-xl bg-[#EFF6FF]">
@@ -69,7 +69,7 @@ export default function HospitalsScreen({ onNavigate }) {
                     {h.logo}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="font-bold text-slate-800 text-sm leading-tight" style={{ fontFamily: 'Nunito, sans-serif' }}>
+                    <p className="font-bold text-slate-800 text-sm leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                       {h.name}
                     </p>
                     <div className="flex items-center gap-1 mt-0.5">

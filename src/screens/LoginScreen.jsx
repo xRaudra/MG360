@@ -87,13 +87,13 @@ export default function LoginScreen({ onNavigate }) {
                 style={{ display: 'flex', alignItems: 'center', gap: 6, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
               >
                 <Checkbox checked={rememberMe} />
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 500, color: '#7C7C7C', letterSpacing: '-0.01em' }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 500, color: '#7C7C7C', letterSpacing: '-0.01em' }}>
                   Remember me
                 </span>
               </button>
               <button
                 type="button"
-                style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 600, color: '#4D81E7', letterSpacing: '-0.01em', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+                style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, color: '#4D81E7', letterSpacing: '-0.01em', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
               >
                 Forgot Password ?
               </button>
@@ -109,8 +109,8 @@ export default function LoginScreen({ onNavigate }) {
               style={{
                 width: '100%', height: 52,
                 background: '#4D81E7',
-                border: 'none', borderRadius: 14,
-                fontFamily: "'Inter', sans-serif",
+                border: 'none', borderRadius: 50,
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: 15, fontWeight: 600,
                 color: 'white', letterSpacing: '-0.01em',
                 cursor: 'pointer',
@@ -124,7 +124,7 @@ export default function LoginScreen({ onNavigate }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
                 <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
-                <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 12, fontWeight: 400, color: '#7C7C7C', whiteSpace: 'nowrap' }}>
+                <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 400, color: '#7C7C7C', whiteSpace: 'nowrap' }}>
                   Or login with
                 </span>
                 <div style={{ flex: 1, height: 1, background: '#ECEFF2' }} />
@@ -145,7 +145,7 @@ export default function LoginScreen({ onNavigate }) {
                       flex: 1, height: 52,
                       background: 'white',
                       border: '1px solid #EFF0F6',
-                      borderRadius: 12,
+                      borderRadius: 50,
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       cursor: 'pointer',
                     }}
@@ -161,7 +161,7 @@ export default function LoginScreen({ onNavigate }) {
         {/* New user link */}
         <p style={{
           textAlign: 'center',
-          fontFamily: "'Inter', sans-serif",
+          fontFamily: "'DM Sans', sans-serif",
           fontSize: 13,
           padding: '20px 20px 44px',
           margin: 0,
@@ -170,7 +170,7 @@ export default function LoginScreen({ onNavigate }) {
           <button
             onClick={() => onNavigate('createAccount')}
             type="button"
-            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontFamily: "'Inter', sans-serif", fontSize: 13, fontWeight: 600, color: '#0098FF' }}
+            style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 600, color: '#0098FF' }}
           >
             Create an account
           </button>
@@ -192,7 +192,7 @@ function StatItem({ number, label }) {
         {number}
       </span>
       <span style={{
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: 12, fontWeight: 500,
         color: '#4D81E7',
       }}>
@@ -206,7 +206,7 @@ function InputField({ label, type, placeholder, value, onChange, iconRight }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       <span style={{
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'DM Sans', sans-serif",
         fontSize: 13, fontWeight: 500,
         color: '#6C727A',
         letterSpacing: '-0.01em',
@@ -230,7 +230,7 @@ function InputField({ label, type, placeholder, value, onChange, iconRight }) {
           style={{
             flex: 1, border: 'none', outline: 'none',
             background: 'transparent',
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: 14, fontWeight: 400,
             color: '#313131',
           }}

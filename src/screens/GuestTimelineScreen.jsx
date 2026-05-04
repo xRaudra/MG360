@@ -45,13 +45,13 @@ function StepBar({ step }) {
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 color: done || active ? 'white' : '#94A3B8',
                 fontSize: done ? 13 : 12, fontWeight: 700,
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 transition: 'all 0.2s',
               }}>
                 {done ? <Check size={14} strokeWidth={2.5} /> : i + 1}
               </div>
               <span style={{
-                fontFamily: "'Inter', sans-serif",
+                fontFamily: "'DM Sans', sans-serif",
                 fontSize: 9, fontWeight: 600,
                 color: active ? '#56698F' : done ? '#56698F' : '#CBD5E1',
                 letterSpacing: '0.04em',
@@ -97,14 +97,14 @@ export default function GuestTimelineScreen({ onNavigate, data }) {
 
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           <h1 style={{
-            fontFamily: "'Nunito Sans', sans-serif",
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontSize: 24, fontWeight: 800,
             color: '#23244D', margin: 0, letterSpacing: '-0.02em',
           }}>
             When do you need care?
           </h1>
           <p style={{
-            fontFamily: "'Inter', sans-serif",
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: 13, color: '#7C7C7C', margin: 0, lineHeight: '160%',
           }}>
             This helps us prioritise the right options for you.
@@ -141,14 +141,14 @@ export default function GuestTimelineScreen({ onNavigate, data }) {
                 </div>
                 <div style={{ flex: 1 }}>
                   <p style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'DM Sans', sans-serif",
                     fontSize: 14, fontWeight: 600, margin: 0,
                     color: isSel ? '#56698F' : '#23244D',
                   }}>
                     {opt.label}
                   </p>
                   <p style={{
-                    fontFamily: "'Inter', sans-serif",
+                    fontFamily: "'DM Sans', sans-serif",
                     fontSize: 12, margin: '3px 0 0', lineHeight: '150%',
                     color: '#94A3B8',
                   }}>
@@ -182,8 +182,8 @@ export default function GuestTimelineScreen({ onNavigate, data }) {
           style={{
             width: '100%', height: 52,
             background: selected ? '#56698F' : '#CBD5E1',
-            border: 'none', borderRadius: 14,
-            fontFamily: "'Inter', sans-serif",
+            border: 'none', borderRadius: 50,
+            fontFamily: "'DM Sans', sans-serif",
             fontSize: 15, fontWeight: 600, color: 'white',
             cursor: selected ? 'pointer' : 'default',
             letterSpacing: '-0.01em',

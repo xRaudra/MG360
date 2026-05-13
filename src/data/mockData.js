@@ -58,6 +58,13 @@ export const notifications = [
   { id: 6, type: 'appointment', title: 'Surgery Scheduled', body: 'Cardiac Bypass scheduled for Feb 5, 2025 at Apollo Hospital.', time: '2 days ago', read: true },
 ];
 
+export const careCircleMembers = [
+  { id: 'cc1', name: 'Thandi Mensah', relationship: 'Mother', permission: 'view_only', status: 'active', avatar: 'TM', phone: '+234 801 234 5678', email: 'thandi@email.com', addedDate: 'Jan 10, 2025', lastActive: '2 hrs ago' },
+  { id: 'cc2', name: 'Sipho Mensah', relationship: 'Brother', permission: 'support', status: 'active', avatar: 'SM', phone: '+234 802 345 6789', email: 'sipho@email.com', addedDate: 'Jan 12, 2025', lastActive: 'Yesterday' },
+  { id: 'cc3', name: 'Nomsa Mensah', relationship: 'Wife', permission: 'full', status: 'active', avatar: 'NM', phone: '+234 803 456 7890', email: 'nomsa@email.com', addedDate: 'Jan 8, 2025', lastActive: '30 min ago' },
+  { id: 'cc4', name: 'Lebo Dlamini', relationship: 'Friend', permission: 'view_only', status: 'pending', avatar: 'LD', phone: '+234 804 567 8901', email: 'lebo@email.com', addedDate: 'Jan 20, 2025', lastActive: null },
+];
+
 export const chatMessages = [
   { id: 1, sender: 'support', name: 'Care Team', text: 'Hello! Welcome to MG360. I\'m your dedicated care coordinator. How can I help you today?', time: '10:00 AM', avatar: 'CT' },
   { id: 2, sender: 'user', text: 'Hi! I need to know more about knee replacement surgery options in India.', time: '10:02 AM' },

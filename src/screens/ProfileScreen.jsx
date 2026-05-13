@@ -1,4 +1,4 @@
-﻿import { ChevronRight, Globe, FileText, Settings, LogOut, Bell, Shield, HelpCircle, User } from 'lucide-react';
+﻿import { ChevronRight, Globe, FileText, Settings, LogOut, Bell, Shield, HelpCircle, User, Users } from 'lucide-react';
 
 const menuSections = [
   {
@@ -14,6 +14,7 @@ const menuSections = [
     items: [
       { icon: <FileText size={18} />, label: 'My Documents', value: '6 files', color: '#059669', bg: '#F0FDF4', key: 'documents' },
       { icon: <Shield size={18} />, label: 'My Journey', color: '#0D9488', bg: '#F0FDFA', key: 'journey' },
+      { icon: <Users size={18} />, label: 'Care Circle', value: '3 members', color: '#0D9488', bg: '#F0FDFA', key: 'careCircle' },
     ],
   },
   {
@@ -81,7 +82,11 @@ export default function ProfileScreen({ onNavigate }) {
             <div className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
               {section.items.map((item, i) => (
                 <button key={item.key}
-                  onClick={() => item.key === 'journey' ? onNavigate('journey') : item.key === 'documents' ? onNavigate('journey') : null}
+                  onClick={() =>
+                    item.key === 'journey'     ? onNavigate('journey') :
+                    item.key === 'documents'   ? onNavigate('journey') :
+                    item.key === 'careCircle'  ? onNavigate('careCircle') :
+                    null}
                   className="flex items-center gap-3 w-full px-4 py-3.5 transition-all active:bg-slate-50 text-left"
                   style={{ borderBottom: i < section.items.length - 1 ? '1px solid #F1F5F9' : 'none' }}>
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"

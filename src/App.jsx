@@ -25,6 +25,11 @@ import NotificationsScreen from './screens/NotificationsScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ContactScreen from './screens/ContactScreen';
 import CreateAccountScreen from './screens/CreateAccountScreen';
+import CareCircleScreen from './screens/CareCircleScreen';
+import AddMemberScreen from './screens/AddMemberScreen';
+import MemberDetailScreen from './screens/MemberDetailScreen';
+import CaregiverJourneyScreen from './screens/CaregiverJourneyScreen';
+import AcceptInviteScreen from './screens/AcceptInviteScreen';
 
 // Screens that show the bottom nav
 const mainScreens = ['home', 'explore', 'journey', 'chat', 'profile'];
@@ -71,8 +76,13 @@ export default function App() {
       case 'chat':         return <ChatScreen {...props} />;
       case 'notifications': return <NotificationsScreen {...props} />;
       case 'profile':      return <ProfileScreen {...props} />;
-      case 'contact':      return <ContactScreen {...props} />;
-      default:             return <HomeScreen {...props} />;
+      case 'contact':          return <ContactScreen {...props} />;
+      case 'careCircle':       return <CareCircleScreen {...props} />;
+      case 'addMember':        return <AddMemberScreen {...props} />;
+      case 'memberDetail':     return <MemberDetailScreen {...props} />;
+      case 'caregiverJourney': return <CaregiverJourneyScreen {...props} />;
+      case 'acceptInvite':     return <AcceptInviteScreen {...props} />;
+      default:                 return <HomeScreen {...props} />;
     }
   };
 

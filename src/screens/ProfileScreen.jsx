@@ -8,6 +8,7 @@ const menuSections = [
       { icon: <User size={18} />, label: 'Personal Information', color: '#1B4FBF', bg: '#EFF6FF', key: 'personal' },
       { icon: <Globe size={18} />, label: 'Language & Region', value: 'English (EN)', color: '#7C3AED', bg: '#FAF5FF', key: 'language' },
       { icon: <Bell size={18} />, label: 'Notifications', color: '#F59E0B', bg: '#FFFBEB', key: 'notifications' },
+      { icon: <Users size={18} />, label: 'Care Circle', value: '3 members', color: '#0D9488', bg: '#F0FDFA', key: 'careCircle' },
     ],
   },
   {
@@ -15,7 +16,6 @@ const menuSections = [
     items: [
       { icon: <FileText size={18} />, label: 'My Documents', value: '6 files', color: '#059669', bg: '#F0FDF4', key: 'documents' },
       { icon: <Shield size={18} />, label: 'My Journey', color: '#0D9488', bg: '#F0FDFA', key: 'journey' },
-      { icon: <Users size={18} />, label: 'Care Circle', value: '3 members', color: '#0D9488', bg: '#F0FDFA', key: 'careCircle' },
     ],
   },
   {

@@ -15,7 +15,7 @@ export const categories = [
   { id: 3, name: 'Oncology', icon: '🩺', color: '#8B5CF6' },
   { id: 4, name: 'Neurology', icon: '🧠', color: '#06B6D4' },
   { id: 5, name: 'Transplant', icon: '🫀', color: '#EC4899' },
-  { id: 6, name: 'Ophthalmology', icon: '👁️', color: '#10B981' },
+  { id: 6, name: 'Ophthal', icon: '👁️', color: '#10B981' },
   { id: 7, name: 'Dentistry', icon: '🦷', color: '#3B82F6' },
   { id: 8, name: 'Fertility', icon: '👶', color: '#F97316' },
 ];

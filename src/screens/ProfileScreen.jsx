@@ -48,9 +48,12 @@ export default function ProfileScreen({ onNavigate }) {
               Kwame Mensah
             </h3>
             <p className="text-white/70 text-sm">kwame@email.com</p>
-            <div className="flex items-center gap-2 mt-1.5">
+            <div className="flex items-center gap-2 mt-1.5 flex-wrap">
               <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
                 🇳🇬 Nigeria
+              </span>
+              <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
+                👩‍⚕️ Priya Nair
               </span>
             </div>
           </div>
@@ -59,7 +62,7 @@ export default function ProfileScreen({ onNavigate }) {
         {/* Stats */}
         <div className="flex gap-3 mt-5">
           {[
-            { label: 'Circle Members', value: `${careCircleMembers.filter(m => m.status === 'active').length}` },
+            { label: 'Care Circle Member', value: `${careCircleMembers.filter(m => m.status === 'active').length}` },
             { label: 'Documents', value: '6' },
             { label: 'Journey Step', value: '4/8' },
           ].map(s => (

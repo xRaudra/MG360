@@ -52,9 +52,6 @@ export default function ProfileScreen({ onNavigate }) {
               <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
                 🇳🇬 Nigeria
               </span>
-              <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
-                Active Journey
-              </span>
             </div>
           </div>
         </div>
@@ -62,7 +59,7 @@ export default function ProfileScreen({ onNavigate }) {
         {/* Stats */}
         <div className="flex gap-3 mt-5">
           {[
-            { label: 'Care Circle', value: `${careCircleMembers.filter(m => m.status === 'active').length}` },
+            { label: 'Circle Members', value: `${careCircleMembers.filter(m => m.status === 'active').length}` },
             { label: 'Documents', value: '6' },
             { label: 'Journey Step', value: '4/8' },
           ].map(s => (

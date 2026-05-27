@@ -1,6 +1,6 @@
 ﻿import { Bell, Globe, Search, ChevronRight } from 'lucide-react';
 import StarRating from '../components/StarRating';
-import { doctors, treatments } from '../data/mockData';
+import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
   { key: 'treatment', label: 'Find\nTreatment', icon: '🩺', color: '#EFF6FF', iconBg: '#1B4FBF' },
@@ -162,6 +162,55 @@ export default function HomeScreen({ onNavigate }) {
               </div>
             </button>
           ))}
+        </div>
+      </div>
+
+      {/* Top Hospitals */}
+      <div className="px-4 mb-4">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            Top Hospitals
+          </h3>
+          <button onClick={() => onNavigate('hospitals')}
+            className="flex items-center gap-1 text-[#1B4FBF] text-xs font-semibold">
+            See all <ChevronRight size={14} />
+          </button>
+        </div>
+        <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-1">
+          {hospitals.slice(0, 5).map((h, idx) => {
+            const colors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#0D9488'];
+            const bgColors = ['#EFF6FF', '#F0FDF4', '#FAF5FF', '#FFFBEB', '#F0FDFA'];
+            return (
+              <button key={h.id}
+                onClick={() => onNavigate('hospitalDetail', h)}
+                className="flex-shrink-0 w-36 bg-white rounded-2xl p-3 text-left transition-all active:scale-95"
+                style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+                {/* Logo */}
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-sm mb-2 flex-shrink-0"
+                  style={{ background: colors[idx % colors.length] }}>
+                  {h.logo}
+                </div>
+                {/* Name */}
+                <p className="font-semibold text-slate-800 text-xs leading-tight mb-0.5 line-clamp-2"
+                  style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                  {h.name}
+                </p>
+                {/* City */}
+                <p className="text-slate-400 text-xs mb-2 leading-tight truncate">{h.city.split(',')[0]}</p>
+                {/* Rating + accreditation */}
+                <div className="flex items-center gap-1 mb-1.5">
+                  <StarRating rating={h.rating} size={11} />
+                  <span className="text-xs text-slate-600 font-semibold">{h.rating}</span>
+                </div>
+                {h.accreditation?.[0] && (
+                  <span className="text-xs px-1.5 py-0.5 rounded-md font-bold"
+                    style={{ background: bgColors[idx % bgColors.length], color: colors[idx % colors.length] }}>
+                    {h.accreditation[0]}
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 ﻿import { ChevronRight, Globe, FileText, Settings, LogOut, Bell, Shield, HelpCircle, User, Users } from 'lucide-react';
+import { careCircleMembers } from '../data/mockData';
 
 const menuSections = [
   {
@@ -61,7 +62,7 @@ export default function ProfileScreen({ onNavigate }) {
         {/* Stats */}
         <div className="flex gap-3 mt-5">
           {[
-            { label: 'Consultations', value: '3' },
+            { label: 'Care Circle', value: `${careCircleMembers.filter(m => m.status === 'active').length}` },
             { label: 'Documents', value: '6' },
             { label: 'Journey Step', value: '4/8' },
           ].map(s => (

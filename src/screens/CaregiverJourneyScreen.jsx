@@ -2,9 +2,9 @@ import { ArrowLeft, Eye, Lock, Calendar } from 'lucide-react';
 import { journeySteps } from '../data/mockData';
 
 const permissionAccess = {
-  view_only: [1, 2, 3, 4, 5],
-  support:   [1, 2, 3, 4, 5, 6, 7],
-  full:      [1, 2, 3, 4, 5, 6, 7, 8],
+  view_only: [1, 2, 3, 4, 5, 6, 7, 8],           // Lead + Conversion stages
+  support:   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], // + Treatment stage
+  full:      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], // all
 };
 
 const permissionLabel = {

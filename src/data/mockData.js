@@ -39,14 +39,26 @@ export const hospitals = [
 ];
 
 export const journeySteps = [
-  { id: 1, title: 'Consultation Booked', desc: 'Video call with Dr. Rajesh Sharma', date: 'Jan 15, 2025', time: '10:00 AM', status: 'done', icon: '📋' },
-  { id: 2, title: 'Reports Submitted', desc: 'Blood work, MRI, ECG uploaded', date: 'Jan 18, 2025', time: '—', status: 'done', icon: '📄' },
-  { id: 3, title: 'Treatment Plan Ready', desc: 'Cardiac Bypass — Apollo Delhi', date: 'Jan 20, 2025', time: '—', status: 'done', icon: '✅' },
-  { id: 4, title: 'Travel Arrangements', desc: 'Flight: Lagos → Delhi via Dubai', date: 'Feb 01, 2025', time: '08:45 AM', status: 'active', icon: '✈️' },
-  { id: 5, title: 'Admission', desc: 'Apollo Hospital, Room 412', date: 'Feb 03, 2025', time: '09:00 AM', status: 'upcoming', icon: '🏥' },
-  { id: 6, title: 'Surgery', desc: 'Cardiac Bypass Procedure', date: 'Feb 05, 2025', time: '07:00 AM', status: 'upcoming', icon: '🔬' },
-  { id: 7, title: 'Post-Op Recovery', desc: 'ICU → General Ward', date: 'Feb 06–14, 2025', time: '—', status: 'upcoming', icon: '💊' },
-  { id: 8, title: 'Discharge & Return', desc: 'Return flight arranged', date: 'Feb 15, 2025', time: '—', status: 'upcoming', icon: '🏠' },
+  // Lead Stage
+  { id: 1,  stage: 'Lead',       title: 'Consultation Booked',        desc: 'Video call with Dr. Rajesh Sharma confirmed',          date: 'Jan 15, 2025',      time: '10:00 AM', status: 'done',     icon: '📋' },
+  { id: 2,  stage: 'Lead',       title: 'Reports Submitted',           desc: 'Blood work, MRI and ECG successfully uploaded',        date: 'Jan 18, 2025',      time: '—',        status: 'done',     icon: '📄' },
+  { id: 3,  stage: 'Lead',       title: 'Treatment Plan Ready',        desc: 'Cardiac Bypass · Apollo Hospital, Delhi',              date: 'Jan 20, 2025',      time: '—',        status: 'done',     icon: '✅' },
+  // Conversion Stage
+  { id: 4,  stage: 'Conversion', title: 'Passport Verified',           desc: 'Identity documents accepted and on file',              date: 'Jan 22, 2025',      time: '—',        status: 'done',     icon: '🛂' },
+  { id: 5,  stage: 'Conversion', title: 'Visa Issued',                 desc: 'Indian medical visa approved · 90-day validity',       date: 'Jan 24, 2025',      time: '—',        status: 'done',     icon: '📑' },
+  { id: 6,  stage: 'Conversion', title: 'Travel Arranged',             desc: 'Flight: Lagos (LOS) → Delhi (DEL) via Dubai',          date: 'Feb 01, 2025',      time: '08:45 AM', status: 'done',     icon: '✈️' },
+  { id: 7,  stage: 'Conversion', title: 'Accommodation Arranged',      desc: 'Leela Palace, Delhi · Feb 2–14 · 12 nights',           date: 'Jan 28, 2025',      time: '—',        status: 'done',     icon: '🏨' },
+  { id: 8,  stage: 'Conversion', title: 'Consultation / Medical Advice', desc: 'Pre-travel consultation with Dr. Sharma completed',  date: 'Jan 30, 2025',      time: '02:00 PM', status: 'done',     icon: '🩺' },
+  // Treatment Stage
+  { id: 9,  stage: 'Treatment',  title: 'Arrival & Consultation',      desc: 'Land in Delhi · Transfer to Apollo Hospital',          date: 'Feb 03, 2025',      time: '09:00 AM', status: 'active',   icon: '🛬' },
+  { id: 10, stage: 'Treatment',  title: 'Evaluation',                  desc: 'Pre-operative tests and final health assessment',      date: 'Feb 03, 2025',      time: '11:00 AM', status: 'upcoming', icon: '🔬' },
+  { id: 11, stage: 'Treatment',  title: 'Admission',                   desc: 'Apollo Hospital · Cardiac Wing · Room 412',            date: 'Feb 04, 2025',      time: '09:00 AM', status: 'upcoming', icon: '🏥' },
+  { id: 12, stage: 'Treatment',  title: 'Surgery / Treatment',         desc: 'Cardiac Bypass Procedure · Dr. Rajesh Sharma',         date: 'Feb 05, 2025',      time: '07:00 AM', status: 'upcoming', icon: '🫀' },
+  // Recovery Stage
+  { id: 13, stage: 'Recovery',   title: 'Recovery',                    desc: 'ICU monitoring · Transition to general ward',          date: 'Feb 06–10, 2025',   time: '—',        status: 'upcoming', icon: '💊' },
+  { id: 14, stage: 'Recovery',   title: 'Discharge',                   desc: 'Medical clearance · Post-op care instructions issued', date: 'Feb 14, 2025',      time: '—',        status: 'upcoming', icon: '📋' },
+  { id: 15, stage: 'Recovery',   title: 'Return',                      desc: 'Return flight: Delhi (DEL) → Lagos (LOS)',             date: 'Feb 15, 2025',      time: '—',        status: 'upcoming', icon: '🏠' },
+  { id: 16, stage: 'Recovery',   title: 'Follow-Up',                   desc: '30-day remote check-in with Dr. Rajesh Sharma',        date: 'Mar 07, 2025',      time: '—',        status: 'upcoming', icon: '📞' },
 ];
 
 export const notifications = [

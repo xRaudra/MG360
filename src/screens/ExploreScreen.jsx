@@ -12,7 +12,7 @@ const trustPillars = [
 const stats = [
   { value: '500+', label: 'Hospitals' },
   { value: '50+',  label: 'Countries' },
-  { value: '10K+', label: 'Patients'  },
+  { value: '100+', label: 'Doctors'   },
 ];
 
 export default function ExploreScreen({ onNavigate }) {

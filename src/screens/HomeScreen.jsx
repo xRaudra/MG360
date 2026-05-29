@@ -148,9 +148,6 @@ export default function HomeScreen({ onNavigate }) {
               <div className="flex justify-between items-start mb-2">
                 <Avatar initials={doc.avatar}
                   color={['#1B4FBF', '#059669', '#7C3AED', '#F59E0B'][doc.id % 4]} />
-                {doc.available && (
-                  <span className="w-2 h-2 rounded-full bg-green-400 mt-1" />
-                )}
               </div>
               <p className="font-semibold text-slate-800 text-xs leading-tight mb-0.5" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                 {doc.name}

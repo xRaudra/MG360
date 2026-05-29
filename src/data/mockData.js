@@ -78,7 +78,7 @@ export const careCircleMembers = [
 ];
 
 export const chatMessages = [
-  { id: 1, sender: 'support', name: 'Care Team', text: 'Hello! Welcome to MG360. I\'m your dedicated care coordinator. How can I help you today?', time: '10:00 AM', avatar: 'CT' },
+  { id: 1, sender: 'support', name: 'Care Team', text: 'Hello! Welcome to Med Global 360. I\'m your dedicated care coordinator. How can I help you today?', time: '10:00 AM', avatar: 'CT' },
   { id: 2, sender: 'user', text: 'Hi! I need to know more about knee replacement surgery options in India.', time: '10:02 AM' },
   { id: 3, sender: 'support', name: 'Care Team', text: 'Great choice! India is one of the top destinations for orthopedic surgery. Would you like me to suggest top hospitals and doctors specializing in knee replacement?', time: '10:03 AM', avatar: 'CT' },
   { id: 4, sender: 'user', text: 'Yes please. Also, what\'s the approximate cost?', time: '10:04 AM' },

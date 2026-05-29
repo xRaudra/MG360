@@ -74,14 +74,14 @@ export default function ExploreScreen({ onNavigate }) {
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-3"
                     style={{ background: 'rgba(255,255,255,0.15)' }}>
                     <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    <span className="text-white text-xs font-semibold tracking-wide">About MG360</span>
+                    <span className="text-white text-xs font-semibold tracking-wide">About Med Global 360</span>
                   </div>
                   <h2 className="text-white font-bold text-xl leading-tight mb-2"
                     style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                     Your bridge to<br />world-class medical care
                   </h2>
                   <p className="text-white/70 text-sm leading-relaxed mb-4">
-                    MG360 connects international patients with India's top hospitals and
+                    Med Global 360 connects international patients with India's top hospitals and
                     doctors — guiding you from the very first question to a full recovery.
                   </p>
                   <div className="flex flex-col gap-2 mb-5">

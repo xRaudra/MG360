@@ -31,9 +31,6 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
           <div className="w-24 h-24 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-3 relative"
             style={{ background: colors[colorIdx], border: '4px solid rgba(255,255,255,0.3)' }}>
             {doc.avatar}
-            {doc.available && (
-              <span className="absolute bottom-1 right-1 w-4 h-4 rounded-full bg-green-400 border-2 border-white" />
-            )}
           </div>
           <h2 className="text-white font-bold text-xl text-center" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             {doc.name}

@@ -112,7 +112,7 @@ export default function ProfileScreen({ onNavigate }) {
         </button>
 
         <p className="text-center text-slate-400 text-xs pb-2">
-          MG360 · MedGlobal360 · v1.0.0
+          Med Global 360 · v1.0.0
         </p>
       </div>
     </div>

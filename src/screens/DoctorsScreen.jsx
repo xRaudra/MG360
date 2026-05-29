@@ -74,9 +74,6 @@ export default function DoctorsScreen({ onNavigate }) {
               style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
               <div className="relative">
                 <Avatar initials={doc.avatar} idx={i} />
-                {doc.available && (
-                  <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-green-400 border-2 border-white" />
-                )}
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-slate-800 text-sm mb-0.5" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>

@@ -8,7 +8,8 @@ const travelDetails = [
   { label: 'Airport Transfer', value: 'Car arranged',        sub: 'Apollo Hospital',         icon: '🚗', detail: 'Pick-up 07:00 AM · Coordinator arranged' },
 ];
 
-export default function TravelScreen({ onNavigate }) {
+export default function TravelScreen({ onNavigate, data }) {
+  const backTo = data?.from || 'journey';
   const [copied, setCopied] = useState(false);
 
   const handleShare = () => {
@@ -23,7 +24,7 @@ export default function TravelScreen({ onNavigate }) {
         style={{ background: 'linear-gradient(160deg, #0D9488 0%, #1B4FBF 100%)' }}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <button onClick={() => onNavigate('journey')}
+            <button onClick={() => onNavigate(backTo)}
               className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
               <ArrowLeft size={18} color="white" />
             </button>

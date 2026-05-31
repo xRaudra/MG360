@@ -32,7 +32,8 @@ const docSections = [
 
 const totalDocs = docSections.reduce((n, s) => n + s.docs.length, 0);
 
-export default function DocumentsScreen({ onNavigate }) {
+export default function DocumentsScreen({ onNavigate, data }) {
+  const backTo = data?.from || 'journey';
   return (
     <div className="flex flex-col h-full bg-transparent screen-enter">
       {/* Header */}
@@ -40,7 +41,7 @@ export default function DocumentsScreen({ onNavigate }) {
         style={{ background: 'linear-gradient(160deg, #1B4FBF 0%, #7C3AED 100%)' }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <button onClick={() => onNavigate('journey')}
+            <button onClick={() => onNavigate(backTo)}
               className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
               <ArrowLeft size={18} color="white" />
             </button>

@@ -79,7 +79,11 @@ export default function ProfileScreen({ onNavigate }) {
             <div className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
               {section.items.map((item, i) => (
                 <button key={item.key}
-                  onClick={() => onNavigate(item.key)}
+                  onClick={() => {
+                    if (item.key === 'documents') return onNavigate('journeyDocuments', { from: 'profile' });
+                    if (item.key === 'journey')   return onNavigate('journeyTravel',     { from: 'profile' });
+                    onNavigate(item.key);
+                  }}
                   className="flex items-center gap-3 w-full px-4 py-3.5 transition-all active:bg-slate-50 text-left"
                   style={{ borderBottom: i < section.items.length - 1 ? '1px solid #F1F5F9' : 'none' }}>
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"

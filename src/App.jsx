@@ -63,10 +63,11 @@ export default function App() {
 
   const navigate = (target, data = null) => {
     if (target === 'home') {
-      setIsGuest(prev => guestScreens.includes(screen) ? true : prev);
-    }
-    if (target === 'home' && (screen === 'login' || screen === 'createAccount')) {
-      setIsGuest(false);
+      if (screen === 'login') {
+        setIsGuest(false);                       // existing user → show progress
+      } else if (guestScreens.includes(screen) || screen === 'createAccount') {
+        setIsGuest(true);                        // guest or new account → initial state
+      }
     }
     setScreenData(data);
     setScreen(target);
@@ -92,7 +93,7 @@ export default function App() {
       case 'treatmentDetail': return <TreatmentDetailScreen {...props} />;
       case 'doctorDetail': return <DoctorDetailScreen {...props} />;
       case 'hospitalDetail': return <HospitalDetailScreen {...props} />;
-      case 'journey':      return <JourneyScreen {...props} />;
+      case 'journey':      return <JourneyScreen {...props} isGuest={isGuest} />;
       case 'chat':         return <ChatScreen {...props} />;
       case 'notifications': return <NotificationsScreen {...props} />;
       case 'profile':      return <ProfileScreen {...props} />;
@@ -118,8 +119,10 @@ export default function App() {
     }
   };
 
-  const showNav = mainScreens.includes(screen);
-  const activeTab = Object.entries(navMap).find(([, v]) => v === screen)?.[0] || 'home';
+  // Show nav for main screens + sub-screens reached from Profile
+  const fromProfile = screenData?.from === 'profile';
+  const showNav  = mainScreens.includes(screen) || (fromProfile && ['journeyDocuments', 'journeyTravel'].includes(screen));
+  const activeTab = fromProfile ? 'profile' : (Object.entries(navMap).find(([, v]) => v === screen)?.[0] || 'home');
 
   return (
     <PhoneFrame>

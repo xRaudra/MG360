@@ -57,9 +57,44 @@ const stepDocs = {
   7:  [{ name: 'Travel Insurance', icon: '🛡️' }],
 };
 
-export default function JourneyScreen({ onNavigate }) {
-  const [linkCopied, setLinkCopied] = useState(false);
+export default function JourneyScreen({ onNavigate, isGuest = false }) {
+  const [linkCopied, setLinkCopied]   = useState(false);
   const [expandedStep, setExpandedStep] = useState(null);
+
+  // Empty state for new / guest users
+  if (isGuest) {
+    return (
+      <div className="flex flex-col h-full bg-transparent screen-enter">
+        <div className="px-4 pt-4 pb-5"
+          style={{ background: 'linear-gradient(160deg, #7C3AED 0%, #1B4FBF 100%)' }}>
+          <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            My Journey
+          </h2>
+          <p className="text-white/60 text-xs mt-0.5">Your medical travel journey starts here</p>
+        </div>
+        <div className="flex-1 flex flex-col items-center justify-center px-8 gap-5">
+          <span className="text-6xl">🗺️</span>
+          <div className="text-center">
+            <h3 className="font-bold text-slate-800 text-lg mb-2" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+              No active journey yet
+            </h3>
+            <p className="text-slate-500 text-sm leading-relaxed">
+              Get a free consultation and our team will prepare a personalised treatment plan and journey timeline for you.
+            </p>
+          </div>
+          <button onClick={() => onNavigate('freeQuote')}
+            className="w-full py-4 rounded-2xl font-semibold text-sm text-white transition-all active:scale-95"
+            style={{ background: 'linear-gradient(135deg, #7C3AED, #1B4FBF)' }}>
+            Get a Free Consultation
+          </button>
+          <button onClick={() => onNavigate('explore')}
+            className="text-sm font-medium text-slate-500">
+            Browse treatments first
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   const toggleStep = (id) => setExpandedStep(prev => prev === id ? null : id);
 

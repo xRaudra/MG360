@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useState } from 'react';
 import { Calendar, Share2, ChevronRight, Upload, Check } from 'lucide-react';
 import { journeySteps } from '../data/mockData';
 

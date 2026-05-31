@@ -34,6 +34,11 @@ import MemberDetailScreen from './screens/MemberDetailScreen';
 import CaregiverJourneyScreen from './screens/CaregiverJourneyScreen';
 import AcceptInviteScreen from './screens/AcceptInviteScreen';
 import FreeQuoteScreen from './screens/FreeQuoteScreen';
+import PersonalInfoScreen from './screens/PersonalInfoScreen';
+import LanguageScreen from './screens/LanguageScreen';
+import NotificationSettingsScreen from './screens/NotificationSettingsScreen';
+import HelpFaqScreen from './screens/HelpFaqScreen';
+import AppSettingsScreen from './screens/AppSettingsScreen';
 
 // Screens that show the bottom nav
 const mainScreens = ['home', 'explore', 'journey', 'chat', 'profile'];
@@ -99,6 +104,12 @@ export default function App() {
       case 'caregiverJourney': return <CaregiverJourneyScreen {...props} />;
       case 'acceptInvite':     return <AcceptInviteScreen {...props} />;
       case 'freeQuote':        return <FreeQuoteScreen {...props} />;
+      case 'personal':         return <PersonalInfoScreen {...props} />;
+      case 'language':         return <LanguageScreen {...props} />;
+      case 'notifications':    return <NotificationSettingsScreen {...props} />;
+      case 'help':             return <HelpFaqScreen {...props} />;
+      case 'settings':         return <AppSettingsScreen {...props} />;
+      case 'documents':        return <JourneyScreen {...props} />;
       default:                 return <HomeScreen {...props} isGuest={isGuest} />;
     }
   };

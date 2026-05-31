@@ -1,5 +1,4 @@
 ﻿import { ChevronRight, Globe, FileText, Settings, LogOut, Bell, Shield, HelpCircle, User, Users } from 'lucide-react';
-import { careCircleMembers } from '../data/mockData';
 
 const menuSections = [
   {
@@ -70,20 +69,6 @@ export default function ProfileScreen({ onNavigate }) {
           ))}
         </div>
 
-        {/* Stats */}
-        <div className="flex gap-3 mt-5">
-          {[
-            { label: 'Care Circle Member', value: `${careCircleMembers.filter(m => m.status === 'active').length}` },
-            { label: 'Documents', value: '6' },
-            { label: 'Journey Step', value: '4/8' },
-          ].map(s => (
-            <div key={s.label} className="flex-1 rounded-xl px-3 py-2 text-center"
-              style={{ background: 'rgba(255,255,255,0.15)' }}>
-              <p className="text-white font-bold text-base">{s.value}</p>
-              <p className="text-white/60 text-xs">{s.label}</p>
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Menu sections */}
@@ -94,11 +79,7 @@ export default function ProfileScreen({ onNavigate }) {
             <div className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
               {section.items.map((item, i) => (
                 <button key={item.key}
-                  onClick={() =>
-                    item.key === 'journey'     ? onNavigate('journey') :
-                    item.key === 'documents'   ? onNavigate('journey') :
-                    item.key === 'careCircle'  ? onNavigate('careCircle') :
-                    null}
+                  onClick={() => onNavigate(item.key)}
                   className="flex items-center gap-3 w-full px-4 py-3.5 transition-all active:bg-slate-50 text-left"
                   style={{ borderBottom: i < section.items.length - 1 ? '1px solid #F1F5F9' : 'none' }}>
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"

@@ -190,9 +190,17 @@ export default function WhyMedGlobalScreen({ onNavigate }) {
           </div>
 
           <button onClick={() => onNavigate('contact')}
-            className="w-full py-4 rounded-2xl font-semibold text-sm text-white transition-all active:scale-95 mb-2"
+            className="w-full py-4 rounded-2xl font-semibold text-sm text-white transition-all active:scale-95"
             style={{ background: GRADIENT }}>
             Talk to Our Team
+          </button>
+
+          <button
+            onClick={() => window.open('https://medglobal360.com/', '_blank')}
+            className="flex items-center justify-center gap-1 w-full py-2 mb-2 transition-all active:opacity-60">
+            <span className="text-slate-400 text-xs">Full details at</span>
+            <span className="text-slate-500 text-xs font-semibold underline underline-offset-2">medglobal360.com</span>
+            <span className="text-slate-400 text-xs">↗</span>
           </button>
         </div>
       </div>

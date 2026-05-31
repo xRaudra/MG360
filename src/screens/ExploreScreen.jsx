@@ -1,19 +1,7 @@
 import { useState } from 'react';
-import { Search, ArrowLeft, SlidersHorizontal, Globe, Users, ArrowUpRight, CheckCircle, Shield, ChevronRight } from 'lucide-react';
+import { Search, ArrowLeft, SlidersHorizontal, ChevronRight } from 'lucide-react';
 import StarRating from '../components/StarRating';
 import { treatments, categories } from '../data/mockData';
-
-const trustPillars = [
-  { icon: Globe,   color: '#0D9488', bg: '#F0FDFA', title: 'Global Reach',  desc: 'Patients from 50+ countries treated every year' },
-  { icon: Shield,  color: '#1B4FBF', bg: '#EFF6FF', title: 'Verified Care', desc: 'JCI & NABL accredited hospitals only' },
-  { icon: Users,   color: '#7C3AED', bg: '#FAF5FF', title: 'Family First',  desc: 'We support patients and their loved ones' },
-];
-
-const stats = [
-  { value: '500+', label: 'Hospitals' },
-  { value: '50+',  label: 'Countries' },
-  { value: '100+', label: 'Doctors'   },
-];
 
 export default function ExploreScreen({ onNavigate }) {
   const [query,   setQuery]   = useState('');
@@ -62,94 +50,8 @@ export default function ExploreScreen({ onNavigate }) {
         {/* ── Default view (no search) ──────────────────────────── */}
         {!query && (
           <>
-            {/* ── About Us ────────────────────────────────────────── */}
-            <div className="px-4 pt-5 mb-5">
-              <div className="rounded-3xl overflow-hidden"
-                style={{ background: 'linear-gradient(140deg, #0B3D91 0%, #0D9488 100%)' }}>
-                <div className="relative px-5 pt-5 pb-1">
-                  <div className="absolute top-0 right-0 w-36 h-36 rounded-full opacity-10"
-                    style={{ background: 'white', transform: 'translate(30%, -30%)' }} />
-                  <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full opacity-5"
-                    style={{ background: 'white', transform: 'translate(-40%, 40%)' }} />
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full mb-3"
-                    style={{ background: 'rgba(255,255,255,0.15)' }}>
-                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    <span className="text-white text-xs font-semibold tracking-wide">About Med Global 360</span>
-                  </div>
-                  <h2 className="text-white font-bold text-xl leading-tight mb-2"
-                    style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-                    Your bridge to<br />world-class medical care
-                  </h2>
-                  <p className="text-white/70 text-sm leading-relaxed mb-4">
-                    Med Global 360 connects international patients with India's top hospitals and
-                    doctors — guiding you from the very first question to a full recovery.
-                  </p>
-                  <div className="flex flex-col gap-2 mb-5">
-                    {[
-                      'Trusted specialists across 20+ disciplines',
-                      'End-to-end support for patients & families',
-                      'Transparent pricing, no hidden costs',
-                    ].map(point => (
-                      <div key={point} className="flex items-start gap-2">
-                        <CheckCircle size={14} color="#34D399" className="mt-0.5 flex-shrink-0" />
-                        <span className="text-white/80 text-xs leading-snug">{point}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <button
-                  onClick={() => window.open('http://medglobal360.com/', '_blank')}
-                  className="flex items-center justify-between w-full px-5 py-4 transition-all active:opacity-80"
-                  style={{ background: 'rgba(255,255,255,0.12)', borderTop: '1px solid rgba(255,255,255,0.12)' }}>
-                  <div>
-                    <p className="text-white font-bold text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-                      medglobal360.com
-                    </p>
-                    <p className="text-white/60 text-xs">Learn more about our mission</p>
-                  </div>
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'rgba(255,255,255,0.2)' }}>
-                    <ArrowUpRight size={16} color="white" />
-                  </div>
-                </button>
-              </div>
-
-              {/* Stats */}
-              <div className="flex gap-3 mt-4">
-                {stats.map(s => (
-                  <div key={s.label} className="flex-1 bg-white rounded-2xl py-3 text-center"
-                    style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-                    <p className="font-bold text-[#1B4FBF] text-lg"
-                      style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{s.value}</p>
-                    <p className="text-slate-400 text-xs">{s.label}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Trust pillars */}
-              <div className="flex flex-col gap-2.5 mt-4">
-                {trustPillars.map(p => {
-                  const Ic = p.icon;
-                  return (
-                    <div key={p.title}
-                      className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3.5"
-                      style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.05)' }}>
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ background: p.bg }}>
-                        <Ic size={18} color={p.color} />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-slate-800 text-sm">{p.title}</p>
-                        <p className="text-slate-400 text-xs">{p.desc}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* ── Browse by Specialty — CAROUSEL ─────────────────── */}
-            <div className="mb-5">
+            <div className="mb-5 mt-5">
               <div className="flex items-center justify-between px-4 mb-3">
                 <h3 className="font-bold text-slate-800 text-base"
                   style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>

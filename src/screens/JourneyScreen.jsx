@@ -153,7 +153,7 @@ export default function JourneyScreen({ onNavigate }) {
                 Documents
               </p>
               <p className="text-xs" style={{ color: showDocs ? '#3B82F6' : '#94A3B8' }}>
-                {docs.length} files
+                {docSections.reduce((n, s) => n + s.docs.length, 0)} files
               </p>
             </div>
             <ChevronDown size={14} color={showDocs ? '#1B4FBF' : '#CBD5E1'}

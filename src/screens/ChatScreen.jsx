@@ -1,5 +1,5 @@
 ﻿import { useState } from 'react';
-import { ArrowLeft, Send, Paperclip, Phone, Video } from 'lucide-react';
+import { ArrowLeft, Send, ImagePlus, Phone, Video } from 'lucide-react';
 import { chatMessages } from '../data/mockData';
 
 const quickReplies = [
@@ -110,7 +110,7 @@ export default function ChatScreen({ onNavigate }) {
       <div className="px-4 pb-4 pt-3 bg-white border-t border-slate-100">
         <div className="flex items-center gap-3">
           <button className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-            <Paperclip size={18} color="#475569" />
+            <ImagePlus size={18} color="#475569" />
           </button>
           <div className="flex-1 flex items-center gap-2 bg-slate-100 rounded-2xl px-4 py-2.5">
             <input

@@ -37,9 +37,6 @@ export default function BottomNav({ active, onNavigate }) {
                 strokeWidth={isActive ? 2.2 : 1.8}
                 color={isActive ? '#1B4FBF' : '#94A3B8'}
               />
-              {key === 'chat' && (
-                <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-red-500" />
-              )}
             </div>
             <span
               className="text-caption font-medium"

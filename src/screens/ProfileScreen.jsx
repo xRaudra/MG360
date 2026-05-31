@@ -37,9 +37,9 @@ export default function ProfileScreen({ onNavigate }) {
           My Profile
         </h2>
 
-        {/* Avatar + Info */}
-        <div className="flex items-center gap-4">
-          <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center text-white text-2xl font-bold border-4 border-white/30"
+        {/* Avatar + Name */}
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-white text-xl font-bold border-3 border-white/30 flex-shrink-0"
             style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             KM
           </div>
@@ -48,15 +48,26 @@ export default function ProfileScreen({ onNavigate }) {
               Kwame Mensah
             </h3>
             <p className="text-white/70 text-sm">kwame@email.com</p>
-            <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-              <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
-                🇳🇬 Nigeria
-              </span>
-              <span className="text-xs px-2 py-0.5 rounded-full font-semibold" style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
-                👩‍⚕️ Priya Nair
-              </span>
-            </div>
           </div>
+        </div>
+
+        {/* Profile info rows */}
+        <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.12)' }}>
+          {[
+            { label: 'Country of Origin', value: '🇳🇬 Nigeria' },
+            { label: 'Care Coordinator',  value: 'Priya Nair', sub: '+91 98765 43210' },
+            { label: 'Hospital',          value: 'Apollo Hospital, Delhi' },
+          ].map((row, i, arr) => (
+            <div key={row.label}
+              className="flex items-center justify-between px-4 py-2.5"
+              style={{ borderBottom: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none' }}>
+              <p className="text-white/60 text-xs">{row.label}</p>
+              <div className="text-right">
+                <p className="text-white text-xs font-semibold">{row.value}</p>
+                {row.sub && <p className="text-white/50 text-xs">{row.sub}</p>}
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Stats */}

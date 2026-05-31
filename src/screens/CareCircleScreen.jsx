@@ -32,7 +32,7 @@ export default function CareCircleScreen({ onNavigate }) {
           {[
             { label: 'Active',  value: activeMembers.length,  color: '#34D399' },
             { label: 'Pending', value: pendingMembers.length, color: '#FCD34D' },
-            { label: 'Max',     value: '6',                   color: 'rgba(255,255,255,0.5)' },
+            { label: 'Max',     value: '3',                   color: 'rgba(255,255,255,0.5)' },
           ].map(s => (
             <div key={s.label} className="flex-1 rounded-xl px-3 py-2 text-center"
               style={{ background: 'rgba(255,255,255,0.12)' }}>
@@ -131,12 +131,18 @@ export default function CareCircleScreen({ onNavigate }) {
         </div>
 
         {/* Add Member CTA */}
-        <button onClick={() => onNavigate('addMember')}
-          className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-semibold text-sm text-white transition-all active:scale-95"
-          style={{ background: 'linear-gradient(135deg, #0D9488, #1B4FBF)' }}>
-          <Plus size={18} />
-          Add Family Member
-        </button>
+        {activeMembers.length >= 3 ? (
+          <div className="w-full py-4 rounded-2xl text-center text-sm font-semibold text-slate-400 bg-slate-100">
+            Maximum 3 members reached
+          </div>
+        ) : (
+          <button onClick={() => onNavigate('addMember')}
+            className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-semibold text-sm text-white transition-all active:scale-95"
+            style={{ background: 'linear-gradient(135deg, #0D9488, #1B4FBF)' }}>
+            <Plus size={18} />
+            Add Family Member
+          </button>
+        )}
 
         <p className="text-center text-slate-400 text-xs pb-2">
           Care Circle members follow your journey updates in real-time.

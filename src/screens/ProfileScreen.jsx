@@ -14,7 +14,7 @@ const menuSections = [
     title: 'Medical',
     items: [
       { icon: <FileText size={18} />, label: 'My Documents', value: '6 files', color: '#059669', bg: '#F0FDF4', key: 'documents' },
-      { icon: <Shield size={18} />, label: 'My Journey', color: '#0D9488', bg: '#F0FDFA', key: 'journey' },
+      { icon: <Shield size={18} />, label: 'My Travel', color: '#0D9488', bg: '#F0FDFA', key: 'journey' },
     ],
   },
   {

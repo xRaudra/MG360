@@ -3,10 +3,10 @@ import StarRating from '../components/StarRating';
 import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
-  { key: 'explore',  label: 'Why\nMedGlobal360', icon: '🌟', color: '#EFF6FF', iconBg: '#1B4FBF' },
-  { key: 'explore',  label: 'Why\nIndia',         icon: '🇮🇳', color: '#FFF7ED', iconBg: '#F59E0B' },
-  { key: 'explore',  label: 'Case\nStudies',       icon: '📖', color: '#FAF5FF', iconBg: '#7C3AED' },
-  { key: 'contact',  label: 'Contact\nUs',         icon: '💬', color: '#F0FDF4', iconBg: '#059669' },
+  { key: 'whyMedGlobal', label: 'Why\nMedGlobal360', icon: '🌟', color: '#EFF6FF', iconBg: '#1B4FBF' },
+  { key: 'whyIndia',     label: 'Why\nIndia',         icon: '🇮🇳', color: '#FFF7ED', iconBg: '#F59E0B' },
+  { key: 'caseStudies',  label: 'Case\nStudies',       icon: '📖', color: '#FAF5FF', iconBg: '#7C3AED' },
+  { key: 'contact',      label: 'Contact\nUs',         icon: '💬', color: '#F0FDF4', iconBg: '#059669' },
 ];
 
 function Avatar({ initials, color = '#1B4FBF' }) {

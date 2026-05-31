@@ -11,13 +11,34 @@ const stageConfig = {
 
 const stageOrder = ['Lead', 'Conversion', 'Treatment', 'Recovery'];
 
-const docs = [
-  { name: 'MRI Report',         date: 'Jan 10, 2025', type: 'Medical',   size: '4.2 MB', icon: '🧠' },
-  { name: 'Blood Work Results', date: 'Jan 12, 2025', type: 'Medical',   size: '1.1 MB', icon: '🩸' },
-  { name: 'Passport Copy',      date: 'Jan 8, 2025',  type: 'Identity',  size: '0.8 MB', icon: '🛂' },
-  { name: 'Medical Visa',       date: 'Jan 22, 2025', type: 'Travel',    size: '0.5 MB', icon: '📑' },
-  { name: 'Flight Ticket',      date: 'Jan 25, 2025', type: 'Travel',    size: '0.3 MB', icon: '✈️' },
-  { name: 'Travel Insurance',   date: 'Jan 25, 2025', type: 'Insurance', size: '1.2 MB', icon: '🛡️' },
+const docSections = [
+  {
+    title: 'Medical Records',
+    color: '#1B4FBF',
+    bg: '#EFF6FF',
+    docs: [
+      { name: 'MRI Report',         date: 'Jan 10, 2025', size: '4.2 MB', icon: '🧠' },
+      { name: 'Blood Work Results', date: 'Jan 12, 2025', size: '1.1 MB', icon: '🩸' },
+    ],
+  },
+  {
+    title: 'Identity & Visa',
+    color: '#7C3AED',
+    bg: '#FAF5FF',
+    docs: [
+      { name: 'Passport Copy', date: 'Jan 8, 2025',  size: '0.8 MB', icon: '🛂' },
+      { name: 'Medical Visa',  date: 'Jan 22, 2025', size: '0.5 MB', icon: '📑' },
+    ],
+  },
+  {
+    title: 'Travel Documents',
+    color: '#0D9488',
+    bg: '#F0FDFA',
+    docs: [
+      { name: 'Flight Ticket',    date: 'Jan 25, 2025', size: '0.3 MB', icon: '✈️' },
+      { name: 'Travel Insurance', date: 'Jan 25, 2025', size: '1.2 MB', icon: '🛡️' },
+    ],
+  },
 ];
 
 const travelDetails = [
@@ -166,31 +187,56 @@ export default function JourneyScreen({ onNavigate }) {
 
         {/* ── Documents expanded ─────────────────────────────── */}
         {showDocs && (
-          <div className="px-4 pb-2">
-            <div className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-              <div className="flex items-center justify-between px-4 pt-3.5 pb-2">
-                <p className="text-xs text-slate-500 font-medium">{docs.length} documents</p>
-                <label className="text-xs text-[#1B4FBF] font-semibold px-3 py-1 rounded-full bg-blue-50 cursor-pointer">
-                  + Upload
-                  <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" />
-                </label>
-              </div>
-              {docs.map((d, i) => (
-                <div key={d.name} className="flex items-center gap-3 px-4 py-3"
-                  style={{ borderTop: '1px solid #F1F5F9' }}>
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-xl flex-shrink-0">
-                    {d.icon}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-slate-800 text-sm">{d.name}</p>
-                    <p className="text-slate-400 text-xs">{d.date} · {d.size}</p>
-                  </div>
-                  <span className="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-500 font-medium flex-shrink-0">
-                    {d.type}
-                  </span>
-                </div>
-              ))}
+          <div className="px-4 pb-2 flex flex-col gap-3">
+            {/* Upload header */}
+            <div className="flex items-center justify-between">
+              <p className="text-xs text-slate-400 font-medium">
+                {docSections.reduce((n, s) => n + s.docs.length, 0)} documents
+              </p>
+              <label className="text-xs text-[#1B4FBF] font-semibold px-3 py-1.5 rounded-full bg-blue-50 cursor-pointer">
+                + Upload
+                <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" />
+              </label>
             </div>
+
+            {/* Sections */}
+            {docSections.map(section => (
+              <div key={section.title}>
+                {/* Section header — same style as timeline stages */}
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full"
+                    style={{ background: section.bg }}>
+                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: section.color }} />
+                    <span className="text-xs font-bold" style={{ color: section.color }}>
+                      {section.title}
+                    </span>
+                  </div>
+                  <div className="flex-1 h-px" style={{ background: section.color + '30' }} />
+                </div>
+
+                {/* Documents in this section */}
+                <div className="bg-white rounded-2xl overflow-hidden"
+                  style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
+                  {section.docs.map((d, i) => (
+                    <div key={d.name} className="flex items-center gap-3 px-4 py-3"
+                      style={{ borderTop: i > 0 ? '1px solid #F1F5F9' : 'none' }}>
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                        style={{ background: section.bg }}>
+                        {d.icon}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-semibold text-slate-800 text-sm">{d.name}</p>
+                        <p className="text-slate-400 text-xs">{d.date} · {d.size}</p>
+                      </div>
+                      <span className="text-xs px-2 py-1 rounded-full font-medium flex-shrink-0"
+                        style={{ background: section.bg, color: section.color }}>
+                        View
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         )}
 

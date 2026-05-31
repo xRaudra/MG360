@@ -51,7 +51,8 @@ export default function AppSettingsScreen({ onNavigate }) {
               </div>
               <Toggle value={biometric} onChange={setBiometric} />
             </div>
-            <button className="flex items-center gap-3 w-full px-4 py-3.5 transition-all active:bg-slate-50 text-left">
+            <button onClick={() => alert('A password reset link has been sent to kwame@email.com')}
+              className="flex items-center gap-3 w-full px-4 py-3.5 transition-all active:bg-slate-50 text-left">
               <div className="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0">
                 <Shield size={18} color="#475569" />
               </div>
@@ -106,7 +107,8 @@ export default function AppSettingsScreen({ onNavigate }) {
               </div>
               <Toggle value={dataSharing} onChange={setDataSharing} color="#059669" />
             </div>
-            <button className="flex items-center gap-3 w-full px-4 py-3.5 transition-all active:bg-slate-50 text-left">
+            <button onClick={() => window.open('https://medglobal360.com/', '_blank')}
+              className="flex items-center gap-3 w-full px-4 py-3.5 transition-all active:bg-slate-50 text-left">
               <div className="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center flex-shrink-0">
                 <FileText size={18} color="#475569" />
               </div>
@@ -123,7 +125,8 @@ export default function AppSettingsScreen({ onNavigate }) {
         <div>
           <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">About</p>
           <div className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-            <button className="flex items-center gap-3 w-full px-4 py-3.5 border-b border-slate-100 transition-all active:bg-slate-50 text-left">
+            <button onClick={() => window.open('https://medglobal360.com/', '_blank')}
+              className="flex items-center gap-3 w-full px-4 py-3.5 border-b border-slate-100 transition-all active:bg-slate-50 text-left">
               <div className="w-9 h-9 rounded-xl bg-yellow-50 flex items-center justify-center flex-shrink-0">
                 <Star size={18} color="#F59E0B" />
               </div>

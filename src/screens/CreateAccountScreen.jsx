@@ -142,6 +142,7 @@ export default function CreateAccountScreen({ onNavigate }) {
                 <button
                   key={key}
                   type="button"
+                  onClick={() => onNavigate('home')}
                   style={{
                     flex: 1, height: 52,
                     background: 'white',

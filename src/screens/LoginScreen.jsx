@@ -93,6 +93,7 @@ export default function LoginScreen({ onNavigate }) {
               </button>
               <button
                 type="button"
+                onClick={() => alert('A password reset link will be sent to your email.')}
                 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 600, color: '#4D81E7', letterSpacing: '-0.01em', background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
               >
                 Forgot Password ?
@@ -141,6 +142,7 @@ export default function LoginScreen({ onNavigate }) {
                   <button
                     key={key}
                     type="button"
+                    onClick={() => onNavigate('home')}
                     style={{
                       flex: 1, height: 52,
                       background: 'white',

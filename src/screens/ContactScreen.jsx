@@ -1,12 +1,15 @@
-﻿import { ArrowLeft, Phone, Mail, MessageCircle, Send } from 'lucide-react';
+﻿import { useState } from 'react';
+import { ArrowLeft, Phone, Mail, MessageCircle, Send, Check } from 'lucide-react';
 
 const contactOptions = [
-  { icon: <Phone size={22} />, label: 'Call Us', sub: '+91 98765 43210', color: '#059669', bg: '#F0FDF4' },
-  { icon: <Mail size={22} />, label: 'Email', sub: 'care@mg360.com', color: '#1B4FBF', bg: '#EFF6FF' },
-  { icon: <MessageCircle size={22} />, label: 'WhatsApp', sub: 'Chat instantly', color: '#25D366', bg: '#F0FDF4' },
+  { icon: <Phone size={22} />, label: 'Call Us',    sub: '+91 98765 43210', color: '#059669', bg: '#F0FDF4', action: () => window.location.href = 'tel:+919876543210' },
+  { icon: <Mail size={22} />,  label: 'Email',      sub: 'care@mg360.com',  color: '#1B4FBF', bg: '#EFF6FF', action: () => window.location.href = 'mailto:care@mg360.com' },
+  { icon: <MessageCircle size={22} />, label: 'WhatsApp', sub: 'Chat instantly', color: '#25D366', bg: '#F0FDF4', action: () => window.open('https://wa.me/919876543210', '_blank') },
 ];
 
 export default function ContactScreen({ onNavigate }) {
+  const [sent, setSent] = useState(false);
+  const handleSend = () => { setSent(true); setTimeout(() => setSent(false), 3000); };
   return (
     <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
       {/* Header */}
@@ -25,7 +28,7 @@ export default function ContactScreen({ onNavigate }) {
         {/* Quick contact options */}
         <div className="grid grid-cols-3 gap-3">
           {contactOptions.map(opt => (
-            <button key={opt.label}
+            <button key={opt.label} onClick={opt.action}
               className="flex flex-col items-center gap-2 bg-white rounded-2xl py-4 px-2 transition-all active:scale-95"
               style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
               <div className="w-12 h-12 rounded-xl flex items-center justify-center"
@@ -70,11 +73,10 @@ export default function ContactScreen({ onNavigate }) {
                 placeholder="Describe your medical needs or questions…"
               />
             </div>
-            <button
-              className="w-full py-3.5 rounded-full text-white font-semibold text-sm flex items-center justify-center gap-2"
-              style={{ background: 'linear-gradient(135deg, #1B4FBF, #0D9488)' }}>
-              <Send size={16} />
-              Send Enquiry
+            <button onClick={handleSend}
+              className="w-full py-3.5 rounded-full text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all active:scale-95"
+              style={{ background: sent ? '#059669' : 'linear-gradient(135deg, #1B4FBF, #0D9488)' }}>
+              {sent ? <><Check size={16} /> Sent!</> : <><Send size={16} /> Send Enquiry</>}
             </button>
           </div>
         </div>

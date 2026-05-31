@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Calendar, Share2, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { Calendar, Share2, ChevronRight, Upload, Check } from 'lucide-react';
 import { journeySteps } from '../data/mockData';
 
 const tabs = ['Timeline', 'Documents', 'Travel'];
@@ -30,7 +31,13 @@ const travelDetails = [
 ];
 
 export default function JourneyScreen({ onNavigate }) {
-  const [tab, setTab] = useState('Timeline');
+  const [tab, setTab]         = useState('Timeline');
+  const [linkCopied, setLinkCopied] = useState(false);
+
+  const handleShareLink = () => {
+    setLinkCopied(true);
+    setTimeout(() => setLinkCopied(false), 2000);
+  };
 
   const doneCount = journeySteps.filter(s => s.status === 'done').length;
   const progress  = Math.round((doneCount / journeySteps.length) * 100);
@@ -54,7 +61,7 @@ export default function JourneyScreen({ onNavigate }) {
               Cardiac Bypass
             </h2>
           </div>
-          <button className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
+          <button onClick={() => onNavigate('careCircle')} className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
             <Share2 size={16} color="white" />
           </button>
         </div>
@@ -228,9 +235,10 @@ export default function JourneyScreen({ onNavigate }) {
           <div className="px-4 py-4">
             <div className="flex items-center justify-between mb-4">
               <p className="text-xs text-slate-500 font-medium">{docs.length} documents</p>
-              <button className="text-xs text-[#1B4FBF] font-semibold px-3 py-1.5 rounded-full bg-blue-50">
+              <label className="text-xs text-[#1B4FBF] font-semibold px-3 py-1.5 rounded-full bg-blue-50 cursor-pointer">
                 + Upload
-              </button>
+                <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" />
+              </label>
             </div>
             <div className="flex flex-col gap-3">
               {docs.map(d => (
@@ -271,7 +279,8 @@ export default function JourneyScreen({ onNavigate }) {
               </div>
             ))}
 
-            <button className="w-full py-3.5 rounded-2xl border-2 border-dashed border-slate-200 text-slate-400 text-sm font-medium mt-1">
+            <button onClick={() => onNavigate('contact')}
+              className="w-full py-3.5 rounded-2xl border-2 border-dashed border-slate-200 text-slate-400 text-sm font-medium mt-1 transition-all active:bg-slate-50">
               + Add Travel Detail
             </button>
 
@@ -286,8 +295,9 @@ export default function JourneyScreen({ onNavigate }) {
               <p className="text-white/70 text-xs mb-3">
                 Share your full journey timeline with family or a relative
               </p>
-              <button className="px-4 py-2 bg-white rounded-xl text-xs font-bold text-[#7C3AED]">
-                Share Journey Link
+              <button onClick={handleShareLink}
+                className="px-4 py-2 bg-white rounded-xl text-xs font-bold text-[#7C3AED] flex items-center gap-1.5 transition-all active:scale-95">
+                {linkCopied ? <><Check size={12} /> Copied!</> : 'Share Journey Link'}
               </button>
             </div>
           </div>

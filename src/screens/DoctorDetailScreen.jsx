@@ -1,4 +1,5 @@
-﻿import { ArrowLeft, Star, MapPin, Clock, Heart, MessageCircle, Phone } from 'lucide-react';
+﻿import { useState } from 'react';
+import { ArrowLeft, Star, MapPin, Heart, MessageCircle, Phone } from 'lucide-react';
 
 const colors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'];
 
@@ -11,6 +12,9 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
   };
 
   const colorIdx = doc.id % colors.length;
+  const [saved, setSaved]       = useState(false);
+  const [selDate, setSelDate]   = useState(0);
+  const [selTime, setSelTime]   = useState(1);
 
   return (
     <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
@@ -22,8 +26,8 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
           <button onClick={() => onNavigate('doctors')} className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
             <ArrowLeft size={18} color="white" />
           </button>
-          <button className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
-            <Heart size={18} color="white" />
+          <button onClick={() => setSaved(v => !v)} className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
+            <Heart size={18} color="white" fill={saved ? 'white' : 'none'} />
           </button>
         </div>
 
@@ -82,12 +86,12 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
           <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Available Slots</h3>
           <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
             {['Mon Jan 20', 'Tue Jan 21', 'Wed Jan 22', 'Thu Jan 23'].map((d, i) => (
-              <button key={d}
+              <button key={d} onClick={() => setSelDate(i)}
                 className="flex-shrink-0 flex flex-col items-center px-3 py-2 rounded-xl border-2 transition-all"
                 style={{
-                  borderColor: i === 0 ? '#1B4FBF' : '#E2E8F0',
-                  background: i === 0 ? '#EFF6FF' : 'white',
-                  color: i === 0 ? '#1B4FBF' : '#475569',
+                  borderColor: selDate === i ? '#1B4FBF' : '#E2E8F0',
+                  background: selDate === i ? '#EFF6FF' : 'white',
+                  color: selDate === i ? '#1B4FBF' : '#475569',
                 }}>
                 <span className="text-xs font-semibold">{d.split(' ')[0]}</span>
                 <span className="text-sm font-bold">{d.split(' ').slice(1).join(' ')}</span>
@@ -96,12 +100,12 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
           </div>
           <div className="flex gap-2 mt-3 flex-wrap">
             {['9:00 AM', '10:30 AM', '2:00 PM', '4:30 PM'].map((slot, i) => (
-              <button key={slot}
+              <button key={slot} onClick={() => setSelTime(i)}
                 className="px-3 py-1.5 rounded-lg text-xs font-semibold border-2 transition-all"
                 style={{
-                  borderColor: i === 1 ? '#1B4FBF' : '#E2E8F0',
-                  background: i === 1 ? '#1B4FBF' : 'white',
-                  color: i === 1 ? 'white' : '#475569',
+                  borderColor: selTime === i ? '#1B4FBF' : '#E2E8F0',
+                  background: selTime === i ? '#1B4FBF' : 'white',
+                  color: selTime === i ? 'white' : '#475569',
                 }}>
                 {slot}
               </button>
@@ -138,8 +142,8 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
           className="w-12 h-12 rounded-2xl border-2 border-slate-200 flex items-center justify-center flex-shrink-0">
           <Phone size={20} color="#475569" />
         </button>
-        <button
-          className="flex-1 py-3.5 rounded-full text-white font-semibold text-sm"
+        <button onClick={() => onNavigate('freeQuote')}
+          className="flex-1 py-3.5 rounded-full text-white font-semibold text-sm transition-all active:scale-95"
           style={{ background: `linear-gradient(135deg, ${colors[colorIdx]}, #0D9488)` }}>
           Book Consultation
         </button>

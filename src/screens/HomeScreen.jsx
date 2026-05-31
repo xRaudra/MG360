@@ -138,7 +138,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
           <p className="text-white/75 text-xs mt-1">
             Share your reports · Expert advice in 24h
           </p>
-          <button className="mt-3 flex items-center gap-1 bg-white text-teal-700 text-xs font-bold px-3 py-1.5 rounded-full">
+          <button onClick={() => onNavigate('freeQuote')} className="mt-3 flex items-center gap-1 bg-white text-teal-700 text-xs font-bold px-3 py-1.5 rounded-full transition-all active:scale-95">
             Get Started <ChevronRight size={13} />
           </button>
         </div>

@@ -1,9 +1,11 @@
-﻿import { ArrowLeft, Clock, DollarSign, ChevronRight, Heart } from 'lucide-react';
+﻿import { useState } from 'react';
+import { ArrowLeft, Clock, DollarSign, ChevronRight, Heart } from 'lucide-react';
 import StarRating from '../components/StarRating';
 import { doctors } from '../data/mockData';
 
 export default function TreatmentDetailScreen({ data, onNavigate }) {
   const t = data || { name: 'Knee Replacement', category: 'Orthopedics', price: '$4,500', duration: '7–10 days', rating: 4.9, reviews: 342, icon: '🦴', popular: true };
+  const [saved, setSaved] = useState(false);
 
   const relatedDocs = doctors.filter(d => d.specialization.toLowerCase().includes('ortho') || d.specialization.toLowerCase().includes('cardio')).slice(0, 3);
 
@@ -16,8 +18,8 @@ export default function TreatmentDetailScreen({ data, onNavigate }) {
           <button onClick={() => onNavigate('treatment')} className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
             <ArrowLeft size={18} color="white" />
           </button>
-          <button className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-            <Heart size={18} color="white" />
+          <button onClick={() => setSaved(v => !v)} className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
+            <Heart size={18} color="white" fill={saved ? 'white' : 'none'} />
           </button>
         </div>
 

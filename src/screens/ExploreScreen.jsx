@@ -57,7 +57,7 @@ export default function ExploreScreen({ onNavigate }) {
                   style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                   Browse by Specialty
                 </h3>
-                <button className="flex items-center gap-0.5 text-[#1B4FBF] text-xs font-semibold">
+                <button onClick={() => setShowAll(true)} className="flex items-center gap-0.5 text-[#1B4FBF] text-xs font-semibold">
                   See all <ChevronRight size={14} />
                 </button>
               </div>

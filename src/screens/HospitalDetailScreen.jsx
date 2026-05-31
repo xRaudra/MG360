@@ -1,8 +1,10 @@
-﻿import { ArrowLeft, MapPin, ChevronRight, Heart } from 'lucide-react';
+﻿import { useState } from 'react';
+import { ArrowLeft, MapPin, ChevronRight, Heart } from 'lucide-react';
 import StarRating from '../components/StarRating';
 import { doctors } from '../data/mockData';
 
 export default function HospitalDetailScreen({ data, onNavigate }) {
+  const [saved, setSaved] = useState(false);
   const h = data || {
     id: 1, name: 'Apollo Hospitals', city: 'Delhi & 70+ locations',
     specialties: ['Cardiology', 'Orthopedics', 'Oncology', 'Neurology'],
@@ -22,8 +24,8 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
           <button onClick={() => onNavigate('hospitals')} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
             <ArrowLeft size={18} color="white" />
           </button>
-          <button className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
-            <Heart size={18} color="white" />
+          <button onClick={() => setSaved(v => !v)} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
+            <Heart size={18} color="white" fill={saved ? 'white' : 'none'} />
           </button>
         </div>
 

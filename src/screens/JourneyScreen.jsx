@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, Share2, FileText, Plane, Check, ChevronRight } from 'lucide-react';
+import { Calendar, Share2, FileText, Plane, Check, ChevronRight, ChevronDown } from 'lucide-react';
 import { journeySteps } from '../data/mockData';
 
 const stageConfig = {
@@ -48,8 +48,20 @@ const travelDetails = [
   { label: 'Airport Transfer', value: 'Car arranged',        sub: 'Apollo Hospital',         icon: '🚗' },
 ];
 
+// Documents linked to each step id
+const stepDocs = {
+  2:  [{ name: 'MRI Report', icon: '🧠' }, { name: 'Blood Work Results', icon: '🩸' }],
+  4:  [{ name: 'Passport Copy', icon: '🛂' }],
+  5:  [{ name: 'Medical Visa', icon: '📑' }],
+  6:  [{ name: 'Flight Ticket', icon: '✈️' }],
+  7:  [{ name: 'Travel Insurance', icon: '🛡️' }],
+};
+
 export default function JourneyScreen({ onNavigate }) {
   const [linkCopied, setLinkCopied] = useState(false);
+  const [expandedStep, setExpandedStep] = useState(null);
+
+  const toggleStep = (id) => setExpandedStep(prev => prev === id ? null : id);
 
   const handleShareLink = () => {
     setLinkCopied(true);
@@ -181,17 +193,16 @@ export default function JourneyScreen({ onNavigate }) {
                 {group.steps.map((step, i) => {
                   const isLastOfAll   = isLastGroup && i === group.steps.length - 1;
                   const showConnector = !isLastOfAll;
+                  const isExpanded    = expandedStep === step.id;
+                  const linked        = stepDocs[step.id] || [];
+                  const dotBg         = step.status === 'done' ? '#10B981' : step.status === 'active' ? '#1B4FBF' : '#E2E8F0';
 
                   return (
                     <div key={step.id} className="flex gap-3 mb-1">
+                      {/* Dot + connector */}
                       <div className="flex flex-col items-center">
                         <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm flex-shrink-0 font-bold"
-                          style={{
-                            background: step.status === 'done'   ? '#10B981'
-                                      : step.status === 'active' ? '#1B4FBF'
-                                      : '#E2E8F0',
-                            color: step.status === 'upcoming' ? '#94A3B8' : 'white',
-                          }}>
+                          style={{ background: dotBg, color: step.status === 'upcoming' ? '#94A3B8' : 'white' }}>
                           {step.status === 'done' ? '✓' : step.icon}
                         </div>
                         {showConnector && (
@@ -200,52 +211,59 @@ export default function JourneyScreen({ onNavigate }) {
                         )}
                       </div>
 
+                      {/* Accordion card */}
                       <div className="flex-1 mb-3">
-                        <div className={`rounded-2xl p-3.5 ${step.status === 'active' ? 'border-2 border-[#1B4FBF]' : ''}`}
+                        <div className={`rounded-2xl overflow-hidden ${step.status === 'active' ? 'border-2 border-[#1B4FBF]' : ''}`}
                           style={{
                             background: 'white',
-                            boxShadow: step.status === 'active'
-                              ? '0 4px 16px rgba(27,79,191,0.15)'
-                              : '0 1px 4px rgba(0,0,0,0.06)',
+                            boxShadow: step.status === 'active' ? '0 4px 16px rgba(27,79,191,0.15)' : '0 1px 4px rgba(0,0,0,0.06)',
                           }}>
-                          <div className="flex items-start justify-between">
+
+                          {/* Collapsed row — always visible */}
+                          <button onClick={() => toggleStep(step.id)}
+                            className="flex items-center gap-2 w-full px-3.5 py-3 text-left transition-all active:bg-slate-50">
                             <div className="flex-1 min-w-0">
-                              <p className="font-semibold text-sm"
-                                style={{
-                                  fontFamily: 'Plus Jakarta Sans, sans-serif',
-                                  color: step.status === 'upcoming' ? '#94A3B8' : '#1E293B',
-                                }}>
+                              <p className="font-semibold text-sm leading-tight"
+                                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: step.status === 'upcoming' ? '#94A3B8' : '#1E293B' }}>
                                 {step.title}
                               </p>
-                              <p className="text-xs mt-0.5"
-                                style={{ color: step.status === 'upcoming' ? '#CBD5E1' : '#64748B' }}>
-                                {step.desc}
+                              <p className="text-slate-400 text-xs mt-1 flex items-center gap-1">
+                                <Calendar size={10} />{step.date}
+                                {step.time !== '—' && <span className="ml-1">{step.time}</span>}
                               </p>
                             </div>
-                            {step.status === 'active' && (
-                              <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-[#1B4FBF] flex-shrink-0 ml-2">
-                                Now
-                              </span>
-                            )}
                             {step.status === 'done' && (
-                              <span className="px-2 py-0.5 rounded-full text-xs font-bold flex-shrink-0 ml-2"
-                                style={{ background: '#F0FDF4', color: '#059669' }}>
-                                Done
-                              </span>
+                              <span className="px-2 py-0.5 rounded-full text-xs font-bold flex-shrink-0"
+                                style={{ background: '#F0FDF4', color: '#059669' }}>Done</span>
                             )}
-                          </div>
-                          {step.status !== 'upcoming' && (
-                            <div className="flex items-center gap-3 mt-2">
-                              <span className="text-slate-400 text-xs flex items-center gap-1">
-                                <Calendar size={10} />{step.date}
-                              </span>
-                              {step.time !== '—' && (
-                                <span className="text-slate-400 text-xs">{step.time}</span>
+                            {step.status === 'active' && (
+                              <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-[#1B4FBF] flex-shrink-0">Now</span>
+                            )}
+                            <ChevronDown size={15} color="#CBD5E1"
+                              style={{ flexShrink: 0, marginLeft: 4, transform: isExpanded ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }} />
+                          </button>
+
+                          {/* Expanded detail */}
+                          {isExpanded && (
+                            <div className="px-3.5 pb-3.5" style={{ borderTop: '1px solid #F1F5F9' }}>
+                              <p className="text-slate-500 text-xs mt-2.5 leading-relaxed">{step.desc}</p>
+                              {linked.length > 0 && (
+                                <div className="mt-3">
+                                  <p className="text-xs font-semibold text-slate-400 mb-2">Documents</p>
+                                  <div className="flex flex-wrap gap-2">
+                                    {linked.map(doc => (
+                                      <button key={doc.name}
+                                        onClick={() => onNavigate('journeyDocuments')}
+                                        className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-slate-200 bg-slate-50 transition-all active:scale-95">
+                                        <span className="text-sm">{doc.icon}</span>
+                                        <span className="text-xs font-medium text-slate-600">{doc.name}</span>
+                                        <ChevronRight size={11} color="#CBD5E1" />
+                                      </button>
+                                    ))}
+                                  </div>
+                                </div>
                               )}
                             </div>
-                          )}
-                          {step.status === 'upcoming' && (
-                            <p className="text-slate-300 text-xs mt-1.5">{step.date}</p>
                           )}
                         </div>
                       </div>

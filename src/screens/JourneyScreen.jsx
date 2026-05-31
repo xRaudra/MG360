@@ -232,10 +232,6 @@ export default function JourneyScreen({ onNavigate }) {
                                 {step.time !== '—' && <span className="ml-1">{step.time}</span>}
                               </p>
                             </div>
-                            {step.status === 'done' && (
-                              <span className="px-2 py-0.5 rounded-full text-xs font-bold flex-shrink-0"
-                                style={{ background: '#F0FDF4', color: '#059669' }}>Done</span>
-                            )}
                             {step.status === 'active' && (
                               <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-blue-100 text-[#1B4FBF] flex-shrink-0">Now</span>
                             )}

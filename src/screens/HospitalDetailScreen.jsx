@@ -24,8 +24,9 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
           <button onClick={() => onNavigate('hospitals')} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
             <ArrowLeft size={18} color="white" />
           </button>
-          <button onClick={() => setSaved(v => !v)} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
-            <Heart size={18} color="white" fill={saved ? 'white' : 'none'} />
+          <button onClick={() => setSaved(v => !v)} className="w-9 h-9 rounded-full flex items-center justify-center transition-all"
+            style={{ background: saved ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.1)' }}>
+            <Heart size={18} color={saved ? '#EF4444' : 'white'} strokeWidth={saved ? 2.5 : 1.8} />
           </button>
         </div>
 

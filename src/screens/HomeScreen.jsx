@@ -38,7 +38,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
           </div>
           <div className="flex items-center gap-2">
             {/* Language */}
-            <button className="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/15">
+            <button onClick={() => onNavigate('language')} className="flex items-center gap-1 px-2.5 py-1.5 rounded-full bg-white/15 transition-all active:bg-white/25">
               <Globe size={14} color="white" />
               <span className="text-white text-xs font-medium">{lang}</span>
             </button>

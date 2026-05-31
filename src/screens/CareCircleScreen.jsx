@@ -8,8 +8,10 @@ const permissionConfig = {
 };
 
 export default function CareCircleScreen({ onNavigate }) {
+  const MAX_MEMBERS    = 3;
   const activeMembers  = careCircleMembers.filter(m => m.status === 'active');
   const pendingMembers = careCircleMembers.filter(m => m.status === 'pending');
+  const totalMembers   = careCircleMembers.length; // active + pending count toward limit
 
   return (
     <div className="flex flex-col h-full bg-transparent screen-enter">
@@ -31,8 +33,8 @@ export default function CareCircleScreen({ onNavigate }) {
         <div className="flex gap-3">
           {[
             { label: 'Active',  value: activeMembers.length,  color: '#34D399' },
-            { label: 'Pending', value: pendingMembers.length, color: '#FCD34D' },
-            { label: 'Max',     value: '3',                   color: 'rgba(255,255,255,0.5)' },
+            { label: 'Pending', value: pendingMembers.length,              color: '#FCD34D' },
+            { label: 'Max',     value: `${totalMembers}/${MAX_MEMBERS}`,  color: 'rgba(255,255,255,0.5)' },
           ].map(s => (
             <div key={s.label} className="flex-1 rounded-xl px-3 py-2 text-center"
               style={{ background: 'rgba(255,255,255,0.12)' }}>
@@ -131,7 +133,7 @@ export default function CareCircleScreen({ onNavigate }) {
         </div>
 
         {/* Add Member CTA */}
-        {activeMembers.length >= 3 ? (
+        {totalMembers >= MAX_MEMBERS ? (
           <div className="w-full py-4 rounded-2xl text-center text-sm font-semibold text-slate-400 bg-slate-100">
             Maximum 3 members reached
           </div>

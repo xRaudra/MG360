@@ -9,8 +9,8 @@ const quickReplies = [
   'I need to share my reports',
 ];
 
-export default function ChatScreen({ onNavigate }) {
-  const [messages, setMessages] = useState(chatMessages);
+export default function ChatScreen({ onNavigate, isGuest = false }) {
+  const [messages, setMessages] = useState(isGuest ? [] : chatMessages);
   const [input, setInput] = useState('');
   const [showQuick, setShowQuick] = useState(true);
 
@@ -61,12 +61,33 @@ export default function ChatScreen({ onNavigate }) {
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto hide-scrollbar px-4 py-4 flex flex-col gap-3">
+
+        {/* Empty state for guest / new users */}
+        {messages.length === 0 && (
+          <div className="flex-1 flex flex-col items-center justify-center gap-4 py-16">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center"
+              style={{ background: 'linear-gradient(135deg, #EFF6FF, #F0FDFA)' }}>
+              <span className="text-3xl">💬</span>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                Chat with your Care Team
+              </p>
+              <p className="text-slate-400 text-xs mt-1 leading-relaxed px-6">
+                Send us a message and a dedicated coordinator will respond within minutes.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Date separator */}
-        <div className="flex items-center gap-3">
-          <div className="flex-1 h-px bg-slate-200" />
-          <span className="text-xs text-slate-400 font-medium">Today</span>
-          <div className="flex-1 h-px bg-slate-200" />
-        </div>
+        {messages.length > 0 && (
+          <div className="flex items-center gap-3">
+            <div className="flex-1 h-px bg-slate-200" />
+            <span className="text-xs text-slate-400 font-medium">Today</span>
+            <div className="flex-1 h-px bg-slate-200" />
+          </div>
+        )}
 
         {messages.map(msg => (
           <div key={msg.id} className={`flex gap-2 ${msg.sender === 'user' ? 'flex-row-reverse' : ''}`}>

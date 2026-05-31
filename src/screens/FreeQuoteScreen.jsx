@@ -23,38 +23,92 @@ export default function FreeQuoteScreen({ onNavigate }) {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center h-full bg-transparent screen-enter gap-4 px-6">
-        <div className="w-20 h-20 rounded-full flex items-center justify-center"
-          style={{ background: '#F0FDF4' }}>
-          <Check size={36} color="#059669" strokeWidth={2.5} />
+      <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
+        {/* Success hero */}
+        <div className="px-6 pt-10 pb-6 flex flex-col items-center text-center"
+          style={{ background: 'linear-gradient(160deg, #0D9488 0%, #1B4FBF 100%)' }}>
+          <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center mb-4">
+            <Check size={38} color="white" strokeWidth={2.5} />
+          </div>
+          <h2 className="text-white font-bold text-2xl mb-2"
+            style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            You're all set!
+          </h2>
+          <p className="text-white/80 text-sm leading-relaxed">
+            Your consultation request has been received. Our medical team will review your case and reach out within <strong className="text-white">24 hours</strong>.
+          </p>
+          <div className="mt-4 px-4 py-2 rounded-full text-xs font-semibold"
+            style={{ background: 'rgba(255,255,255,0.2)', color: 'white' }}>
+            📧 Confirmation sent to {form.email || 'your email'}
+          </div>
         </div>
-        <h2 className="font-bold text-slate-800 text-xl text-center"
-          style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-          Request Submitted!
-        </h2>
-        <p className="text-slate-500 text-sm text-center leading-relaxed">
-          Our team will review your case and send you a detailed treatment plan and cost estimate within <strong>2 business days</strong>.
-        </p>
-        <div className="w-full bg-white rounded-2xl p-4 mt-2" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <p className="text-xs text-slate-400 text-center">What happens next?</p>
-          {[
-            'Medical team reviews your case',
-            'Hospital & doctor shortlist prepared',
-            'Cost estimate sent to your email',
-            'Free consultation call scheduled',
-          ].map((s, i) => (
-            <div key={s} className="flex items-center gap-3 mt-3">
-              <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
-                style={{ background: '#0D9488' }}>{i + 1}</div>
-              <p className="text-slate-600 text-sm">{s}</p>
+
+        <div className="px-5 py-6 flex flex-col gap-5">
+          {/* What happens next */}
+          <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+            <p className="font-bold text-slate-800 text-sm mb-4" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+              What happens next?
+            </p>
+            {[
+              { icon: '🔬', title: 'Case Review',          desc: 'Our senior medical team reviews your reports and diagnosis', time: 'Within 2 hours' },
+              { icon: '🏥', title: 'Hospital Shortlist',   desc: 'Best-matched hospitals and doctors selected for your condition', time: 'Within 12 hours' },
+              { icon: '💰', title: 'Cost Estimate',        desc: 'Transparent, itemised cost estimate sent to your inbox', time: 'Within 24 hours' },
+              { icon: '📞', title: 'Consultation Call',    desc: 'Your coordinator calls to walk you through the plan', time: 'Within 48 hours' },
+            ].map((step, i) => (
+              <div key={step.title} className="flex items-start gap-3 mb-3 last:mb-0">
+                <div className="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center text-xl flex-shrink-0">
+                  {step.icon}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <p className="font-semibold text-slate-800 text-sm">{step.title}</p>
+                    <span className="text-xs text-teal-600 font-medium">{step.time}</span>
+                  </div>
+                  <p className="text-slate-400 text-xs mt-0.5 leading-relaxed">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* While you wait */}
+          <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+            <p className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+              While you wait
+            </p>
+            <div className="flex flex-col gap-2">
+              <button onClick={() => onNavigate('caseStudies')}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-slate-50 transition-all active:scale-95 text-left">
+                <span className="text-xl">📖</span>
+                <div>
+                  <p className="text-sm font-medium text-slate-700">Read Case Studies</p>
+                  <p className="text-xs text-slate-400">Real patients, real outcomes</p>
+                </div>
+              </button>
+              <button onClick={() => onNavigate('whyIndia')}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-slate-50 transition-all active:scale-95 text-left">
+                <span className="text-xl">🇮🇳</span>
+                <div>
+                  <p className="text-sm font-medium text-slate-700">Why India?</p>
+                  <p className="text-xs text-slate-400">Up to 90% lower costs, world-class care</p>
+                </div>
+              </button>
+              <button onClick={() => onNavigate('chat')}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-slate-50 transition-all active:scale-95 text-left">
+                <span className="text-xl">💬</span>
+                <div>
+                  <p className="text-sm font-medium text-slate-700">Chat with Us</p>
+                  <p className="text-xs text-slate-400">Have a question? We're online now</p>
+                </div>
+              </button>
             </div>
-          ))}
+          </div>
+
+          <button onClick={() => onNavigate('home')}
+            className="w-full py-4 rounded-2xl font-semibold text-sm text-white transition-all active:scale-95"
+            style={{ background: 'linear-gradient(135deg, #0D9488, #1B4FBF)' }}>
+            Back to Home
+          </button>
         </div>
-        <button onClick={() => onNavigate('home')}
-          className="w-full py-4 rounded-2xl font-semibold text-sm text-white mt-2 transition-all active:scale-95"
-          style={{ background: 'linear-gradient(135deg, #0D9488, #1B4FBF)' }}>
-          Back to Home
-        </button>
       </div>
     );
   }

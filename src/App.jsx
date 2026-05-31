@@ -94,8 +94,8 @@ export default function App() {
       case 'doctorDetail': return <DoctorDetailScreen {...props} />;
       case 'hospitalDetail': return <HospitalDetailScreen {...props} />;
       case 'journey':      return <JourneyScreen {...props} isGuest={isGuest} />;
-      case 'chat':         return <ChatScreen {...props} />;
-      case 'notifications': return <NotificationsScreen {...props} />;
+      case 'chat':         return <ChatScreen {...props} isGuest={isGuest} />;
+      case 'notifications': return <NotificationsScreen {...props} isGuest={isGuest} />;
       case 'profile':      return <ProfileScreen {...props} />;
       case 'contact':          return <ContactScreen {...props} />;
       case 'careCircle':       return <CareCircleScreen {...props} />;

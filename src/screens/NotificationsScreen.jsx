@@ -9,8 +9,9 @@ const typeConfig = {
   message: { icon: <MessageCircle size={16} />, color: '#0D9488', bg: '#F0FDFA' },
 };
 
-export default function NotificationsScreen({ onNavigate }) {
-  const unread = notifications.filter(n => !n.read).length;
+export default function NotificationsScreen({ onNavigate, isGuest = false }) {
+  const list   = isGuest ? [] : notifications;
+  const unread = list.filter(n => !n.read).length;
 
   return (
     <div className="flex flex-col h-full bg-transparent screen-enter">
@@ -33,12 +34,30 @@ export default function NotificationsScreen({ onNavigate }) {
 
       {/* List */}
       <div className="flex-1 overflow-y-auto hide-scrollbar">
+
+        {/* Empty state */}
+        {list.length === 0 && (
+          <div className="flex flex-col items-center justify-center h-full gap-4 px-8">
+            <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center">
+              <span className="text-3xl">🔔</span>
+            </div>
+            <div className="text-center">
+              <p className="font-semibold text-slate-700 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                No notifications yet
+              </p>
+              <p className="text-slate-400 text-xs mt-1 leading-relaxed">
+                Once your journey begins, you'll receive appointment reminders, document alerts, and journey updates here.
+              </p>
+            </div>
+          </div>
+        )}
+
         {/* Unread section */}
         {unread > 0 && (
           <div className="px-4 pt-4">
             <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">New</p>
             <div className="flex flex-col gap-2">
-              {notifications.filter(n => !n.read).map(n => {
+              {list.filter(n => !n.read).map(n => {
                 const cfg = typeConfig[n.type];
                 return (
                   <div key={n.id}
@@ -64,10 +83,10 @@ export default function NotificationsScreen({ onNavigate }) {
         )}
 
         {/* Earlier */}
-        <div className="px-4 pt-4 pb-6">
+        {list.filter(n => n.read).length > 0 && <div className="px-4 pt-4 pb-6">
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-3">Earlier</p>
           <div className="flex flex-col gap-2">
-            {notifications.filter(n => n.read).map(n => {
+            {list.filter(n => n.read).map(n => {
               const cfg = typeConfig[n.type];
               return (
                 <div key={n.id}
@@ -86,7 +105,7 @@ export default function NotificationsScreen({ onNavigate }) {
               );
             })}
           </div>
-        </div>
+        </div>}
       </div>
     </div>
   );

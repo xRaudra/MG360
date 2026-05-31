@@ -18,7 +18,7 @@ function Avatar({ initials, color = '#1B4FBF' }) {
   );
 }
 
-export default function HomeScreen({ onNavigate }) {
+export default function HomeScreen({ onNavigate, isGuest = false }) {
   const lang = 'EN';
 
   return (
@@ -65,22 +65,38 @@ export default function HomeScreen({ onNavigate }) {
           </div>
         </div>
 
-        {/* Journey progress pill */}
-        <div onClick={() => onNavigate('journey')}
-          className="flex items-center justify-between mt-3 px-4 py-2.5 rounded-xl cursor-pointer"
-          style={{ background: 'rgba(255,255,255,0.12)' }}>
-          <div className="flex items-center gap-2">
-            <span className="text-base">✈️</span>
-            <div>
-              <p className="text-white text-xs font-semibold">Travel to Delhi in 3 days</p>
-              <p className="text-white/60 text-xs">Cardiac Bypass — Apollo Hospital</p>
+        {/* Journey pill (logged in) / Free Quote CTA (guest) */}
+        {isGuest ? (
+          <div onClick={() => onNavigate('freeQuote')}
+            className="flex items-center justify-between mt-3 px-4 py-3 rounded-xl cursor-pointer transition-all active:opacity-80"
+            style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.2)' }}>
+            <div className="flex items-center gap-2.5">
+              <span className="text-sm px-2 py-0.5 rounded-full font-bold"
+                style={{ background: 'rgba(255,255,255,0.25)', color: 'white' }}>FREE</span>
+              <div>
+                <p className="text-white text-xs font-semibold">Get a Free Treatment Consultation</p>
+                <p className="text-white/60 text-xs">Treatment plan & estimate within 2 days</p>
+              </div>
+            </div>
+            <ChevronRight size={14} color="rgba(255,255,255,0.7)" />
+          </div>
+        ) : (
+          <div onClick={() => onNavigate('journey')}
+            className="flex items-center justify-between mt-3 px-4 py-2.5 rounded-xl cursor-pointer"
+            style={{ background: 'rgba(255,255,255,0.12)' }}>
+            <div className="flex items-center gap-2">
+              <span className="text-base">✈️</span>
+              <div>
+                <p className="text-white text-xs font-semibold">Travel to Delhi in 3 days</p>
+                <p className="text-white/60 text-xs">Cardiac Bypass — Apollo Hospital</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1 text-white/70">
+              <span className="text-xs">View</span>
+              <ChevronRight size={14} />
             </div>
           </div>
-          <div className="flex items-center gap-1 text-white/70">
-            <span className="text-xs">View</span>
-            <ChevronRight size={14} />
-          </div>
-        </div>
+        )}
       </div>
 
       {/* Quick Actions */}

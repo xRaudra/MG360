@@ -58,7 +58,7 @@ export default function WhyIndiaScreen({ onNavigate }) {
           <div className="ml-auto" style={{
             opacity:    scrolled ? 1 : 0,
             transform:  `translateX(${scrolled ? 0 : 20}px)`,
-            transition: 'opacity 0.2s ease 0.1s, transform 0.25s ease 0.1s',
+            transition: 'opacity 0.35s cubic-bezier(0.4,0,0.2,1) 0.15s, transform 0.4s cubic-bezier(0.4,0,0.2,1) 0.15s',
             pointerEvents: scrolled ? 'auto' : 'none',
           }}>
             <Pill />
@@ -70,13 +70,13 @@ export default function WhyIndiaScreen({ onNavigate }) {
           maxHeight:     scrolled ? 0 : 300,
           opacity:       scrolled ? 0 : 1,
           overflow:      'hidden',
-          transition:    'max-height 0.35s ease, opacity 0.2s ease, padding 0.3s ease',
+          transition:    'max-height 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.35s cubic-bezier(0.4,0,0.2,1), padding 0.45s cubic-bezier(0.4,0,0.2,1)',
           paddingTop:    scrolled ? 0 : 14,
           paddingBottom: scrolled ? 0 : 22,
           paddingLeft: 20,
           paddingRight: 20,
         }}>
-          <div style={{ opacity: scrolled ? 0 : 1, transition: 'opacity 0.12s ease' }}>
+          <div style={{ opacity: scrolled ? 0 : 1, transition: 'opacity 0.25s cubic-bezier(0.4,0,0.2,1)' }}>
             <Pill style={{ marginBottom: 14, display: 'inline-flex' }} />
           </div>
           <h1 className="text-white font-bold text-2xl leading-tight mb-2"
@@ -193,10 +193,10 @@ export default function WhyIndiaScreen({ onNavigate }) {
             </div>
           </div>
 
-          <button onClick={() => onNavigate('explore')}
+          <button onClick={() => onNavigate('freeQuote')}
             className="w-full py-4 rounded-2xl font-semibold text-sm text-white transition-all active:scale-95"
             style={{ background: GRADIENT }}>
-            Find a Treatment in India
+            Free Consultation
           </button>
 
           <button

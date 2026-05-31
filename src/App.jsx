@@ -33,6 +33,7 @@ import AddMemberScreen from './screens/AddMemberScreen';
 import MemberDetailScreen from './screens/MemberDetailScreen';
 import CaregiverJourneyScreen from './screens/CaregiverJourneyScreen';
 import AcceptInviteScreen from './screens/AcceptInviteScreen';
+import FreeQuoteScreen from './screens/FreeQuoteScreen';
 
 // Screens that show the bottom nav
 const mainScreens = ['home', 'explore', 'journey', 'chat', 'profile'];
@@ -46,11 +47,20 @@ const navMap = {
   profile: 'profile',
 };
 
+const guestScreens = ['guestCountry', 'guestCondition', 'guestTimeline', 'guestConfirm'];
+
 export default function App() {
   const [screen, setScreen] = useState('splash');
   const [screenData, setScreenData] = useState(null);
+  const [isGuest, setIsGuest] = useState(false);
 
   const navigate = (target, data = null) => {
+    if (target === 'home') {
+      setIsGuest(prev => guestScreens.includes(screen) ? true : prev);
+    }
+    if (target === 'home' && (screen === 'login' || screen === 'createAccount')) {
+      setIsGuest(false);
+    }
     setScreenData(data);
     setScreen(target);
   };
@@ -67,7 +77,7 @@ export default function App() {
       case 'guestCondition':  return <GuestConditionScreen {...props} />;
       case 'guestTimeline':   return <GuestTimelineScreen {...props} />;
       case 'guestConfirm':    return <GuestConfirmScreen {...props} />;
-      case 'home':         return <HomeScreen {...props} />;
+      case 'home':         return <HomeScreen {...props} isGuest={isGuest} />;
       case 'explore':      return <ExploreScreen {...props} />;
       case 'treatment':    return <ExploreScreen {...props} />;
       case 'doctors':      return <DoctorsScreen {...props} />;
@@ -88,7 +98,8 @@ export default function App() {
       case 'memberDetail':     return <MemberDetailScreen {...props} />;
       case 'caregiverJourney': return <CaregiverJourneyScreen {...props} />;
       case 'acceptInvite':     return <AcceptInviteScreen {...props} />;
-      default:                 return <HomeScreen {...props} />;
+      case 'freeQuote':        return <FreeQuoteScreen {...props} />;
+      default:                 return <HomeScreen {...props} isGuest={isGuest} />;
     }
   };
 

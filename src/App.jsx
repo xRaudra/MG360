@@ -34,6 +34,8 @@ import MemberDetailScreen from './screens/MemberDetailScreen';
 import CaregiverJourneyScreen from './screens/CaregiverJourneyScreen';
 import AcceptInviteScreen from './screens/AcceptInviteScreen';
 import FreeQuoteScreen from './screens/FreeQuoteScreen';
+import DocumentsScreen from './screens/DocumentsScreen';
+import TravelScreen from './screens/TravelScreen';
 import PersonalInfoScreen from './screens/PersonalInfoScreen';
 import LanguageScreen from './screens/LanguageScreen';
 import NotificationSettingsScreen from './screens/NotificationSettingsScreen';
@@ -109,7 +111,9 @@ export default function App() {
       case 'notifications':    return <NotificationSettingsScreen {...props} />;
       case 'help':             return <HelpFaqScreen {...props} />;
       case 'settings':         return <AppSettingsScreen {...props} />;
-      case 'documents':        return <JourneyScreen {...props} />;
+      case 'documents':          return <JourneyScreen {...props} />;
+      case 'journeyDocuments':   return <DocumentsScreen {...props} />;
+      case 'journeyTravel':      return <TravelScreen {...props} />;
       default:                 return <HomeScreen {...props} isGuest={isGuest} />;
     }
   };

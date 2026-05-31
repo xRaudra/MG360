@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Calendar, Share2, FileText, Plane, ChevronDown, Check, Upload } from 'lucide-react';
+import { Calendar, Share2, FileText, Plane, Check, ChevronRight } from 'lucide-react';
 import { journeySteps } from '../data/mockData';
 
 const stageConfig = {
@@ -49,8 +49,6 @@ const travelDetails = [
 ];
 
 export default function JourneyScreen({ onNavigate }) {
-  const [showDocs,   setShowDocs]   = useState(false);
-  const [showTravel, setShowTravel] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
 
   const handleShareLink = () => {
@@ -136,138 +134,34 @@ export default function JourneyScreen({ onNavigate }) {
 
         {/* ── Quick-access cards ─────────────────────────────── */}
         <div className="flex gap-3 px-4 pt-4 pb-2">
-          {/* Documents card */}
-          <button onClick={() => { setShowDocs(v => !v); setShowTravel(false); }}
-            className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-left transition-all active:scale-95"
-            style={{
-              background: showDocs ? '#EFF6FF' : 'white',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-              border: showDocs ? '1.5px solid #1B4FBF' : '1.5px solid transparent',
-            }}>
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{ background: showDocs ? '#DBEAFE' : '#F1F5F9' }}>
-              <FileText size={17} color={showDocs ? '#1B4FBF' : '#64748B'} />
+          <button onClick={() => onNavigate('journeyDocuments')}
+            className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-left transition-all active:scale-95 bg-white"
+            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+            <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+              <FileText size={17} color="#1B4FBF" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-sm" style={{ color: showDocs ? '#1B4FBF' : '#1E293B' }}>
-                Documents
-              </p>
-              <p className="text-xs" style={{ color: showDocs ? '#3B82F6' : '#94A3B8' }}>
+              <p className="font-semibold text-slate-800 text-sm">Documents</p>
+              <p className="text-slate-400 text-xs">
                 {docSections.reduce((n, s) => n + s.docs.length, 0)} files
               </p>
             </div>
-            <ChevronDown size={14} color={showDocs ? '#1B4FBF' : '#CBD5E1'}
-              style={{ transform: showDocs ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s' }} />
+            <ChevronRight size={14} color="#CBD5E1" />
           </button>
 
-          {/* Travel card */}
-          <button onClick={() => { setShowTravel(v => !v); setShowDocs(false); }}
-            className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-left transition-all active:scale-95"
-            style={{
-              background: showTravel ? '#F0FDFA' : 'white',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-              border: showTravel ? '1.5px solid #0D9488' : '1.5px solid transparent',
-            }}>
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-              style={{ background: showTravel ? '#CCFBF1' : '#F1F5F9' }}>
-              <Plane size={17} color={showTravel ? '#0D9488' : '#64748B'} />
+          <button onClick={() => onNavigate('journeyTravel')}
+            className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-left transition-all active:scale-95 bg-white"
+            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+            <div className="w-9 h-9 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
+              <Plane size={17} color="#0D9488" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-sm" style={{ color: showTravel ? '#0D9488' : '#1E293B' }}>
-                Travel
-              </p>
-              <p className="text-xs" style={{ color: showTravel ? '#14B8A6' : '#94A3B8' }}>
-                Confirmed
-              </p>
+              <p className="font-semibold text-slate-800 text-sm">Travel</p>
+              <p className="text-slate-400 text-xs">Confirmed ✓</p>
             </div>
-            <ChevronDown size={14} color={showTravel ? '#0D9488' : '#CBD5E1'}
-              style={{ transform: showTravel ? 'rotate(180deg)' : 'none', transition: 'transform 0.25s' }} />
+            <ChevronRight size={14} color="#CBD5E1" />
           </button>
         </div>
-
-        {/* ── Documents expanded ─────────────────────────────── */}
-        {showDocs && (
-          <div className="px-4 pb-2 flex flex-col gap-3">
-            {/* Upload header */}
-            <div className="flex items-center justify-between">
-              <p className="text-xs text-slate-400 font-medium">
-                {docSections.reduce((n, s) => n + s.docs.length, 0)} documents
-              </p>
-              <label className="text-xs text-[#1B4FBF] font-semibold px-3 py-1.5 rounded-full bg-blue-50 cursor-pointer">
-                + Upload
-                <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" />
-              </label>
-            </div>
-
-            {/* Sections */}
-            {docSections.map(section => (
-              <div key={section.title}>
-                {/* Section header — same style as timeline stages */}
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full"
-                    style={{ background: section.bg }}>
-                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: section.color }} />
-                    <span className="text-xs font-bold" style={{ color: section.color }}>
-                      {section.title}
-                    </span>
-                  </div>
-                  <div className="flex-1 h-px" style={{ background: section.color + '30' }} />
-                </div>
-
-                {/* Documents in this section */}
-                <div className="bg-white rounded-2xl overflow-hidden"
-                  style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
-                  {section.docs.map((d, i) => (
-                    <div key={d.name} className="flex items-center gap-3 px-4 py-3"
-                      style={{ borderTop: i > 0 ? '1px solid #F1F5F9' : 'none' }}>
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-                        style={{ background: section.bg }}>
-                        {d.icon}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="font-semibold text-slate-800 text-sm">{d.name}</p>
-                        <p className="text-slate-400 text-xs">{d.date} · {d.size}</p>
-                      </div>
-                      <span className="text-xs px-2 py-1 rounded-full font-medium flex-shrink-0"
-                        style={{ background: section.bg, color: section.color }}>
-                        View
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* ── Travel expanded ─────────────────────────────────── */}
-        {showTravel && (
-          <div className="px-4 pb-2">
-            <div className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-              {travelDetails.map((d, i) => (
-                <div key={d.label} className="flex items-center gap-3 px-4 py-3"
-                  style={{ borderTop: i > 0 ? '1px solid #F1F5F9' : 'none' }}>
-                  <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-xl flex-shrink-0">
-                    {d.icon}
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-slate-400 text-xs">{d.label}</p>
-                    <p className="font-bold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-                      {d.value}
-                    </p>
-                    <p className="text-slate-500 text-xs mt-0.5">{d.sub}</p>
-                  </div>
-                </div>
-              ))}
-              <div className="px-4 py-3" style={{ borderTop: '1px solid #F1F5F9' }}>
-                <button onClick={() => onNavigate('contact')}
-                  className="w-full py-2.5 rounded-xl border border-dashed border-slate-200 text-slate-400 text-xs font-medium transition-all active:bg-slate-50">
-                  + Request changes to travel
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* ── Timeline ───────────────────────────────────────── */}
         <div className="px-4 pt-2 pb-4">

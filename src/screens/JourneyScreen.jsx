@@ -264,8 +264,8 @@ export default function JourneyScreen({ onNavigate }) {
           <div className="px-4 py-4 flex flex-col gap-3">
             <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">Your Travel Arrangements</p>
             {travelDetails.map(d => (
-              <button key={d.label} onClick={() => onNavigate('contact')}
-                className="flex items-center gap-4 bg-white rounded-2xl p-4 text-left transition-all active:scale-95"
+              <div key={d.label}
+                className="flex items-center gap-4 bg-white rounded-2xl p-4"
                 style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
                 <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-2xl flex-shrink-0">
                   {d.icon}
@@ -276,8 +276,7 @@ export default function JourneyScreen({ onNavigate }) {
                     style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{d.value}</p>
                   <p className="text-slate-500 text-xs mt-0.5">{d.sub}</p>
                 </div>
-                <ChevronRight size={16} color="#94A3B8" />
-              </button>
+              </div>
             ))}
 
             <button onClick={() => onNavigate('contact')}

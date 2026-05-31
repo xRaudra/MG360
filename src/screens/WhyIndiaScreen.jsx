@@ -1,12 +1,15 @@
+import { useState } from 'react';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
 
+const GRADIENT = 'linear-gradient(140deg, #F59E0B 0%, #D97706 100%)';
+
 const advantages = [
-  { icon: '💰', color: '#059669', bg: '#F0FDF4', title: 'Up to 90% Cost Savings',          desc: 'The same surgery that costs $80,000 in the US costs $8,000 in India — with no compromise on quality or outcome.' },
-  { icon: '🏆', color: '#1B4FBF', bg: '#EFF6FF', title: 'World-Class Hospitals',           desc: 'India has more JCI-accredited hospitals than any other country in Asia. Apollo, Fortis, AIIMS — global names, local prices.' },
-  { icon: '👨‍⚕️', color: '#7C3AED', bg: '#FAF5FF', title: 'Internationally Trained Doctors', desc: 'Most senior surgeons have trained in the US, UK, or Europe. English-speaking, globally certified, locally committed.' },
-  { icon: '⚡', color: '#F59E0B', bg: '#FFFBEB', title: 'No Waiting Lists',                desc: 'Skip the 6–12 month NHS waitlists. Get a confirmed surgery date within days of your medical assessment.' },
-  { icon: '🔬', color: '#0D9488', bg: '#F0FDFA', title: 'Advanced Technology',             desc: "Robotic surgery, proton therapy, AI diagnostics — India's top hospitals run the same equipment as leading US centres." },
-  { icon: '✈️', color: '#EC4899', bg: '#FDF2F8', title: 'Excellent Connectivity',          desc: 'Direct or one-stop flights from Lagos, Nairobi, Accra, Dubai, and London to Delhi, Mumbai, and Chennai.' },
+  { icon: '💰', color: '#059669', bg: '#F0FDF4', title: 'Up to 90% Cost Savings',           desc: 'The same surgery that costs $80,000 in the US costs $8,000 in India — with no compromise on quality.' },
+  { icon: '🏆', color: '#1B4FBF', bg: '#EFF6FF', title: 'World-Class Hospitals',            desc: 'India has more JCI-accredited hospitals than any other country in Asia. Apollo, Fortis, AIIMS — global names, local prices.' },
+  { icon: '👨‍⚕️', color: '#7C3AED', bg: '#FAF5FF', title: 'Internationally Trained Doctors',  desc: 'Most senior surgeons have trained in the US, UK, or Europe. English-speaking and globally certified.' },
+  { icon: '⚡', color: '#F59E0B', bg: '#FFFBEB', title: 'No Waiting Lists',                 desc: 'Skip the 6–12 month NHS waitlists. Get a confirmed surgery date within days of your assessment.' },
+  { icon: '🔬', color: '#0D9488', bg: '#F0FDFA', title: 'Advanced Technology',              desc: "Robotic surgery, proton therapy, AI diagnostics — same equipment as the world's leading US centres." },
+  { icon: '✈️', color: '#EC4899', bg: '#FDF2F8', title: 'Excellent Connectivity',           desc: 'Direct or one-stop flights from Lagos, Nairobi, Accra, Dubai, and London to Delhi, Mumbai, Chennai.' },
 ];
 
 const costComparison = [
@@ -25,33 +28,57 @@ const specialties = [
   { name: 'Fertility',    icon: '👶' },
 ];
 
+const Pill = ({ style = {} }) => (
+  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full"
+    style={{ background: 'rgba(255,255,255,0.22)', ...style }}>
+    <span className="text-sm">🇮🇳</span>
+    <span className="text-white text-xs font-semibold">Why India</span>
+  </div>
+);
+
 export default function WhyIndiaScreen({ onNavigate }) {
+  const [scrolled, setScrolled] = useState(false);
+
   return (
     <div className="flex flex-col h-full bg-transparent screen-enter">
 
-      {/* ── Sticky compact header ──────────────────────────────── */}
-      <div className="flex items-center gap-3 px-4 py-3 flex-shrink-0"
-        style={{ background: 'linear-gradient(140deg, #F59E0B 0%, #D97706 100%)' }}>
-        <button onClick={() => onNavigate('home')}
-          className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-          <ArrowLeft size={18} color="white" />
-        </button>
-        <span className="text-white/80 text-xs">About Us</span>
-        <div className="ml-auto inline-flex items-center gap-1.5 px-3 py-1 rounded-full"
-          style={{ background: 'rgba(255,255,255,0.2)' }}>
-          <span className="text-xs">🇮🇳</span>
-          <span className="text-white text-xs font-semibold">Why India</span>
+      {/* ── Unified collapsible hero ──────────────────────────── */}
+      <div className="flex-shrink-0 relative overflow-hidden" style={{ background: GRADIENT }}>
+        <div className="absolute top-0 right-0 w-40 h-40 rounded-full pointer-events-none"
+          style={{ background: 'rgba(255,255,255,0.1)', transform: 'translate(30%,-30%)' }} />
+
+        {/* Top row */}
+        <div className="flex items-center gap-3 px-4 pt-4"
+          style={{ paddingBottom: scrolled ? 14 : 0 }}>
+          <button onClick={() => onNavigate('home')}
+            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
+            <ArrowLeft size={18} color="white" />
+          </button>
+          <span className="text-white/80 text-xs font-medium">About Us</span>
+          <div className="ml-auto" style={{
+            opacity:    scrolled ? 1 : 0,
+            transform:  `translateX(${scrolled ? 0 : 20}px)`,
+            transition: 'opacity 0.2s ease 0.1s, transform 0.25s ease 0.1s',
+            pointerEvents: scrolled ? 'auto' : 'none',
+          }}>
+            <Pill />
+          </div>
         </div>
-      </div>
 
-      {/* ── Scrollable area ────────────────────────────────────── */}
-      <div className="flex-1 overflow-y-auto hide-scrollbar">
-
-        {/* Hero — scrolls away */}
-        <div className="px-5 pt-5 pb-6 relative overflow-hidden"
-          style={{ background: 'linear-gradient(140deg, #F59E0B 0%, #D97706 100%)' }}>
-          <div className="absolute top-0 right-0 w-40 h-40 rounded-full opacity-10"
-            style={{ background: 'white', transform: 'translate(30%, -30%)' }} />
+        {/* Hero content */}
+        <div style={{
+          maxHeight:     scrolled ? 0 : 300,
+          opacity:       scrolled ? 0 : 1,
+          overflow:      'hidden',
+          transition:    'max-height 0.35s ease, opacity 0.2s ease, padding 0.3s ease',
+          paddingTop:    scrolled ? 0 : 14,
+          paddingBottom: scrolled ? 0 : 22,
+          paddingLeft: 20,
+          paddingRight: 20,
+        }}>
+          <div style={{ opacity: scrolled ? 0 : 1, transition: 'opacity 0.12s ease' }}>
+            <Pill style={{ marginBottom: 14, display: 'inline-flex' }} />
+          </div>
           <h1 className="text-white font-bold text-2xl leading-tight mb-2"
             style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             The world's #1<br />medical travel destination
@@ -60,16 +87,19 @@ export default function WhyIndiaScreen({ onNavigate }) {
             India combines world-class surgical expertise, cutting-edge technology, and costs up to 90% lower than Western countries.
           </p>
         </div>
+      </div>
 
-        {/* Content */}
+      {/* ── Scrollable content ─────────────────────────────────── */}
+      <div className="flex-1 overflow-y-auto hide-scrollbar"
+        onScroll={e => setScrolled(e.currentTarget.scrollTop > 60)}>
         <div className="px-4 py-5 flex flex-col gap-6">
 
           {/* Key stats */}
           <div className="grid grid-cols-3 gap-2">
             {[
-              { value: '90%',   label: 'Lower cost\nvs US/UK'  },
+              { value: '90%',   label: 'Lower cost\nvs US/UK'    },
               { value: '1M+',   label: 'Medical tourists\n/year' },
-              { value: '24hrs', label: 'Average\nwait time'    },
+              { value: '24hrs', label: 'Average\nwait time'      },
             ].map(s => (
               <div key={s.label} className="bg-white rounded-2xl py-3 px-2 text-center"
                 style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
@@ -165,7 +195,7 @@ export default function WhyIndiaScreen({ onNavigate }) {
 
           <button onClick={() => onNavigate('explore')}
             className="w-full py-4 rounded-2xl font-semibold text-sm text-white transition-all active:scale-95 mb-2"
-            style={{ background: 'linear-gradient(135deg, #F59E0B, #D97706)' }}>
+            style={{ background: GRADIENT }}>
             Find a Treatment in India
           </button>
         </div>

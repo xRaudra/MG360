@@ -25,16 +25,8 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
     <div className="flex flex-col h-full bg-transparent overflow-y-auto hide-scrollbar screen-enter">
 
       {/* Header */}
-      <div className="px-4 pt-4 pb-5 relative overflow-hidden"
-        style={{
-          backgroundImage: 'url(/welcome-bg.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center top',
-        }}>
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'linear-gradient(160deg, rgba(27,79,191,0.88) 0%, rgba(13,56,160,0.92) 100%)' }} />
-
-        <div className="relative z-10">
+      <div className="px-4 pt-4 pb-5"
+        style={{ background: 'linear-gradient(160deg, #1B4FBF 0%, #1338A0 100%)' }}>
 
         {/* Top row */}
         <div className="flex items-center justify-between mb-4">
@@ -105,8 +97,6 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             </div>
           </div>
         )}
-
-        </div>
       </div>
 
       {/* Quick Actions */}

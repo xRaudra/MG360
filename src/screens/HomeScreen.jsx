@@ -159,7 +159,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 {/* Icon banner */}
                 <div
                   className="w-full flex items-center justify-center flex-shrink-0"
-                  style={{ height: 52, background: a.bannerBg, borderRadius: 6 }}
+                  style={{ height: 52, background: a.bannerBg, borderRadius: '0 0 10px 10px' }}
                 >
                   {a.icon === 'star' && <Star size={22} color={a.iconColor} fill={a.iconColor} />}
                   {a.icon === 'flag' && <span style={{ fontSize: 22 }}>🇮🇳</span>}

@@ -36,7 +36,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden" style={{ border: '1px solid #C6C6C6' }}>
-              <img src="/icon-avatar.png" alt="Avatar" className="w-full h-full object-cover" />
+              <img src="/icon-avatar.png" alt="Avatar" style={{ width: 28, height: 28, objectFit: 'contain' }} />
             </div>
             <div>
               <h2 className="font-bold leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: '18px' }}>
@@ -59,7 +59,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               className="w-9 h-9 rounded-full flex items-center justify-center relative transition-all active:opacity-70"
               style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)', border: '1px solid #C6C6C6' }}
             >
-              <img src="/icon-notification.png" alt="Notifications" style={{ width: 20, height: 20, objectFit: 'contain' }} />
+              <img src="/icon-notification.png" alt="Notifications" style={{ width: 18, height: 18, objectFit: 'contain' }} />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-400" />
             </button>
           </div>

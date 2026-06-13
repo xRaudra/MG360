@@ -114,15 +114,26 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               </div>
             </div>
           </div>
-          <div style={{ borderTop: '1px solid rgba(147,197,253,0.45)' }}>
-            <button
-              onClick={() => onNavigate(isGuest ? 'freeQuote' : 'journey')}
-              className="w-full py-3 flex items-center justify-center gap-1 transition-all active:opacity-70"
-            >
-              <span className="font-semibold text-sm" style={{ color: '#1B4FBF' }}>Get Free Treatment Plan</span>
-              <span className="font-bold text-base" style={{ color: '#1B4FBF' }}>»</span>
-            </button>
-          </div>
+          <button
+            onClick={() => onNavigate(isGuest ? 'freeQuote' : 'journey')}
+            className="transition-all active:opacity-70"
+            style={{
+              display: 'flex',
+              width: '100%',
+              height: 48,
+              padding: 10,
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 8,
+              borderRadius: '0 0 20px 20px',
+              background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.31) 100%)',
+              boxShadow: '-22px 44px 88px 0 #DDD',
+              backdropFilter: 'blur(22px)',
+            }}
+          >
+            <span className="font-semibold text-sm" style={{ color: '#1B4FBF' }}>Get Free Treatment Plan</span>
+            <span className="font-bold text-base" style={{ color: '#1B4FBF' }}>»</span>
+          </button>
         </div>
 
         {/* ── Quick Actions ── */}

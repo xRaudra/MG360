@@ -89,7 +89,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             <img src="/icon-search.png" alt="Search" style={{ width: 18, height: 18, objectFit: 'contain' }} />
           </div>
           <input
-            className="flex-1 text-sm outline-none bg-transparent"
+            className="flex-1 text-sm outline-none bg-transparent placeholder:text-[#7C7C7C]"
             style={{ color: '#7C7C7C' }}
             placeholder="Search treatments, hospitals, doctors..."
             onFocus={() => onNavigate('explore')}

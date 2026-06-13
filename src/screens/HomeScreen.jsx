@@ -35,7 +35,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         {/* Top row: avatar + name + actions */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center flex-shrink-0">
+            <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0" style={{ border: '1px solid #C6C6C6' }}>
               <span className="text-slate-400 text-base">👤</span>
             </div>
             <div>
@@ -49,7 +49,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             <button
               onClick={() => onNavigate('language')}
               className="flex items-center gap-1 px-2.5 py-1.5 rounded-full transition-all active:opacity-70"
-              style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)' }}
+              style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)', border: '1px solid #C6C6C6' }}
             >
               <Globe size={13} color="#64748B" />
               <span className="text-slate-600 text-xs font-semibold">EN</span>
@@ -57,7 +57,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             <button
               onClick={() => onNavigate('notifications')}
               className="w-9 h-9 rounded-full flex items-center justify-center relative transition-all active:opacity-70"
-              style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)' }}
+              style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)', border: '1px solid #C6C6C6' }}
             >
               <Bell size={17} color="#64748B" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-400" />
@@ -66,7 +66,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         </div>
 
         {/* Search bar */}
-        <div className="flex items-center gap-3 rounded-full px-4 py-2.5 bg-white" style={{ boxShadow: '0 1px 6px rgba(0,0,0,0.06)' }}>
+        <div className="flex items-center gap-3 rounded-full px-4 py-2.5 bg-white" style={{ border: '1px solid #C6C6C6' }}>
           <Search size={16} color="#94A3B8" />
           <input
             className="flex-1 text-sm outline-none text-slate-700 bg-transparent placeholder:text-slate-400"
@@ -83,7 +83,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         {/* ── Hero Banner ── */}
         <div
           className="rounded-2xl overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #EBF5FF 0%, #DBEAFE 55%, #C7D2FE 100%)', boxShadow: '0 2px 16px rgba(27,79,191,0.10)' }}
+          style={{ background: 'linear-gradient(135deg, #EBF5FF 0%, #DBEAFE 55%, #C7D2FE 100%)', border: '1px solid #C6C6C6' }}
         >
           <div className="flex items-stretch gap-2 px-4 pt-4">
             {/* Text */}

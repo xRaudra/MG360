@@ -35,7 +35,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         {/* Top row: avatar + name + actions */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden" style={{ border: '1px solid #C6C6C6' }}>
+            <div className="rounded-full flex items-center justify-center flex-shrink-0" style={{ width: 48, height: 48, background: '#F1F1F1', border: '1px solid #C6C6C6' }}>
               <img src="/icon-avatar.png" alt="Avatar" style={{ width: 28, height: 28, objectFit: 'contain' }} />
             </div>
             <div>
@@ -48,18 +48,18 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
           <div className="flex items-center gap-2">
             <button
               onClick={() => onNavigate('language')}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full transition-all active:opacity-70"
-              style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)', border: '1px solid #C6C6C6' }}
+              className="flex items-center gap-1 rounded-full transition-all active:opacity-70"
+              style={{ width: 60, height: 38, justifyContent: 'center', background: '#F1F1F1', border: '1px solid #C6C6C6' }}
             >
               <img src="/icon-language.png" alt="Language" style={{ width: 16, height: 16, objectFit: 'contain' }} />
               <span className="text-slate-600 text-xs font-semibold">EN</span>
             </button>
             <button
               onClick={() => onNavigate('notifications')}
-              className="w-9 h-9 rounded-full flex items-center justify-center relative transition-all active:opacity-70"
-              style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)', border: '1px solid #C6C6C6' }}
+              className="rounded-full flex items-center justify-center relative transition-all active:opacity-70"
+              style={{ width: 48, height: 48, background: '#F1F1F1', border: '1px solid #C6C6C6' }}
             >
-              <img src="/icon-notification.png" alt="Notifications" style={{ width: 18, height: 18, objectFit: 'contain' }} />
+              <img src="/icon-notification.png" alt="Notifications" style={{ width: 20, height: 20, objectFit: 'contain' }} />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-400" />
             </button>
           </div>

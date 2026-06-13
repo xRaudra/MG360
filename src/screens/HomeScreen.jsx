@@ -1,11 +1,11 @@
-import { Bell, Globe, Search, ArrowUpRight } from 'lucide-react';
+import { Bell, Globe, Search, ArrowUpRight, Star } from 'lucide-react';
 import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
-  { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', emoji: '⭐', bg: '#E6FAF5', iconBg: '#0D9488' },
-  { key: 'whyIndia',     label: 'Why\nIndia?',         emoji: '🇮🇳', bg: '#FFF8ED', iconBg: '#F59E0B' },
-  // { key: 'caseStudies', label: 'Case\nStudies', emoji: '📕', bg: '#FEF0EF', iconBg: '#EF4444' }, // disabled
-  { key: 'contact',      label: 'Contact\nUs',         emoji: '👤', bg: '#F1F5F9', iconBg: '#64748B' },
+  { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', icon: 'star',  iconBg: '#29BCB0' },
+  { key: 'whyIndia',     label: 'Why\nIndia?',         icon: 'flag',  iconBg: '#FE7700' },
+  // { key: 'caseStudies', label: 'Case\nStudies',     icon: 'book',  iconBg: '#E31E24' }, // disabled
+  { key: 'contact',      label: 'Contact\nUs',         icon: 'user',  iconBg: '#56698F' },
 ];
 
 const avatarColors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#0D9488'];
@@ -136,22 +136,37 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
           >
             Quick Actions
           </h3>
-          <div className="flex gap-2">
+          <div className="flex gap-4">
             {quickActions.map(a => (
               <button
                 key={a.key}
                 onClick={() => onNavigate(a.key)}
-                className="flex flex-col items-center gap-2 py-3 px-1 rounded-2xl transition-all active:scale-95"
-                style={{ flex: 1, background: a.bg }}
+                className="flex flex-col items-center transition-all active:scale-95"
+                style={{
+                  flex: 1,
+                  height: 100,
+                  borderRadius: 8,
+                  background: 'radial-gradient(ellipse at 50% 30%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)',
+                  border: '1.5px solid #C6C6C6',
+                  justifyContent: 'space-between',
+                  paddingTop: 8,
+                  paddingBottom: 8,
+                  paddingLeft: 10,
+                  paddingRight: 10,
+                }}
               >
+                {/* Icon banner */}
                 <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-lg"
-                  style={{ background: a.iconBg }}
+                  className="w-full flex items-center justify-center flex-shrink-0"
+                  style={{ height: 52, background: a.iconBg, borderRadius: 6 }}
                 >
-                  {a.emoji}
+                  {a.icon === 'star' && <Star size={22} color="white" fill="white" />}
+                  {a.icon === 'flag' && <span style={{ fontSize: 22 }}>🇮🇳</span>}
+                  {a.icon === 'user' && <span style={{ fontSize: 22 }}>👤</span>}
                 </div>
+                {/* Label */}
                 <span
-                  className="font-medium text-slate-700 text-center leading-tight"
+                  className="font-medium text-slate-500 text-center leading-tight"
                   style={{ whiteSpace: 'pre-line', fontSize: '10px' }}
                 >
                   {a.label}

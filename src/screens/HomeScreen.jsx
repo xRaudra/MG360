@@ -102,7 +102,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               <p className="text-slate-500 text-xs mb-3 leading-relaxed">
                 Connect with top NABH & JCI<br />accredited hospitals
               </p>
-              <div className="flex flex-col gap-1">
+              <div className="flex flex-col" style={{ gap: 7 }}>
                 {['40+ Partner Hospitals', '24*7 Care Co-Ordinator'].map(b => (
                   <div key={b} className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#1B4FBF' }} />

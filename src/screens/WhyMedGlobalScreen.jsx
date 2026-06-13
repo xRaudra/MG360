@@ -107,9 +107,9 @@ export default function WhyMedGlobalScreen({ onNavigate }) {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-4 gap-2">
+          <div className="flex gap-2">
             {stats.map(s => (
-              <div key={s.label} className="bg-white rounded-2xl py-3 px-1 text-center"
+              <div key={s.label} className="bg-white rounded-2xl py-3 px-1 text-center flex-1"
                 style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
                 <p className="font-bold text-[#1B4FBF] text-base leading-none"
                   style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>{s.value}</p>

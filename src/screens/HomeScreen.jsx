@@ -98,7 +98,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 className="font-bold leading-snug mb-1.5"
                 style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: '16px' }}
               >
-                Global Medical Treatment in India
+                Global Medical Treatment in<br />India
               </h3>
               <p className="text-slate-500 text-xs mb-3 leading-relaxed">
                 Connect with top NABH & JCI<br />accredited hospitals

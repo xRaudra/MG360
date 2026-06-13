@@ -1,11 +1,11 @@
-import { Bell, Globe, Search, ArrowUpRight, Star } from 'lucide-react';
+import { Bell, Globe, Search, ArrowUpRight } from 'lucide-react';
 import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
-  { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', icon: 'star', bannerBg: 'rgba(41,188,176,0.10)',  iconColor: '#29BCB0' },
-  { key: 'whyIndia',     label: 'Why\nIndia?',         icon: 'flag', bannerBg: 'rgba(254,119,0,0.18)',  iconColor: '#FE7700' },
-  // { key: 'caseStudies', label: 'Case\nStudies',     icon: 'book', bannerBg: 'rgba(227,30,36,0.10)',  iconColor: '#E31E24' }, // disabled
-  { key: 'contact',      label: 'Contact\nUs',         icon: 'user', bannerBg: 'rgba(86,105,143,0.24)', iconColor: '#56698F' },
+  { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', img: '/icon-why-medglobal.png', bannerBg: 'rgba(41,188,176,0.10)'  },
+  { key: 'whyIndia',     label: 'Why\nIndia?',         img: '/icon-why-india.png',     bannerBg: 'rgba(254,119,0,0.18)'   },
+  // { key: 'caseStudies', label: 'Case\nStudies',     img: null,                      bannerBg: 'rgba(227,30,36,0.10)'  }, // disabled
+  { key: 'contact',      label: 'Contact\nUs',         img: '/icon-contact-us.png',    bannerBg: 'rgba(86,105,143,0.24)' },
 ];
 
 const avatarColors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#0D9488'];
@@ -161,9 +161,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   className="w-full flex items-center justify-center flex-shrink-0"
                   style={{ height: 52, background: a.bannerBg, borderRadius: '0 0 10px 10px' }}
                 >
-                  {a.icon === 'star' && <Star size={22} color={a.iconColor} fill={a.iconColor} />}
-                  {a.icon === 'flag' && <span style={{ fontSize: 22 }}>🇮🇳</span>}
-                  {a.icon === 'user' && <span style={{ fontSize: 22, color: a.iconColor }}>👤</span>}
+                  {a.img && <img src={a.img} alt={a.label} style={{ height: 32, width: 'auto', objectFit: 'contain' }} />}
                 </div>
                 {/* Label */}
                 <span

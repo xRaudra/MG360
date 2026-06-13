@@ -94,8 +94,8 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
           <div className="flex items-stretch gap-2 px-4 pt-4">
             <div className="flex-1 pb-4">
               <h3
-                className="font-bold text-sm leading-snug mb-1.5"
-                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
+                className="font-bold leading-snug mb-1.5"
+                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: '16px' }}
               >
                 Global Medical Treatment in India
               </h3>

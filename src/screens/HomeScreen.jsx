@@ -86,8 +86,9 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
           style={{
             border: '1px solid #C6C6C6',
             backgroundImage: 'url(/banner-hero.jpg)',
-            backgroundSize: 'cover',
+            backgroundSize: 'contain',
             backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
           }}
         >
           <div className="flex items-stretch gap-2 px-4 pt-4">

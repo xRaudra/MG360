@@ -2,10 +2,10 @@ import { Bell, Globe, Search, ArrowUpRight, Star } from 'lucide-react';
 import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
-  { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', icon: 'star',  iconBg: '#29BCB0' },
-  { key: 'whyIndia',     label: 'Why\nIndia?',         icon: 'flag',  iconBg: '#FE7700' },
-  // { key: 'caseStudies', label: 'Case\nStudies',     icon: 'book',  iconBg: '#E31E24' }, // disabled
-  { key: 'contact',      label: 'Contact\nUs',         icon: 'user',  iconBg: '#56698F' },
+  { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', icon: 'star', iconBg: '#29BCB0', cardBg: 'rgba(41,188,176,0.10)' },
+  { key: 'whyIndia',     label: 'Why\nIndia?',         icon: 'flag', iconBg: '#FE7700', cardBg: 'rgba(254,119,0,0.18)' },
+  // { key: 'caseStudies', label: 'Case\nStudies',     icon: 'book', iconBg: '#E31E24', cardBg: 'rgba(227,30,36,0.10)' }, // disabled
+  { key: 'contact',      label: 'Contact\nUs',         icon: 'user', iconBg: '#56698F', cardBg: 'rgba(86,105,143,0.24)' },
 ];
 
 const avatarColors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#0D9488'];
@@ -146,7 +146,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   flex: 1,
                   height: 100,
                   borderRadius: 8,
-                  background: 'radial-gradient(ellipse at 50% 30%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)',
+                  background: a.cardBg,
                   border: '1.5px solid #C6C6C6',
                   justifyContent: 'space-between',
                   paddingTop: 8,

@@ -161,7 +161,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   className="w-full flex items-center justify-center flex-shrink-0"
                   style={{ height: 52, background: a.bannerBg, borderRadius: '0 0 10px 10px' }}
                 >
-                  {a.img && <img src={a.img} alt={a.label} style={{ height: 32, width: 'auto', objectFit: 'contain' }} />}
+                  {a.img && <img src={a.img} alt={a.label} style={{ height: 22, width: 'auto', objectFit: 'contain' }} />}
                 </div>
                 {/* Label */}
                 <span

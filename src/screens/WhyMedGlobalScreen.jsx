@@ -176,16 +176,6 @@ export default function WhyMedGlobalScreen({ onNavigate }) {
                 </div>
                 <ChevronRight size={16} color="#CBD5E1" />
               </button>
-              <button onClick={() => onNavigate('caseStudies')}
-                className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3.5 text-left transition-all active:scale-95"
-                style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-                <span className="text-2xl">📖</span>
-                <div className="flex-1">
-                  <p className="font-semibold text-slate-800 text-sm">Case Studies</p>
-                  <p className="text-slate-400 text-xs">Real patients, real outcomes</p>
-                </div>
-                <ChevronRight size={16} color="#CBD5E1" />
-              </button>
             </div>
           </div>
 

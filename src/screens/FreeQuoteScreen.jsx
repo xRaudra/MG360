@@ -76,14 +76,6 @@ export default function FreeQuoteScreen({ onNavigate }) {
               While you wait
             </p>
             <div className="flex flex-col gap-2">
-              <button onClick={() => onNavigate('caseStudies')}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-slate-50 transition-all active:scale-95 text-left">
-                <span className="text-xl">📖</span>
-                <div>
-                  <p className="text-sm font-medium text-slate-700">Read Case Studies</p>
-                  <p className="text-xs text-slate-400">Real patients, real outcomes</p>
-                </div>
-              </button>
               <button onClick={() => onNavigate('whyIndia')}
                 className="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-slate-50 transition-all active:scale-95 text-left">
                 <span className="text-xl">🇮🇳</span>

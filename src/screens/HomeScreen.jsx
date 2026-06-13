@@ -4,7 +4,7 @@ import { doctors, hospitals, treatments } from '../data/mockData';
 const quickActions = [
   { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', emoji: '⭐', bg: '#E6FAF5', iconBg: '#0D9488' },
   { key: 'whyIndia',     label: 'Why\nIndia?',         emoji: '🇮🇳', bg: '#FFF8ED', iconBg: '#F59E0B' },
-  { key: 'caseStudies',  label: 'Case\nStudies',       emoji: '📕', bg: '#FEF0EF', iconBg: '#EF4444' },
+  // { key: 'caseStudies', label: 'Case\nStudies', emoji: '📕', bg: '#FEF0EF', iconBg: '#EF4444' }, // disabled
   { key: 'contact',      label: 'Contact\nUs',         emoji: '👤', bg: '#F1F5F9', iconBg: '#64748B' },
 ];
 

@@ -36,7 +36,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
             <div className="rounded-full flex items-center justify-center flex-shrink-0" style={{ width: 40, height: 40, background: '#F1F1F1', border: '1px solid #C6C6C6' }}>
-              <img src="/icon-avatar.png" alt="Avatar" style={{ width: 22, height: 22, objectFit: 'contain' }} />
+              <img src="/icon-avatar.png" alt="Avatar" style={{ width: 20, height: 20, objectFit: 'contain' }} />
             </div>
             <div>
               <h2 className="font-bold leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: '18px' }}>

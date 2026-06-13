@@ -2,10 +2,10 @@ import { Bell, Globe, Search, ArrowUpRight, Star } from 'lucide-react';
 import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
-  { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', icon: 'star', iconBg: '#29BCB0', cardBg: 'rgba(41,188,176,0.10)' },
-  { key: 'whyIndia',     label: 'Why\nIndia?',         icon: 'flag', iconBg: '#FE7700', cardBg: 'rgba(254,119,0,0.18)' },
-  // { key: 'caseStudies', label: 'Case\nStudies',     icon: 'book', iconBg: '#E31E24', cardBg: 'rgba(227,30,36,0.10)' }, // disabled
-  { key: 'contact',      label: 'Contact\nUs',         icon: 'user', iconBg: '#56698F', cardBg: 'rgba(86,105,143,0.24)' },
+  { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', icon: 'star', bannerBg: 'rgba(41,188,176,0.10)',  iconColor: '#29BCB0' },
+  { key: 'whyIndia',     label: 'Why\nIndia?',         icon: 'flag', bannerBg: 'rgba(254,119,0,0.18)',  iconColor: '#FE7700' },
+  // { key: 'caseStudies', label: 'Case\nStudies',     icon: 'book', bannerBg: 'rgba(227,30,36,0.10)',  iconColor: '#E31E24' }, // disabled
+  { key: 'contact',      label: 'Contact\nUs',         icon: 'user', bannerBg: 'rgba(86,105,143,0.24)', iconColor: '#56698F' },
 ];
 
 const avatarColors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#0D9488'];
@@ -143,26 +143,27 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 onClick={() => onNavigate(a.key)}
                 className="flex flex-col items-center transition-all active:scale-95"
                 style={{
-                  flex: 1,
+                  flex: '1 0 0',
                   height: 100,
-                  borderRadius: 8,
-                  background: a.cardBg,
-                  border: '1.5px solid #C6C6C6',
+                  padding: '0 10px 8px 10px',
+                  flexDirection: 'column',
                   justifyContent: 'space-between',
-                  paddingTop: 8,
-                  paddingBottom: 8,
-                  paddingLeft: 10,
-                  paddingRight: 10,
+                  alignItems: 'center',
+                  borderRadius: 8,
+                  border: '2px solid #C6C6C6',
+                  background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.48) 100%)',
+                  boxShadow: '-22px 44px 88px 0px #DDD',
+                  backdropFilter: 'blur(22px)',
                 }}
               >
                 {/* Icon banner */}
                 <div
                   className="w-full flex items-center justify-center flex-shrink-0"
-                  style={{ height: 52, background: a.iconBg, borderRadius: 6 }}
+                  style={{ height: 52, background: a.bannerBg, borderRadius: 6 }}
                 >
-                  {a.icon === 'star' && <Star size={22} color="white" fill="white" />}
+                  {a.icon === 'star' && <Star size={22} color={a.iconColor} fill={a.iconColor} />}
                   {a.icon === 'flag' && <span style={{ fontSize: 22 }}>🇮🇳</span>}
-                  {a.icon === 'user' && <span style={{ fontSize: 22 }}>👤</span>}
+                  {a.icon === 'user' && <span style={{ fontSize: 22, color: a.iconColor }}>👤</span>}
                 </div>
                 {/* Label */}
                 <span

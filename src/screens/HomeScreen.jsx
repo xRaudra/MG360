@@ -82,9 +82,10 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
 
         {/* ── Hero Banner ── */}
         <div
-          className="rounded-2xl overflow-hidden"
+          className="overflow-hidden"
           style={{
             border: '1px solid #C6C6C6',
+            borderRadius: 20,
             backgroundImage: 'url(/banner-hero.jpg)',
             backgroundSize: 'contain',
             backgroundPosition: 'center',

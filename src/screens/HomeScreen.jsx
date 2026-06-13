@@ -100,7 +100,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 Global Medical Treatment in India
               </h3>
               <p className="text-slate-500 text-xs mb-3 leading-relaxed">
-                Connect with top NABH & JCI accredited hospitals
+                Connect with top NABH & JCI<br />accredited hospitals
               </p>
               <div className="flex flex-col gap-1">
                 {['40+ Partner Hospitals', '24*7 Care Co-Ordinator'].map(b => (

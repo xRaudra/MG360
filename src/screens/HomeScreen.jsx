@@ -140,10 +140,9 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             {quickActions.map(a => (
               <button
                 key={a.key}
-                style={{ flex: 1 }}
                 onClick={() => onNavigate(a.key)}
                 className="flex flex-col items-center gap-2 py-3 px-1 rounded-2xl transition-all active:scale-95"
-                style={{ background: a.bg }}
+                style={{ flex: 1, background: a.bg }}
               >
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center text-lg"

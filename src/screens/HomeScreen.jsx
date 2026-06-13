@@ -39,7 +39,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               <span className="text-slate-400 text-base">👤</span>
             </div>
             <div>
-              <h2 className="font-bold text-slate-800 text-base leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+              <h2 className="font-bold text-base leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
                 {isGuest ? 'Guest User' : 'Kwame Mensah'}
               </h2>
               <p className="text-slate-400 text-xs">Good Morning!</p>
@@ -89,8 +89,8 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             {/* Text */}
             <div className="flex-1 pb-4">
               <h3
-                className="font-bold text-slate-800 text-sm leading-snug mb-1.5"
-                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+                className="font-bold text-sm leading-snug mb-1.5"
+                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
               >
                 Global Medical Treatment in India
               </h3>
@@ -131,8 +131,8 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         {/* ── Quick Actions ── */}
         <div>
           <h3
-            className="font-bold text-slate-800 text-base mb-3"
-            style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+            className="font-bold text-base mb-3"
+            style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
           >
             Quick Actions
           </h3>
@@ -178,7 +178,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         {/* ── Popular Treatments ── */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            <h3 className="font-bold text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
               Popular Treatments
             </h3>
             <button onClick={() => onNavigate('treatment')} className="text-xs font-semibold" style={{ color: '#1B4FBF' }}>
@@ -209,8 +209,8 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 {/* Info */}
                 <div className="p-3">
                   <p
-                    className="font-semibold text-slate-800 text-xs leading-snug mb-2"
-                    style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+                    className="font-semibold text-xs leading-snug mb-2"
+                    style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
                   >
                     {t.name}
                   </p>
@@ -231,7 +231,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         {/* ── Top Doctors ── */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            <h3 className="font-bold text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
               Top Doctors
             </h3>
             <button onClick={() => onNavigate('doctors')} className="text-xs font-semibold" style={{ color: '#1B4FBF' }}>
@@ -255,8 +255,8 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 </div>
                 {/* Name */}
                 <p
-                  className="font-bold text-slate-800 text-xs leading-snug mb-0.5"
-                  style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+                  className="font-bold text-xs leading-snug mb-0.5"
+                  style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
                 >
                   {doc.name}
                 </p>
@@ -290,7 +290,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         {/* ── Top Hospitals ── */}
         <div className="mb-4">
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-slate-800 text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            <h3 className="font-bold text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
               Top Hospitals
             </h3>
             <button onClick={() => onNavigate('hospitals')} className="text-xs font-semibold" style={{ color: '#1B4FBF' }}>
@@ -318,8 +318,8 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p
-                        className="font-bold text-slate-800 text-sm leading-snug"
-                        style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+                        className="font-bold text-sm leading-snug"
+                        style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
                       >
                         {h.name}
                       </p>

@@ -150,7 +150,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   justifyContent: 'space-between',
                   alignItems: 'center',
                   borderRadius: 8,
-                  border: '2px solid #C6C6C6',
+                  border: '1px solid #C6C6C6',
                   background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.48) 100%)',
                   boxShadow: '-22px 44px 88px 0px #DDD',
                   backdropFilter: 'blur(22px)',

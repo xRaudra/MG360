@@ -219,35 +219,44 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               <button
                 key={t.id}
                 onClick={() => onNavigate('treatmentDetail', t)}
-                className="flex-shrink-0 w-44 rounded-2xl overflow-hidden text-left transition-all active:scale-95 bg-white"
-                style={{ boxShadow: '0 2px 10px rgba(0,0,0,0.08)' }}
+                className="flex-shrink-0 rounded-xl overflow-hidden text-left transition-all active:scale-95 relative"
+                style={{ width: 176, height: 200, background: treatmentCardBgs[i % treatmentCardBgs.length] }}
               >
-                {/* Image area */}
-                <div
-                  className="relative h-32 flex items-center justify-center"
-                  style={{ background: treatmentCardBgs[i % treatmentCardBgs.length] }}
-                >
-                  <span className="text-5xl opacity-70">{t.icon}</span>
-                  <div
-                    className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-xs font-bold text-white"
-                    style={{ background: '#16A34A' }}
-                  >
-                    Starts from {t.price}
-                  </div>
+                {/* Icon centered in card */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-7xl opacity-60">{t.icon}</span>
                 </div>
-                {/* Info */}
-                <div className="p-3">
-                  <p
-                    className="font-semibold text-xs leading-snug mb-2"
-                    style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
-                  >
+
+                {/* Green price badge */}
+                <div
+                  className="absolute top-2 left-2 px-2 py-1 text-white font-semibold"
+                  style={{ background: '#16A34A', borderRadius: 6, fontSize: 10 }}
+                >
+                  Starts from {t.price}
+                </div>
+
+                {/* Bottom overlay */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 px-3 pt-3 pb-3"
+                  style={{
+                    background: 'radial-gradient(ellipse at center bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 100%)',
+                    backdropFilter: 'blur(4px)',
+                  }}
+                >
+                  <p className="text-white font-bold leading-snug mb-2" style={{ fontSize: 13 }}>
                     {t.name}
                   </p>
                   <div className="flex items-center gap-1.5 flex-wrap">
-                    <span className="px-2 py-0.5 rounded-full text-xs font-semibold text-white" style={{ background: '#1B4FBF' }}>
+                    <span
+                      className="font-semibold text-white"
+                      style={{ background: '#29BCB0', borderRadius: 20, paddingLeft: 8, paddingRight: 8, paddingTop: 3, paddingBottom: 3, fontSize: 10 }}
+                    >
                       18 Hospitals
                     </span>
-                    <span className="px-2 py-0.5 rounded-full text-xs font-semibold" style={{ background: '#FEF3C7', color: '#B45309' }}>
+                    <span
+                      className="font-semibold"
+                      style={{ border: '1px solid white', borderRadius: 20, paddingLeft: 8, paddingRight: 8, paddingTop: 3, paddingBottom: 3, fontSize: 10, color: '#EF4444', background: 'white' }}
+                    >
                       {t.duration}
                     </span>
                   </div>

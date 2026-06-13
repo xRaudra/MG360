@@ -29,8 +29,8 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
       }}
     >
 
-      {/* ── White Header ── */}
-      <div className="px-4 pt-4 pb-3 bg-white flex-shrink-0" style={{ boxShadow: '0 1px 0 #F1F5F9' }}>
+      {/* ── Header ── */}
+      <div className="px-4 pt-4 pb-3 flex-shrink-0">
 
         {/* Top row: avatar + name + actions */}
         <div className="flex items-center justify-between mb-3">
@@ -48,14 +48,16 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
           <div className="flex items-center gap-2">
             <button
               onClick={() => onNavigate('language')}
-              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full border border-slate-200 bg-white transition-all active:bg-slate-50"
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full transition-all active:opacity-70"
+              style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)' }}
             >
               <Globe size={13} color="#64748B" />
               <span className="text-slate-600 text-xs font-semibold">EN</span>
             </button>
             <button
               onClick={() => onNavigate('notifications')}
-              className="w-9 h-9 rounded-full border border-slate-200 bg-white flex items-center justify-center relative transition-all active:bg-slate-50"
+              className="w-9 h-9 rounded-full flex items-center justify-center relative transition-all active:opacity-70"
+              style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)' }}
             >
               <Bell size={17} color="#64748B" />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-400" />
@@ -64,7 +66,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         </div>
 
         {/* Search bar */}
-        <div className="flex items-center gap-3 rounded-full px-4 py-2.5 border border-slate-100" style={{ background: '#F8FAFC' }}>
+        <div className="flex items-center gap-3 rounded-full px-4 py-2.5 bg-white" style={{ boxShadow: '0 1px 6px rgba(0,0,0,0.06)' }}>
           <Search size={16} color="#94A3B8" />
           <input
             className="flex-1 text-sm outline-none text-slate-700 bg-transparent placeholder:text-slate-400"

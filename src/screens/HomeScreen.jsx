@@ -56,11 +56,10 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             </button>
             <button
               onClick={() => onNavigate('notifications')}
-              className="rounded-full flex items-center justify-center relative transition-all active:opacity-70"
-              style={{ width: 48, height: 48, background: '#F1F1F1', border: '1px solid #C6C6C6' }}
+              className="rounded-full flex items-center justify-center transition-all active:opacity-70"
+              style={{ width: 40, height: 40, background: '#F1F1F1', border: '1px solid #C6C6C6' }}
             >
-              <img src="/icon-notification.png" alt="Notifications" style={{ width: 20, height: 20, objectFit: 'contain' }} />
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-400" />
+              <img src="/icon-notification.png" alt="Notifications" style={{ width: 18, height: 18, objectFit: 'contain' }} />
             </button>
           </div>
         </div>

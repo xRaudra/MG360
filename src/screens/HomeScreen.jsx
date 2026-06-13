@@ -89,6 +89,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             backgroundSize: 'contain',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
+            height: 216,
           }}
         >
           <div className="flex items-stretch gap-2 px-4 pt-4">

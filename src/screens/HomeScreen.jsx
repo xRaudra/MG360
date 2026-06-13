@@ -207,7 +207,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         {/* ── Popular Treatments ── */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#7C7C7C' }}>
+            <h3 className="font-bold text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
               Popular Treatments
             </h3>
             <button onClick={() => onNavigate('treatment')} className="text-xs font-semibold" style={{ color: '#1B4FBF' }}>

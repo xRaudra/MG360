@@ -220,7 +220,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 key={t.id}
                 onClick={() => onNavigate('treatmentDetail', t)}
                 className="flex-shrink-0 rounded-xl overflow-hidden text-left transition-all active:scale-95 relative"
-                style={{ width: 200, height: 200, background: treatmentCardBgs[i % treatmentCardBgs.length] }}
+                style={{ width: 230, height: 200, background: treatmentCardBgs[i % treatmentCardBgs.length] }}
               >
                 {/* Icon centered in card */}
                 <div className="absolute inset-0 flex items-center justify-center">

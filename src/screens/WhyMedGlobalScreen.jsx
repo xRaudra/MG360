@@ -21,10 +21,8 @@ const howItWorks = [
 ];
 
 const stats = [
-  { value: '500+', label: 'Partner\nHospitals'   },
-  { value: '100+', label: 'Specialist\nDoctors'  },
-  { value: '50+',  label: 'Countries\nServed'    },
-  { value: '98%',  label: 'Patient\nSatisfaction'},
+  { value: '50+',  label: 'Hospitals' },
+  { value: '300+', label: 'Doctors'   },
 ];
 
 const Pill = ({ style = {} }) => (

@@ -81,52 +81,18 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
       <div className="px-4 py-4 flex flex-col gap-5">
 
         {/* ── Hero Banner ── */}
-        <div
-          className="rounded-2xl overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #EBF5FF 0%, #DBEAFE 55%, #C7D2FE 100%)', border: '1px solid #C6C6C6' }}
+        <button
+          onClick={() => onNavigate(isGuest ? 'freeQuote' : 'journey')}
+          className="rounded-2xl overflow-hidden w-full transition-all active:scale-95"
+          style={{ border: '1px solid #C6C6C6' }}
         >
-          <div className="flex items-stretch gap-2 px-4 pt-4">
-            {/* Text */}
-            <div className="flex-1 pb-4">
-              <h3
-                className="font-bold text-sm leading-snug mb-1.5"
-                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
-              >
-                Global Medical Treatment in India
-              </h3>
-              <p className="text-slate-500 text-xs mb-3 leading-relaxed">
-                Connect with top NABH & JCI accredited hospitals
-              </p>
-              <div className="flex flex-col gap-1">
-                {['40+ Partner Hospitals', '24*7 Care Co-Ordinator'].map(b => (
-                  <div key={b} className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: '#1B4FBF' }} />
-                    <span className="text-xs text-slate-600">{b}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            {/* Doctor illustration */}
-            <div className="w-24 flex-shrink-0 flex items-end justify-center">
-              <div
-                className="w-20 h-24 rounded-t-xl flex items-end justify-center overflow-hidden"
-                style={{ background: 'rgba(255,255,255,0.35)' }}
-              >
-                <span style={{ fontSize: '52px', lineHeight: 1 }}>👩‍⚕️</span>
-              </div>
-            </div>
-          </div>
-          {/* CTA row */}
-          <div style={{ borderTop: '1px solid rgba(147,197,253,0.45)' }}>
-            <button
-              onClick={() => onNavigate(isGuest ? 'freeQuote' : 'journey')}
-              className="w-full py-3 flex items-center justify-center gap-1 transition-all active:opacity-70"
-            >
-              <span className="font-semibold text-sm" style={{ color: '#1B4FBF' }}>Get Free Treatment Plan</span>
-              <span className="font-bold text-base" style={{ color: '#1B4FBF' }}>»</span>
-            </button>
-          </div>
-        </div>
+          <img
+            src="/banner-hero.jpg"
+            alt="Global Medical Treatment in India"
+            className="w-full block"
+            style={{ objectFit: 'cover' }}
+          />
+        </button>
 
         {/* ── Quick Actions ── */}
         <div>

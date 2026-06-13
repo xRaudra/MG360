@@ -48,9 +48,9 @@ export default function LoginScreen({ onNavigate }) {
 
           {/* Stats row */}
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 0 }}>
-            <StatItem number="5000+" label="Patients" />
+            <StatItem number="50+" label="Hospitals" />
             <div style={{ width: 1, height: 36, background: '#C6C6C6', margin: '0 16px' }} />
-            <StatItem number="40+" label="Hospitals" />
+            <StatItem number="300+" label="Doctors" />
             <div style={{ width: 1, height: 36, background: '#C6C6C6', margin: '0 16px' }} />
             <StatItem number="4.8" label="Rating" />
           </div>

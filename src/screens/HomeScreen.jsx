@@ -131,8 +131,8 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               backdropFilter: 'blur(22px)',
             }}
           >
-            <span className="font-semibold text-sm" style={{ color: '#1B4FBF' }}>Get Free Treatment Plan</span>
-            <span className="font-bold text-base" style={{ color: '#1B4FBF' }}>»</span>
+            <span className="font-semibold" style={{ color: '#4D81E7', fontSize: '16px' }}>Get Free Treatment Plan</span>
+            <span className="font-bold text-base" style={{ color: '#4D81E7' }}>»</span>
           </button>
         </div>
 

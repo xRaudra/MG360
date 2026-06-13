@@ -1,6 +1,6 @@
 export const treatments = [
-  { id: 1, name: 'Orthopedic & Joint Replacement', category: 'Orthopedics', price: '$4,500', duration: '7–10 days', rating: 4.9, reviews: 342, icon: '🦴', popular: true },
-  { id: 2, name: 'Neurosurgery', category: 'Neurology', price: '$7,200', duration: '14–21 days', rating: 4.8, reviews: 218, icon: '🧠', popular: true },
+  { id: 1, name: 'Orthopedic & Joint Replacement', category: 'Orthopedics', price: '$4,500', duration: '7–10 days', rating: 4.9, reviews: 342, icon: '🦴', img: '/treatment-ortho.png', popular: true },
+  { id: 2, name: 'Neurosurgery', category: 'Neurology', price: '$7,200', duration: '14–21 days', rating: 4.8, reviews: 218, icon: '🧠', img: '/treatment-neuro.png', popular: true },
   { id: 3, name: 'Liver Transplant', category: 'Transplant', price: '$28,000', duration: '30–45 days', rating: 4.9, reviews: 95, icon: '🫀', popular: false },
   { id: 4, name: 'Hip Replacement', category: 'Orthopedics', price: '$5,100', duration: '7–10 days', rating: 4.7, reviews: 287, icon: '🦴', popular: true },
   { id: 5, name: 'Spine Surgery', category: 'Neurology', price: '$6,800', duration: '10–14 days', rating: 4.8, reviews: 156, icon: '🧠', popular: false },

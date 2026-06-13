@@ -166,7 +166,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 {/* Label */}
                 <span
                   className="font-medium text-slate-500 text-center leading-tight"
-                  style={{ whiteSpace: 'pre-line', fontSize: '10px' }}
+                  style={{ whiteSpace: 'pre-line', fontSize: '12px' }}
                 >
                   {a.label}
                 </span>

@@ -31,7 +31,7 @@ const Pill = ({ style = {} }) => (
   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full"
     style={{ background: 'rgba(255,255,255,0.18)', ...style }}>
     <Star size={11} color="#FCD34D" fill="#FCD34D" />
-    <span className="text-white text-xs font-semibold">Why Med Global 360</span>
+    <span className="text-white text-xs font-semibold">Why MedGlobal360</span>
   </div>
 );
 

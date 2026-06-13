@@ -172,7 +172,7 @@ export default function ProfileScreen({ onNavigate, isGuest = false }) {
           </button>
         )}
 
-        <p className="text-center text-slate-400 text-xs pb-2">Med Global 360 · v1.0.0</p>
+        <p className="text-center text-slate-400 text-xs pb-2">MedGlobal360 · v1.0.0</p>
       </div>
     </div>
   );

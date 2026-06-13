@@ -75,7 +75,7 @@ export default function AppSettingsScreen({ onNavigate }) {
               </div>
               <div className="flex-1">
                 <p className="font-medium text-slate-800 text-sm">Push Notifications</p>
-                <p className="text-slate-400 text-xs">Allow alerts from Med Global 360</p>
+                <p className="text-slate-400 text-xs">Allow alerts from MedGlobal360</p>
               </div>
               <Toggle value={pushEnabled} onChange={setPushEnabled} color="#F59E0B" />
             </div>
@@ -167,7 +167,7 @@ export default function AppSettingsScreen({ onNavigate }) {
           </div>
         )}
 
-        <p className="text-xs text-slate-400 text-center pb-4">Med Global 360 · All rights reserved</p>
+        <p className="text-xs text-slate-400 text-center pb-4">MedGlobal360 · All rights reserved</p>
       </div>
     </div>
   );

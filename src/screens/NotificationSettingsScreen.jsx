@@ -45,7 +45,7 @@ const groups = [
     color: '#F59E0B',
     items: [
       { key: 'offers',    label: 'Special Offers',   desc: 'Treatment packages and discounts', default: false },
-      { key: 'news',      label: 'Health Newsletter', desc: 'Monthly updates from Med Global 360', default: false },
+      { key: 'news',      label: 'Health Newsletter', desc: 'Monthly updates from MedGlobal360', default: false },
     ],
   },
 ];

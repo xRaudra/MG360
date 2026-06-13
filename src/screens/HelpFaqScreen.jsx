@@ -133,7 +133,7 @@ export default function HelpFaqScreen({ onNavigate }) {
         </div>
 
         <p className="text-xs text-slate-400 text-center pb-4">
-          Med Global 360 · v1.0.0 · <span className="underline">Privacy Policy</span>
+          MedGlobal360 · v1.0.0 · <span className="underline">Privacy Policy</span>
         </p>
       </div>
     </div>

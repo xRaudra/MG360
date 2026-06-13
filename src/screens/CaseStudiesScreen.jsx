@@ -10,7 +10,7 @@ const cases = [
     treatment: 'Cardiac Bypass Surgery', hospital: 'Apollo Hospital, Delhi',
     costIndia: '$9,500', costHome: '$120,000', duration: '21 days',
     avatar: 'EO', avatarColor: '#1B4FBF', tag: 'Cardiology',
-    quote: '"I was told I needed urgent surgery. My local hospital quoted $120,000. Med Global 360 arranged everything — flight, hotel, and full treatment — for $9,500. I came home a new man."',
+    quote: '"I was told I needed urgent surgery. My local hospital quoted $120,000. MedGlobal360 arranged everything — flight, hotel, and full treatment — for $9,500. I came home a new man."',
     outcome: 'Full recovery. Back home in 21 days.',
   },
   {
@@ -28,7 +28,7 @@ const cases = [
     treatment: 'Liver Transplant', hospital: 'Max Hospital, Delhi',
     costIndia: '$28,000', costHome: '$200,000', duration: '35 days',
     avatar: 'JP', avatarColor: '#7C3AED', tag: 'Transplant',
-    quote: '"The 6-month waiting list in France was not an option. Med Global 360 found me a matched donor and a world-class surgical team. Three weeks later, I had a new liver."',
+    quote: '"The 6-month waiting list in France was not an option. MedGlobal360 found me a matched donor and a world-class surgical team. Three weeks later, I had a new liver."',
     outcome: 'Successful transplant. 2-year follow-up clear.',
   },
   {
@@ -37,7 +37,7 @@ const cases = [
     treatment: 'Cancer Treatment', hospital: 'Tata Memorial, Mumbai',
     costIndia: '$14,000', costHome: '$110,000', duration: '56 days',
     avatar: 'FA', avatarColor: '#EC4899', tag: 'Oncology',
-    quote: '"World-leading oncologists, the same protocol as top US hospitals, at 15% of the cost. Med Global 360 treated my family like their own."',
+    quote: '"World-leading oncologists, the same protocol as top US hospitals, at 15% of the cost. MedGlobal360 treated my family like their own."',
     outcome: 'Complete remission after 8 weeks.',
   },
 ];
@@ -189,7 +189,7 @@ export default function CaseStudiesScreen({ onNavigate }) {
                 style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
                 <span className="text-2xl">🌟</span>
                 <div className="flex-1">
-                  <p className="font-semibold text-slate-800 text-sm">Why Med Global 360?</p>
+                  <p className="font-semibold text-slate-800 text-sm">Why MedGlobal360?</p>
                   <p className="text-slate-400 text-xs">Your end-to-end medical travel partner</p>
                 </div>
                 <ChevronRight size={16} color="#CBD5E1" />

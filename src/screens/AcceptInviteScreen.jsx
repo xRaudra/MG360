@@ -90,7 +90,7 @@ export default function AcceptInviteScreen({ onNavigate }) {
               className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm outline-none bg-white" />
           </div>
           <p className="text-xs text-slate-400">
-            By signing up you agree to Med Global 360 Terms of Service and Privacy Policy.
+            By signing up you agree to MedGlobal360 Terms of Service and Privacy Policy.
           </p>
         </div>
 

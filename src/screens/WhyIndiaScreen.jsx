@@ -175,7 +175,7 @@ export default function WhyIndiaScreen({ onNavigate }) {
                 style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
                 <span className="text-2xl">🌟</span>
                 <div className="flex-1">
-                  <p className="font-semibold text-slate-800 text-sm">Why Med Global 360?</p>
+                  <p className="font-semibold text-slate-800 text-sm">Why MedGlobal360?</p>
                   <p className="text-slate-400 text-xs">Your end-to-end medical travel partner</p>
                 </div>
                 <ChevronRight size={16} color="#CBD5E1" />

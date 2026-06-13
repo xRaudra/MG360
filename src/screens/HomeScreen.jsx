@@ -33,7 +33,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
       <div className="px-4 pt-4 pb-3 flex-shrink-0">
 
         {/* Top row: avatar + name + actions */}
-        <div className="flex items-center justify-between mb-3">
+        <div className="flex items-center justify-between" style={{ marginBottom: 24 }}>
           <div className="flex items-center gap-3">
             <div className="rounded-full flex items-center justify-center flex-shrink-0" style={{ width: 40, height: 40, background: '#F1F1F1', border: '1px solid #C6C6C6' }}>
               <img src="/icon-avatar.png" alt="Avatar" style={{ width: 20, height: 20, objectFit: 'contain' }} />

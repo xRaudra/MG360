@@ -1,4 +1,4 @@
-import { Bell, Globe, Search, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
@@ -35,14 +35,14 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         {/* Top row: avatar + name + actions */}
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0" style={{ border: '1px solid #C6C6C6' }}>
-              <span className="text-slate-400 text-base">👤</span>
+            <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 overflow-hidden" style={{ border: '1px solid #C6C6C6' }}>
+              <img src="/icon-avatar.png" alt="Avatar" className="w-full h-full object-cover" />
             </div>
             <div>
               <h2 className="font-bold leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: '18px' }}>
                 {isGuest ? 'Guest User' : 'Kwame Mensah'}
               </h2>
-              <p className="text-slate-400 text-xs">Good Morning!</p>
+              <p className="text-slate-400" style={{ fontSize: '14px' }}>Good Morning!</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -51,7 +51,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               className="flex items-center gap-1 px-2.5 py-1.5 rounded-full transition-all active:opacity-70"
               style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)', border: '1px solid #C6C6C6' }}
             >
-              <Globe size={13} color="#64748B" />
+              <img src="/icon-language.png" alt="Language" style={{ width: 16, height: 16, objectFit: 'contain' }} />
               <span className="text-slate-600 text-xs font-semibold">EN</span>
             </button>
             <button
@@ -59,7 +59,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               className="w-9 h-9 rounded-full flex items-center justify-center relative transition-all active:opacity-70"
               style={{ background: 'rgba(255,255,255,0.55)', backdropFilter: 'blur(4px)', border: '1px solid #C6C6C6' }}
             >
-              <Bell size={17} color="#64748B" />
+              <img src="/icon-notification.png" alt="Notifications" style={{ width: 20, height: 20, objectFit: 'contain' }} />
               <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-400" />
             </button>
           </div>
@@ -67,7 +67,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
 
         {/* Search bar */}
         <div className="flex items-center gap-3 rounded-full px-4 py-2.5 bg-white" style={{ border: '1px solid #C6C6C6' }}>
-          <Search size={16} color="#94A3B8" />
+          <img src="/icon-search.png" alt="Search" style={{ width: 16, height: 16, objectFit: 'contain' }} />
           <input
             className="flex-1 text-sm outline-none text-slate-700 bg-transparent placeholder:text-slate-400"
             placeholder="Search treatments, hospitals, doctors..."

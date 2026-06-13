@@ -65,10 +65,32 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         </div>
 
         {/* Search bar */}
-        <div className="flex items-center gap-3 rounded-full px-4 py-2.5 bg-white" style={{ border: '1px solid #C6C6C6' }}>
-          <img src="/icon-search.png" alt="Search" style={{ width: 16, height: 16, objectFit: 'contain' }} />
+        <div
+          className="flex items-center"
+          style={{
+            height: 52,
+            borderRadius: 40,
+            border: '1px solid #C6C6C6',
+            background: 'rgba(241,241,241,0.8)',
+            padding: '0 12px 0 8px',
+            gap: 10,
+          }}
+        >
+          {/* Icon circle */}
+          <div
+            className="flex items-center justify-center flex-shrink-0"
+            style={{
+              width: 36, height: 36,
+              borderRadius: '100%',
+              background: 'linear-gradient(135deg, rgba(170,196,235,0) 0%, rgba(170,196,235,1) 100%)',
+              border: '1px solid #fff',
+            }}
+          >
+            <img src="/icon-search.png" alt="Search" style={{ width: 18, height: 18, objectFit: 'contain' }} />
+          </div>
           <input
-            className="flex-1 text-sm outline-none text-slate-700 bg-transparent placeholder:text-slate-400"
+            className="flex-1 text-sm outline-none bg-transparent"
+            style={{ color: '#7C7C7C' }}
             placeholder="Search treatments, hospitals, doctors..."
             onFocus={() => onNavigate('explore')}
             readOnly

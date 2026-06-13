@@ -39,7 +39,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               <span className="text-slate-400 text-base">👤</span>
             </div>
             <div>
-              <h2 className="font-bold text-base leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
+              <h2 className="font-bold leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: '18px' }}>
                 {isGuest ? 'Guest User' : 'Kwame Mensah'}
               </h2>
               <p className="text-slate-400 text-xs">Good Morning!</p>

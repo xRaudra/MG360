@@ -300,6 +300,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   borderRadius: 16,
                   background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)',
                   boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+                  border: '1px solid #C6C6C6',
                 }}
               >
                 {/* Top row: avatar + [name + specialization] */}

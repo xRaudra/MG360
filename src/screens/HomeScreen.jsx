@@ -255,7 +255,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                     backdropFilter: 'blur(22px)',
                   }}
                 >
-                  <p className="text-white font-bold leading-snug mb-2" style={{ fontSize: 13 }}>
+                  <p className="text-white font-bold leading-snug mb-2" style={{ fontSize: 13, height: 36, overflow: 'hidden' }}>
                     {t.name}
                   </p>
                   <div className="flex items-center gap-1.5 flex-wrap">

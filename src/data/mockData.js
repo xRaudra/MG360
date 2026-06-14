@@ -2,9 +2,9 @@ export const treatments = [
   { id: 1, name: 'Orthopedic & Joint Replacement', category: 'Orthopedics', price: '$4,500', duration: '7–10 days', rating: 4.9, reviews: 342, icon: '🦴', img: '/treatment-ortho.png', popular: true },
   { id: 2, name: 'Neurosurgery', category: 'Neurology', price: '$7,200', duration: '14–21 days', rating: 4.8, reviews: 218, icon: '🧠', img: '/treatment-neuro.png', popular: true },
   { id: 3, name: 'Liver Transplant', category: 'Transplant', price: '$28,000', duration: '30–45 days', rating: 4.9, reviews: 95, icon: '🫀', popular: false },
-  { id: 4, name: 'Hip Replacement', category: 'Orthopedics', price: '$5,100', duration: '7–10 days', rating: 4.7, reviews: 287, icon: '🦴', popular: true },
+  { id: 4, name: 'Hip Replacement', category: 'Orthopedics', price: '$5,100', duration: '7–10 days', rating: 4.7, reviews: 287, icon: '🦴', img: '/treatment-hip.png', popular: true },
   { id: 5, name: 'Spine Surgery', category: 'Neurology', price: '$6,800', duration: '10–14 days', rating: 4.8, reviews: 156, icon: '🧠', popular: false },
-  { id: 6, name: 'Cancer Treatment', category: 'Oncology', price: '$12,000', duration: '21–60 days', rating: 4.9, reviews: 203, icon: '🩺', popular: true },
+  { id: 6, name: 'Cancer Treatment', category: 'Oncology', price: '$12,000', duration: '21–60 days', rating: 4.9, reviews: 203, icon: '🩺', img: '/treatment-cancer.jpg', popular: true },
   { id: 7, name: 'Eye Surgery (LASIK)', category: 'Ophthalmology', price: '$900', duration: '2–3 days', rating: 4.8, reviews: 512, icon: '👁️', popular: true },
   { id: 8, name: 'Dental Implants', category: 'Dentistry', price: '$800', duration: '3–5 days', rating: 4.7, reviews: 421, icon: '🦷', popular: false },
 ];

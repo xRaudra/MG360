@@ -205,15 +205,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
         </div>
 
         {/* ── Popular Treatments ── */}
-        <div
-          style={{
-            background: 'rgba(255,255,255,0.85)',
-            backdropFilter: 'blur(22px)',
-            borderRadius: 12,
-            padding: '12px 12px 8px 12px',
-            margin: '0 -4px',
-          }}
-        >
+        <div>
           <div className="flex items-center justify-between mb-3">
             <h3 className="font-bold text-base" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
               Popular Treatments

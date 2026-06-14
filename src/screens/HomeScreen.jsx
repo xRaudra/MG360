@@ -259,7 +259,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   <div className="flex items-center gap-1.5 flex-wrap">
                     <span
                       className="font-semibold text-white"
-                      style={{ background: '#29BCB0', borderRadius: 20, paddingLeft: 8, paddingRight: 8, paddingTop: 3, paddingBottom: 3, fontSize: 10 }}
+                      style={{ background: '#7ACEFA', borderRadius: 20, paddingLeft: 8, paddingRight: 8, paddingTop: 3, paddingBottom: 3, fontSize: 10 }}
                     >
                       18 Hospitals
                     </span>

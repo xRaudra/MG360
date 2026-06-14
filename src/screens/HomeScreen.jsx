@@ -165,7 +165,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
           >
             Quick Actions
           </h3>
-          <div className="flex gap-4">
+          <div className="flex gap-3">
             {quickActions.map(a => (
               <button
                 key={a.key}

@@ -247,6 +247,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   style={{
                     background: 'radial-gradient(ellipse at center bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 100%)',
                     backdropFilter: 'blur(4px)',
+                    borderRadius: '0 0 12px 12px',
                   }}
                 >
                   <p className="text-white font-bold leading-snug mb-2" style={{ fontSize: 13 }}>

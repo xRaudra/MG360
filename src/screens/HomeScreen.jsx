@@ -265,7 +265,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                     </span>
                     <span
                       className="font-semibold"
-                      style={{ border: '1px solid white', borderRadius: 20, paddingLeft: 8, paddingRight: 8, paddingTop: 3, paddingBottom: 3, fontSize: 10, color: '#EF4444', background: 'white' }}
+                      style={{ border: '1px solid white', borderRadius: 20, paddingLeft: 8, paddingRight: 8, paddingTop: 3, paddingBottom: 3, fontSize: 10, color: '#FE7700', background: 'white' }}
                     >
                       {t.duration}
                     </span>

@@ -4,7 +4,7 @@ import { doctors, hospitals, treatments } from '../data/mockData';
 const quickActions = [
   { key: 'whyMedGlobal', label: 'Why\nMedGlobal360?', img: '/icon-why-medglobal.png', bannerBg: 'rgba(41,188,176,0.10)'  },
   { key: 'whyIndia',     label: 'Why\nIndia?',         img: '/icon-why-india.png',     bannerBg: 'rgba(254,119,0,0.18)'   },
-  // { key: 'caseStudies', label: 'Case\nStudies',     img: null,                      bannerBg: 'rgba(227,30,36,0.10)'  }, // disabled
+  { key: 'caseStudies',  label: 'Case\nStudies',       img: null,                      bannerBg: 'rgba(227,30,36,0.15)'   },
   { key: 'contact',      label: 'Contact\nUs',         img: '/icon-contact-us.png',    bannerBg: 'rgba(86,105,143,0.24)' },
 ];
 

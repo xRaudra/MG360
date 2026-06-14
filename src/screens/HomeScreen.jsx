@@ -293,11 +293,17 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               <button
                 key={doc.id}
                 onClick={() => onNavigate('doctorDetail', doc)}
-                className="flex-shrink-0 bg-white rounded-2xl text-left transition-all active:scale-95"
-                style={{ width: 250, padding: 16, boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}
+                className="flex-shrink-0 rounded-2xl text-left transition-all active:scale-95"
+                style={{
+                  width: 263,
+                  padding: 16,
+                  borderRadius: 16,
+                  background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)',
+                  boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+                }}
               >
-                {/* Top row: avatar + name */}
-                <div className="flex items-center gap-3 mb-3">
+                {/* Top row: avatar + [name + specialization] */}
+                <div className="flex items-center mb-4" style={{ gap: 12 }}>
                   <div
                     className="rounded-full flex-shrink-0 overflow-hidden flex items-center justify-center text-white font-bold text-sm"
                     style={{ width: 48, height: 48, background: avatarColors[i % avatarColors.length] }}
@@ -307,38 +313,42 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                       : doc.avatar
                     }
                   </div>
-                  <p
-                    className="font-bold leading-snug"
-                    style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: 16 }}
-                  >
-                    {doc.name}
-                  </p>
-                </div>
-
-                {/* Specialization */}
-                <div className="flex items-center gap-1.5" style={{ marginBottom: 16 }}>
-                  <Stethoscope size={16} color="#7C7C7C" />
-                  <p style={{ fontSize: 14, color: '#7C7C7C' }}>{doc.specialization}</p>
+                  <div className="flex flex-col" style={{ gap: 6 }}>
+                    <p
+                      className="font-bold leading-tight"
+                      style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: 16 }}
+                    >
+                      {doc.name}
+                    </p>
+                    <div className="flex items-center" style={{ gap: 8 }}>
+                      <Stethoscope size={12} color="#364153" />
+                      <p style={{ fontSize: 14, color: '#7C7C7C' }}>{doc.specialization}</p>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Bottom: rating | experience | arrow */}
-                <div className="flex items-center justify-between">
-                  <div style={{ gap: 16 }}>
-                    <div className="flex items-center gap-1">
-                      <span style={{ color: '#F59E0B', fontSize: 16 }}>★</span>
+                <div className="flex items-center" style={{ gap: 32 }}>
+                  <div className="flex flex-col" style={{ gap: 2 }}>
+                    <div className="flex items-center" style={{ gap: 4 }}>
+                      <span style={{ color: '#FDB022', fontSize: 16 }}>★</span>
                       <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{doc.rating}</span>
                     </div>
                     <p style={{ fontSize: 10, color: '#7C7C7C' }}>{doc.reviews} Reviews</p>
                   </div>
-                  <div>
+                  <div className="flex flex-col" style={{ gap: 2 }}>
                     <p className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{doc.experience}</p>
                     <p style={{ fontSize: 10, color: '#7C7C7C' }}>Experience</p>
                   </div>
                   <div
-                    className="rounded-full flex items-center justify-center"
-                    style={{ width: 40, height: 40, background: '#EFF6FF' }}
+                    className="rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{
+                      marginLeft: 'auto',
+                      width: 32, height: 32,
+                      background: 'linear-gradient(180deg, rgba(171,196,235,0) 0%, rgba(171,196,235,1) 100%)',
+                    }}
                   >
-                    <ArrowUpRight size={16} color="#1B4FBF" />
+                    <ArrowUpRight size={14} color="#313131" />
                   </div>
                 </div>
               </button>

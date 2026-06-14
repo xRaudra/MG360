@@ -64,7 +64,7 @@ export default function HospitalsScreen({ onNavigate }) {
 
               <div className="p-4">
                 <div className="flex items-start gap-3 mb-3">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-base flex-shrink-0"
+                  <div className="w-14 h-14 rounded-lg flex items-center justify-center text-white font-bold text-base flex-shrink-0"
                     style={{ background: logoColors[i % logoColors.length] }}>
                     {h.logo}
                   </div>

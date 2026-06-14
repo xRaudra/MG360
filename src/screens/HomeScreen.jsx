@@ -370,7 +370,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   {/* Header row */}
                   <div className="flex items-start gap-3 mb-3">
                     <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-2xl flex-shrink-0"
+                      className="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0"
                       style={{ background: iconBgs[i % iconBgs.length] }}
                     >
                       🏥

@@ -7,7 +7,7 @@ const colors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'
 
 function Avatar({ initials, idx, img }) {
   return (
-    <div className="w-14 h-14 rounded-2xl overflow-hidden flex items-center justify-center text-white font-bold text-base flex-shrink-0"
+    <div className="w-14 h-14 rounded-full overflow-hidden flex items-center justify-center text-white font-bold text-base flex-shrink-0"
       style={{ background: colors[idx % colors.length] }}>
       {img ? <img src={img} alt={initials} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : initials}
     </div>

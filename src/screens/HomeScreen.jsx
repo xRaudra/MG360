@@ -1,4 +1,4 @@
-import { ArrowUpRight, Stethoscope } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
@@ -313,17 +313,14 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                       : doc.avatar
                     }
                   </div>
-                  <div className="flex flex-col" style={{ gap: 6 }}>
+                  <div className="flex flex-col" style={{ gap: 4 }}>
                     <p
                       className="font-bold leading-tight"
                       style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: 16 }}
                     >
                       {doc.name}
                     </p>
-                    <div className="flex items-center" style={{ gap: 8 }}>
-                      <Stethoscope size={12} color="#364153" />
-                      <p style={{ fontSize: 14, color: '#7C7C7C' }}>{doc.specialization}</p>
-                    </div>
+                    <p style={{ fontSize: 12, color: '#7C7C7C' }}>{doc.specialization}</p>
                   </div>
                 </div>
 

@@ -378,7 +378,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   border: '1px solid #C6C6C6',
                 }}
               >
-                {/* Row 1: icon + name/city */}
+                {/* Row 1: icon + name/city + arrow */}
                 <div className="flex items-center mb-4" style={{ gap: 16 }}>
                   <div
                     className="flex items-center justify-center flex-shrink-0"
@@ -386,55 +386,43 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   >
                     <Building2 size={20} color="#53C97A" />
                   </div>
-                  <div className="flex flex-col" style={{ gap: 6 }}>
+                  <div className="flex flex-col flex-1" style={{ gap: 6 }}>
                     <p className="font-bold leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: 16 }}>
                       {h.name}
                     </p>
                     <p style={{ fontSize: 14, color: '#7C7C7C' }}>{h.city}</p>
                   </div>
+                  <div
+                    className="rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ width: 32, height: 32, background: 'linear-gradient(180deg, rgba(83,201,122,0) 0%, rgba(83,201,122,1) 100%)' }}
+                  >
+                    <ArrowUpRight size={14} color="#313131" />
+                  </div>
                 </div>
 
-                {/* Row 2: specialty tags */}
+                {/* Row 2: specialty tags (all) */}
                 <div className="flex items-center flex-wrap mb-4" style={{ gap: 4 }}>
-                  {h.specialties.slice(0, 3).map(s => (
+                  {h.specialties.map(s => (
                     <span key={s} style={{ background: 'rgba(83,201,122,0.10)', borderRadius: 20, padding: '2px 8px', fontSize: 12, color: '#313131' }}>
                       {s}
                     </span>
                   ))}
-                  {h.specialties.length > 3 && (
-                    <span style={{ background: 'rgba(83,201,122,0.10)', borderRadius: 20, padding: '2px 8px', fontSize: 12, color: '#313131' }}>
-                      +{h.specialties.length - 3}
-                    </span>
-                  )}
                 </div>
 
-                {/* Row 3: stats */}
+                {/* Row 3: stats inline */}
                 <div className="flex items-center" style={{ gap: 32 }}>
-                  <div className="flex flex-col" style={{ gap: 2 }}>
-                    <div className="flex items-center" style={{ gap: 4 }}>
-                      <span style={{ color: '#FDB022', fontSize: 16 }}>★</span>
-                      <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.rating}</span>
-                    </div>
-                    <p style={{ fontSize: 10, color: '#7C7C7C' }}>73 Reviews</p>
+                  <div className="flex items-center" style={{ gap: 4 }}>
+                    <span style={{ color: '#FDB022', fontSize: 16 }}>★</span>
+                    <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.rating}</span>
+                    <span style={{ fontSize: 10, color: '#7C7C7C' }}>73 Reviews</span>
                   </div>
-                  <div className="flex flex-col" style={{ gap: 2 }}>
-                    <p className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.founded}</p>
-                    <p style={{ fontSize: 10, color: '#7C7C7C' }}>Estd.</p>
+                  <div className="flex items-center" style={{ gap: 4 }}>
+                    <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.founded}</span>
+                    <span style={{ fontSize: 10, color: '#7C7C7C' }}>Estd.</span>
                   </div>
-                  <div className="flex flex-col" style={{ gap: 2 }}>
-                    <p className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.accreditation[0]}</p>
-                    <p style={{ fontSize: 10, color: '#7C7C7C' }}>{h.accreditation[1] || ''}</p>
-                  </div>
-                  <div
-                    className="rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{
-                      marginLeft: 'auto',
-                      width: 32, height: 32,
-                      background: 'linear-gradient(180deg, rgba(83,201,122,0) 0%, rgba(83,201,122,1) 100%)',
-                    }}
-                  >
-                    <ArrowUpRight size={14} color="#313131" />
-                  </div>
+                  <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>
+                    {h.accreditation.join('/')}
+                  </span>
                 </div>
               </button>
             ))}

@@ -214,7 +214,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               View All
             </button>
           </div>
-          <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-1">
+          <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-1" style={{ margin: '0 -16px', padding: '0 16px' }}>
             {treatments.filter(t => t.popular).slice(0, 4).map((t, i) => (
               <button
                 key={t.id}

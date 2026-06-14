@@ -246,9 +246,9 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
 
                 {/* Bottom overlay */}
                 <div
-                  className="absolute bottom-0 left-0 right-0 px-3 pt-3 pb-3 flex flex-col justify-end overflow-hidden"
+                  className="absolute bottom-0 left-0 right-0 px-3 pb-3 flex flex-col justify-end overflow-hidden"
                   style={{
-                    height: 80,
+                    height: 90,
                     borderRadius: 12,
                     background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.31) 100%)',
                     boxShadow: '-22px 44px 88px 0 #DDD',

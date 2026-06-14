@@ -316,23 +316,23 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 </div>
 
                 {/* Specialization */}
-                <div className="flex items-center gap-1.5 mb-3">
-                  <Stethoscope size={14} color="#94A3B8" />
-                  <p className="text-xs" style={{ color: '#94A3B8' }}>{doc.specialization}</p>
+                <div className="flex items-center gap-1.5" style={{ marginBottom: 16 }}>
+                  <Stethoscope size={16} color="#7C7C7C" />
+                  <p style={{ fontSize: 14, color: '#7C7C7C' }}>{doc.specialization}</p>
                 </div>
 
                 {/* Bottom: rating | experience | arrow */}
                 <div className="flex items-center justify-between">
-                  <div>
+                  <div style={{ gap: 16 }}>
                     <div className="flex items-center gap-1">
-                      <span style={{ color: '#F59E0B', fontSize: 13 }}>★</span>
-                      <span className="font-bold text-xs" style={{ color: '#313131' }}>{doc.rating}</span>
+                      <span style={{ color: '#F59E0B', fontSize: 16 }}>★</span>
+                      <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{doc.rating}</span>
                     </div>
-                    <p className="text-xs" style={{ color: '#94A3B8' }}>{doc.reviews} Reviews</p>
+                    <p style={{ fontSize: 10, color: '#7C7C7C' }}>{doc.reviews} Reviews</p>
                   </div>
                   <div>
-                    <p className="font-bold text-xs" style={{ color: '#313131' }}>{doc.experience}</p>
-                    <p className="text-xs" style={{ color: '#94A3B8' }}>Experience</p>
+                    <p className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{doc.experience}</p>
+                    <p style={{ fontSize: 10, color: '#7C7C7C' }}>Experience</p>
                   </div>
                   <div
                     className="rounded-full flex items-center justify-center"

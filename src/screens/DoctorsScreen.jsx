@@ -5,11 +5,11 @@ import { doctors } from '../data/mockData';
 
 const colors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'];
 
-function Avatar({ initials, idx }) {
+function Avatar({ initials, idx, img }) {
   return (
-    <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-white font-bold text-base flex-shrink-0"
+    <div className="w-14 h-14 rounded-2xl overflow-hidden flex items-center justify-center text-white font-bold text-base flex-shrink-0"
       style={{ background: colors[idx % colors.length] }}>
-      {initials}
+      {img ? <img src={img} alt={initials} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : initials}
     </div>
   );
 }
@@ -73,7 +73,7 @@ export default function DoctorsScreen({ onNavigate }) {
               className="flex gap-4 bg-white rounded-2xl p-4 text-left transition-all active:scale-95"
               style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
               <div className="relative">
-                <Avatar initials={doc.avatar} idx={i} />
+                <Avatar initials={doc.avatar} idx={i} img={doc.img} />
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-semibold text-slate-800 text-sm mb-0.5" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>

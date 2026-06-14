@@ -33,9 +33,12 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
         </div>
 
         <div className="flex flex-col items-center px-4">
-          <div className="w-24 h-24 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-3 relative"
+          <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center text-white text-2xl font-bold mb-3 relative"
             style={{ background: colors[colorIdx], border: '4px solid rgba(255,255,255,0.3)' }}>
-            {doc.avatar}
+            {doc.img
+              ? <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              : doc.avatar
+            }
           </div>
           <h2 className="text-white font-bold text-xl text-center" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             {doc.name}

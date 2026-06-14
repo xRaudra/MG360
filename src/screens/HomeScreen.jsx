@@ -412,15 +412,15 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 {/* Row 3: stats inline */}
                 <div className="flex items-center" style={{ gap: 32 }}>
                   <div className="flex items-center" style={{ gap: 4 }}>
-                    <span style={{ color: '#FDB022', fontSize: 16 }}>★</span>
-                    <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.rating}</span>
-                    <span style={{ fontSize: 10, color: '#7C7C7C' }}>73 Reviews</span>
+                    <span style={{ color: '#FDB022', fontSize: 16, lineHeight: 1 }}>★</span>
+                    <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97', lineHeight: 1 }}>{h.rating}</span>
+                    <span style={{ fontSize: 10, color: '#7C7C7C', lineHeight: 1 }}>73 Reviews</span>
                   </div>
                   <div className="flex items-center" style={{ gap: 4 }}>
-                    <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.founded}</span>
-                    <span style={{ fontSize: 10, color: '#7C7C7C' }}>Estd.</span>
+                    <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97', lineHeight: 1 }}>{h.founded}</span>
+                    <span style={{ fontSize: 10, color: '#7C7C7C', lineHeight: 1 }}>Estd.</span>
                   </div>
-                  <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>
+                  <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97', lineHeight: 1 }}>
                     {h.accreditation.join('/')}
                   </span>
                 </div>

@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Stethoscope } from 'lucide-react';
 import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
@@ -288,48 +288,54 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               View All
             </button>
           </div>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-1" style={{ margin: '0 -16px', padding: '0 16px' }}>
             {doctors.slice(0, 4).map((doc, i) => (
               <button
                 key={doc.id}
                 onClick={() => onNavigate('doctorDetail', doc)}
-                className="bg-white rounded-2xl p-3 text-left transition-all active:scale-95"
-                style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}
+                className="flex-shrink-0 bg-white rounded-2xl text-left transition-all active:scale-95"
+                style={{ width: 250, padding: 16, boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}
               >
-                {/* Avatar */}
-                <div
-                  className="w-14 h-14 rounded-full mb-2.5 flex items-center justify-center text-white font-bold text-base"
-                  style={{ background: avatarColors[i % avatarColors.length] }}
-                >
-                  {doc.avatar}
+                {/* Top row: avatar + name */}
+                <div className="flex items-center gap-3 mb-3">
+                  <div
+                    className="rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-sm"
+                    style={{ width: 64, height: 64, background: avatarColors[i % avatarColors.length] }}
+                  >
+                    {doc.avatar}
+                  </div>
+                  <p
+                    className="font-bold leading-snug"
+                    style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: 16 }}
+                  >
+                    {doc.name}
+                  </p>
                 </div>
-                {/* Name */}
-                <p
-                  className="font-bold text-xs leading-snug mb-0.5"
-                  style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
-                >
-                  {doc.name}
-                </p>
+
                 {/* Specialization */}
-                <p className="text-slate-400 text-xs mb-2 leading-tight">{doc.specialization}</p>
-                {/* Rating */}
-                <div className="flex items-center gap-1 mb-2">
-                  <span className="text-yellow-400 text-xs">★</span>
-                  <span className="text-xs font-bold text-slate-700">{doc.rating}</span>
-                  <span className="text-slate-300 text-xs">·</span>
-                  <span className="text-slate-400 text-xs">{doc.reviews} Reviews</span>
+                <div className="flex items-center gap-1.5 mb-3">
+                  <Stethoscope size={14} color="#94A3B8" />
+                  <p className="text-xs" style={{ color: '#94A3B8' }}>{doc.specialization}</p>
                 </div>
-                {/* Experience + arrow */}
-                <div className="flex items-end justify-between">
+
+                {/* Bottom: rating | experience | arrow */}
+                <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-slate-700 text-xs font-semibold">{doc.experience}</p>
-                    <p className="text-slate-400 text-xs">Experience</p>
+                    <div className="flex items-center gap-1">
+                      <span style={{ color: '#F59E0B', fontSize: 13 }}>★</span>
+                      <span className="font-bold text-xs" style={{ color: '#313131' }}>{doc.rating}</span>
+                    </div>
+                    <p className="text-xs" style={{ color: '#94A3B8' }}>{doc.reviews} Reviews</p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-xs" style={{ color: '#313131' }}>{doc.experience}</p>
+                    <p className="text-xs" style={{ color: '#94A3B8' }}>Experience</p>
                   </div>
                   <div
-                    className="w-7 h-7 rounded-full flex items-center justify-center"
-                    style={{ background: '#1B4FBF' }}
+                    className="rounded-full flex items-center justify-center"
+                    style={{ width: 40, height: 40, background: '#EFF6FF' }}
                   >
-                    <ArrowUpRight size={13} color="white" />
+                    <ArrowUpRight size={16} color="#1B4FBF" />
                   </div>
                 </div>
               </button>

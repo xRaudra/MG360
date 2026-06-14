@@ -13,10 +13,10 @@ const advantages = [
 ];
 
 const costComparison = [
-  { procedure: 'Cardiac Bypass',   india: '$7,200',  abroad: '$80,000'  },
+  { procedure: 'Cardiac Bypass',   india: '$6,000',  abroad: '$80,000'  },
   { procedure: 'Knee Replacement', india: '$4,500',  abroad: '$35,000'  },
-  { procedure: 'Liver Transplant', india: '$28,000', abroad: '$200,000' },
-  { procedure: 'Cancer Treatment', india: '$12,000', abroad: '$100,000' },
+  { procedure: 'Liver Transplant', india: '$25,000', abroad: '$200,000' },
+  { procedure: 'Cancer Treatment', india: '$10,000', abroad: '$100,000' },
 ];
 
 const specialties = [

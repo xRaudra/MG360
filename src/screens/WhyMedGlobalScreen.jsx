@@ -4,11 +4,11 @@ import { ArrowLeft, ChevronRight, Shield, Users, DollarSign, Clock, Phone, Star 
 const GRADIENT = 'linear-gradient(140deg, #0B3D91 0%, #1B4FBF 100%)';
 
 const pillars = [
-  { icon: Shield,     color: '#1B4FBF', bg: '#EFF6FF', title: 'Curated Hospital Network',     desc: 'Only JCI & NABL accredited hospitals — hand-picked for safety, quality, and international patient care.' },
-  { icon: Users,      color: '#7C3AED', bg: '#FAF5FF', title: 'Expert Doctor Matching',        desc: 'Specialists who have treated thousands of international patients and communicate in your language.' },
-  { icon: DollarSign, color: '#059669', bg: '#F0FDF4', title: 'Transparent Pricing',           desc: 'Detailed cost estimates before you book anything. No hidden fees, no surprises — ever.' },
-  { icon: Clock,      color: '#F59E0B', bg: '#FFFBEB', title: 'Zero Waiting Time',             desc: 'Skip 6–12 month waitlists. Treatment begins within days of your arrival in India.' },
-  { icon: Users,      color: '#0D9488', bg: '#F0FDFA', title: 'Family-Centred Care',           desc: 'Your loved ones travel with you. We keep your Care Circle informed and supported throughout.' },
+  { icon: Shield,     color: '#1B4FBF', bg: '#EFF6FF', title: 'Internationally Accredited Hospitals', desc: 'Only JCI & NABH accredited hospitals — hand-picked for safety, quality, and international patient care.' },
+  { icon: Users,      color: '#7C3AED', bg: '#FAF5FF', title: 'World-Class Doctor Access',         desc: 'Specialists who have treated thousands of international patients and communicate in your language.' },
+  { icon: DollarSign, color: '#059669', bg: '#F0FDF4', title: 'Transparent Pricing',               desc: 'Detailed cost estimates before you book anything. No hidden fees, no surprises — ever.' },
+  { icon: Clock,      color: '#F59E0B', bg: '#FFFBEB', title: 'Quick Access to Expert Care',       desc: 'Skip 6–12 month waitlists. Treatment begins within days of your arrival in India.' },
+  { icon: Users,      color: '#0D9488', bg: '#F0FDFA', title: 'Support for You & Your Family',     desc: 'Your loved ones travel with you. We keep your Care Circle informed and supported throughout.' },
   { icon: Phone,      color: '#EC4899', bg: '#FDF2F8', title: '24/7 Care Coordination',        desc: 'A dedicated coordinator is with you at every stage — from your first question to your final follow-up.' },
 ];
 

@@ -30,7 +30,7 @@ export const doctors = [
 ];
 
 export const hospitals = [
-  { id: 1, name: 'Apollo Hospitals', city: 'Delhi & 70+ locations', specialties: ['Cardiology', 'Orthopedics', 'Oncology', 'Neurology'], rating: 4.9, beds: 10000, accreditation: ['JCI', 'NABL'], founded: 1983, logo: 'AH' },
+  { id: 1, name: 'Apollo Hospitals', city: 'Delhi & 70+ locations', specialties: ['Cardiology', 'Orthopedics', 'Oncology', 'Neurology'], rating: 4.9, beds: 10000, accreditation: ['JCI', 'NABH'], founded: 1983, logo: 'AH' },
   { id: 2, name: 'Fortis Healthcare', city: 'Mumbai, Delhi, Bangalore', specialties: ['Orthopedics', 'Cardiac', 'Transplant'], rating: 4.8, beds: 4000, accreditation: ['JCI', 'NABH'], founded: 2001, logo: 'FH' },
   { id: 3, name: 'AIIMS New Delhi', city: 'New Delhi', specialties: ['All Specialties'], rating: 4.9, beds: 2478, accreditation: ['NABH', 'ISO'], founded: 1956, logo: 'AI' },
   { id: 4, name: 'Tata Memorial Centre', city: 'Mumbai', specialties: ['Oncology', 'Cancer Care'], rating: 4.9, beds: 629, accreditation: ['JCI'], founded: 1941, logo: 'TM' },

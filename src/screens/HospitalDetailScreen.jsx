@@ -8,7 +8,7 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
   const h = data || {
     id: 1, name: 'Apollo Hospitals', city: 'Delhi & 70+ locations',
     specialties: ['Cardiology', 'Orthopedics', 'Oncology', 'Neurology'],
-    rating: 4.9, beds: 10000, accreditation: ['JCI', 'NABL'], founded: 1983, logo: 'AH',
+    rating: 4.9, beds: 10000, accreditation: ['JCI', 'NABH'], founded: 1983, logo: 'AH',
   };
 
   const hDoctors = doctors.slice(0, 3);

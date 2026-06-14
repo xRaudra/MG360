@@ -41,7 +41,7 @@ export default function HospitalsScreen({ onNavigate }) {
       {!query && (
         <div className="px-4 py-3 flex items-center gap-2">
           <span className="text-xs text-slate-500 font-medium">Showing:</span>
-          {['JCI Accredited', 'NABH Certified', 'NABL'].map(b => (
+          {['JCI Accredited', 'NABH Certified', 'NABH'].map(b => (
             <span key={b} className="text-xs px-2.5 py-1 rounded-full bg-blue-50 text-[#1B4FBF] font-semibold">
               ✓ {b}
             </span>

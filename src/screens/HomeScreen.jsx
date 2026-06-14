@@ -222,6 +222,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 className="flex-shrink-0 rounded-xl overflow-hidden text-left transition-all active:scale-95 relative"
                 style={{
                   width: 230, height: 200,
+                  transform: 'translateZ(0)',
                   background: t.img ? undefined : treatmentCardBgs[i % treatmentCardBgs.length],
                   backgroundImage: t.img ? `url(${t.img})` : undefined,
                   backgroundSize: 'cover',

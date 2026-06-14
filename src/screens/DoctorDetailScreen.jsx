@@ -3,6 +3,13 @@ import { ArrowLeft, Star, MapPin, Heart, MessageCircle, Phone } from 'lucide-rea
 
 const colors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'];
 
+const CARD_STYLE = {
+  borderRadius: 16,
+  background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)',
+  border: '1px solid #C6C6C6',
+  boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+};
+
 export default function DoctorDetailScreen({ data, onNavigate }) {
   const doc = data || {
     id: 1, name: 'Dr. Rajesh Sharma', specialization: 'Cardiothoracic Surgeon',
@@ -68,16 +75,16 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
       {/* Content */}
       <div className="px-4 py-5 flex flex-col gap-4">
         {/* About */}
-        <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-2" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>About</h3>
-          <p className="text-slate-500 text-sm leading-relaxed">
+        <div className="p-4" style={CARD_STYLE}>
+          <h3 className="font-bold text-sm mb-2" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>About</h3>
+          <p className="text-sm leading-relaxed" style={{ color: '#7C7C7C' }}>
             {doc.name} is a leading {doc.specialization} at {doc.hospital} with {doc.experience} of expertise. Known for exceptional patient outcomes, international patient care, and minimally invasive techniques.
           </p>
         </div>
 
         {/* Languages */}
-        <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Languages</h3>
+        <div className="p-4" style={CARD_STYLE}>
+          <h3 className="font-bold text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>Languages</h3>
           <div className="flex gap-2 flex-wrap">
             {doc.languages.map(l => (
               <span key={l} className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1B4FBF]">{l}</span>
@@ -86,8 +93,8 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
         </div>
 
         {/* Availability */}
-        <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Available Slots</h3>
+        <div className="p-4" style={CARD_STYLE}>
+          <h3 className="font-bold text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>Available Slots</h3>
           <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
             {['Mon Jan 20', 'Tue Jan 21', 'Wed Jan 22', 'Thu Jan 23'].map((d, i) => (
               <button key={d} onClick={() => setSelDate(i)}
@@ -119,20 +126,20 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
 
         {/* Hospital */}
         <button onClick={() => onNavigate('hospitalDetail')}
-          className="flex items-center gap-3 bg-white rounded-2xl p-4 text-left transition-all active:scale-95"
-          style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+          className="flex items-center gap-3 p-4 text-left transition-all active:scale-95"
+          style={CARD_STYLE}>
           <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
             style={{ background: '#1B4FBF' }}>
             AH
           </div>
           <div className="flex-1">
-            <p className="font-semibold text-slate-800 text-sm">{doc.hospital}</p>
+            <p className="font-semibold text-sm" style={{ color: '#313131' }}>{doc.hospital}</p>
             <div className="flex items-center gap-1 mt-0.5">
-              <MapPin size={11} color="#94A3B8" />
-              <span className="text-slate-400 text-xs">{doc.city}</span>
+              <MapPin size={11} color="#7C7C7C" />
+              <span className="text-xs" style={{ color: '#7C7C7C' }}>{doc.city}</span>
             </div>
           </div>
-          <span className="text-xs text-[#1B4FBF] font-semibold">View →</span>
+          <span className="text-xs font-semibold" style={{ color: '#1B4FBF' }}>View →</span>
         </button>
       </div>
 

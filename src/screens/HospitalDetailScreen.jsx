@@ -3,6 +3,13 @@ import { ArrowLeft, MapPin, ChevronRight, Heart } from 'lucide-react';
 import StarRating from '../components/StarRating';
 import { doctors } from '../data/mockData';
 
+const CARD_STYLE = {
+  borderRadius: 16,
+  background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)',
+  border: '1px solid #C6C6C6',
+  boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
+};
+
 export default function HospitalDetailScreen({ data, onNavigate }) {
   const [saved, setSaved] = useState(false);
   const h = data || {
@@ -84,8 +91,8 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
       {/* Content */}
       <div className="px-4 py-5 flex flex-col gap-4">
         {/* Specialties */}
-        <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Specialties</h3>
+        <div className="p-4" style={CARD_STYLE}>
+          <h3 className="font-bold text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>Specialties</h3>
           <div className="flex flex-wrap gap-2">
             {h.specialties.map(s => (
               <span key={s} className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1B4FBF]">{s}</span>
@@ -94,15 +101,16 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
         </div>
 
         {/* Facilities */}
-        <div className="bg-white rounded-2xl p-4" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
-          <h3 className="font-bold text-slate-800 text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Facilities</h3>
+        <div className="p-4" style={CARD_STYLE}>
+          <h3 className="font-bold text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>Facilities</h3>
           <div className="grid grid-cols-2 gap-2">
             {facilities.map(f => (
               <div key={f} className="flex items-center gap-2 py-1">
-                <div className="w-5 h-5 rounded-full bg-teal-50 flex items-center justify-center flex-shrink-0">
-                  <span className="text-teal-600 text-xs">✓</span>
+                <div className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0"
+                  style={{ background: 'rgba(83,201,122,0.15)' }}>
+                  <span className="text-xs" style={{ color: '#059669' }}>✓</span>
                 </div>
-                <span className="text-slate-600 text-xs">{f}</span>
+                <span className="text-xs" style={{ color: '#313131' }}>{f}</span>
               </div>
             ))}
           </div>
@@ -111,8 +119,8 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
         {/* Doctors */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>Key Doctors</h3>
-            <button onClick={() => onNavigate('doctors')} className="text-xs text-[#1B4FBF] font-semibold flex items-center gap-1">
+            <h3 className="font-bold text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>Key Doctors</h3>
+            <button onClick={() => onNavigate('doctors')} className="text-xs font-semibold flex items-center gap-1" style={{ color: '#1B4FBF' }}>
               All Doctors <ChevronRight size={13} />
             </button>
           </div>
@@ -120,19 +128,19 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
             {hDoctors.map((d, i) => (
               <button key={d.id}
                 onClick={() => onNavigate('doctorDetail', d)}
-                className="flex items-center gap-3 bg-white rounded-xl p-3 text-left transition-all active:scale-95"
-                style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
+                className="flex items-center gap-3 p-3 text-left transition-all active:scale-95"
+                style={{ ...CARD_STYLE, borderRadius: 12 }}>
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white font-bold text-xs flex-shrink-0"
                   style={{ background: ['#1B4FBF', '#059669', '#7C3AED'][i] }}>
                   {d.avatar}
                 </div>
                 <div className="flex-1">
-                  <p className="font-semibold text-slate-800 text-xs">{d.name}</p>
-                  <p className="text-slate-400 text-xs">{d.specialization} · {d.experience}</p>
+                  <p className="font-semibold text-xs" style={{ color: '#313131' }}>{d.name}</p>
+                  <p className="text-xs" style={{ color: '#7C7C7C' }}>{d.specialization} · {d.experience}</p>
                 </div>
                 <div className="flex items-center gap-1">
                   <StarRating rating={d.rating} size={11} />
-                  <span className="text-xs text-slate-600">{d.rating}</span>
+                  <span className="text-xs" style={{ color: '#313131' }}>{d.rating}</span>
                 </div>
               </button>
             ))}

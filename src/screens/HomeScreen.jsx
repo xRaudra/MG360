@@ -49,10 +49,10 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             <button
               onClick={() => onNavigate('language')}
               className="flex items-center gap-1 rounded-full transition-all active:opacity-70"
-              style={{ width: 60, height: 38, justifyContent: 'center', background: '#F1F1F1', border: '1px solid #C6C6C6' }}
+              style={{ width: 50, height: 30, justifyContent: 'center', background: '#F1F1F1', border: '1px solid #C6C6C6' }}
             >
-              <img src="/icon-language.png" alt="Language" style={{ width: 18, height: 18, objectFit: 'contain' }} />
-              <span className="text-slate-600 font-semibold" style={{ fontSize: '14px' }}>EN</span>
+              <img src="/icon-language.png" alt="Language" style={{ width: 14, height: 14, objectFit: 'contain' }} />
+              <span className="text-slate-600 font-semibold" style={{ fontSize: '12px' }}>EN</span>
             </button>
             <button
               onClick={() => onNavigate('notifications')}

@@ -246,7 +246,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
 
                 {/* Bottom overlay */}
                 <div
-                  className="absolute bottom-0 left-0 right-0 px-3 pb-3 flex flex-col justify-end overflow-hidden"
+                  className="absolute bottom-0 left-0 right-0 px-3 pt-3 pb-3 flex flex-col overflow-hidden"
                   style={{
                     height: 90,
                     borderRadius: 12,

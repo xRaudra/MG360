@@ -248,9 +248,10 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 <div
                   className="absolute bottom-0 left-0 right-0 px-3 pt-3 pb-3"
                   style={{
-                    background: 'radial-gradient(ellipse at center bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 100%)',
-                    backdropFilter: 'blur(4px)',
-                    borderRadius: '0 0 12px 12px',
+                    borderRadius: 12,
+                    background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.31) 100%)',
+                    boxShadow: '-22px 44px 88px 0 #DDD',
+                    backdropFilter: 'blur(22px)',
                   }}
                 >
                   <p className="text-white font-bold leading-snug mb-2" style={{ fontSize: 13 }}>

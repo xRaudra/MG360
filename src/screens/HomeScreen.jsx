@@ -288,7 +288,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
               View All
             </button>
           </div>
-          <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-1" style={{ margin: '0 -16px', padding: '0 16px' }}>
+          <div className="flex gap-3 overflow-x-auto hide-scrollbar" style={{ margin: '0 -16px', padding: '4px 16px 8px' }}>
             {doctors.slice(0, 4).map((doc, i) => (
               <button
                 key={doc.id}

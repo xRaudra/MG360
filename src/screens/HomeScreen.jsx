@@ -300,7 +300,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 <div className="flex items-center gap-3 mb-3">
                   <div
                     className="rounded-full flex-shrink-0 flex items-center justify-center text-white font-bold text-sm"
-                    style={{ width: 64, height: 64, background: avatarColors[i % avatarColors.length] }}
+                    style={{ width: 48, height: 48, background: avatarColors[i % avatarColors.length] }}
                   >
                     {doc.avatar}
                   </div>

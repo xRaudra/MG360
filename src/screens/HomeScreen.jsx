@@ -384,7 +384,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                     className="flex items-center justify-center flex-shrink-0"
                     style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(83,201,122,0.24)' }}
                   >
-                    <Building2 size={20} color="#53C97A" />
+                    <Building2 size={28} color="#53C97A" />
                   </div>
                   <div className="flex flex-col flex-1" style={{ gap: 6 }}>
                     <p className="font-bold leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: 16 }}>

@@ -223,6 +223,7 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                 style={{
                   width: 230, height: 200,
                   transform: 'translateZ(0)',
+                  border: '1px solid #C6C6C6',
                   background: t.img ? undefined : treatmentCardBgs[i % treatmentCardBgs.length],
                   backgroundImage: t.img ? `url(${t.img})` : undefined,
                   backgroundSize: 'cover',

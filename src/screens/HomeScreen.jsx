@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Building2 } from 'lucide-react';
 import { doctors, hospitals, treatments } from '../data/mockData';
 
 const quickActions = [
@@ -365,72 +365,79 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             </button>
           </div>
           <div className="flex flex-col gap-3">
-            {hospitals.slice(0, 3).map((h, i) => {
-              const iconBgs    = ['#DCFCE7', '#DBEAFE', '#EDE9FE'];
-              const arrowColors = ['#059669', '#1B4FBF', '#7C3AED'];
-              return (
-                <button
-                  key={h.id}
-                  onClick={() => onNavigate('hospitalDetail', h)}
-                  className="bg-white rounded-2xl p-4 text-left transition-all active:scale-95"
-                  style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}
-                >
-                  {/* Header row */}
-                  <div className="flex items-start gap-3 mb-3">
-                    <div
-                      className="w-12 h-12 rounded-lg flex items-center justify-center text-2xl flex-shrink-0"
-                      style={{ background: iconBgs[i % iconBgs.length] }}
-                    >
-                      🏥
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p
-                        className="font-bold text-sm leading-snug"
-                        style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}
-                      >
-                        {h.name}
-                      </p>
-                      <p className="text-slate-400 text-xs mt-0.5">{h.city}</p>
-                    </div>
-                    <div
-                      className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                      style={{ background: arrowColors[i % arrowColors.length] }}
-                    >
-                      <ArrowUpRight size={14} color="white" />
-                    </div>
+            {hospitals.slice(0, 3).map((h) => (
+              <button
+                key={h.id}
+                onClick={() => onNavigate('hospitalDetail', h)}
+                className="rounded-2xl text-left transition-all active:scale-95"
+                style={{
+                  padding: 16,
+                  borderRadius: 16,
+                  background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+                  border: '1px solid #C6C6C6',
+                }}
+              >
+                {/* Row 1: icon + name/city */}
+                <div className="flex items-center mb-4" style={{ gap: 16 }}>
+                  <div
+                    className="flex items-center justify-center flex-shrink-0"
+                    style={{ width: 48, height: 48, borderRadius: 12, background: 'rgba(83,201,122,0.24)' }}
+                  >
+                    <Building2 size={20} color="#53C97A" />
                   </div>
+                  <div className="flex flex-col" style={{ gap: 6 }}>
+                    <p className="font-bold leading-tight" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131', fontSize: 16 }}>
+                      {h.name}
+                    </p>
+                    <p style={{ fontSize: 14, color: '#7C7C7C' }}>{h.city}</p>
+                  </div>
+                </div>
 
-                  {/* Specialty tags */}
-                  <div className="flex flex-wrap gap-1.5 mb-3">
-                    {h.specialties.slice(0, 3).map(s => (
-                      <span key={s} className="px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
-                        {s}
-                      </span>
-                    ))}
-                    {h.specialties.length > 3 && (
-                      <span className="px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">
-                        +{h.specialties.length - 3}
-                      </span>
-                    )}
-                  </div>
+                {/* Row 2: specialty tags */}
+                <div className="flex items-center flex-wrap mb-4" style={{ gap: 4 }}>
+                  {h.specialties.slice(0, 3).map(s => (
+                    <span key={s} style={{ background: 'rgba(83,201,122,0.10)', borderRadius: 20, padding: '2px 8px', fontSize: 12, color: '#313131' }}>
+                      {s}
+                    </span>
+                  ))}
+                  {h.specialties.length > 3 && (
+                    <span style={{ background: 'rgba(83,201,122,0.10)', borderRadius: 20, padding: '2px 8px', fontSize: 12, color: '#313131' }}>
+                      +{h.specialties.length - 3}
+                    </span>
+                  )}
+                </div>
 
-                  {/* Stats row */}
-                  <div className="flex items-center gap-3 text-xs text-slate-500">
-                    <div className="flex items-center gap-1">
-                      <span className="text-yellow-400">★</span>
-                      <span className="font-bold text-slate-700">{h.rating}</span>
-                      <span>73 Reviews</span>
+                {/* Row 3: stats */}
+                <div className="flex items-center" style={{ gap: 32 }}>
+                  <div className="flex flex-col" style={{ gap: 2 }}>
+                    <div className="flex items-center" style={{ gap: 4 }}>
+                      <span style={{ color: '#FDB022', fontSize: 16 }}>★</span>
+                      <span className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.rating}</span>
                     </div>
-                    <span className="text-slate-200">|</span>
-                    <span>{h.founded} Estd.</span>
-                    <span className="text-slate-200">|</span>
-                    {h.accreditation.slice(0, 2).map(a => (
-                      <span key={a} className="font-semibold text-slate-600">{a}</span>
-                    ))}
+                    <p style={{ fontSize: 10, color: '#7C7C7C' }}>73 Reviews</p>
                   </div>
-                </button>
-              );
-            })}
+                  <div className="flex flex-col" style={{ gap: 2 }}>
+                    <p className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.founded}</p>
+                    <p style={{ fontSize: 10, color: '#7C7C7C' }}>Estd.</p>
+                  </div>
+                  <div className="flex flex-col" style={{ gap: 2 }}>
+                    <p className="font-bold" style={{ fontSize: 16, color: '#8B8D97' }}>{h.accreditation[0]}</p>
+                    <p style={{ fontSize: 10, color: '#7C7C7C' }}>{h.accreditation[1] || ''}</p>
+                  </div>
+                  <div
+                    className="rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{
+                      marginLeft: 'auto',
+                      width: 32, height: 32,
+                      background: 'linear-gradient(180deg, rgba(83,201,122,0) 0%, rgba(83,201,122,1) 100%)',
+                    }}
+                  >
+                    <ArrowUpRight size={14} color="#313131" />
+                  </div>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
 

@@ -21,9 +21,9 @@ export const categories = [
 ];
 
 export const doctors = [
-  { id: 1, name: 'Dr. Rajesh Sharma', specialization: 'Cardiothoracic Surgeon', hospital: 'Apollo Hospital', city: 'Delhi', experience: '22 yrs', rating: 4.9, reviews: 1240, fee: '$80', avatar: 'RS', available: true, languages: ['English', 'Hindi'] },
-  { id: 2, name: 'Dr. Priya Mehta', specialization: 'Orthopedic Surgeon', hospital: 'Fortis Hospital', city: 'Mumbai', experience: '18 yrs', rating: 4.8, reviews: 987, fee: '$70', avatar: 'PM', available: true, languages: ['English', 'Hindi', 'Gujarati'] },
-  { id: 3, name: 'Dr. Arjun Nair', specialization: 'Neurosurgeon', hospital: 'AIIMS', city: 'Delhi', experience: '25 yrs', rating: 4.9, reviews: 2105, fee: '$90', avatar: 'AN', available: false, languages: ['English', 'Malayalam'] },
+  { id: 1, name: 'Dr. Rajesh Sharma', specialization: 'Cardiothoracic Surgeon', hospital: 'Apollo Hospital', city: 'Delhi', experience: '22 yrs', rating: 4.9, reviews: 1240, fee: '$80', avatar: 'RS', img: '/doctor-rajesh.jpg', available: true, languages: ['English', 'Hindi'] },
+  { id: 2, name: 'Dr. Priya Mehta', specialization: 'Orthopedic Surgeon', hospital: 'Fortis Hospital', city: 'Mumbai', experience: '18 yrs', rating: 4.8, reviews: 987, fee: '$70', avatar: 'PM', img: '/doctor-priya.jpg', available: true, languages: ['English', 'Hindi', 'Gujarati'] },
+  { id: 3, name: 'Dr. Arjun Nair', specialization: 'Neurosurgeon', hospital: 'AIIMS', city: 'Delhi', experience: '25 yrs', rating: 4.9, reviews: 2105, fee: '$90', avatar: 'AN', img: '/doctor-arjun.jpg', available: false, languages: ['English', 'Malayalam'] },
   { id: 4, name: 'Dr. Sunita Reddy', specialization: 'Oncologist', hospital: 'Tata Memorial', city: 'Mumbai', experience: '20 yrs', rating: 4.8, reviews: 856, fee: '$85', avatar: 'SR', available: true, languages: ['English', 'Telugu'] },
   { id: 5, name: 'Dr. Vikram Singh', specialization: 'Transplant Surgeon', hospital: 'Max Hospital', city: 'Delhi', experience: '30 yrs', rating: 5.0, reviews: 654, fee: '$120', avatar: 'VS', available: true, languages: ['English', 'Hindi'] },
   { id: 6, name: 'Dr. Anita Patel', specialization: 'Ophthalmologist', hospital: 'Sankara Nethralaya', city: 'Chennai', experience: '15 yrs', rating: 4.7, reviews: 1432, fee: '$60', avatar: 'AP', available: true, languages: ['English', 'Tamil', 'Gujarati'] },

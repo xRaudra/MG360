@@ -229,10 +229,12 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
                   backgroundPosition: 'center',
                 }}
               >
-                {/* Icon centered in card */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="text-7xl opacity-60">{t.icon}</span>
-                </div>
+                {/* Icon centered in card — only when no background image */}
+                {!t.img && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-7xl opacity-60">{t.icon}</span>
+                  </div>
+                )}
 
                 {/* Green price badge */}
                 <div

@@ -91,10 +91,10 @@ export default function DoctorsScreen({ onNavigate }) {
               className="rounded-2xl p-4 cursor-pointer transition-all active:scale-95"
               style={CARD_STYLE}>
 
-              {/* ── Inner row: Avatar + Info ─────────────────── */}
-              <div className="flex items-center gap-4">
+              {/* ── Inner row: Avatar + right section ───────── */}
+              <div className="flex items-start gap-4">
 
-                {/* Avatar — 78×78 circular (Figma: cornerRadius 145) */}
+                {/* Avatar — 78×78 circular */}
                 <div className="rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center text-white font-bold"
                   style={{ width: 78, height: 78, fontSize: 22, background: colors[i % colors.length] }}>
                   {doc.img
@@ -102,50 +102,45 @@ export default function DoctorsScreen({ onNavigate }) {
                     : doc.avatar}
                 </div>
 
-                {/* Info column — VERTICAL gap:14 (Figma: itemSpacing 14) */}
-                <div className="flex-1 min-w-0 flex flex-col" style={{ gap: 14 }}>
+                {/* Right section: [name+spec+rating col] + [heart] */}
+                <div className="flex-1 min-w-0 flex items-start gap-4">
 
-                  {/* Top block — name+specialty LEFT, heart RIGHT (Figma: HORIZONTAL gap:16) */}
-                  <div className="flex items-start gap-4">
+                  {/* Name + Specialty + Rating — all inside one flex-1 column
+                      so the rating row's right edge aligns with the name's right edge */}
+                  <div className="flex-1 min-w-0 flex flex-col">
+                    <p className="font-semibold truncate"
+                      style={{ fontSize: 16, lineHeight: '20px', color: '#313131', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                      {doc.name}
+                    </p>
+                    <p className="truncate"
+                      style={{ fontSize: 14, lineHeight: '18px', color: '#7C7C7C', marginTop: 6 }}>
+                      {doc.specialization}
+                    </p>
 
-                    {/* Name + Specialty — VERTICAL gap:6 (Figma: itemSpacing 6) */}
-                    <div className="flex-1 min-w-0 flex flex-col" style={{ gap: 6 }}>
-                      <p className="font-semibold truncate"
-                        style={{ fontSize: 16, lineHeight: '20px', color: '#313131', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-                        {doc.name}
-                      </p>
-                      <p className="truncate"
-                        style={{ fontSize: 14, lineHeight: '18px', color: '#7C7C7C' }}>
-                        {doc.specialization}
-                      </p>
-                    </div>
-
-                    {/* Heart — 24×24 (Figma: solar:heart-linear) */}
-                    <button
-                      onClick={e => toggleLike(doc.id, e)}
-                      className="flex-shrink-0 transition-all active:scale-90">
-                      <Heart
-                        size={20}
-                        color={liked[doc.id] ? '#EF4444' : '#C6C6C6'}
-                        fill={liked[doc.id] ? '#EF4444' : 'none'}
-                      />
-                    </button>
-                  </div>
-
-                  {/* Rating row — two groups, space-between (Figma: HORIZONTAL space-between) */}
-                  <div className="flex items-center justify-between">
-                    {/* Left: ⭐ score (count) */}
-                    <div className="flex items-center gap-1">
-                      <Star size={12} fill="#F59E0B" color="#F59E0B" />
-                      <span style={{ fontSize: 12, color: '#313131' }}>{doc.rating}</span>
-                      <span style={{ fontSize: 12, color: '#313131' }}>({doc.reviews})</span>
-                    </div>
-                    {/* Right: Xyr Exp */}
-                    <div className="flex items-center gap-1">
-                      <span style={{ fontSize: 12, color: '#313131' }}>{doc.experience}</span>
-                      <span style={{ fontSize: 12, color: '#313131' }}>Exp</span>
+                    {/* Rating row — space-between within name column width */}
+                    <div className="flex items-center justify-between" style={{ marginTop: 14 }}>
+                      <div className="flex items-center gap-1">
+                        <Star size={12} fill="#F59E0B" color="#F59E0B" />
+                        <span style={{ fontSize: 12, color: '#313131' }}>{doc.rating}</span>
+                        <span style={{ fontSize: 12, color: '#313131' }}>({doc.reviews})</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <span style={{ fontSize: 12, color: '#313131' }}>{doc.experience}</span>
+                        <span style={{ fontSize: 12, color: '#313131' }}>Exp</span>
+                      </div>
                     </div>
                   </div>
+
+                  {/* Heart — flex-shrink-0, top-aligned */}
+                  <button
+                    onClick={e => toggleLike(doc.id, e)}
+                    className="flex-shrink-0 transition-all active:scale-90">
+                    <Heart
+                      size={20}
+                      color={liked[doc.id] ? '#EF4444' : '#C6C6C6'}
+                      fill={liked[doc.id] ? '#EF4444' : 'none'}
+                    />
+                  </button>
 
                 </div>
               </div>

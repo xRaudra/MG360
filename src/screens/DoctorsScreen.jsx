@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, Search, SlidersHorizontal, Heart } from 'lucide-react';
-import StarRating from '../components/StarRating';
+import { ArrowLeft, Search, SlidersHorizontal, Heart, Star } from 'lucide-react';
 import { doctors } from '../data/mockData';
 
 const colors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'];
@@ -122,9 +121,9 @@ export default function DoctorsScreen({ onNavigate }) {
                 <p className="text-sm mb-2" style={{ color: '#7C7C7C' }}>
                   {doc.specialization}
                 </p>
-                {/* Rating row — matches Figma: star · rating · reviews · experience */}
+                {/* Rating row */}
                 <div className="flex items-center gap-1 flex-wrap">
-                  <StarRating rating={doc.rating} size={12} />
+                  <Star size={12} fill="#F59E0B" color="#F59E0B" />
                   <span className="text-xs font-semibold" style={{ color: '#313131' }}>{doc.rating}</span>
                   <span className="text-xs" style={{ color: '#313131' }}>({doc.reviews} Reviews)</span>
                   <span className="text-xs mx-1" style={{ color: '#C6C6C6' }}>·</span>

@@ -117,16 +117,17 @@ export default function DoctorsScreen({ onNavigate }) {
                       {doc.specialization}
                     </p>
 
-                    {/* Rating row — space-between within name column width */}
-                    <div className="flex items-center justify-between" style={{ marginTop: 14 }}>
+                    {/* Rating row — close gap between rating and experience */}
+                    <div className="flex items-center gap-3" style={{ marginTop: 14 }}>
                       <div className="flex items-center gap-1">
                         <Star size={12} fill="#F59E0B" color="#F59E0B" />
                         <span style={{ fontSize: 12, color: '#313131' }}>{doc.rating}</span>
-                        <span style={{ fontSize: 12, color: '#313131' }}>({doc.reviews})</span>
+                        <span style={{ fontSize: 12, color: '#7C7C7C' }}>({doc.reviews})</span>
                       </div>
+                      <span style={{ fontSize: 12, color: '#C6C6C6' }}>·</span>
                       <div className="flex items-center gap-1">
                         <span style={{ fontSize: 12, color: '#313131' }}>{doc.experience}</span>
-                        <span style={{ fontSize: 12, color: '#313131' }}>Exp</span>
+                        <span style={{ fontSize: 12, color: '#7C7C7C' }}>Exp</span>
                       </div>
                     </div>
                   </div>

@@ -28,7 +28,7 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
       <div className="relative"
         style={{ background: 'linear-gradient(160deg, #0F172A 0%, #1E293B 100%)' }}>
         <div className="flex items-center justify-between px-4 pt-4 pb-4">
-          <button onClick={() => onNavigate('hospitals')} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
+          <button onClick={() => data?.from === 'doctorDetail' ? onNavigate('doctorDetail', data.doctorData) : onNavigate('hospitals')} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
             <ArrowLeft size={18} color="white" />
           </button>
           <button onClick={() => setSaved(v => !v)} className="w-9 h-9 rounded-full flex items-center justify-center transition-all"

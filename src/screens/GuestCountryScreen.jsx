@@ -198,7 +198,7 @@ export default function GuestCountryScreen({ onNavigate, data }) {
           paddingLeft: 14, paddingRight: 14,
           boxShadow: '0 1px 2px rgba(228,229,232,0.24)',
         }}>
-          <Search size={16} color="#94A3B8" />
+          <Search size={16} color="#7C7C7C" />
           <input
             type="text"
             placeholder="Search country..."

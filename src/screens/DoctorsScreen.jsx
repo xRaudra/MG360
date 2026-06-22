@@ -125,10 +125,9 @@ export default function DoctorsScreen({ onNavigate }) {
                 <div className="flex items-center gap-1 flex-wrap">
                   <Star size={12} fill="#F59E0B" color="#F59E0B" />
                   <span className="text-xs font-semibold" style={{ color: '#313131' }}>{doc.rating}</span>
-                  <span className="text-xs" style={{ color: '#313131' }}>({doc.reviews} Reviews)</span>
+                  <span className="text-xs" style={{ color: '#7C7C7C' }}>({doc.reviews})</span>
                   <span className="text-xs mx-1" style={{ color: '#C6C6C6' }}>·</span>
-                  <span className="text-xs font-semibold" style={{ color: '#313131' }}>{doc.experience}</span>
-                  <span className="text-xs" style={{ color: '#313131' }}>Experience</span>
+                  <span className="text-xs font-semibold" style={{ color: '#313131' }}>{doc.experience} Exp</span>
                 </div>
               </div>
             </button>

@@ -32,16 +32,17 @@ export default function ChatScreen({ onNavigate, isGuest = false }) {
   return (
     <div className="flex flex-col h-full bg-transparent screen-enter">
       {/* Header */}
-      <div className="flex items-center gap-3 px-4 pt-4 pb-4 bg-white"
-        style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
-        <button onClick={() => onNavigate('home')} className="p-2 rounded-xl bg-slate-100">
-          <ArrowLeft size={18} color="#0F172A" />
+      <div className="flex items-center gap-3 px-4 pt-4 pb-4">
+        <button onClick={() => onNavigate('home')}
+          className="rounded-full flex items-center justify-center flex-shrink-0 transition-all active:opacity-70"
+          style={{ width: 40, height: 40, background: '#F1F1F1', border: '1px solid #C6C6C6' }}>
+          <ArrowLeft size={18} color="#313131" />
         </button>
         <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1B4FBF] to-[#0D9488] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
           CT
         </div>
         <div className="flex-1">
-          <p className="font-semibold text-slate-800 text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+          <p className="font-semibold text-sm" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
             Care Coordinator
           </p>
           <div className="flex items-center gap-1">
@@ -128,7 +129,7 @@ export default function ChatScreen({ onNavigate, isGuest = false }) {
       </div>
 
       {/* Input */}
-      <div className="px-4 pb-4 pt-3 bg-white border-t border-slate-100">
+      <div className="px-4 pb-4 pt-3" style={{ borderTop: '1px solid #C6C6C6' }}>
         <div className="flex items-center gap-3">
           <button className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
             <ImagePlus size={18} color="#475569" />

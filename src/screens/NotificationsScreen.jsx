@@ -16,12 +16,14 @@ export default function NotificationsScreen({ onNavigate, isGuest = false }) {
   return (
     <div className="flex flex-col h-full bg-transparent screen-enter">
       {/* Header */}
-      <div className="px-4 pt-4 pb-4 bg-white" style={{ boxShadow: '0 1px 4px rgba(0,0,0,0.06)' }}>
+      <div className="px-4 pt-4 pb-4">
         <div className="flex items-center gap-3">
-          <button onClick={() => onNavigate('home')} className="p-2 rounded-xl bg-slate-100">
-            <ArrowLeft size={18} color="#0F172A" />
+          <button onClick={() => onNavigate('home')}
+            className="rounded-full flex items-center justify-center flex-shrink-0 transition-all active:opacity-70"
+            style={{ width: 40, height: 40, background: '#F1F1F1', border: '1px solid #C6C6C6' }}>
+            <ArrowLeft size={18} color="#313131" />
           </button>
-          <h2 className="font-bold text-slate-800 text-lg flex-1" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+          <h2 className="font-bold text-lg flex-1" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
             Notifications
           </h2>
           {unread > 0 && (

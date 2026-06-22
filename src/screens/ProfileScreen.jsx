@@ -44,30 +44,30 @@ export default function ProfileScreen({ onNavigate, isGuest = false }) {
     <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
 
       {/* Header */}
-      <div className="px-4 pt-6 pb-6"
-        style={{ background: 'linear-gradient(160deg, #1B4FBF 0%, #0D9488 100%)' }}>
-        <h2 className="font-bold text-white text-xl mb-5" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+      <div className="px-4 pt-6 pb-6">
+        <h2 className="font-bold text-xl mb-5" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
           My Profile
         </h2>
 
         {/* Avatar + Name */}
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-white text-xl font-bold border-2 border-white/30 flex-shrink-0"
-            style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+          <div className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold flex-shrink-0"
+            style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', background: '#F1F1F1', border: '1px solid #C6C6C6', color: '#313131' }}>
             {isGuest ? '👤' : 'KM'}
           </div>
           <div>
-            <h3 className="text-white font-bold text-xl" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            <h3 className="font-bold text-xl" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
               {isGuest ? 'Guest User' : 'Kwame Mensah'}
             </h3>
-            <p className="text-white/70 text-sm">
+            <p className="text-sm" style={{ color: '#7C7C7C' }}>
               {isGuest ? 'Browsing as guest' : 'kwame@email.com'}
             </p>
           </div>
         </div>
 
         {/* Profile info rows */}
-        <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(255,255,255,0.12)' }}>
+        <div className="rounded-2xl overflow-hidden"
+          style={{ background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)', border: '1px solid #C6C6C6', boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}>
           {isGuest ? (
             <>
               {[
@@ -77,9 +77,9 @@ export default function ProfileScreen({ onNavigate, isGuest = false }) {
               ].map((row, i, arr) => (
                 <div key={row.label}
                   className="flex items-center justify-between px-4 py-2.5"
-                  style={{ borderBottom: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none' }}>
-                  <p className="text-white/60 text-xs">{row.label}</p>
-                  <p className="text-white/40 text-xs italic">{row.value}</p>
+                  style={{ borderBottom: i < arr.length - 1 ? '1px solid #F0F0F0' : 'none' }}>
+                  <p className="text-xs" style={{ color: '#7C7C7C' }}>{row.label}</p>
+                  <p className="text-xs italic" style={{ color: '#8B8D97' }}>{row.value}</p>
                 </div>
               ))}
             </>
@@ -92,11 +92,11 @@ export default function ProfileScreen({ onNavigate, isGuest = false }) {
               ].map((row, i, arr) => (
                 <div key={row.label}
                   className="flex items-center justify-between px-4 py-2.5"
-                  style={{ borderBottom: i < arr.length - 1 ? '1px solid rgba(255,255,255,0.1)' : 'none' }}>
-                  <p className="text-white/60 text-xs">{row.label}</p>
+                  style={{ borderBottom: i < arr.length - 1 ? '1px solid #F0F0F0' : 'none' }}>
+                  <p className="text-xs" style={{ color: '#7C7C7C' }}>{row.label}</p>
                   <div className="text-right">
-                    <p className="text-white text-xs font-semibold">{row.value}</p>
-                    {row.sub && <p className="text-white/50 text-xs">{row.sub}</p>}
+                    <p className="text-xs font-semibold" style={{ color: '#313131' }}>{row.value}</p>
+                    {row.sub && <p className="text-xs" style={{ color: '#7C7C7C' }}>{row.sub}</p>}
                   </div>
                 </div>
               ))}
@@ -132,8 +132,9 @@ export default function ProfileScreen({ onNavigate, isGuest = false }) {
       <div className="px-4 py-5 flex flex-col gap-5">
         {sections.map(section => (
           <div key={section.title}>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">{section.title}</p>
-            <div className="bg-white rounded-2xl overflow-hidden" style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+            <p className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: '#7C7C7C' }}>{section.title}</p>
+            <div className="rounded-2xl overflow-hidden"
+              style={{ background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)', border: '1px solid #C6C6C6', boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}>
               {section.items.map((item, i) => (
                 <button key={item.key}
                   onClick={() => {
@@ -142,14 +143,14 @@ export default function ProfileScreen({ onNavigate, isGuest = false }) {
                     onNavigate(item.key);
                   }}
                   className="flex items-center gap-3 w-full px-4 py-3.5 transition-all active:bg-slate-50 text-left"
-                  style={{ borderBottom: i < section.items.length - 1 ? '1px solid #F1F5F9' : 'none' }}>
+                  style={{ borderBottom: i < section.items.length - 1 ? '1px solid #F0F0F0' : 'none' }}>
                   <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: item.bg, color: item.color }}>
                     {item.icon}
                   </div>
-                  <span className="flex-1 text-sm font-medium text-slate-700">{item.label}</span>
-                  {item.value && <span className="text-xs text-slate-400 mr-2">{item.value}</span>}
-                  <ChevronRight size={16} color="#CBD5E1" />
+                  <span className="flex-1 text-sm font-medium" style={{ color: '#313131' }}>{item.label}</span>
+                  {item.value && <span className="text-xs mr-2" style={{ color: '#7C7C7C' }}>{item.value}</span>}
+                  <ChevronRight size={16} color="#C6C6C6" />
                 </button>
               ))}
             </div>

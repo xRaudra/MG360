@@ -65,20 +65,19 @@ export default function JourneyScreen({ onNavigate, isGuest = false }) {
   if (isGuest) {
     return (
       <div className="flex flex-col h-full bg-transparent screen-enter">
-        <div className="px-4 pt-4 pb-5"
-          style={{ background: 'linear-gradient(160deg, #7C3AED 0%, #1B4FBF 100%)' }}>
-          <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+        <div className="px-4 pt-4 pb-5">
+          <h2 className="font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
             My Journey
           </h2>
-          <p className="text-white/60 text-xs mt-0.5">Your medical travel journey starts here</p>
+          <p className="text-xs mt-0.5" style={{ color: '#7C7C7C' }}>Your medical travel journey starts here</p>
         </div>
         <div className="flex-1 flex flex-col items-center justify-center px-8 gap-5">
           <span className="text-6xl">🗺️</span>
           <div className="text-center">
-            <h3 className="font-bold text-slate-800 text-lg mb-2" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            <h3 className="font-bold text-lg mb-2" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
               No active journey yet
             </h3>
-            <p className="text-slate-500 text-sm leading-relaxed">
+            <p className="text-sm leading-relaxed" style={{ color: '#7C7C7C' }}>
               Get a free consultation and our team will prepare a personalised treatment plan and journey timeline for you.
             </p>
           </div>
@@ -116,29 +115,29 @@ export default function JourneyScreen({ onNavigate, isGuest = false }) {
     <div className="flex flex-col h-full bg-transparent screen-enter">
 
       {/* ── Header ──────────────────────────────────────────────── */}
-      <div className="px-4 pt-4 pb-5"
-        style={{ background: 'linear-gradient(160deg, #7C3AED 0%, #1B4FBF 100%)' }}>
+      <div className="px-4 pt-4 pb-5">
         <div className="flex items-center justify-between mb-4">
           <div>
-            <p className="text-white/60 text-xs">Active Journey</p>
-            <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            <p className="text-xs" style={{ color: '#7C7C7C' }}>Active Journey</p>
+            <h2 className="font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
               Cardiac Bypass
             </h2>
           </div>
           <button onClick={() => onNavigate('careCircle')}
-            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
-            <Share2 size={16} color="white" />
+            className="w-9 h-9 rounded-full flex items-center justify-center"
+            style={{ background: '#F1F1F1', border: '1px solid #C6C6C6' }}>
+            <Share2 size={16} color="#313131" />
           </button>
         </div>
 
         {/* Progress */}
         <div className="mb-2">
-          <div className="flex justify-between text-xs text-white/70 mb-1.5">
-            <span>{doneCount} of {journeySteps.length} steps complete</span>
-            <span className="font-bold text-white">{progress}%</span>
+          <div className="flex justify-between text-xs mb-1.5">
+            <span style={{ color: '#7C7C7C' }}>{doneCount} of {journeySteps.length} steps complete</span>
+            <span className="font-bold" style={{ color: '#1B4FBF' }}>{progress}%</span>
           </div>
-          <div className="h-2 rounded-full bg-white/20">
-            <div className="h-2 rounded-full bg-white transition-all" style={{ width: `${progress}%` }} />
+          <div className="h-2 rounded-full" style={{ background: '#F0F0F0' }}>
+            <div className="h-2 rounded-full transition-all" style={{ width: `${progress}%`, background: '#1B4FBF' }} />
           </div>
         </div>
 
@@ -152,11 +151,15 @@ export default function JourneyScreen({ onNavigate, isGuest = false }) {
             const allDone  = done === steps.length;
             return (
               <div key={s} className="flex-1 rounded-lg py-1.5 px-1 text-center"
-                style={{ background: allDone ? 'rgba(255,255,255,0.25)' : isActive ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.08)' }}>
-                <p className="text-white text-xs font-bold leading-none">
+                style={{
+                  background: allDone ? cfg.bg : isActive ? cfg.bg : 'rgba(241,241,241,0.8)',
+                  border: `1px solid ${allDone || isActive ? cfg.color + '40' : '#C6C6C6'}`,
+                }}>
+                <p className="text-xs font-bold leading-none"
+                  style={{ color: allDone || isActive ? cfg.color : '#8B8D97' }}>
                   {allDone ? '✓' : isActive ? '●' : `${done}/${steps.length}`}
                 </p>
-                <p className="text-white/60 leading-tight mt-0.5" style={{ fontSize: 9 }}>{s}</p>
+                <p className="leading-tight mt-0.5" style={{ fontSize: 9, color: allDone || isActive ? cfg.color : '#8B8D97' }}>{s}</p>
               </div>
             );
           })}
@@ -164,14 +167,14 @@ export default function JourneyScreen({ onNavigate, isGuest = false }) {
 
         {/* Hospital + Date */}
         <div className="flex items-center justify-between mt-3 px-4 py-2.5 rounded-xl"
-          style={{ background: 'rgba(255,255,255,0.12)' }}>
+          style={{ background: 'rgba(255,255,255,0.7)', border: '1px solid #C6C6C6' }}>
           <div className="flex items-center gap-2">
             <span className="text-base">🏥</span>
-            <span className="text-white text-xs font-semibold">Apollo Hospital, Delhi</span>
+            <span className="text-xs font-semibold" style={{ color: '#313131' }}>Apollo Hospital, Delhi</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-base">📅</span>
-            <span className="text-white text-xs font-semibold">Feb 3, 2025</span>
+            <span className="text-xs font-semibold" style={{ color: '#313131' }}>Feb 3, 2025</span>
           </div>
         </div>
       </div>
@@ -182,31 +185,31 @@ export default function JourneyScreen({ onNavigate, isGuest = false }) {
         {/* ── Quick-access cards ─────────────────────────────── */}
         <div className="flex gap-3 px-4 pt-4 pb-2">
           <button onClick={() => onNavigate('journeyDocuments')}
-            className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-left transition-all active:scale-95 bg-white"
-            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+            className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-left transition-all active:scale-95"
+            style={{ borderRadius: 16, background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)', border: '1px solid #C6C6C6', boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}>
             <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
               <FileText size={17} color="#1B4FBF" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-slate-800 text-sm">Documents</p>
-              <p className="text-slate-400 text-xs">
+              <p className="font-semibold text-sm" style={{ color: '#313131' }}>Documents</p>
+              <p className="text-xs" style={{ color: '#7C7C7C' }}>
                 {docSections.reduce((n, s) => n + s.docs.length, 0)} files
               </p>
             </div>
-            <ChevronRight size={14} color="#CBD5E1" />
+            <ChevronRight size={14} color="#C6C6C6" />
           </button>
 
           <button onClick={() => onNavigate('journeyTravel')}
-            className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-left transition-all active:scale-95 bg-white"
-            style={{ boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
+            className="flex-1 flex items-center gap-2.5 px-3.5 py-3 rounded-2xl text-left transition-all active:scale-95"
+            style={{ borderRadius: 16, background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)', border: '1px solid #C6C6C6', boxShadow: '0 2px 12px rgba(0,0,0,0.07)' }}>
             <div className="w-9 h-9 rounded-xl bg-teal-50 flex items-center justify-center flex-shrink-0">
               <Plane size={17} color="#0D9488" />
             </div>
             <div className="flex-1 min-w-0">
-              <p className="font-semibold text-slate-800 text-sm">Travel</p>
-              <p className="text-slate-400 text-xs">Confirmed ✓</p>
+              <p className="font-semibold text-sm" style={{ color: '#313131' }}>Travel</p>
+              <p className="text-xs" style={{ color: '#7C7C7C' }}>Confirmed ✓</p>
             </div>
-            <ChevronRight size={14} color="#CBD5E1" />
+            <ChevronRight size={14} color="#C6C6C6" />
           </button>
         </div>
 
@@ -250,8 +253,9 @@ export default function JourneyScreen({ onNavigate, isGuest = false }) {
                       <div className="flex-1 mb-3">
                         <div className={`rounded-2xl overflow-hidden ${step.status === 'active' ? 'border-2 border-[#1B4FBF]' : ''}`}
                           style={{
-                            background: 'white',
-                            boxShadow: step.status === 'active' ? '0 4px 16px rgba(27,79,191,0.15)' : '0 1px 4px rgba(0,0,0,0.06)',
+                            background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)',
+                            border: step.status === 'active' ? '2px solid #1B4FBF' : '1px solid #C6C6C6',
+                            boxShadow: step.status === 'active' ? '0 4px 16px rgba(27,79,191,0.15)' : '0 2px 12px rgba(0,0,0,0.07)',
                           }}>
 
                           {/* Collapsed row — always visible */}

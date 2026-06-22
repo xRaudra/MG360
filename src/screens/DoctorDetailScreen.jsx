@@ -80,7 +80,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
       {/* ── Card wrapper — minHeight:0 is the flex scroll fix ── */}
       <div style={{ flex: 1, minHeight: 0, marginTop: -17, marginLeft: 16, marginRight: 16, marginBottom: 16 }}>
         {/* Scroll container — no flex, just overflows */}
-        <div className="card-scrollbar" style={{
+        <div className="hide-scrollbar" style={{
           height: '100%',
           overflowY: 'auto',
           borderRadius: 30,

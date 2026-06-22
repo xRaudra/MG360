@@ -74,7 +74,6 @@ export default function DoctorsScreen({ onNavigate }) {
               background: filter === s ? 'rgba(171,196,235,0.55)' : 'rgba(255,255,255,0.85)',
               color:      filter === s ? '#1B4FBF' : '#7C7C7C',
               border:     filter === s ? '1px solid rgba(171,196,235,0.9)' : '1px solid #C6C6C6',
-              boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
             }}>
             {s}
           </button>
@@ -87,50 +86,70 @@ export default function DoctorsScreen({ onNavigate }) {
 
         <div className="flex flex-col gap-4">
           {filtered.map((doc, i) => (
-            <button key={doc.id}
+            <div key={doc.id}
               onClick={() => onNavigate('doctorDetail', doc)}
-              className="flex gap-4 rounded-2xl p-4 text-left transition-all active:scale-95 relative"
+              className="rounded-2xl p-4 cursor-pointer transition-all active:scale-95"
               style={CARD_STYLE}>
 
-              {/* Heart / favourite */}
-              <button
-                onClick={e => toggleLike(doc.id, e)}
-                className="absolute top-3 right-3 flex items-center justify-center rounded-full transition-all active:scale-90"
-                style={{ width: 30, height: 30, background: 'rgba(255,255,255,0.85)', border: '1px solid #E8E8E8' }}>
-                <Heart
-                  size={14}
-                  color={liked[doc.id] ? '#EF4444' : '#C6C6C6'}
-                  fill={liked[doc.id] ? '#EF4444' : 'none'}
-                />
-              </button>
+              {/* ── Inner row: Avatar + Info ─────────────────── */}
+              <div className="flex items-center gap-4">
 
-              {/* Avatar — 78×78 circular, matches Figma */}
-              <div className="rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center text-white font-bold text-lg"
-                style={{ width: 78, height: 78, background: colors[i % colors.length] }}>
-                {doc.img
-                  ? <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  : doc.avatar}
-              </div>
+                {/* Avatar — 78×78 circular (Figma: cornerRadius 145) */}
+                <div className="rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center text-white font-bold"
+                  style={{ width: 78, height: 78, fontSize: 22, background: colors[i % colors.length] }}>
+                  {doc.img
+                    ? <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    : doc.avatar}
+                </div>
 
-              {/* Info */}
-              <div className="flex-1 min-w-0 pr-6 flex flex-col justify-center">
-                <p className="font-semibold mb-0.5"
-                  style={{ fontSize: 16, color: '#313131', fontFamily: 'Plus Jakarta Sans, sans-serif', lineHeight: 1.3 }}>
-                  {doc.name}
-                </p>
-                <p className="text-sm mb-2" style={{ color: '#7C7C7C' }}>
-                  {doc.specialization}
-                </p>
-                {/* Rating row */}
-                <div className="flex items-center gap-1 flex-wrap">
-                  <Star size={12} fill="#F59E0B" color="#F59E0B" />
-                  <span className="text-xs font-semibold" style={{ color: '#313131' }}>{doc.rating}</span>
-                  <span className="text-xs" style={{ color: '#7C7C7C' }}>({doc.reviews})</span>
-                  <span className="text-xs mx-1" style={{ color: '#C6C6C6' }}>·</span>
-                  <span className="text-xs font-semibold" style={{ color: '#313131' }}>{doc.experience} Exp</span>
+                {/* Info column — VERTICAL gap:14 (Figma: itemSpacing 14) */}
+                <div className="flex-1 min-w-0 flex flex-col" style={{ gap: 14 }}>
+
+                  {/* Top block — name+specialty LEFT, heart RIGHT (Figma: HORIZONTAL gap:16) */}
+                  <div className="flex items-start gap-4">
+
+                    {/* Name + Specialty — VERTICAL gap:6 (Figma: itemSpacing 6) */}
+                    <div className="flex-1 min-w-0 flex flex-col" style={{ gap: 6 }}>
+                      <p className="font-semibold truncate"
+                        style={{ fontSize: 16, lineHeight: '20px', color: '#313131', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                        {doc.name}
+                      </p>
+                      <p className="truncate"
+                        style={{ fontSize: 14, lineHeight: '18px', color: '#7C7C7C' }}>
+                        {doc.specialization}
+                      </p>
+                    </div>
+
+                    {/* Heart — 24×24 (Figma: solar:heart-linear) */}
+                    <button
+                      onClick={e => toggleLike(doc.id, e)}
+                      className="flex-shrink-0 transition-all active:scale-90">
+                      <Heart
+                        size={20}
+                        color={liked[doc.id] ? '#EF4444' : '#C6C6C6'}
+                        fill={liked[doc.id] ? '#EF4444' : 'none'}
+                      />
+                    </button>
+                  </div>
+
+                  {/* Rating row — two groups, space-between (Figma: HORIZONTAL space-between) */}
+                  <div className="flex items-center justify-between">
+                    {/* Left: ⭐ score (count) */}
+                    <div className="flex items-center gap-1">
+                      <Star size={12} fill="#F59E0B" color="#F59E0B" />
+                      <span style={{ fontSize: 12, color: '#313131' }}>{doc.rating}</span>
+                      <span style={{ fontSize: 12, color: '#313131' }}>({doc.reviews})</span>
+                    </div>
+                    {/* Right: Xyr Exp */}
+                    <div className="flex items-center gap-1">
+                      <span style={{ fontSize: 12, color: '#313131' }}>{doc.experience}</span>
+                      <span style={{ fontSize: 12, color: '#313131' }}>Exp</span>
+                    </div>
+                  </div>
+
                 </div>
               </div>
-            </button>
+            </div>
           ))}
         </div>
       </div>

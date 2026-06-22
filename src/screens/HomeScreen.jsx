@@ -73,9 +73,6 @@ export default function HomeScreen({ onNavigate, isGuest = false }) {
             className="flex items-center justify-center flex-shrink-0"
             style={{
               width: 36, height: 36,
-              borderRadius: '100%',
-              background: 'linear-gradient(135deg, rgba(170,196,235,0) 0%, rgba(170,196,235,1) 100%)',
-              border: '1px solid #fff',
             }}
           >
             <img src="/icon-search.png" alt="Search" style={{ width: 18, height: 18, objectFit: 'contain' }} />

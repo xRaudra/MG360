@@ -47,7 +47,7 @@ export default function HospitalsScreen({ onNavigate }) {
 
         {/* Search bar */}
         <div className="flex items-center" style={{ height: 52, borderRadius: 40, border: '1px solid #C6C6C6', background: 'rgba(241,241,241,0.8)', padding: '0 12px 0 8px', gap: 10 }}>
-          <div className="flex items-center justify-center flex-shrink-0" style={{ width: 36, height: 36, borderRadius: '100%', background: 'linear-gradient(135deg, rgba(170,196,235,0) 0%, rgba(170,196,235,1) 100%)', border: '1px solid #fff' }}>
+          <div className="flex items-center justify-center flex-shrink-0" style={{ width: 36, height: 36 }}>
             <Search size={16} color="#7C7C7C" />
           </div>
           <input

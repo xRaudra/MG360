@@ -132,10 +132,11 @@ export default function DoctorsScreen({ onNavigate }) {
                     </div>
                   </div>
 
-                  {/* Heart — flex-shrink-0, top-aligned */}
+                  {/* Heart — top-aligned with name text */}
                   <button
                     onClick={e => toggleLike(doc.id, e)}
-                    className="flex-shrink-0 transition-all active:scale-90">
+                    className="flex-shrink-0 transition-all active:scale-90"
+                    style={{ padding: 0, lineHeight: 0, alignSelf: 'flex-start' }}>
                     <Heart
                       size={20}
                       color={liked[doc.id] ? '#EF4444' : '#C6C6C6'}

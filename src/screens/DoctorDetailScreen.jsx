@@ -27,8 +27,8 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
 
   const colorIdx = (doc.id || 0) % HERO_COLORS.length;
   const [liked, setLiked]     = useState(false);
-  const [selDay, setSelDay]   = useState(1);
-  const [selTime, setSelTime] = useState(1);
+  const [selDay, setSelDay]   = useState(null);
+  const [selTime, setSelTime] = useState(null);
   const [imgErr, setImgErr]   = useState(false);
 
   const hospitalLabel = doc.hospital && doc.city
@@ -79,6 +79,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
 
       {/* ── Card wrapper — takes remaining height, scrolls internally ── */}
       <div style={{ flex: 1, overflow: 'hidden', marginTop: -17, marginLeft: 16, marginRight: 16 }}>
+        {/* Scroll container — no flex, just overflows */}
         <div className="hide-scrollbar" style={{
           height: '100%',
           overflowY: 'auto',
@@ -88,11 +89,9 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
           WebkitBackdropFilter: 'blur(22px)',
           border: '2px solid rgba(198,198,198,0.44)',
           boxShadow: '-11px 22px 44px rgba(221,221,221,0.7)',
-          padding: '16px 16px 32px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 16,
         }}>
+        {/* Inner flex layout — free to grow beyond scroll container */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, padding: '16px 16px 32px' }}>
 
           {/* ① Name + Specialty */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
@@ -106,7 +105,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
               <button onClick={() => onNavigate('hospitalDetail', { ...hospitalData, from: 'doctorDetail', doctorData: doc })}
                 style={{ display: 'flex', alignItems: 'center', gap: 3, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
                 <span style={{ fontSize: 14, color: '#4D81E7' }}>{hospitalLabel}</span>
-                <svg width="10" height="10" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="11" height="11" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8.70128 2.43714C8.83888 2.42548 8.97552 2.46864 9.08146 2.55721C9.18741 2.64578 9.2541 2.7726 9.26702 2.91009L9.70468 7.80959C9.71337 7.87911 9.70797 7.94967 9.6888 8.01707C9.66963 8.08446 9.63708 8.1473 9.5931 8.20184C9.54911 8.25638 9.49459 8.3015 9.43279 8.33451C9.37099 8.36752 9.30318 8.38775 9.23339 8.39398C9.1636 8.40022 9.09327 8.39233 9.0266 8.37079C8.95993 8.34926 8.89827 8.31451 8.84532 8.26863C8.79237 8.22275 8.7492 8.16668 8.71838 8.10375C8.68757 8.04082 8.66975 7.97234 8.66598 7.90237L8.34036 4.25715L3.79375 9.69571C3.705 9.80187 3.57771 9.86843 3.43989 9.88074C3.30206 9.89305 3.16499 9.85011 3.05883 9.76136C2.95267 9.67261 2.88611 9.54532 2.8738 9.40749C2.86149 9.26967 2.90443 9.1326 2.99318 9.02643L7.53979 3.58787L3.89457 3.91349C3.75957 3.92076 3.62703 3.87535 3.52486 3.78683C3.42269 3.69831 3.35886 3.57358 3.34684 3.43893C3.33481 3.30428 3.37551 3.17021 3.46038 3.06498C3.54524 2.95975 3.66764 2.89157 3.80178 2.8748L8.70128 2.43714Z" fill="#4D81E7"/>
                 </svg>
               </button>
@@ -128,13 +127,13 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
           </div>
 
           {/* Divider */}
-          <div style={{ height: 1, background: '#E8E8E8' }} />
+          <div style={{ height: 1, background: '#D4D4D4' }} />
 
           {/* ③ Bio */}
           <p style={{ margin: 0, fontSize: 14, lineHeight: '22px', color: '#7C7C7C' }}>{bio}</p>
 
           {/* Divider */}
-          <div style={{ height: 1, background: '#E8E8E8' }} />
+          <div style={{ height: 1, background: '#D4D4D4' }} />
 
           {/* ④ Schedules */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
@@ -235,6 +234,7 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
             </button>
           </div>
 
+        </div>
         </div>
       </div>
     </div>

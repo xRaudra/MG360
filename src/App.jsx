@@ -57,7 +57,7 @@ const navMap = {
 const guestScreens = ['guestCountry', 'guestCondition', 'guestTimeline', 'guestConfirm'];
 
 export default function App() {
-  const [screen, setScreen] = useState('splash');
+  const [screen, setScreen] = useState('home'); // DEV: skip splash
   const [screenData, setScreenData] = useState(null);
   const [isGuest, setIsGuest] = useState(false);
 

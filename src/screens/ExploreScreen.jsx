@@ -23,7 +23,7 @@ export default function ExploreScreen({ onNavigate }) {
     <div className="flex flex-col h-full bg-transparent screen-enter">
 
       {/* Header */}
-      <div className="px-4 pt-4 pb-4" style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #C6C6C6' }}>
+      <div className="px-4 pt-4 pb-4">
         <div className="flex items-center gap-3 mb-4">
           <button
             onClick={() => onNavigate('home')}

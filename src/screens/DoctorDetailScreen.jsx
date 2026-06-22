@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowLeft, Heart, Star, Calendar, ArrowRight } from 'lucide-react';
+import { hospitals } from '../data/mockData';
 
 const HERO_COLORS = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'];
 
@@ -33,6 +34,12 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
   const hospitalLabel = doc.hospital && doc.city
     ? `${doc.hospital}, ${doc.city}`
     : doc.hospital || 'Apollo Hospital, Delhi';
+
+  // Find the matching hospital object so navigation lands on the correct detail page
+  const hospitalData = hospitals.find(h =>
+    h.name.toLowerCase().includes((doc.hospital || '').toLowerCase()) ||
+    (doc.hospital || '').toLowerCase().includes(h.name.toLowerCase().split(' ')[0])
+  ) || hospitals[0];
 
   const bio = doc.bio ||
     `${doc.name} is a leading ${doc.specialization} at ${doc.hospital} with ${doc.experience} of expertise. Known for exceptional patient outcomes, international patient care, and minimally invasive techniques.`;
@@ -96,10 +103,10 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
               <span style={{ fontSize: 14, color: '#7C7C7C' }}>{doc.specialization}</span>
               <span style={{ fontSize: 14, color: '#7C7C7C' }}>|</span>
               {/* Hospital — tappable, links to Hospital Detail */}
-              <button onClick={() => onNavigate('hospitalDetail', { hospital: doc.hospital, city: doc.city })}
+              <button onClick={() => onNavigate('hospitalDetail', hospitalData)}
                 style={{ display: 'flex', alignItems: 'center', gap: 3, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}>
                 <span style={{ fontSize: 14, color: '#4D81E7' }}>{hospitalLabel}</span>
-                <img src="/link-arrow.png" alt="" style={{ width: 12, height: 12, objectFit: 'contain' }} />
+                <img src="/link-arrow.png" alt="" style={{ width: 10, height: 10, objectFit: 'contain' }} />
               </button>
             </div>
           </div>

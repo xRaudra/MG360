@@ -111,16 +111,17 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
             </div>
           </div>
 
-          {/* ② Rating + Experience */}
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          {/* ② Rating + Exp */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
               <Star size={16} fill="#F59E0B" color="#F59E0B" />
               <span style={{ fontSize: 12, color: '#313131' }}>{doc.rating}</span>
-              <span style={{ fontSize: 12, color: '#313131' }}>({doc.reviews} Reviews)</span>
+              <span style={{ fontSize: 12, color: '#7C7C7C' }}>({doc.reviews})</span>
             </div>
+            <span style={{ fontSize: 12, color: '#C6C6C6' }}>·</span>
             <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
               <span style={{ fontSize: 12, color: '#313131' }}>{doc.experience}</span>
-              <span style={{ fontSize: 12, color: '#313131' }}>Experience</span>
+              <span style={{ fontSize: 12, color: '#7C7C7C' }}>Exp</span>
             </div>
           </div>
 

@@ -73,6 +73,12 @@ h1, h2, h3, h4, h5, h6 {
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+.card-scrollbar { scrollbar-width: thin; scrollbar-color: rgba(171,196,235,0.55) transparent; }
+.card-scrollbar::-webkit-scrollbar { width: 4px; }
+.card-scrollbar::-webkit-scrollbar-track { background: transparent; margin: 12px; }
+.card-scrollbar::-webkit-scrollbar-thumb { background: rgba(171,196,235,0.55); border-radius: 100px; }
+.card-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(171,196,235,0.85); }
+
 @keyframes slideUp {
   from { transform: translateY(16px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }

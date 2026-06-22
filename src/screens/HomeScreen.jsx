@@ -19,15 +19,7 @@ const treatmentCardBgs = [
 
 export default function HomeScreen({ onNavigate, isGuest = false }) {
   return (
-    <div
-      className="flex flex-col h-full overflow-y-auto hide-scrollbar screen-enter"
-      style={{
-        backgroundImage: 'url(/default-bg.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'top center',
-        backgroundAttachment: 'local',
-      }}
-    >
+    <div className="flex flex-col h-full overflow-y-auto hide-scrollbar screen-enter">
 
       {/* ── Header ── */}
       <div className="px-4 pt-4 pb-3 flex-shrink-0">

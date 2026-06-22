@@ -1,163 +1,220 @@
-﻿import { useState } from 'react';
-import { ArrowLeft, Star, MapPin, Heart, MessageCircle, Phone } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowLeft, Heart, Star, Calendar, ArrowRight } from 'lucide-react';
 
-const colors = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'];
+const HERO_COLORS = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'];
 
-const CARD_STYLE = {
-  borderRadius: 16,
-  background: 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)',
-  border: '1px solid #C6C6C6',
-  boxShadow: '0 2px 12px rgba(0,0,0,0.07)',
-};
+const DAYS = [
+  { day: 'Mon', date: '01' },
+  { day: 'Tue', date: '02' },
+  { day: 'Wed', date: '03' },
+  { day: 'Thu', date: '04', disabled: true },
+  { day: 'Fri', date: '05' },
+  { day: 'Sat', date: '06' },
+  { day: 'Sun', date: '07' },
+];
+
+const TIMES = ['10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM'];
 
 export default function DoctorDetailScreen({ data, onNavigate }) {
   const doc = data || {
     id: 1, name: 'Dr. Rajesh Sharma', specialization: 'Cardiothoracic Surgeon',
-    hospital: 'Apollo Hospital', city: 'Delhi', experience: '22 yrs',
-    rating: 4.9, reviews: 1240, fee: '$80', avatar: 'RS', available: true,
-    languages: ['English', 'Hindi'],
+    hospital: 'Apollo Hospital', city: 'Delhi',
+    experience: '22 yrs', rating: 4.9, reviews: 73, avatar: 'RS',
   };
 
-  const colorIdx = doc.id % colors.length;
-  const [saved, setSaved]       = useState(false);
-  const [selDate, setSelDate]   = useState(0);
-  const [selTime, setSelTime]   = useState(1);
+  const colorIdx = (doc.id || 0) % HERO_COLORS.length;
+  const [liked, setLiked]     = useState(false);
+  const [selDay, setSelDay]   = useState(1);
+  const [selTime, setSelTime] = useState(1);
+  const [imgErr, setImgErr]   = useState(false);
+
+  const hospitalLabel = doc.hospital && doc.city
+    ? `${doc.hospital}, ${doc.city}`
+    : doc.hospital || 'Apollo Hospital, Delhi';
+
+  const bio = doc.bio ||
+    `${doc.name} is a leading ${doc.specialization} at ${doc.hospital} with ${doc.experience} of expertise. Known for exceptional patient outcomes, international patient care, and minimally invasive techniques.`;
 
   return (
-    <div className="flex flex-col h-full bg-transparent screen-enter overflow-y-auto hide-scrollbar">
-      {/* Header */}
-      <div className="relative pb-6"
-        style={{ background: `linear-gradient(160deg, ${colors[colorIdx]} 0%, #0F172A 100%)` }}>
+    <div className="flex flex-col h-full screen-enter overflow-y-auto hide-scrollbar" style={{ background: 'transparent' }}>
 
-        <div className="flex items-center justify-between px-4 pt-4 mb-6">
-          <button onClick={() => onNavigate('doctors')} className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
-            <ArrowLeft size={18} color="white" />
+      {/* ── Hero ─────────────────────────────────────── */}
+      <div className="relative flex-shrink-0" style={{ height: 300 }}>
+
+        {/* Doctor photo or colour avatar */}
+        {doc.img && !imgErr
+          ? <img src={doc.img} alt={doc.name} onError={() => setImgErr(true)}
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+          : <div style={{ width: '100%', height: '100%', background: HERO_COLORS[colorIdx], display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ fontSize: 80, fontWeight: 700, color: 'rgba(255,255,255,0.22)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                {doc.avatar}
+              </span>
+            </div>
+        }
+
+        {/* Soft fade at bottom so card blends into hero */}
+        <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 60, background: 'linear-gradient(to bottom, transparent, rgba(235,235,235,0.6))' }} />
+
+        {/* Back + Heart — absolute, top:56 matches Figma padT:60 */}
+        <div style={{ position: 'absolute', top: 56, left: 16, right: 16, display: 'flex', justifyContent: 'space-between' }}>
+          <button onClick={() => onNavigate('doctors')} className="transition-all active:scale-90"
+            style={{ width: 48, height: 48, borderRadius: '100%', background: '#F1F1F1', border: '1px solid #C6C6C6', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+            <ArrowLeft size={24} color="#313131" />
           </button>
-          <button onClick={() => setSaved(v => !v)} className="w-9 h-9 rounded-full flex items-center justify-center transition-all"
-            style={{ background: saved ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.15)' }}>
-            <Heart size={18} color={saved ? '#EF4444' : 'white'} strokeWidth={saved ? 2.5 : 1.8} />
+          <button onClick={() => setLiked(v => !v)} className="transition-all active:scale-90"
+            style={{ width: 48, height: 48, borderRadius: '100%', background: '#F1F1F1', border: '1px solid #C6C6C6', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }}>
+            <Heart size={24} color={liked ? '#EF4444' : '#313131'} fill={liked ? '#EF4444' : 'none'} />
           </button>
-        </div>
-
-        <div className="flex flex-col items-center px-4">
-          <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center text-white text-2xl font-bold mb-3 relative"
-            style={{ background: colors[colorIdx], border: '4px solid rgba(255,255,255,0.3)' }}>
-            {doc.img
-              ? <img src={doc.img} alt={doc.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              : doc.avatar
-            }
-          </div>
-          <h2 className="text-white font-bold text-xl text-center" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-            {doc.name}
-          </h2>
-          <p className="text-white/70 text-sm mt-0.5">{doc.specialization}</p>
-
-          <div className="flex items-center gap-1 mt-2">
-            <MapPin size={13} color="rgba(255,255,255,0.6)" />
-            <span className="text-white/60 text-sm">{doc.hospital}, {doc.city}</span>
-          </div>
-
-          <div className="flex items-center gap-4 mt-4">
-            {[
-              { label: 'Rating', value: doc.rating, sub: `${doc.reviews} reviews` },
-              { label: 'Experience', value: doc.experience, sub: 'years' },
-              { label: 'Fee', value: doc.fee, sub: 'per consult' },
-            ].map(stat => (
-              <div key={stat.label} className="flex flex-col items-center text-center">
-                <p className="text-white font-bold text-base">{stat.value}</p>
-                <p className="text-white/50 text-xs">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="px-4 py-5 flex flex-col gap-4">
-        {/* About */}
-        <div className="p-4" style={CARD_STYLE}>
-          <h3 className="font-bold text-sm mb-2" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>About</h3>
-          <p className="text-sm leading-relaxed" style={{ color: '#7C7C7C' }}>
-            {doc.name} is a leading {doc.specialization} at {doc.hospital} with {doc.experience} of expertise. Known for exceptional patient outcomes, international patient care, and minimally invasive techniques.
+      {/* ── Content Card ─────────────────────────────── */}
+      {/* marginTop:-17 overlaps hero by 17px, matching Figma y=283 on a 299px hero */}
+      <div style={{
+        marginTop: -17,
+        marginLeft: 16,
+        marginRight: 16,
+        borderRadius: '30px 30px 0 0',
+        background: 'rgba(255,255,255,0.55)',
+        backdropFilter: 'blur(22px)',
+        WebkitBackdropFilter: 'blur(22px)',
+        border: '2px solid rgba(198,198,198,0.44)',
+        borderBottom: 'none',
+        boxShadow: '-11px 22px 44px rgba(221,221,221,0.7)',
+        padding: '16px 16px 32px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 16,
+        flex: 1,
+      }}>
+
+        {/* ① Name + Specialty (gap:6) */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <p style={{ margin: 0, fontSize: 18, fontWeight: 600, lineHeight: '23px', color: '#313131', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            {doc.name}
           </p>
-        </div>
-
-        {/* Languages */}
-        <div className="p-4" style={CARD_STYLE}>
-          <h3 className="font-bold text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>Languages</h3>
-          <div className="flex gap-2 flex-wrap">
-            {doc.languages.map(l => (
-              <span key={l} className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-[#1B4FBF]">{l}</span>
-            ))}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4, flexWrap: 'wrap' }}>
+            <span style={{ fontSize: 14, color: '#7C7C7C' }}>{doc.specialization}</span>
+            <span style={{ fontSize: 14, color: '#7C7C7C' }}>|</span>
+            <span style={{ fontSize: 14, color: '#4D81E7' }}>{hospitalLabel}</span>
+            <span style={{ fontSize: 11, color: '#4D81E7', lineHeight: 1 }}>↗</span>
           </div>
         </div>
 
-        {/* Availability */}
-        <div className="p-4" style={CARD_STYLE}>
-          <h3 className="font-bold text-sm mb-3" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>Available Slots</h3>
-          <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
-            {['Mon Jan 20', 'Tue Jan 21', 'Wed Jan 22', 'Thu Jan 23'].map((d, i) => (
-              <button key={d} onClick={() => setSelDate(i)}
-                className="flex-shrink-0 flex flex-col items-center px-3 py-2 rounded-xl border-2 transition-all"
-                style={{
-                  borderColor: selDate === i ? '#1B4FBF' : '#E2E8F0',
-                  background: selDate === i ? '#EFF6FF' : 'white',
-                  color: selDate === i ? '#1B4FBF' : '#475569',
-                }}>
-                <span className="text-xs font-semibold">{d.split(' ')[0]}</span>
-                <span className="text-sm font-bold">{d.split(' ').slice(1).join(' ')}</span>
-              </button>
-            ))}
+        {/* ② Rating + Experience (space-between) */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            <Star size={16} fill="#F59E0B" color="#F59E0B" />
+            <span style={{ fontSize: 12, color: '#313131' }}>{doc.rating}</span>
+            <span style={{ fontSize: 12, color: '#313131' }}>({doc.reviews} Reviews)</span>
           </div>
-          <div className="flex gap-2 mt-3 flex-wrap">
-            {['9:00 AM', '10:30 AM', '2:00 PM', '4:30 PM'].map((slot, i) => (
-              <button key={slot} onClick={() => setSelTime(i)}
-                className="px-3 py-1.5 rounded-lg text-xs font-semibold border-2 transition-all"
-                style={{
-                  borderColor: selTime === i ? '#1B4FBF' : '#E2E8F0',
-                  background: selTime === i ? '#1B4FBF' : 'white',
-                  color: selTime === i ? 'white' : '#475569',
-                }}>
-                {slot}
-              </button>
-            ))}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+            <span style={{ fontSize: 12, color: '#313131' }}>{doc.experience}</span>
+            <span style={{ fontSize: 12, color: '#313131' }}>Experience</span>
           </div>
         </div>
 
-        {/* Hospital */}
-        <button onClick={() => onNavigate('hospitalDetail')}
-          className="flex items-center gap-3 p-4 text-left transition-all active:scale-95"
-          style={CARD_STYLE}>
-          <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
-            style={{ background: '#1B4FBF' }}>
-            AH
-          </div>
-          <div className="flex-1">
-            <p className="font-semibold text-sm" style={{ color: '#313131' }}>{doc.hospital}</p>
-            <div className="flex items-center gap-1 mt-0.5">
-              <MapPin size={11} color="#7C7C7C" />
-              <span className="text-xs" style={{ color: '#7C7C7C' }}>{doc.city}</span>
+        {/* Divider */}
+        <div style={{ height: 1, background: '#E8E8E8' }} />
+
+        {/* ③ Bio */}
+        <p style={{ margin: 0, fontSize: 14, lineHeight: '22px', color: '#7C7C7C' }}>{bio}</p>
+
+        {/* Divider */}
+        <div style={{ height: 1, background: '#E8E8E8' }} />
+
+        {/* ④ Schedules */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+
+          {/* Header: Schedules label + May 2026 pill */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <span style={{ fontSize: 14, fontWeight: 600, color: '#313131' }}>Schedules</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '5px 8px', border: '1px solid #C6C6C6', borderRadius: 100 }}>
+              <Calendar size={13} color="#313131" />
+              <span style={{ fontSize: 12, color: '#313131' }}>May 2026</span>
             </div>
           </div>
-          <span className="text-xs font-semibold" style={{ color: '#1B4FBF' }}>View →</span>
-        </button>
-      </div>
 
-      {/* CTA */}
-      <div className="px-4 pb-6 flex gap-3">
-        <button onClick={() => onNavigate('chat')}
-          className="w-12 h-12 rounded-2xl border-2 border-slate-200 flex items-center justify-center flex-shrink-0">
-          <MessageCircle size={20} color="#475569" />
-        </button>
-        <button onClick={() => onNavigate('contact')}
-          className="w-12 h-12 rounded-2xl border-2 border-slate-200 flex items-center justify-center flex-shrink-0">
-          <Phone size={20} color="#475569" />
-        </button>
-        <button onClick={() => onNavigate('freeQuote')}
-          className="flex-1 py-3.5 rounded-full text-white font-semibold text-sm transition-all active:scale-95"
-          style={{ background: `linear-gradient(135deg, ${colors[colorIdx]}, #0D9488)` }}>
-          Book Consultation
-        </button>
+          {/* Day pills — 7 pills, flex:1 each, gap:8 */}
+          <div style={{ display: 'flex', gap: 8 }}>
+            {DAYS.map((d, i) => {
+              const isSel = selDay === i;
+              const isDis = d.disabled;
+              return (
+                <button key={i} onClick={() => !isDis && setSelDay(i)}
+                  style={{
+                    flex: 1,
+                    height: 66,
+                    borderRadius: 100,
+                    border: 'none',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 6,
+                    cursor: isDis ? 'default' : 'pointer',
+                    background: isSel
+                      ? '#ABC4EB'
+                      : isDis
+                        ? 'rgba(49,49,49,0.24)'
+                        : 'rgba(171,196,235,0.24)',
+                    transition: 'all 0.15s',
+                  }}>
+                  <span style={{ fontSize: 12, lineHeight: '16px', color: isSel ? '#fff' : '#313131' }}>{d.day}</span>
+                  <span style={{ fontSize: 12, lineHeight: '16px', color: isSel ? '#fff' : '#313131' }}>{d.date}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ⑤ Choose Time */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <span style={{ fontSize: 14, fontWeight: 600, color: '#313131' }}>Choose Time</span>
+          <div style={{ display: 'flex', gap: 6 }}>
+            {TIMES.map((t, i) => {
+              const isSel = selTime === i;
+              return (
+                <button key={i} onClick={() => setSelTime(i)}
+                  style={{
+                    flex: 1,
+                    height: 32,
+                    borderRadius: 100,
+                    border: isSel ? 'none' : '1px solid #C6C6C6',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    background: isSel ? '#ABC4EB' : 'transparent',
+                    transition: 'all 0.15s',
+                  }}>
+                  <span style={{ fontSize: 13, color: isSel ? '#fff' : '#313131', whiteSpace: 'nowrap' }}>{t}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ⑥ Book Appointment CTA */}
+        <div style={{ paddingTop: 10 }}>
+          <button onClick={() => onNavigate('freeQuote')} className="transition-all active:scale-95"
+            style={{
+              width: '100%',
+              height: 52,
+              borderRadius: 50,
+              border: 'none',
+              background: '#ABC4EB',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 8,
+              cursor: 'pointer',
+            }}>
+            <span style={{ fontSize: 18, fontWeight: 400, color: '#fff' }}>Book Appointment</span>
+            <ArrowRight size={18} color="#fff" />
+          </button>
+        </div>
+
       </div>
     </div>
   );

@@ -20,13 +20,13 @@ function buildDays(year, month) {
   const count = new Date(year, month + 1, 0).getDate();
   return Array.from({ length: count }, (_, i) => {
     const d = new Date(year, month, i + 1);
+    if (d < today) return null;
     return {
-      day:      DAY_SHORT[d.getDay()],
-      date:     String(i + 1).padStart(2, '0'),
-      disabled: d < today,
-      isToday:  d.getTime() === today.getTime(),
+      day:     DAY_SHORT[d.getDay()],
+      date:    String(i + 1).padStart(2, '0'),
+      isToday: d.getTime() === today.getTime(),
     };
-  });
+  }).filter(Boolean);
 }
 
 export default function DoctorDetailScreen({ data, onNavigate }) {
@@ -236,9 +236,8 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
               style={{ display: 'flex', gap: 8, overflowX: 'auto', paddingBottom: 2 }}>
               {days.map((d, i) => {
                 const isSel = selDay === i;
-                const isDis = d.disabled;
                 return (
-                  <button key={i} onClick={() => !isDis && setSelDay(i)}
+                  <button key={i} onClick={() => setSelDay(i)}
                     style={{
                       flexShrink: 0,
                       width: 44,
@@ -247,13 +246,8 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
                       border: d.isToday && !isSel ? '1.5px solid rgba(171,196,235,0.7)' : 'none',
                       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
                       gap: 4,
-                      cursor: isDis ? 'default' : 'pointer',
-                      opacity: isDis ? 0.32 : 1,
-                      background: isSel
-                        ? '#ABC4EB'
-                        : isDis
-                          ? 'rgba(49,49,49,0.12)'
-                          : 'rgba(171,196,235,0.2)',
+                      cursor: 'pointer',
+                      background: isSel ? '#ABC4EB' : 'rgba(171,196,235,0.2)',
                       boxShadow: isSel ? SEL_SHADOW : 'none',
                       transition: 'all 0.15s',
                       position: 'relative',

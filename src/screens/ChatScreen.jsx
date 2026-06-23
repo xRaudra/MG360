@@ -5,21 +5,18 @@ export default function ChatScreen({ onNavigate, isGuest = false }) {
     <div className="flex flex-col h-full bg-transparent">
 
       {/* Header */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 16, padding: '16px 16px 0' }}>
-        <button
-          onClick={() => onNavigate('home')}
-          className="transition-all active:scale-90"
-          style={{
-            width: 48, height: 48, borderRadius: '100%',
-            background: '#F1F1F1', border: '1px solid #C6C6C6',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            cursor: 'pointer', flexShrink: 0,
-          }}>
-          <ArrowLeft size={20} color="#313131" />
-        </button>
-        <span style={{ fontSize: 18, fontWeight: 700, color: '#313131', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-          Care Co-ordinator
-        </span>
+      <div className="px-4 pt-4 pb-4">
+        <div className="flex items-center gap-3">
+          <button
+            onClick={() => onNavigate('home')}
+            className="rounded-full flex items-center justify-center flex-shrink-0 transition-all active:opacity-70"
+            style={{ width: 40, height: 40, background: '#F1F1F1', border: '1px solid #C6C6C6' }}>
+            <ArrowLeft size={18} color="#313131" />
+          </button>
+          <h2 className="font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
+            Care Co-ordinator
+          </h2>
+        </div>
       </div>
 
     </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, Heart, Star, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Heart, Star, ArrowRight, Briefcase } from 'lucide-react';
 import { hospitals } from '../data/mockData';
 
 const HERO_COLORS = ['#1B4FBF', '#059669', '#7C3AED', '#F59E0B', '#EF4444', '#06B6D4'];
@@ -112,18 +112,53 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
             </div>
           </div>
 
-          {/* ② Rating + Exp */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <Star size={16} fill="#F59E0B" color="#F59E0B" />
-              <span style={{ fontSize: 12, color: '#313131' }}>{doc.rating}</span>
-              <span style={{ fontSize: 12, color: '#7C7C7C' }}>({doc.reviews})</span>
+          {/* ② Rating + Experience — highlighted stat cards (Figma: Frame 33850) */}
+          <div style={{ display: 'flex', gap: 12 }}>
+
+            {/* Rating card */}
+            <div style={{
+              flex: 1, display: 'flex', alignItems: 'center', gap: 14,
+              padding: '14px 16px',
+              background: 'rgba(253,253,253,0.92)',
+              borderRadius: 14,
+              border: '1px solid rgba(198,198,198,0.35)',
+              boxShadow: '0 1px 6px rgba(0,0,0,0.04)',
+            }}>
+              <div style={{
+                width: 41, height: 41, borderRadius: 20, flexShrink: 0,
+                background: '#F8F8F8',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <Star size={18} fill="#FBB022" color="#FBB022" />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <span style={{ fontSize: 18, fontWeight: 600, lineHeight: '23px', color: '#313131' }}>{doc.rating}</span>
+                <span style={{ fontSize: 12, lineHeight: '16px', color: '#313131' }}>{doc.reviews} Reviews</span>
+              </div>
             </div>
-            <span style={{ fontSize: 12, color: '#C6C6C6' }}>·</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
-              <span style={{ fontSize: 12, color: '#313131' }}>{doc.experience}</span>
-              <span style={{ fontSize: 12, color: '#7C7C7C' }}>Exp</span>
+
+            {/* Experience card */}
+            <div style={{
+              flex: 1, display: 'flex', alignItems: 'center', gap: 14,
+              padding: '14px 16px',
+              background: 'rgba(253,253,253,0.92)',
+              borderRadius: 14,
+              border: '1px solid rgba(198,198,198,0.35)',
+              boxShadow: '0 1px 6px rgba(0,0,0,0.04)',
+            }}>
+              <div style={{
+                width: 41, height: 41, borderRadius: 20, flexShrink: 0,
+                background: '#F8F8F8',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <Briefcase size={18} color="#7C7C7C" />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                <span style={{ fontSize: 18, fontWeight: 600, lineHeight: '23px', color: '#313131' }}>{doc.experience}</span>
+                <span style={{ fontSize: 12, lineHeight: '16px', color: '#313131' }}>Experience</span>
+              </div>
             </div>
+
           </div>
 
           {/* Divider */}

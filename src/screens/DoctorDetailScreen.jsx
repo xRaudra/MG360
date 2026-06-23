@@ -117,45 +117,45 @@ export default function DoctorDetailScreen({ data, onNavigate }) {
 
             {/* Rating card */}
             <div style={{
-              flex: 1, display: 'flex', alignItems: 'center', gap: 14,
-              padding: '14px 16px',
+              flex: 1, display: 'flex', alignItems: 'center', gap: 10,
+              padding: '10px 12px',
               background: 'rgba(253,253,253,0.92)',
               borderRadius: 14,
               border: '1px solid rgba(198,198,198,0.35)',
               boxShadow: '0 1px 6px rgba(0,0,0,0.04)',
             }}>
               <div style={{
-                width: 41, height: 41, borderRadius: 20, flexShrink: 0,
+                width: 34, height: 34, borderRadius: 17, flexShrink: 0,
                 background: '#F8F8F8',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <Star size={18} fill="#FBB022" color="#FBB022" />
+                <Star size={15} fill="#FBB022" color="#FBB022" />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <span style={{ fontSize: 18, fontWeight: 600, lineHeight: '23px', color: '#313131' }}>{doc.rating}</span>
-                <span style={{ fontSize: 12, lineHeight: '16px', color: '#313131' }}>{doc.reviews} Reviews</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 1, minWidth: 0 }}>
+                <span style={{ fontSize: 16, fontWeight: 600, lineHeight: '20px', color: '#313131' }}>{doc.rating}</span>
+                <span style={{ fontSize: 11, lineHeight: '15px', color: '#313131', whiteSpace: 'nowrap' }}>{doc.reviews} Reviews</span>
               </div>
             </div>
 
             {/* Experience card */}
             <div style={{
-              flex: 1, display: 'flex', alignItems: 'center', gap: 14,
-              padding: '14px 16px',
+              flex: 1, display: 'flex', alignItems: 'center', gap: 10,
+              padding: '10px 12px',
               background: 'rgba(253,253,253,0.92)',
               borderRadius: 14,
               border: '1px solid rgba(198,198,198,0.35)',
               boxShadow: '0 1px 6px rgba(0,0,0,0.04)',
             }}>
               <div style={{
-                width: 41, height: 41, borderRadius: 20, flexShrink: 0,
+                width: 34, height: 34, borderRadius: 17, flexShrink: 0,
                 background: '#F8F8F8',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <Briefcase size={18} color="#7C7C7C" />
+                <Briefcase size={15} color="#7C7C7C" />
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                <span style={{ fontSize: 18, fontWeight: 600, lineHeight: '23px', color: '#313131' }}>{doc.experience}</span>
-                <span style={{ fontSize: 12, lineHeight: '16px', color: '#313131' }}>Experience</span>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 1, minWidth: 0 }}>
+                <span style={{ fontSize: 16, fontWeight: 600, lineHeight: '20px', color: '#313131' }}>{doc.experience}</span>
+                <span style={{ fontSize: 11, lineHeight: '15px', color: '#313131', whiteSpace: 'nowrap' }}>Experience</span>
               </div>
             </div>
 

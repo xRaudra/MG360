@@ -2,48 +2,18 @@ import { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, Send, SlidersHorizontal, Mic } from 'lucide-react';
 import { chatMessages } from '../data/mockData';
 
-// ── Inline SVG icons for suggestion cards ────────────────────────
-const IconDoctor = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M3.41003 22C3.41003 18.13 7.26003 15 12 15C12.96 15 13.89 15.13 14.76 15.37" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M22 18C22 18.75 21.79 19.46 21.42 20.06C21.21 20.42 20.94 20.74 20.63 21C19.93 21.63 19.01 22 18 22C16.54 22 15.27 21.22 14.58 20.06C14.21 19.46 14 18.75 14 18C14 16.34 15.34 15 17 15H19C20.66 15 22 16.34 22 18Z" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M18 16.5V19.5" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M16.5 18H19.5" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const IconHospital = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 22H22" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M17 22V4C17 2.9 16.1 2 15 2H9C7.9 2 7 2.9 7 4V22" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M11 10H13" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M12 9V11" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M7 22V13H4C2.9 13 2 13.9 2 15V22" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M22 22V15C22 13.9 21.1 13 20 13H17" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const IconCalendar = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 2V5M16 2V5M3.5 9.09H20.5M21 8.5V17C21 20 19.5 22 16 22H8C4.5 22 3 20 3 17V8.5C3 5.5 4.5 3.5 8 3.5H16C19.5 3.5 21 5.5 21 8.5Z" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M15.69 13.7H15.7M15.69 16.7H15.7M11.99 13.7H12M11.99 16.7H12M8.29 13.7H8.3M8.29 16.7H8.3" stroke="#ABC4EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const IconTravel = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M8 3H9C7.05 8.84 7.05 15.16 9 21H8M15 3C16.95 8.84 16.95 15.16 15 21" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M3 16V15C8.84 16.95 15.16 16.95 21 15V16M3 9C8.84 7.05 15.16 7.05 21 9" stroke="#ABC4EB" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+// ── fluent:briefcase-medical-20-regular — used on all 4 suggestion cards ──
+const MedBriefcaseIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7 4.5C7 3.67 7.67 3 8.5 3h3c.83 0 1.5.67 1.5 1.5V5h1.5A2.5 2.5 0 0 1 17 7.5v7A2.5 2.5 0 0 1 14.5 17h-9A2.5 2.5 0 0 1 3 14.5v-7A2.5 2.5 0 0 1 5.5 5H7v-.5ZM8.5 4a.5.5 0 0 0-.5.5V5h4v-.5a.5.5 0 0 0-.5-.5h-3ZM10 9a.5.5 0 0 0-.5.5V11H8a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V12H12a.5.5 0 0 0 0-1h-1.5V9.5A.5.5 0 0 0 10 9Z" fill="#ABC4EB"/>
   </svg>
 );
 
 const SUGGESTIONS = [
-  { icon: <IconDoctor />,   label: 'Find a Doctor',      sub: 'Top specialists for you',  prompt: 'Help me find a specialist doctor' },
-  { icon: <IconHospital />, label: 'Top Hospitals',      sub: 'JCI & NABH accredited',    prompt: 'Show me the top hospitals in India' },
-  { icon: <IconCalendar />, label: 'Book Appointment',   sub: 'Schedule a consultation',  prompt: 'I want to book an appointment' },
-  { icon: <IconTravel />,   label: 'Travel & Visa',      sub: 'Plan your journey',        prompt: 'Help me plan my travel and visa' },
+  { label: 'How can I find best doctor?',           prompt: 'How can I find the best doctor for my condition?' },
+  { label: 'How do I check doctor availability?',   prompt: 'How do I check if a doctor is available for appointment?' },
+  { label: 'How to book an appointment faster?',    prompt: 'How to book and appointment faster?' },
+  { label: 'Which doctors accept my insurance?',    prompt: 'Which doctors accept my insurance?' },
 ];
 
 const CARD_BG = 'radial-gradient(229.59% 96.04% at 50% 3.96%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.56) 100%)';
@@ -130,7 +100,7 @@ export default function ChatScreen({ onNavigate, isGuest = false }) {
               Hi Kwame Mensah,
             </p>
             <p style={{ margin: 0, fontSize: 15, fontWeight: 400, color: '#7C7C7C', lineHeight: '22px', maxWidth: 280 }}>
-              This is Med. I'll help you find doctors, book appointments and travel easily.
+              This is Med, I will help users to find book appointments and travel easily.
             </p>
 
             {/* Logo illustration */}
@@ -158,13 +128,10 @@ export default function ChatScreen({ onNavigate, isGuest = false }) {
                     }}>
                     {/* Icon circle */}
                     <div style={{ width: 41, height: 41, borderRadius: 21, background: '#fff', border: '1px solid rgba(171,196,235,0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 1px 4px rgba(171,196,235,0.25)' }}>
-                      {s.icon}
+                      <MedBriefcaseIcon />
                     </div>
-                    {/* Labels */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-                      <span style={{ fontSize: 13, fontWeight: 600, color: '#313131', fontFamily: 'Plus Jakarta Sans, sans-serif', lineHeight: '17px' }}>{s.label}</span>
-                      <span style={{ fontSize: 11, fontWeight: 400, color: '#7C7C7C', lineHeight: '14px' }}>{s.sub}</span>
-                    </div>
+                    {/* Question label only */}
+                    <span style={{ fontSize: 14, fontWeight: 500, color: '#313131', fontFamily: 'Plus Jakarta Sans, sans-serif', lineHeight: '20px' }}>{s.label}</span>
                   </button>
                 ))}
               </div>

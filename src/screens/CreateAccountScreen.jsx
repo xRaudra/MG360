@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 export default function CreateAccountScreen({ onNavigate }) {
   const [firstName, setFirstName] = useState('');
@@ -22,22 +22,7 @@ export default function CreateAccountScreen({ onNavigate }) {
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', padding: '52px 20px 0', gap: 20 }}>
 
           {/* Back button */}
-          <button
-            onClick={() => onNavigate('login')}
-            type="button"
-            style={{
-              width: 40, height: 40,
-              borderRadius: 999,
-              background: 'white',
-              border: 'none',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              cursor: 'pointer',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
-              flexShrink: 0,
-            }}
-          >
-            <ArrowLeft size={18} color="#475569" />
-          </button>
+          <BackButton onPress={() => onNavigate('login')} />
 
           {/* Heading */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>

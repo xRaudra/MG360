@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
-import { ArrowLeft, Phone, Mail, MessageCircle, Send, Check } from 'lucide-react';
+import { Phone, Mail, MessageCircle, Send, Check } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const contactOptions = [
   { icon: <Phone size={22} />, label: 'Call Us',    sub: '+91 98765 43210', color: '#059669', bg: '#F0FDF4', action: () => window.location.href = 'tel:+919876543210' },
@@ -15,9 +16,7 @@ export default function ContactScreen({ onNavigate }) {
       {/* Header */}
       <div className="px-4 pt-4 pb-8"
         style={{ background: 'linear-gradient(160deg, #0F172A 0%, #1E293B 100%)' }}>
-        <button onClick={() => onNavigate('home')} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center mb-5">
-          <ArrowLeft size={18} color="white" />
-        </button>
+        <BackButton onPress={() => onNavigate('home')} />
         <h2 className="text-white font-bold text-2xl mb-1" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
           Contact Us
         </h2>

@@ -1,4 +1,5 @@
-import { ArrowLeft, Eye, Lock, Calendar } from 'lucide-react';
+import { Eye, Lock, Calendar } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import { journeySteps } from '../data/mockData';
 
 const permissionAccess = {
@@ -25,10 +26,7 @@ export default function CaregiverJourneyScreen({ onNavigate, data: member }) {
       {/* Header */}
       <div className="px-4 pt-4 pb-5" style={{ background: 'linear-gradient(160deg, #7C3AED 0%, #1B4FBF 100%)' }}>
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={() => onNavigate('memberDetail', member)}
-            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => onNavigate('memberDetail', member)} />
           <div>
             <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Caregiver Preview

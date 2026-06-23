@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
-import { ArrowLeft, Clock, DollarSign, ChevronRight, Heart } from 'lucide-react';
+import { Clock, DollarSign, ChevronRight, Heart } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import StarRating from '../components/StarRating';
 import { doctors } from '../data/mockData';
 
@@ -15,9 +16,7 @@ export default function TreatmentDetailScreen({ data, onNavigate }) {
       <div className="relative px-4 pt-5 pb-8"
         style={{ background: 'linear-gradient(160deg, #1B4FBF 0%, #0D9488 100%)' }}>
         <div className="flex items-center justify-between mb-5">
-          <button onClick={() => onNavigate('treatment')} className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => onNavigate('treatment')} />
           <button onClick={() => setSaved(v => !v)} className="w-9 h-9 rounded-full flex items-center justify-center transition-all"
             style={{ background: saved ? 'rgba(239,68,68,0.25)' : 'rgba(255,255,255,0.2)' }}>
             <Heart size={18} color={saved ? '#EF4444' : 'white'} strokeWidth={saved ? 2.5 : 1.8} />

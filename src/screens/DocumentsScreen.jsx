@@ -1,4 +1,4 @@
-import { ArrowLeft } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const docSections = [
   {
@@ -41,10 +41,7 @@ export default function DocumentsScreen({ onNavigate, data }) {
         style={{ background: 'linear-gradient(160deg, #1B4FBF 0%, #7C3AED 100%)' }}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <button onClick={() => onNavigate(backTo)}
-              className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-              <ArrowLeft size={18} color="white" />
-            </button>
+            <BackButton onPress={() => onNavigate(backTo)} />
             <div>
               <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                 My Documents

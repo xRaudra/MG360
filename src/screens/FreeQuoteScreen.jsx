@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ArrowLeft, Upload, Check } from 'lucide-react';
+import { Upload, Check } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const genders    = ['Male', 'Female', 'Other'];
 const countries  = ['Nigeria', 'Kenya', 'Ghana', 'South Africa', 'UAE', 'UK', 'USA', 'France', 'Other'];
@@ -115,10 +116,7 @@ export default function FreeQuoteScreen({ onNavigate }) {
           style={{ background: 'white', transform: 'translate(30%,-30%)' }} />
 
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={() => onNavigate('home')}
-            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => onNavigate('home')} />
           <div>
             <h2 className="text-white font-bold text-lg leading-none"
               style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>

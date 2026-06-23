@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ArrowLeft, Share2, Check } from 'lucide-react';
+import { Share2, Check } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const travelDetails = [
   { label: 'Departure',        value: 'Lagos (LOS)',         sub: 'Feb 1, 2025 · 08:45 AM', icon: '🛫', detail: 'Emirates EK 783 · Economy' },
@@ -24,10 +25,7 @@ export default function TravelScreen({ onNavigate, data }) {
         style={{ background: 'linear-gradient(160deg, #0D9488 0%, #1B4FBF 100%)' }}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <button onClick={() => onNavigate(backTo)}
-              className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-              <ArrowLeft size={18} color="white" />
-            </button>
+            <BackButton onPress={() => onNavigate(backTo)} />
             <div>
               <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                 Travel Arrangements

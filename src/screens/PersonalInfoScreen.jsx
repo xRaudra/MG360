@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ArrowLeft, Check, Camera } from 'lucide-react';
+import { Check, Camera } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const genders      = ['Male', 'Female', 'Other', 'Prefer not to say'];
 const nationalities = ['Nigerian', 'Kenyan', 'Ghanaian', 'South African', 'British', 'French', 'Emirati', 'Other'];
@@ -38,10 +39,7 @@ export default function PersonalInfoScreen({ onNavigate }) {
         <div className="absolute top-0 right-0 w-36 h-36 rounded-full opacity-10 pointer-events-none"
           style={{ background: 'white', transform: 'translate(30%,-30%)' }} />
         <div className="flex items-center gap-3 mb-5">
-          <button onClick={() => onNavigate('profile')}
-            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => onNavigate('profile')} />
           <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Personal Information
           </h2>

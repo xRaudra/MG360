@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
-import { ArrowLeft, MapPin, ChevronRight, Heart } from 'lucide-react';
+import { MapPin, ChevronRight, Heart } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import StarRating from '../components/StarRating';
 import { doctors } from '../data/mockData';
 
@@ -28,9 +29,7 @@ export default function HospitalDetailScreen({ data, onNavigate }) {
       <div className="relative"
         style={{ background: 'linear-gradient(160deg, #0F172A 0%, #1E293B 100%)' }}>
         <div className="flex items-center justify-between px-4 pt-4 pb-4">
-          <button onClick={() => data?.from === 'doctorDetail' ? onNavigate('doctorDetail', data.doctorData) : onNavigate('hospitals')} className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => data?.from === 'doctorDetail' ? onNavigate('doctorDetail', data.doctorData) : onNavigate('hospitals')} />
           <button onClick={() => setSaved(v => !v)} className="w-9 h-9 rounded-full flex items-center justify-center transition-all"
             style={{ background: saved ? 'rgba(239,68,68,0.2)' : 'rgba(255,255,255,0.1)' }}>
             <Heart size={18} color={saved ? '#EF4444' : 'white'} strokeWidth={saved ? 2.5 : 1.8} />

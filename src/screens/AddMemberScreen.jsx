@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ArrowLeft, ChevronRight, Eye, Shield, Heart, Phone, Mail, MessageSquare, Share2, Check } from 'lucide-react';
+import { ChevronRight, Eye, Shield, Heart, Phone, Mail, MessageSquare, Share2, Check } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const relationships = ['Mother', 'Father', 'Spouse / Partner', 'Sibling', 'Child', 'Friend', 'Doctor / Nurse', 'Other'];
 
@@ -53,10 +54,7 @@ export default function AddMemberScreen({ onNavigate }) {
       {/* Header */}
       <div className="px-4 pt-4 pb-5" style={{ background: 'linear-gradient(160deg, #0D9488 0%, #1B4FBF 100%)' }}>
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={() => step > 1 ? setStep(s => s - 1) : onNavigate('careCircle')}
-            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => step > 1 ? setStep(s => s - 1) : onNavigate('careCircle')} />
           <div>
             <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Add Member

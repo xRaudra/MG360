@@ -1,4 +1,5 @@
-import { ArrowLeft, Plus, ChevronRight, Eye, Shield, Heart, Clock } from 'lucide-react';
+import { Plus, ChevronRight, Eye, Shield, Heart, Clock } from 'lucide-react';
+import BackButton from '../components/BackButton';
 import { careCircleMembers } from '../data/mockData';
 
 const permissionConfig = {
@@ -18,10 +19,7 @@ export default function CareCircleScreen({ onNavigate }) {
       {/* Header */}
       <div className="px-4 pt-4 pb-6" style={{ background: 'linear-gradient(160deg, #0D9488 0%, #1B4FBF 100%)' }}>
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={() => onNavigate('profile')}
-            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => onNavigate('profile')} />
           <div>
             <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Care Circle

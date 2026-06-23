@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const groups = [
   {
@@ -63,10 +63,7 @@ export default function NotificationSettingsScreen({ onNavigate }) {
       <div className="px-4 pt-4 pb-5 flex-shrink-0"
         style={{ background: 'linear-gradient(160deg, #F59E0B 0%, #1B4FBF 100%)' }}>
         <div className="flex items-center gap-3 mb-1">
-          <button onClick={() => onNavigate('profile')}
-            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => onNavigate('profile')} />
           <div>
             <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Notifications

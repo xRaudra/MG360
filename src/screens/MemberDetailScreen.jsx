@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ArrowLeft, Eye, Shield, Heart, Phone, Mail, Trash2, Check, ChevronRight } from 'lucide-react';
+import { Eye, Shield, Heart, Phone, Mail, Trash2, Check, ChevronRight } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const permissionConfig = {
   view_only: { label: 'View Only',      color: '#1B4FBF', bg: '#EFF6FF', icon: Eye,    desc: 'Journey timeline & travel info only' },
@@ -24,10 +25,7 @@ export default function MemberDetailScreen({ onNavigate, data: member }) {
       {/* Header */}
       <div className="px-4 pt-4 pb-6" style={{ background: 'linear-gradient(160deg, #0D9488 0%, #1B4FBF 100%)' }}>
         <div className="flex items-center gap-3 mb-5">
-          <button onClick={() => onNavigate('careCircle')}
-            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => onNavigate('careCircle')} />
           <h2 className="text-white font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
             Member Details
           </h2>

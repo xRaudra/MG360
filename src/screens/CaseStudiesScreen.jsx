@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ArrowLeft, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const GRADIENT = 'linear-gradient(140deg, #7C3AED 0%, #1B4FBF 100%)';
 
@@ -64,10 +65,7 @@ export default function CaseStudiesScreen({ onNavigate }) {
         {/* Top row */}
         <div className="flex items-center gap-3 px-4 pt-4"
           style={{ paddingBottom: scrolled ? 14 : 0 }}>
-          <button onClick={() => onNavigate('home')}
-            className="w-9 h-9 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
-            <ArrowLeft size={18} color="white" />
-          </button>
+          <BackButton onPress={() => onNavigate('home')} />
           <span className="text-white/70 text-xs font-medium">About Us</span>
           <div className="ml-auto" style={{
             opacity:    scrolled ? 1 : 0,

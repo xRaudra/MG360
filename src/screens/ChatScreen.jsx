@@ -28,9 +28,9 @@ const CameraIcon = () => (
 );
 
 export default function ChatScreen({ onNavigate, isGuest = false }) {
-  const [messages, setMessages]     = useState(isGuest ? [] : chatMessages);
+  const [messages, setMessages]     = useState([]);
   const [input, setInput]           = useState('');
-  const [hasStarted, setHasStarted] = useState(!isGuest && chatMessages.length > 0);
+  const [hasStarted, setHasStarted] = useState(false);
   const messagesEndRef = useRef(null);
 
   useEffect(() => {

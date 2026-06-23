@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ArrowLeft, SlidersHorizontal, Heart, ArrowRight } from 'lucide-react';
+import { SlidersHorizontal, Heart, ArrowRight } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 const SearchIcon = () => (
   <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,11 +53,7 @@ export default function DoctorsScreen({ onNavigate }) {
       {/* Header */}
       <div className="px-4 pt-4 pb-4">
         <div className="flex items-center gap-3 mb-4">
-          <button onClick={() => onNavigate('home')}
-            className="rounded-full flex items-center justify-center flex-shrink-0 transition-all active:opacity-70"
-            style={{ width: 40, height: 40, background: '#F1F1F1', border: '1px solid #C6C6C6' }}>
-            <ArrowLeft size={18} color="#313131" />
-          </button>
+          <BackButton onPress={() => onNavigate('home')} />
           <h2 className="font-bold text-lg" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#313131' }}>
             Top Doctors
           </h2>

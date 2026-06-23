@@ -43,7 +43,7 @@ import HelpFaqScreen from './screens/HelpFaqScreen';
 import AppSettingsScreen from './screens/AppSettingsScreen';
 
 // Screens that show the bottom nav
-const mainScreens = ['home', 'explore', 'journey', 'chat', 'profile'];
+const mainScreens = ['home', 'explore', 'journey', 'profile'];
 
 // Map bottom nav keys to screen keys
 const navMap = {

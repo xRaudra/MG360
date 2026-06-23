@@ -47,7 +47,7 @@ export default function ChatScreen({ onNavigate, isGuest = false }) {
         <div style={{ flex: 1, height: 52, borderRadius: 40, background: 'rgba(241,241,241,0.8)', border: '1px solid #C6C6C6', display: 'flex', alignItems: 'center', padding: '0 16px', gap: 8 }}>
           <input
             className="flex-1 bg-transparent outline-none"
-            style={{ fontSize: 14, fontWeight: 500, color: '#313131' }}
+            style={{ fontSize: 16, fontWeight: 500, color: '#313131' }}
             placeholder="Type a message..."
           />
           <MicIcon />

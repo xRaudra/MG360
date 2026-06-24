@@ -26,46 +26,13 @@ const SendIcon = () => (
   </svg>
 );
 
-// Suggestion card icons
-const CostIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <circle cx="12" cy="12" r="9" stroke="#7C7C7C" strokeWidth="1.5"/>
-    <path d="M12 6v1.5M12 16.5V18" stroke="#7C7C7C" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M9.5 9.5C9.5 8.4 10.6 7.5 12 7.5s2.5.9 2.5 2c0 2.5-5 2-5 4.5 0 1.1 1.1 2 2.5 2s2.5-.9 2.5-2" stroke="#7C7C7C" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
-
-const SpecialistIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <path d="M12 2C9.79 2 8 3.79 8 6s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" stroke="#7C7C7C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M4 20c0-3.31 3.58-6 8-6s8 2.69 8 6" stroke="#7C7C7C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M17 13v3M15.5 14.5h3" stroke="#7C7C7C" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
-
-const DocumentIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" stroke="#7C7C7C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M14 2v6h6M8 13h8M8 17h5" stroke="#7C7C7C" strokeWidth="1.5" strokeLinecap="round"/>
-  </svg>
-);
-
-const RecoveryIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-    <rect x="3" y="4" width="18" height="17" rx="3" stroke="#7C7C7C" strokeWidth="1.5"/>
-    <path d="M3 9h18" stroke="#7C7C7C" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M8 2v3M16 2v3" stroke="#7C7C7C" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M8 14h2v2H8zM11 14h2v2h-2zM14 14h2v2h-2z" fill="#7C7C7C"/>
-  </svg>
-);
-
 // ─── Suggestion questions (UX-researched for medical tourism) ─────────────────
 
 const SUGGESTIONS = [
-  { icon: <CostIcon />,       text: 'How much will my treatment cost?' },
-  { icon: <SpecialistIcon />, text: 'How do I find the right specialist?' },
-  { icon: <DocumentIcon />,   text: 'What documents will I need?' },
-  { icon: <RecoveryIcon />,   text: 'How long is the recovery stay?' },
+  { icon: '/icons/chat/Cost.svg',       text: 'How much will my treatment cost?' },
+  { icon: '/icons/chat/Specialist.svg', text: 'How do I find the right specialist?' },
+  { icon: '/icons/chat/Document.svg',   text: 'What documents will I need?' },
+  { icon: '/icons/chat/Stay.svg',       text: 'How long is the recovery stay?' },
 ];
 
 // ─── AI mock responses ────────────────────────────────────────────────────────
@@ -223,7 +190,7 @@ export default function ChatScreen({ onNavigate, isGuest = false, userName = 'Us
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     flexShrink: 0,
                   }}>
-                    {s.icon}
+                    <img src={s.icon} width={22} height={22} alt="" draggable={false} />
                   </div>
                   <p style={{
                     fontSize: 13, fontWeight: 400,

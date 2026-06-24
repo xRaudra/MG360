@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './index.css';
-import { FEATURES, DEV_MODE } from './config/features';
+import { DEV_MODE } from './config/features';
+import * as DevScreens   from './config/dev-screens';
+import * as OwnerScreens from './config/owner-screens';
 
 import PhoneFrame from './components/PhoneFrame';
 import BottomNav from './components/BottomNav';
@@ -9,7 +11,6 @@ import SplashScreen from './screens/SplashScreen';
 import OnboardingScreen from './screens/OnboardingScreen';
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
-import ExploreScreen from './screens/ExploreScreen';
 import DoctorsScreen from './screens/DoctorsScreen';
 import HospitalsScreen from './screens/HospitalsScreen';
 import TreatmentDetailScreen from './screens/TreatmentDetailScreen';
@@ -20,15 +21,10 @@ import GuestCountryScreen from './screens/GuestCountryScreen';
 import GuestConditionScreen from './screens/GuestConditionScreen';
 import GuestTimelineScreen from './screens/GuestTimelineScreen';
 import GuestConfirmScreen from './screens/GuestConfirmScreen';
-import JourneyScreen from './screens/JourneyScreen';
 import ChatScreen from './screens/ChatScreen';
 import NotificationsScreen from './screens/NotificationsScreen';
-import ProfileScreen from './screens/ProfileScreen';
-import ContactScreen from './screens/ContactScreen';
 import CreateAccountScreen from './screens/CreateAccountScreen';
 import CareCircleScreen from './screens/CareCircleScreen';
-import WhyMedGlobalScreen from './screens/WhyMedGlobalScreen';
-import WhyIndiaScreen from './screens/WhyIndiaScreen';
 import CaseStudiesScreen from './screens/CaseStudiesScreen';
 import AddMemberScreen from './screens/AddMemberScreen';
 import MemberDetailScreen from './screens/MemberDetailScreen';
@@ -42,6 +38,11 @@ import LanguageScreen from './screens/LanguageScreen';
 import NotificationSettingsScreen from './screens/NotificationSettingsScreen';
 import HelpFaqScreen from './screens/HelpFaqScreen';
 import AppSettingsScreen from './screens/AppSettingsScreen';
+
+// DEV MODE  → dev-screens.js (your work in progress)
+// OWNER MODE → owner-screens.js (stable, client-facing)
+// To reflect: say "reflect dev to owner" — only owner-screens.js changes
+const S = DEV_MODE ? DevScreens : OwnerScreens;
 
 // Screens that show the bottom nav
 const mainScreens = ['home', 'explore', 'journey', 'profile'];
@@ -88,27 +89,21 @@ export default function App() {
       case 'guestTimeline':   return <GuestTimelineScreen {...props} />;
       case 'guestConfirm':    return <GuestConfirmScreen {...props} />;
       case 'home':         return <HomeScreen {...props} isGuest={isGuest} />;
-      // FEATURES.explore — flip to true in features.js when redesign is ready
-      case 'explore':      return FEATURES.explore    ? null /* <ExploreScreenV2 /> */ : <ExploreScreen {...props} />;
-      case 'treatment':    return FEATURES.explore    ? null /* <ExploreScreenV2 /> */ : <ExploreScreen {...props} />;
+      case 'explore':      return <S.ExploreScreen {...props} />;
+      case 'treatment':    return <S.ExploreScreen {...props} />;
       case 'doctors':      return <DoctorsScreen {...props} />;
       case 'hospitals':    return <HospitalsScreen {...props} />;
       case 'treatmentDetail': return <TreatmentDetailScreen {...props} />;
       case 'doctorDetail': return <DoctorDetailScreen {...props} />;
       case 'hospitalDetail': return <HospitalDetailScreen {...props} />;
-      // FEATURES.journey — flip to true in features.js when redesign is ready
-      case 'journey':      return FEATURES.journey    ? null /* <JourneyScreenV2 /> */ : <JourneyScreen {...props} isGuest={isGuest} />;
+      case 'journey':      return <S.JourneyScreen {...props} isGuest={isGuest} />;
       case 'chat':         return <ChatScreen {...props} isGuest={isGuest} userName={currentUser.firstName} />;
       case 'notifications': return <NotificationsScreen {...props} isGuest={isGuest} />;
-      // FEATURES.profile — flip to true in features.js when redesign is ready
-      case 'profile':      return FEATURES.profile    ? null /* <ProfileScreenV2 /> */ : <ProfileScreen {...props} isGuest={isGuest} />;
-      // FEATURES.contact — flip to true in features.js when redesign is ready
-      case 'contact':      return FEATURES.contact    ? null /* <ContactScreenV2 /> */ : <ContactScreen {...props} />;
+      case 'profile':      return <S.ProfileScreen {...props} isGuest={isGuest} />;
+      case 'contact':      return <S.ContactScreen {...props} />;
       case 'careCircle':       return <CareCircleScreen {...props} />;
-      // FEATURES.whyMedGlobal — flip to true in features.js when redesign is ready
-      case 'whyMedGlobal': return FEATURES.whyMedGlobal ? null /* <WhyMedGlobalScreenV2 /> */ : <WhyMedGlobalScreen {...props} />;
-      // FEATURES.whyIndia — flip to true in features.js when redesign is ready
-      case 'whyIndia':     return FEATURES.whyIndia   ? null /* <WhyIndiaScreenV2 /> */ : <WhyIndiaScreen {...props} />;
+      case 'whyMedGlobal': return <S.WhyMedGlobalScreen {...props} />;
+      case 'whyIndia':     return <S.WhyIndiaScreen {...props} />;
       case 'caseStudies':      return <CaseStudiesScreen {...props} />;
       case 'addMember':        return <AddMemberScreen {...props} />;
       case 'memberDetail':     return <MemberDetailScreen {...props} />;
@@ -120,7 +115,7 @@ export default function App() {
       case 'notifications':    return <NotificationSettingsScreen {...props} />;
       case 'help':             return <HelpFaqScreen {...props} />;
       case 'settings':         return <AppSettingsScreen {...props} />;
-      case 'documents':          return <JourneyScreen {...props} />;
+      case 'documents':          return <S.JourneyScreen {...props} />;
       case 'journeyDocuments':   return <DocumentsScreen {...props} />;
       case 'journeyTravel':      return <TravelScreen {...props} />;
       default:                 return <HomeScreen {...props} isGuest={isGuest} />;

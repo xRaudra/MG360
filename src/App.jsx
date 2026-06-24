@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './index.css';
-import { FEATURES } from './config/features';
+import { FEATURES, DEV_MODE } from './config/features';
 
 import PhoneFrame from './components/PhoneFrame';
 import BottomNav from './components/BottomNav';
@@ -145,6 +145,20 @@ export default function App() {
           />
         )}
       </div>
+      {/* Dev mode badge — only visible to you, never to the owner */}
+      {DEV_MODE && (
+        <div style={{
+          position: 'fixed', bottom: 12, right: 12, zIndex: 9999,
+          background: '#1B4FBF', color: '#fff',
+          fontSize: 11, fontWeight: 700, letterSpacing: '0.05em',
+          padding: '4px 10px', borderRadius: 100,
+          fontFamily: 'DM Sans, sans-serif',
+          boxShadow: '0 2px 8px rgba(27,79,191,0.4)',
+          pointerEvents: 'none',
+        }}>
+          DEV MODE
+        </div>
+      )}
     </PhoneFrame>
   );
 }

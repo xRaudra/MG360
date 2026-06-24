@@ -73,7 +73,7 @@ const CARD_STYLE = {
   transition: 'transform 0.15s ease, opacity 0.15s ease',
 };
 
-export default function ChatScreen({ onNavigate, isGuest = false }) {
+export default function ChatScreen({ onNavigate, isGuest = false, userName = 'Saurabh' }) {
   const [message, setMessage] = useState('');
 
   const handleSuggestion = (text) => {
@@ -91,6 +91,25 @@ export default function ChatScreen({ onNavigate, isGuest = false }) {
             Care Co-ordinator
           </h2>
         </div>
+      </div>
+
+      {/* Greeting */}
+      <div style={{ padding: '8px 16px 0' }}>
+        <h1 style={{
+          fontSize: 28, fontWeight: 600,
+          fontFamily: 'DM Sans, sans-serif',
+          color: '#313131', lineHeight: 1.3, margin: 0,
+        }}>
+          Hi {isGuest ? 'Guest' : userName},
+        </h1>
+        <p style={{
+          fontSize: 16, fontWeight: 400,
+          fontFamily: 'DM Sans, sans-serif',
+          color: '#7C7C7C', lineHeight: 1.5,
+          margin: '10px 0 0',
+        }}>
+          This is Med, I will help you find doctors, book appointments and travel easily.
+        </p>
       </div>
 
       {/* Spacer — pushes cards + input to bottom */}

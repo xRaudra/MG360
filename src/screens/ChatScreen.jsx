@@ -202,7 +202,7 @@ export default function ChatScreen({ onNavigate, isGuest = false, userName = 'Us
               color: '#7C7C7C', lineHeight: 1.6,
               margin: '10px 0 0',
             }}>
-              I'm Med, your AI health assistant. I'm here to help while your Care Co-ordinator gets ready to join you.
+              I'm Aria, your AI health assistant. I'm here to help while your Care Co-ordinator gets ready to join you.
             </p>
           </div>
 
@@ -316,7 +316,7 @@ export default function ChatScreen({ onNavigate, isGuest = false, userName = 'Us
           <input
             className="flex-1 bg-transparent outline-none"
             style={{ fontSize: 16, fontWeight: 400, color: '#313131', fontFamily: 'DM Sans, sans-serif' }}
-            placeholder="Ask Med anything…"
+            placeholder="Ask Aria anything…"
             value={message}
             onChange={e => setMessage(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && sendMessage()}

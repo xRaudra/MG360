@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './index.css';
+import { FEATURES } from './config/features';
 
 import PhoneFrame from './components/PhoneFrame';
 import BottomNav from './components/BottomNav';
@@ -87,21 +88,27 @@ export default function App() {
       case 'guestTimeline':   return <GuestTimelineScreen {...props} />;
       case 'guestConfirm':    return <GuestConfirmScreen {...props} />;
       case 'home':         return <HomeScreen {...props} isGuest={isGuest} />;
-      case 'explore':      return <ExploreScreen {...props} />;
-      case 'treatment':    return <ExploreScreen {...props} />;
+      // FEATURES.explore — flip to true in features.js when redesign is ready
+      case 'explore':      return FEATURES.explore    ? null /* <ExploreScreenV2 /> */ : <ExploreScreen {...props} />;
+      case 'treatment':    return FEATURES.explore    ? null /* <ExploreScreenV2 /> */ : <ExploreScreen {...props} />;
       case 'doctors':      return <DoctorsScreen {...props} />;
       case 'hospitals':    return <HospitalsScreen {...props} />;
       case 'treatmentDetail': return <TreatmentDetailScreen {...props} />;
       case 'doctorDetail': return <DoctorDetailScreen {...props} />;
       case 'hospitalDetail': return <HospitalDetailScreen {...props} />;
-      case 'journey':      return <JourneyScreen {...props} isGuest={isGuest} />;
+      // FEATURES.journey — flip to true in features.js when redesign is ready
+      case 'journey':      return FEATURES.journey    ? null /* <JourneyScreenV2 /> */ : <JourneyScreen {...props} isGuest={isGuest} />;
       case 'chat':         return <ChatScreen {...props} isGuest={isGuest} userName={currentUser.firstName} />;
       case 'notifications': return <NotificationsScreen {...props} isGuest={isGuest} />;
-      case 'profile':      return <ProfileScreen {...props} isGuest={isGuest} />;
-      case 'contact':          return <ContactScreen {...props} />;
+      // FEATURES.profile — flip to true in features.js when redesign is ready
+      case 'profile':      return FEATURES.profile    ? null /* <ProfileScreenV2 /> */ : <ProfileScreen {...props} isGuest={isGuest} />;
+      // FEATURES.contact — flip to true in features.js when redesign is ready
+      case 'contact':      return FEATURES.contact    ? null /* <ContactScreenV2 /> */ : <ContactScreen {...props} />;
       case 'careCircle':       return <CareCircleScreen {...props} />;
-      case 'whyMedGlobal':     return <WhyMedGlobalScreen {...props} />;
-      case 'whyIndia':         return <WhyIndiaScreen {...props} />;
+      // FEATURES.whyMedGlobal — flip to true in features.js when redesign is ready
+      case 'whyMedGlobal': return FEATURES.whyMedGlobal ? null /* <WhyMedGlobalScreenV2 /> */ : <WhyMedGlobalScreen {...props} />;
+      // FEATURES.whyIndia — flip to true in features.js when redesign is ready
+      case 'whyIndia':     return FEATURES.whyIndia   ? null /* <WhyIndiaScreenV2 /> */ : <WhyIndiaScreen {...props} />;
       case 'caseStudies':      return <CaseStudiesScreen {...props} />;
       case 'addMember':        return <AddMemberScreen {...props} />;
       case 'memberDetail':     return <MemberDetailScreen {...props} />;

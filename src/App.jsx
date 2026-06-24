@@ -60,6 +60,7 @@ export default function App() {
   const [screen, setScreen] = useState('splash');
   const [screenData, setScreenData] = useState(null);
   const [isGuest, setIsGuest] = useState(false);
+  const [currentUser] = useState({ firstName: 'Saurabh' });
 
   const navigate = (target, data = null) => {
     if (target === 'home') {
@@ -94,7 +95,7 @@ export default function App() {
       case 'doctorDetail': return <DoctorDetailScreen {...props} />;
       case 'hospitalDetail': return <HospitalDetailScreen {...props} />;
       case 'journey':      return <JourneyScreen {...props} isGuest={isGuest} />;
-      case 'chat':         return <ChatScreen {...props} isGuest={isGuest} />;
+      case 'chat':         return <ChatScreen {...props} isGuest={isGuest} userName={currentUser.firstName} />;
       case 'notifications': return <NotificationsScreen {...props} isGuest={isGuest} />;
       case 'profile':      return <ProfileScreen {...props} isGuest={isGuest} />;
       case 'contact':          return <ContactScreen {...props} />;
